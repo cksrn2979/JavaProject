@@ -2,17 +2,13 @@ package TypeTrainer;
 
 import static org.junit.Assert.*;
 
-import javax.swing.*;
-
 import org.junit.Test;
 
-public class NorthPanelTest {
+public class SouthPanelTest {
 
 	@Test
 	public void newtest() {
-		NorthPanel np= new NorthPanel();
+		SouthPanel rp= new SouthPanel();
 	}
-	
 
 }
-

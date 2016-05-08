@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RightPanelTest {
+public class CenterPanelTest {
 
 	@Test
 	public void newtest() {
-		RightPanel rp= new RightPanel();
+		CenterPanel cp= new CenterPanel();
 	}
 
 }

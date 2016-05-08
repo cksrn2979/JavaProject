@@ -11,15 +11,8 @@ public class MainFrameTest {
 	@Before	
 	public void newTest(){
 		MainFrame mf = new MainFrame();
-		
+
 	}	
 	
-	@Test
-	public void addTest(){
-		MainFrame mf = new MainFrame();
-		Container c = mf.getContentPane();
-		
-		c.add(new RightPanel(),BorderLayout.EAST);
-	}
 
 }
