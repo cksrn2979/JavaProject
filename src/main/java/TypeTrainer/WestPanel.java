@@ -15,14 +15,13 @@ class TypingSpeed extends JPanel{
 		setBackground(null);
 		
 		JLabel speed=new JLabel("0.44");
-		speed.setFont(new Font("고딕",Font.BOLD,40));		
+		speed.setFont(new Font("나눔 고딕",Font.BOLD,40));		
 		add(speed);
 	}
 }
 
 class ItemList extends JPanel{
 	ItemList(){
-		this.setFont(new Font("굴림",Font.PLAIN,15));
 		Border itemBorder= BorderFactory.createEtchedBorder();
 		itemBorder=BorderFactory.createTitledBorder("Item");
 		setBorder(itemBorder);
