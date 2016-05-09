@@ -31,14 +31,18 @@ class SuccessWord extends JPanel{
 		setBorder(ListBorder);
 		setBackground(null);
 		
-		String word[] ={"사과 - apple","아빠- father","엄마 - mother","형 - brother",
-				"사과 - apple","아빠- father","엄마 - mother","형 - brother",
-				"사과 - apple","아빠- father","엄마 - mother","형 - brother",
-				"사과 - apple","아빠- father","엄마 - mother","형 - brother"};
-		
-		JList wordList= new JList(word);
+		String header[] ={"Korea","English"};
+		String contents[][]={{"사과","apple"},{"사과","apple"},{"사과","apple"},
+				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
+				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
+				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
+				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
+				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
+				{"사과","apple"}
+		};
+		JTable wordList= new JTable(contents,header);
 		JScrollPane scroll=new JScrollPane(wordList);
-		scroll.setPreferredSize(new Dimension(130,200));
+		scroll.setPreferredSize(new Dimension(130,220));
 		
 		add(scroll);
 	}
