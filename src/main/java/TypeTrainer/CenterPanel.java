@@ -5,14 +5,26 @@ import javax.swing.border.Border;
 
 import java.awt.*;
 
-public class CenterPanel extends JPanel{
-	
-	CenterPanel(){
-		setBackground(Color.WHITE);
-		setLayout(null);
-		Border CenterBorder= BorderFactory.createEtchedBorder();
-		setBorder(CenterBorder);
+class HeartGage extends JPanel{
+	HeartGage(){
+		setBackground(null);
 		
+		JProgressBar heart= new JProgressBar();
+		heart.setMinimum(0);
+		heart.setMaximum(5);
+		heart.setForeground(new Color(255,100,100));
+		heart.setStringPainted(true);
+		heart.setString(new String("80%"));
+		heart.setValue(4);
+		add(new JLabel("HEART "));
+		add(heart);
+		
+	}
+}
+class FallingWord extends JPanel{
+	FallingWord(){
+		setLayout(null);
+		setBackground(null);
 		Font font = new Font("굴림",Font.BOLD,15);
 		Font font2 = new Font("궁서",Font.ITALIC,18);
 		JLabel la1=new JLabel("우주");
@@ -39,6 +51,9 @@ public class CenterPanel extends JPanel{
 		
 		la5.setFont(font2);
 		la5.setSize(100,100);
+		la5.setOpaque(true);
+		la5.setBackground(null);
+		la5.setForeground(Color.BLUE);
 		la5.setLocation(300,200);
 		
 		add(la1);
@@ -46,6 +61,20 @@ public class CenterPanel extends JPanel{
 		add(la3);
 		add(la4);
 		add(la5);
+	}
+}
+public class CenterPanel extends JPanel{
+	
+	CenterPanel(){
+		setBackground(Color.WHITE);
+		Border CenterBorder= BorderFactory.createEtchedBorder();
+		setBorder(CenterBorder);
+		setLayout(new BorderLayout());
+		
+		add(new HeartGage(),BorderLayout.NORTH);
+		add(new FallingWord(),BorderLayout.CENTER);
+		
+		
 	}
 
 

@@ -7,7 +7,7 @@ public class MainFrame extends JFrame{
 	
 	MainFrame(){
 		setTitle("Typing Trainer with English!");
-		setSize(800,500);
+		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setBackground(Color.WHITE);
