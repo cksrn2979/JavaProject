@@ -5,8 +5,8 @@ import javax.swing.border.Border;
 
 import java.awt.*;
 
-class TypingSpeed extends JPanel{
-	TypingSpeed(){
+class SpeedPanel extends JPanel{
+	SpeedPanel(){
 		Border typingSpeedBorder= BorderFactory.createEtchedBorder();
 		typingSpeedBorder=BorderFactory.createTitledBorder("SPEED");
 		setBorder(typingSpeedBorder);
@@ -20,8 +20,8 @@ class TypingSpeed extends JPanel{
 	}
 }
 
-class ItemList extends JPanel{
-	ItemList(){
+class ItemPanel extends JPanel{
+	ItemPanel(){
 		Border itemBorder= BorderFactory.createEtchedBorder();
 		itemBorder=BorderFactory.createTitledBorder("Item");
 		setBorder(itemBorder);
@@ -54,8 +54,8 @@ public class WestPanel extends JPanel{
 		setBackground(new Color(240,240,255));
 		setPreferredSize(new Dimension(150,0));
 
-		add(new TypingSpeed());
-		add(new ItemList());
+		add(new SpeedPanel());
+		add(new ItemPanel());
 	}
 
 }

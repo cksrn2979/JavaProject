@@ -2,10 +2,10 @@ package TypeTrainerScore;
 
 import org.junit.Before;
 
-public class MainFrameTest {
+public class ScoreFrameTest {
+	
 	@Before	
 	public void newTest(){
-		MainFrame mf = new MainFrame();
-
+		new ScoreFrame();
 	}	
 }

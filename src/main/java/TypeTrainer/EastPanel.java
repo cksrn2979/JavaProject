@@ -5,8 +5,8 @@ import javax.swing.border.Border;
 
 import java.awt.*;
 
-class Information extends JPanel{
-	Information(){
+class InformationPanel extends JPanel{
+	InformationPanel(){
 		setBackground(null);
 		setPreferredSize(new Dimension(0,60));
 		
@@ -24,8 +24,8 @@ class Information extends JPanel{
 	}
 }
 
-class SuccessWord extends JPanel{
-	SuccessWord(){
+class SuccessWordPanel extends JPanel{
+	SuccessWordPanel(){
 		Border ListBorder= BorderFactory.createEtchedBorder();
 		ListBorder=BorderFactory.createTitledBorder("Success Word");
 		setBorder(ListBorder);
@@ -49,8 +49,8 @@ class SuccessWord extends JPanel{
 	
 }
 
-class WordSet extends JPanel{
-	WordSet(){
+class WordSetPanel extends JPanel{
+	WordSetPanel(){
 		
 		setBackground(null);
 		Border WordSetBorder= BorderFactory.createEtchedBorder();
@@ -68,13 +68,13 @@ public class EastPanel extends JPanel{
 		setPreferredSize(new Dimension(150,0));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			
-		Information info=new Information();
+		InformationPanel info=new InformationPanel();
 		add(info);
 		
-		SuccessWord successWord=new SuccessWord();
+		SuccessWordPanel successWord=new SuccessWordPanel();
 		add(successWord);
 		
-		WordSet wordSet=new WordSet();
+		WordSetPanel wordSet=new WordSetPanel();
 		add(wordSet);	
 
 	}
