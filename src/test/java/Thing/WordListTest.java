@@ -13,8 +13,8 @@ public class WordListTest {
 	
 	@Test
 	public void WordListaddTest(){
-		WordList allWord = new WordList();
-		allWord.add("korean","english");
+		WordList WordList = new WordList();
+		WordList.add("korean","english");
 	}
 	
 	@Test

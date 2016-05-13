@@ -10,16 +10,18 @@ public class MainFrame extends JFrame{
 	JMenuBar menuBar=new JMenuBar();
 	JMenu fileMenu=new JMenu("파일");
 	JMenu helpMenu=new JMenu("Help");
-	WordList wordList;
 	
 	MainFrame(){
-		wordList=new WordList();
-		
+
 		setTitle("Typing Trainer with English!");
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setBackground(Color.WHITE);
+		
+		WordList.add("사과", "apple");
+		WordList.add("엄마", "mother");
+		WordList.add("아빠", "father");
 		
 		
 		//파일 메뉴 생성

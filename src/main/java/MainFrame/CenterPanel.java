@@ -1,9 +1,17 @@
 package MainFrame;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.util.Vector;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 
-import java.awt.*;
+import Thing.WordList;
 
 class HeartGagePanel extends JPanel{
 	HeartGagePanel(){
@@ -22,45 +30,34 @@ class HeartGagePanel extends JPanel{
 	}
 }
 class FallingWordPanel extends JPanel{
+	Vector<String> fallWord;
+	Vector<JLabel> fallWordLa;
 	FallingWordPanel(){
+		
 		setLayout(null);
 		setBackground(null);
-		Font font = new Font("굴림",Font.BOLD,15);
+		setFont(new Font("굴림",Font.BOLD,15));
+		
+		fallWord=new Vector<String>();
+		fallWordLa=new Vector<JLabel>();
+		
+		fallWord.add(WordList.get());
+		fallWord.add(WordList.get());
+		fallWord.add(WordList.get());
+		fallWord.add(WordList.get());
+		fallWord.add(WordList.get());
 		Font font2 = new Font("궁서",Font.ITALIC,18);
-		JLabel la1=new JLabel("우주");
-		JLabel la2=new JLabel("지구");
-		JLabel la3=new JLabel("딸기");
-		JLabel la4=new JLabel("수박");
-		JLabel la5=new JLabel("Computer");
 		
-		la1.setFont(font);
-		la1.setSize(40,40);
-		la1.setLocation(40,40);
+		for(int i=0; i<fallWord.size();i++){
+			JLabel la=new JLabel(fallWord.get(i));
+			la.setSize(50,30);
+			int x=100+i*30;
+			int y=100+i*30;
+			la.setLocation(x,y);
+			fallWordLa.add(la);
+			add(la);
+		}
 		
-		la2.setFont(font);
-		la2.setSize(40,40);
-		la2.setLocation(100,100);
-		
-		la3.setFont(font);
-		la3.setSize(40,40);
-		la3.setLocation(200,250);
-		
-		la4.setFont(font);
-		la4.setSize(40,40);
-		la4.setLocation(400,100);
-		
-		la5.setFont(font2);
-		la5.setSize(100,100);
-		la5.setOpaque(true);
-		la5.setBackground(null);
-		la5.setForeground(Color.BLUE);
-		la5.setLocation(300,200);
-		
-		add(la1);
-		add(la2);
-		add(la3);
-		add(la4);
-		add(la5);
 	}
 }
 public class CenterPanel extends JPanel{
