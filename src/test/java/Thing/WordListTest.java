@@ -30,5 +30,12 @@ public class WordListTest {
 		wordList.add("korean","english");
 		assertEquals(wordList.render("korean"),"english");
 	}
+	
+	@Test
+	public void WordListRenderTest2(){
+		WordList wordList = new WordList();
+		wordList.add("korean","english");
+		assertEquals(wordList.render("english"),null);
+	}
 
 }

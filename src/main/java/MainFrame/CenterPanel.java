@@ -30,26 +30,20 @@ class HeartGagePanel extends JPanel{
 	}
 }
 class FallingWordPanel extends JPanel{
-	Vector<String> fallWord;
-	Vector<JLabel> fallWordLa;
+	static Vector<JLabel> fallWordLa;
 	FallingWordPanel(){
 		
 		setLayout(null);
 		setBackground(null);
 		setFont(new Font("굴림",Font.BOLD,15));
 		
-		fallWord=new Vector<String>();
 		fallWordLa=new Vector<JLabel>();
 		
-		fallWord.add(WordList.get());
-		fallWord.add(WordList.get());
-		fallWord.add(WordList.get());
-		fallWord.add(WordList.get());
-		fallWord.add(WordList.get());
+	
 		Font font2 = new Font("궁서",Font.ITALIC,18);
 		
-		for(int i=0; i<fallWord.size();i++){
-			JLabel la=new JLabel(fallWord.get(i));
+		for(int i=0; i<4;i++){
+			JLabel la=new JLabel(WordList.get());
 			la.setSize(50,30);
 			int x=100+i*30;
 			int y=100+i*30;

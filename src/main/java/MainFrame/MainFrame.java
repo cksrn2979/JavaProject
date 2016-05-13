@@ -17,12 +17,10 @@ public class MainFrame extends JFrame{
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
+		setResizable(false);//크기 고정
 		setBackground(Color.WHITE);
 		
-		WordList.add("사과", "apple");
-		WordList.add("엄마", "mother");
-		WordList.add("아빠", "father");
-		
+		WordList.init();
 		
 		//파일 메뉴 생성
 		fileMenu.add(new JMenuItem("새파일"));
