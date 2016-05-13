@@ -1,14 +1,20 @@
 package MainFrame;
 
 import javax.swing.*;
+
+import Thing.WordList;
+
 import java.awt.*;
 
 public class MainFrame extends JFrame{
 	JMenuBar menuBar=new JMenuBar();
 	JMenu fileMenu=new JMenu("파일");
 	JMenu helpMenu=new JMenu("Help");
+	WordList wordList;
 	
 	MainFrame(){
+		wordList=new WordList();
+		
 		setTitle("Typing Trainer with English!");
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
