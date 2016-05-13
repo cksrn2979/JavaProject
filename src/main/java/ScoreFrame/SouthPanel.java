@@ -1,4 +1,4 @@
-package TypeTrainerScore;
+package ScoreFrame;
 import javax.swing.*;
 import java.awt.*;
 

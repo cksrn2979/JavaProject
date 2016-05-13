@@ -1,4 +1,4 @@
-package TypeTrainer;
+package MainFrame;
 
 import javax.swing.*;
 import java.awt.*;

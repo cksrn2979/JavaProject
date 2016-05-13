@@ -1,6 +1,8 @@
-package TypeTrainerScore;
+package ScoreFrame;
 
 import org.junit.Before;
+
+import ScoreFrame.ScoreFrame;
 
 public class ScoreFrameTest {
 	

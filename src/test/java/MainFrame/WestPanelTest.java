@@ -1,8 +1,12 @@
-package TypeTrainer;
+package MainFrame;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import MainFrame.ItemPanel;
+import MainFrame.SpeedPanel;
+import MainFrame.WestPanel;
 
 public class WestPanelTest {
 

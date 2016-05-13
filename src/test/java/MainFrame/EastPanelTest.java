@@ -1,8 +1,13 @@
-package TypeTrainer;
+package MainFrame;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import MainFrame.EastPanel;
+import MainFrame.InformationPanel;
+import MainFrame.SuccessWordPanel;
+import MainFrame.WordSetPanel;
 
 public class EastPanelTest {
 
