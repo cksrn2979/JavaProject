@@ -15,6 +15,7 @@ public class MainFrame extends JFrame{
 		setVisible(true);
 		setBackground(Color.WHITE);
 		
+		
 		//파일 메뉴 생성
 		fileMenu.add(new JMenuItem("새파일"));
 		fileMenu.add(new JMenuItem("열기"));

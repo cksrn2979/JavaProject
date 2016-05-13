@@ -5,8 +5,8 @@ import javax.swing.border.Border;
 
 import java.awt.*;
 
-class HeartGage extends JPanel{
-	HeartGage(){
+class HeartGagePanel extends JPanel{
+	HeartGagePanel(){
 		setBackground(null);
 		
 		JProgressBar heart= new JProgressBar();
@@ -21,8 +21,8 @@ class HeartGage extends JPanel{
 		
 	}
 }
-class FallingWord extends JPanel{
-	FallingWord(){
+class FallingWordPanel extends JPanel{
+	FallingWordPanel(){
 		setLayout(null);
 		setBackground(null);
 		Font font = new Font("굴림",Font.BOLD,15);
@@ -71,8 +71,8 @@ public class CenterPanel extends JPanel{
 		setBorder(CenterBorder);
 		setLayout(new BorderLayout());
 		
-		add(new HeartGage(),BorderLayout.NORTH);
-		add(new FallingWord(),BorderLayout.CENTER);
+		add(new HeartGagePanel(),BorderLayout.NORTH);
+		add(new FallingWordPanel(),BorderLayout.CENTER);
 		
 		
 	}
