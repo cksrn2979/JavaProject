@@ -1,9 +1,24 @@
 package MainFrame;
 
-import javax.swing.*;
-import javax.swing.border.Border;
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import java.awt.*;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
+
+import AllWordFrame.AllWordFrame;
 
 class InformationPanel extends JPanel{
 	InformationPanel(){
@@ -25,26 +40,42 @@ class InformationPanel extends JPanel{
 }
 
 class SuccessWordPanel extends JPanel{
+	static SuccessWordList successWordList;
+	
 	SuccessWordPanel(){
 		Border ListBorder= BorderFactory.createEtchedBorder();
 		ListBorder=BorderFactory.createTitledBorder("Success Word");
 		setBorder(ListBorder);
-		setBackground(null);
+		setBackground(null);	
 		
-		String header[] ={"Korea","English"};
-		String contents[][]={{"사과","apple"},{"사과","apple"},{"사과","apple"},
-				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
-				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
-				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
-				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
-				{"사과","apple"},{"사과","apple"},{"사과","apple"},{"사과","apple"},
-				{"사과","apple"}
-		};
-		JTable wordList= new JTable(contents,header);
-		JScrollPane scroll=new JScrollPane(wordList);
+		successWordList=new SuccessWordList();
+		JScrollPane scroll=new JScrollPane(successWordList);
 		scroll.setPreferredSize(new Dimension(130,220));
 		
 		add(scroll);
+	}
+	
+	class SuccessWordList extends JTable{
+		DefaultTableModel model;
+		
+		SuccessWordList(){
+			String[] header={"Korean","English"};
+			model= new DefaultTableModel(header,0);
+		
+			this.setModel(model);
+			}
+		
+		//더블클릭수정불가
+		public boolean isCellEditable(int i, int c){
+	          return false;
+	         }
+		
+		void addSuccessWord(String korean, String english){
+			String[] content=new String[2];
+			content[0]=korean;
+			content[1]=english;
+			model.addRow(content);
+		}
 	}
 	
 }
@@ -57,10 +88,24 @@ class WordSetPanel extends JPanel{
 		WordSetBorder=BorderFactory.createTitledBorder("WordSet");
 		
 		setBorder(WordSetBorder);
-		add(new Button("All Word"),BorderLayout.CENTER);
+		JButton allWordbtn=new JButton("All Word");
+		allWordbtn.addMouseListener(new AllWordMouseListener());
+		add(allWordbtn,BorderLayout.CENTER);
 		add(new Button("+"),BorderLayout.EAST);
 	}
+	
+	class AllWordMouseListener implements MouseListener{
+		public void mouseClicked(MouseEvent e) {
+			new AllWordFrame();
+		}
+		
+		public void mousePressed(MouseEvent e) {}
+		public void mouseReleased(MouseEvent e) {}
+		public void mouseEntered(MouseEvent e){}
+		public void mouseExited(MouseEvent e){}
+	}
 }
+
 
 public class EastPanel extends JPanel{
 	EastPanel(){

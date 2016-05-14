@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 
+import Thing.WordLabel;
 import Thing.WordList;
 
 class HeartGagePanel extends JPanel{
@@ -29,27 +30,24 @@ class HeartGagePanel extends JPanel{
 		
 	}
 }
+
 class FallingWordPanel extends JPanel{
-	static Vector<JLabel> fallWordLa;
+	static Vector<WordLabel> fallWordLabel;
+		
 	FallingWordPanel(){
 		
 		setLayout(null);
 		setBackground(null);
-		setFont(new Font("굴림",Font.BOLD,15));
 		
-		fallWordLa=new Vector<JLabel>();
-		
-	
-		Font font2 = new Font("궁서",Font.ITALIC,18);
+		fallWordLabel=new Vector<WordLabel>();
 		
 		for(int i=0; i<4;i++){
-			JLabel la=new JLabel(WordList.get());
-			la.setSize(50,30);
+			WordLabel wla=new WordLabel(WordList.get());
 			int x=100+i*30;
-			int y=100+i*30;
-			la.setLocation(x,y);
-			fallWordLa.add(la);
-			add(la);
+			int y=100+i*50;
+			wla.setLocation(x,y);
+			fallWordLabel.add(wla);
+			add(wla);
 		}
 		
 	}
@@ -61,7 +59,6 @@ public class CenterPanel extends JPanel{
 		Border CenterBorder= BorderFactory.createEtchedBorder();
 		setBorder(CenterBorder);
 		setLayout(new BorderLayout());
-		
 		add(new HeartGagePanel(),BorderLayout.NORTH);
 		add(new FallingWordPanel(),BorderLayout.CENTER);
 		

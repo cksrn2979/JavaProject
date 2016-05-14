@@ -6,15 +6,15 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Vector;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Thing.WordLabel;
 import Thing.WordList;
 
 public class SouthPanel extends JPanel{
 	JTextField textInput;
-	String text;
+	
 	
 	
 	SouthPanel(){
@@ -30,9 +30,10 @@ public class SouthPanel extends JPanel{
 	
 	class InputTextListener extends KeyAdapter{
 		boolean langage=true;
+		String receiveText,koreanText;
 		
 		public void keyPressed(KeyEvent e){
-			text=textInput.getText();
+			receiveText=textInput.getText();
 			if(e.getKeyCode()==KeyEvent.VK_ENTER){
 				matchFallWord();
 				textInput.setText("");
@@ -40,21 +41,29 @@ public class SouthPanel extends JPanel{
 		}
 		
 		void matchFallWord(){
-			Vector<JLabel> fallWordLabel=FallingWordPanel.fallWordLa;
-			String renderWord=WordList.render(text);
+			Vector<WordLabel> fallWordLabel=FallingWordPanel.fallWordLabel;
+			String renderWord=WordList.render(receiveText);
 			
 			if(langage==false && renderWord!=null)return;
 			
 			for(int i=0; i<fallWordLabel.size(); i++){
 				String fallWord=fallWordLabel.elementAt(i).getText();
-				if(fallWord.equals(text)){					
+				if(fallWord.equals(receiveText)){					
 					fallWordLabel.elementAt(i).setText(renderWord);
+					fallWordLabel.elementAt(i).setEnglish();
+
+					
 					if(renderWord==null){
-						fallWordLabel.remove(fallWordLabel.elementAt(i));
+						SuccessWordPanel.successWordList.addSuccessWord(koreanText,receiveText);
+						WordList.plusSuccess(koreanText);
+						fallWordLabel.remove(fallWordLabel.elementAt(i));					
 						langage=true;
 					}
-					else 
+					else {
+						koreanText=receiveText;
 						langage=false;
+					}
+					
 					break;
 				}//if문 끝
 			}//for문 끝

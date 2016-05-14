@@ -5,6 +5,7 @@ import javax.swing.*;
 import Thing.WordList;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class MainFrame extends JFrame{
 	JMenuBar menuBar=new JMenuBar();
@@ -19,8 +20,9 @@ public class MainFrame extends JFrame{
 		setVisible(true);
 		setResizable(false);//크기 고정
 		setBackground(Color.WHITE);
-		
-		WordList.init();
+			
+		try {WordList.inWordFromFile();	} 
+		catch (IOException e) {e.printStackTrace();}
 		
 		//파일 메뉴 생성
 		fileMenu.add(new JMenuItem("새파일"));

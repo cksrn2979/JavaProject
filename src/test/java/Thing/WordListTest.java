@@ -37,5 +37,20 @@ public class WordListTest {
 		wordList.add("korean","english");
 		assertEquals(wordList.render("english"),null);
 	}
+	
+	@Test
+	public void WordListgetSuccessTest(){
+		WordList wordList = new WordList();
+		wordList.add("korean","english");
+		assertEquals(wordList.getSuccess("korean").intValue(),0);
+	}
+	
+	@Test
+	public void WordListplusSuccessTest(){
+		WordList wordList = new WordList();
+		wordList.add("korean","english");
+		wordList.plusSuccess("korean");
+		assertEquals(wordList.getSuccess("korean").intValue(),1);
+	}
 
 }

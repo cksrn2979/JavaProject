@@ -38,8 +38,7 @@ class ItemPanel extends JPanel{
 		item1.setBackground(Color.WHITE);
 		item2.setBackground(Color.DARK_GRAY);
 		item3.setBackground(Color.DARK_GRAY);
-		item4.setBackground(Color.WHITE
-				);
+		item4.setBackground(Color.WHITE);
 		
 		add(item1);
 		add(item2);
