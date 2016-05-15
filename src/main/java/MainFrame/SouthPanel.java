@@ -8,8 +8,13 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Word.FallWordLabel;
-import Word.Word;
+import Item.Item1;
+import Item.Item2;
+import Item.Item3;
+import Item.Item4;
+import MyDictionary.MyDictionary;
+import Thing.FallWordLabel;
+import Thing.SuccessWord;
 
 class InputTextPanel extends JPanel{
 	JTextField textInput;
@@ -29,14 +34,26 @@ class InputTextPanel extends JPanel{
 	class InputTextListener extends KeyAdapter{
 		//true = 한글 입력 차례, false = 영어 입력 차례
 		boolean langage=true;
-		String text,korean;
+		String text;
 		
 		public void keyPressed(KeyEvent e){
-			//TextField에서 입력값 받아옴
-			text=textInput.getText();
 			
-			//Enter 입력시 FallWord와 비교, TextField 클리어 
-			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+			switch(e.getKeyCode()){
+			case KeyEvent.VK_F1:
+					if(Item1.getEnable())
+						Item1.call();
+					break;					
+			case KeyEvent.VK_F2:
+				break;
+			case KeyEvent.VK_F3:
+				break;
+			case KeyEvent.VK_F4:
+				break;
+				
+			case KeyEvent.VK_ENTER: //Enter 입력시 FallWord와 비교, TextField 클리어 	
+				//TextField에서 입력값 받아옴
+				text=textInput.getText();
+				System.out.println(text + "   " + e.getKeyChar());
 				matchFallWord();
 				textInput.setText("");
 			}
@@ -44,26 +61,38 @@ class InputTextPanel extends JPanel{
 		
 		//FallWord와 단어 비교
 		void matchFallWord(){
-			String renderWord=Word.render(text);
+			String renderWord=MyDictionary.render(text);
 			
-			//if(langage==false && renderWord!=null)
-			
+			if(langage==false && renderWord!=null)
+				return;			
 			
 			for(int i=0; i<FallWordLabel.list.size(); i++){
 				String fallWord=FallWordLabel.getText(i);
 				if(fallWord.equals(text)){					
 					FallWordLabel.setText(i,renderWord);
-					FallWordLabel.get(i).setEnglish();
-					
-					if(renderWord==null){
-						SuccessWordPanel.successWordList.addSuccessWord(korean,text);
-						Word.plusSuccess(korean);
+										
+					if(langage==false){
+						String korean=MyDictionary.renderReverse(text);
+						SuccessWord.add(korean,text);
+						
+						switch (FallWordLabel.get(i).getHaveItem(korean)){
+						case 0:break;
+						case 1:
+							Item1.setEnable(true);break;
+						case 2:
+							Item2.setEnable(true);break;
+						case 3:
+							Item3.setEnable(true);break;
+						case 4:
+							Item4.setEnable(true);break;						
+						}
+						
 						FallWordLabel.remove(i);					
 						langage=true;
 					}
 					
 					else {
-						korean=text;
+						FallWordLabel.get(i).setEnglish();
 						langage=false;
 					}
 					

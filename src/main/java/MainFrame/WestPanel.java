@@ -1,9 +1,19 @@
 package MainFrame;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import java.awt.*;
+import Item.Item1;
+import Item.Item2;
+import Item.Item3;
+import Item.Item4;
 
 class SpeedPanel extends JPanel{
 	SpeedPanel(){
@@ -30,20 +40,10 @@ class ItemPanel extends JPanel{
 		setBackground(null);
 		setPreferredSize(new Dimension(130,200));
 		
-		Button item1 =new Button("item1");
-		Button item2 =new Button("item2");
-		Button item3 =new Button("item3");
-		Button item4 =new Button("item4");
-		
-		item1.setBackground(Color.WHITE);
-		item2.setBackground(Color.DARK_GRAY);
-		item3.setBackground(Color.DARK_GRAY);
-		item4.setBackground(Color.WHITE);
-		
-		add(item1);
-		add(item2);
-		add(item3);
-		add(item4);	
+		add(Item1.getBtn());
+		add(Item2.getBtn());
+		add(Item3.getBtn());
+		add(Item4.getBtn());	
 	}
 }
 

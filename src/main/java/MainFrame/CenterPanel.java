@@ -9,8 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 
+import MyDictionary.MyDictionary;
+import Thing.FallWordLabel;
 import Thing.WordLabel;
-import Word.FallWordLabel;
 
 
 class HeartGagePanel extends JPanel{
@@ -31,25 +32,58 @@ class HeartGagePanel extends JPanel{
 }
 
 class FallingWordPanel extends JPanel{
-	int n=1; //Label 갯수
+	int n=100; //Label 갯수
+	FallingAni[] fallingAni = new FallingAni[10];
+	
 	FallingWordPanel(){		
 		setLayout(null);
 		setBackground(null);
+
+		for(int i=0; i<10;i++){
+			fallingAni[i]=new FallingAni();
+		}
 		
-		//n 만큼 WordLabel 생성
-		FallWordLabel.add(n);
-		
-		addFallWordLabel();		
+		FallingPlay a=new FallingPlay();
+		a.start();
 	}
 	
-	void addFallWordLabel(){
-		for(int i=0; i<n;i++){
-			//i순서만큼 단어 받아옴
-			WordLabel la=FallWordLabel.get(i);
-			int x=(int)Math.random()*300;
-			int y=(int)Math.random()*300;
-			la.setLocation(x, y);
-			add(la);			
+	class FallingPlay extends Thread{
+		public void run(){
+			for(int i=0; i<10; i++){
+				fallingAni[i].start();
+				try{
+					sleep(3000);
+				}
+				catch (InterruptedException e) {
+					e.printStackTrace();
+			}
+			}
+		}
+	}
+	class FallingAni extends Thread{
+		
+		public void run(){
+			while(true){
+				int x=(int)(Math.random()*300);
+				int y=0;
+				String korean=MyDictionary.rand();
+				WordLabel la = new WordLabel(korean);
+				FallWordLabel.add(la);
+				la.setLocation(x, y);
+				add(la);
+				while(y<400){
+					y=y+10;
+					la.setLocation(x, y);
+					try {
+						sleep(500);
+					}
+					catch (InterruptedException e) {
+							e.printStackTrace();
+					}	
+				}
+				
+				FallWordLabel.remove(la);
+			}
 		}
 	}
 }

@@ -9,6 +9,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 import AllWordFrame.AllWordFrame;
+import Thing.SuccessWord;
 
 class InformationPanel extends JPanel{
 	InformationPanel(){
@@ -30,7 +31,6 @@ class InformationPanel extends JPanel{
 }
 
 class SuccessWordPanel extends JPanel{
-	static SuccessWordListTable successWordList;
 	
 	SuccessWordPanel(){
 		Border ListBorder= BorderFactory.createEtchedBorder();
@@ -38,36 +38,11 @@ class SuccessWordPanel extends JPanel{
 		setBorder(ListBorder);
 		setBackground(null);	
 		
-		successWordList=new SuccessWordListTable();
-		JScrollPane scroll=new JScrollPane(successWordList);
+		JScrollPane scroll=new JScrollPane(SuccessWord.getTable());
 		scroll.setPreferredSize(new Dimension(130,220));
 		
 		add(scroll);
-	}
-	
-	class SuccessWordListTable extends JTable{
-		DefaultTableModel model;
-		
-		SuccessWordListTable(){
-			String[] header={"Korean","English"};
-			model= new DefaultTableModel(header,0);
-		
-			this.setModel(model);
-			}
-		
-		//더블클릭수정불가
-		public boolean isCellEditable(int i, int c){
-	          return false;
-	         }
-		
-		void addSuccessWord(String korean, String english){
-			String[] content=new String[2];
-			content[0]=korean;
-			content[1]=english;
-			model.addRow(content);
-		}
-	}
-	
+	}	
 }
 
 class WordSetPanel extends JPanel{
