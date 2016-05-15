@@ -1,11 +1,11 @@
-package Thing;
+package GameInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
 
 import MyDictionary.MyDictionary;
 
-public class FallWordLabel{
+public class WordLabelArray{
 	public static Vector<WordLabel> list= new Vector<WordLabel>();
 
 	public static void add(WordLabel wla){
@@ -18,19 +18,19 @@ public class FallWordLabel{
 	}
 	
 	//index 번째 Label을 얻음
-	public static WordLabel get(int index){
+	public static WordLabel getLabel(int index){
 		return list.elementAt(index);		
 	}
 	
 	
 	//index번째 텍스트를 얻음
-	public static String getText(int index){
+	public static String getLabelText(int index){
 		return list.elementAt(index).getText();		
 	}
 	
 	
 	//index번째 텍스트를 셋팅
-	public static void setText(int index, String text){
+	public static void setLabelText(int index, String text){
 		list.elementAt(index).setText(text);	
 	}
 	
@@ -40,6 +40,10 @@ public class FallWordLabel{
 	
 	public static void remove(WordLabel wla){
 		list.remove(wla);	
+	}
+	
+	public static void removeAll(){
+		list.removeAllElements();
 	}
 	
 }

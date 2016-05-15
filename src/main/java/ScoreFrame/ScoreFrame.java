@@ -10,12 +10,21 @@ public class ScoreFrame extends JFrame {
 	JMenu fileMenu=new JMenu("파일");
 	JMenu helpMenu=new JMenu("Help");
 	
-	ScoreFrame(){
+	public ScoreFrame(){
+		Container c = getContentPane();
 		setTitle("Score Menu");
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setBackground(Color.WHITE);
+		
+		CenterPanel cp=new CenterPanel();
+		NorthPanel np=new NorthPanel();
+		SouthPanel sp=new SouthPanel();
+		
+		c.add(cp,BorderLayout.CENTER);
+		c.add(np,BorderLayout.NORTH);
+		c.add(sp,BorderLayout.SOUTH);
 		
 		//파일 메뉴 생성
 		fileMenu.add(new JMenuItem("새파일"));
@@ -34,19 +43,8 @@ public class ScoreFrame extends JFrame {
 		
 		//메뉴바 추가
 		setJMenuBar(menuBar);
-
-	}
-
-	public static void main(String []args){
-		ScoreFrame mf= new ScoreFrame();
-		Container c = mf.getContentPane();
 		
-		CenterPanel cp=new CenterPanel();
-		NorthPanel np=new NorthPanel();
-		SouthPanel sp=new SouthPanel();
 		
-		c.add(cp,BorderLayout.CENTER);
-		c.add(np,BorderLayout.NORTH);
-		c.add(sp,BorderLayout.SOUTH);
+	
 	}
 }

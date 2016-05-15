@@ -1,4 +1,4 @@
-package Thing;
+package GameInterface;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +23,7 @@ public class SuccessWord {
 		String[] content=new String[2];
 		content[0]=korean;
 		content[1]=english;
-		model.addRow(content);
+		model.insertRow(0, content);
 		System.out.println(korean + " " + english);
 		
 		//단어 성공 횟수 증가

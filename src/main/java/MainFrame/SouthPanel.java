@@ -8,13 +8,13 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import GameInterface.SuccessWord;
+import GameInterface.WordLabelArray;
 import Item.Item1;
 import Item.Item2;
 import Item.Item3;
 import Item.Item4;
 import MyDictionary.MyDictionary;
-import Thing.FallWordLabel;
-import Thing.SuccessWord;
 
 class InputTextPanel extends JPanel{
 	JTextField textInput;
@@ -27,7 +27,6 @@ class InputTextPanel extends JPanel{
 		
 		Button btn1= new Button("Input");
 		btn1.setBackground(Color.WHITE);
-		
 		add(btn1);	
 	}
 	
@@ -42,6 +41,7 @@ class InputTextPanel extends JPanel{
 			case KeyEvent.VK_F1:
 					if(Item1.getEnable())
 						Item1.call();
+					langage=true;
 					break;					
 			case KeyEvent.VK_F2:
 				break;
@@ -53,7 +53,6 @@ class InputTextPanel extends JPanel{
 			case KeyEvent.VK_ENTER: //Enter 입력시 FallWord와 비교, TextField 클리어 	
 				//TextField에서 입력값 받아옴
 				text=textInput.getText();
-				System.out.println(text + "   " + e.getKeyChar());
 				matchFallWord();
 				textInput.setText("");
 			}
@@ -62,20 +61,17 @@ class InputTextPanel extends JPanel{
 		//FallWord와 단어 비교
 		void matchFallWord(){
 			String renderWord=MyDictionary.render(text);
-			
 			if(langage==false && renderWord!=null)
 				return;			
-			
-			for(int i=0; i<FallWordLabel.list.size(); i++){
-				String fallWord=FallWordLabel.getText(i);
+			for(int i=0; i<WordLabelArray.list.size(); i++){
+				String fallWord=WordLabelArray.getLabelText(i);
 				if(fallWord.equals(text)){					
-					FallWordLabel.setText(i,renderWord);
-										
+					WordLabelArray.setLabelText(i,renderWord);		
 					if(langage==false){
 						String korean=MyDictionary.renderReverse(text);
 						SuccessWord.add(korean,text);
 						
-						switch (FallWordLabel.get(i).getHaveItem(korean)){
+						switch (WordLabelArray.getLabel(i).getHaveItem(korean)){
 						case 0:break;
 						case 1:
 							Item1.setEnable(true);break;
@@ -87,12 +83,12 @@ class InputTextPanel extends JPanel{
 							Item4.setEnable(true);break;						
 						}
 						
-						FallWordLabel.remove(i);					
+						WordLabelArray.remove(i);					
 						langage=true;
 					}
 					
 					else {
-						FallWordLabel.get(i).setEnglish();
+						WordLabelArray.getLabel(i).setEnglish();
 						langage=false;
 					}
 					

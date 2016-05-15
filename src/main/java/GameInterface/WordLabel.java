@@ -1,4 +1,4 @@
-package Thing;
+package GameInterface;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,9 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.border.Border;
 
 public class WordLabel extends JLabel{
-	public static HashMap<String,Integer> haveItem = new HashMap<String,Integer>();
+	private int item=0;
 	
-	private static int randItem(){
+	private int randItem(){
 		double rand=Math.random();
 		if(rand<0.4)
 			return 1;
@@ -22,17 +22,16 @@ public class WordLabel extends JLabel{
 	public WordLabel(String text){
 		super(text);
 		this.setSize(100,40);
-		Integer item=new Integer(randItem());
-		haveItem.put(text,item);
-		
-		if(haveItem.get(text)!=0)
+		item=randItem();
+			
+		if(item!=0)
 			setHaveItem();
 		else
 			setKorean();
 	}
 	
-	public static int getHaveItem(String korean){
-		return 	haveItem.get(korean).intValue();
+	public int getHaveItem(String korean){
+		return 	item;
 	}
 	
 	public void setHaveItem(){

@@ -9,7 +9,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 import AllWordFrame.AllWordFrame;
-import Thing.SuccessWord;
+import GameInterface.SuccessWord;
 
 class InformationPanel extends JPanel{
 	InformationPanel(){

@@ -1,4 +1,4 @@
-package Thing;
+package GameInterface;
 
 public class Information {
 	private static String gameUser;
