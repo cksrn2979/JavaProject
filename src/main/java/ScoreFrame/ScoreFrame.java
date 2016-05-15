@@ -1,15 +1,17 @@
-package TypeTrainer;
+package ScoreFrame;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
 
 import javax.swing.*;
-import java.awt.*;
 
-public class MainFrame extends JFrame{
+public class ScoreFrame extends JFrame {
 	JMenuBar menuBar=new JMenuBar();
 	JMenu fileMenu=new JMenu("파일");
 	JMenu helpMenu=new JMenu("Help");
 	
-	MainFrame(){
-		setTitle("Typing Trainer with English!");
+	ScoreFrame(){
+		setTitle("Score Menu");
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
@@ -34,21 +36,17 @@ public class MainFrame extends JFrame{
 		setJMenuBar(menuBar);
 
 	}
-	
-	public static void main(String[] args){
-		MainFrame mf= new MainFrame();
+
+	public static void main(String []args){
+		ScoreFrame mf= new ScoreFrame();
 		Container c = mf.getContentPane();
 		
-		EastPanel rp= new EastPanel();
-		NorthPanel np= new NorthPanel();
-		CenterPanel cp= new CenterPanel();
-		SouthPanel sp= new SouthPanel();
-		WestPanel wp= new WestPanel();
+		CenterPanel cp=new CenterPanel();
+		NorthPanel np=new NorthPanel();
+		SouthPanel sp=new SouthPanel();
 		
-		c.add(rp,BorderLayout.EAST);
-		c.add(np,BorderLayout.NORTH);
 		c.add(cp,BorderLayout.CENTER);
+		c.add(np,BorderLayout.NORTH);
 		c.add(sp,BorderLayout.SOUTH);
-		c.add(wp,BorderLayout.WEST);
 	}
 }
