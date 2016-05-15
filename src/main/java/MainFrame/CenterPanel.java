@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 
+import Thing.FallWordLabel;
 import Thing.WordLabel;
-import Word.FallWordLabel;
 
 
 class HeartGagePanel extends JPanel{

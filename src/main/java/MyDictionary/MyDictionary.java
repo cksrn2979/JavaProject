@@ -1,4 +1,4 @@
-package Word;
+package MyDictionary;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Word{
+public class MyDictionary{
 	public static Vector<String> list= new Vector<String>();
 	public static HashMap<String,String> render= new HashMap<String,String>();
 	public static HashMap<String,Integer> success= new HashMap<String,Integer>();
@@ -38,7 +38,7 @@ public class Word{
 			korean=spliter[0];
 			english=spliter[1];
 			
-			Word.add(korean,english);
+			MyDictionary.add(korean,english);
 		}
 
 		//스트림 종료
@@ -52,13 +52,21 @@ public class Word{
 
 	}
 	
-	public static String get(){
+	public static String rand(){
 		Random random=new Random();
 		return list.elementAt(random.nextInt(list.size()));
 	}
 	
 	public static String render(String korean){
 		return render.get(korean);
+	}
+	
+	public static String renderReverse(String english){
+		 for(String s : render.keySet()) {
+			    if (render.get(s).equals(english))
+			    	return s;
+			}
+		 return null;
 	}
 	
 	public static Integer getSuccess(String korean){

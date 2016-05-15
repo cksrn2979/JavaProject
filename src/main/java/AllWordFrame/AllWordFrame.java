@@ -5,7 +5,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Word.Word;
+import MyDictionary.MyDictionary;
 
 //AllWordList 프레임
 public class AllWordFrame extends JFrame{
@@ -37,11 +37,11 @@ public class AllWordFrame extends JFrame{
 			this.setModel(model);
 			
 			//WordList에 모든 단어 add
-			for(int i=0; i<Word.list.size();i++){
+			for(int i=0; i<MyDictionary.list.size();i++){
 				String content[]=new String[3];
-				content[0]=Word.list.get(i);
-				content[1]=Word.render(content[0]);
-				content[2]=Word.getSuccess(content[0]).toString();
+				content[0]=MyDictionary.list.get(i);
+				content[1]=MyDictionary.render(content[0]);
+				content[2]=MyDictionary.getSuccess(content[0]).toString();
 				model.addRow(content);
 			}
 		}
