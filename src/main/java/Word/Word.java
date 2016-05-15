@@ -1,4 +1,4 @@
-package Thing;
+package Word;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -9,10 +9,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class WordList {
-	public static Vector<String> wordList= new Vector<String>();
-	public static HashMap<String,String> wordRender= new HashMap<String,String>();
-	public static HashMap<String,Integer> wordSuccess= new HashMap<String,Integer>();
+public class Word{
+	public static Vector<String> list= new Vector<String>();
+	public static HashMap<String,String> render= new HashMap<String,String>();
+	public static HashMap<String,Integer> success= new HashMap<String,Integer>();
 	
 	private static BufferedReader in;
 
@@ -38,7 +38,7 @@ public class WordList {
 			korean=spliter[0];
 			english=spliter[1];
 			
-			WordList.add(korean,english);
+			Word.add(korean,english);
 		}
 
 		//스트림 종료
@@ -46,28 +46,28 @@ public class WordList {
 	}
 	
 	public static void add(String korean, String english){
-		wordList.add(korean);
-		wordRender.put(korean,english);
-		wordSuccess.put(korean,new Integer(0));
+		list.add(korean);
+		render.put(korean,english);
+		success.put(korean,new Integer(0));
 
 	}
 	
 	public static String get(){
 		Random random=new Random();
-		return wordList.elementAt(random.nextInt(wordList.size()));
+		return list.elementAt(random.nextInt(list.size()));
 	}
 	
 	public static String render(String korean){
-		return wordRender.get(korean);
+		return render.get(korean);
 	}
 	
 	public static Integer getSuccess(String korean){
-		return wordSuccess.get(korean);
+		return success.get(korean);
 	}
 	
 	public static void plusSuccess(String korean){
 		int num= getSuccess(korean).intValue()+1;
-		wordSuccess.replace(korean,new Integer(num));
+		success.replace(korean,new Integer(num));
 	}
 	
 }

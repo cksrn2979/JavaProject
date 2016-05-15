@@ -4,63 +4,66 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Vector;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Thing.WordLabel;
-import Thing.WordList;
+import Word.FallWordLabel;
+import Word.Word;
 
-public class SouthPanel extends JPanel{
+class InputTextPanel extends JPanel{
 	JTextField textInput;
 	
-	
-	
-	SouthPanel(){
-		setBackground(Color.WHITE);
+	InputTextPanel(){
 		textInput = new JTextField("",20);
 		textInput.addKeyListener(new InputTextListener());
 		textInput.requestFocus();
 		add(textInput);
+		
 		Button btn1= new Button("Input");
 		btn1.setBackground(Color.WHITE);
-		add(btn1);		
+		
+		add(btn1);	
 	}
 	
 	class InputTextListener extends KeyAdapter{
+		//true = 한글 입력 차례, false = 영어 입력 차례
 		boolean langage=true;
-		String receiveText,koreanText;
+		String text,korean;
 		
 		public void keyPressed(KeyEvent e){
-			receiveText=textInput.getText();
+			//TextField에서 입력값 받아옴
+			text=textInput.getText();
+			
+			//Enter 입력시 FallWord와 비교, TextField 클리어 
 			if(e.getKeyCode()==KeyEvent.VK_ENTER){
 				matchFallWord();
 				textInput.setText("");
 			}
 		}
 		
+		//FallWord와 단어 비교
 		void matchFallWord(){
-			Vector<WordLabel> fallWordLabel=FallingWordPanel.fallWordLabel;
-			String renderWord=WordList.render(receiveText);
+			String renderWord=Word.render(text);
 			
-			if(langage==false && renderWord!=null)return;
+			//if(langage==false && renderWord!=null)
 			
-			for(int i=0; i<fallWordLabel.size(); i++){
-				String fallWord=fallWordLabel.elementAt(i).getText();
-				if(fallWord.equals(receiveText)){					
-					fallWordLabel.elementAt(i).setText(renderWord);
-					fallWordLabel.elementAt(i).setEnglish();
-
+			
+			for(int i=0; i<FallWordLabel.list.size(); i++){
+				String fallWord=FallWordLabel.getText(i);
+				if(fallWord.equals(text)){					
+					FallWordLabel.setText(i,renderWord);
+					FallWordLabel.get(i).setEnglish();
 					
 					if(renderWord==null){
-						SuccessWordPanel.successWordList.addSuccessWord(koreanText,receiveText);
-						WordList.plusSuccess(koreanText);
-						fallWordLabel.remove(fallWordLabel.elementAt(i));					
+						SuccessWordPanel.successWordList.addSuccessWord(korean,text);
+						Word.plusSuccess(korean);
+						FallWordLabel.remove(i);					
 						langage=true;
 					}
+					
 					else {
-						koreanText=receiveText;
+						korean=text;
 						langage=false;
 					}
 					
@@ -69,7 +72,12 @@ public class SouthPanel extends JPanel{
 			}//for문 끝
 		}//matchFallWord() 끝
 	}
+}
+
+class SouthPanel extends JPanel{
 	
-
-
+	SouthPanel(){
+		setBackground(Color.WHITE);
+		add(new InputTextPanel());
+	}
 }

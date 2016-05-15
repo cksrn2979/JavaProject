@@ -1,56 +1,58 @@
 package Thing;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import Word.Word;
 
 public class WordListTest {
 
 	@Test
 	public void newWordListTest() {
-		new WordList();
+		new Word();
 	}
 	
 	@Test
 	public void WordListaddTest(){
-		WordList WordList = new WordList();
-		WordList.add("korean","english");
+		Word word = new Word();
+		word.add("korean","english");
 	}
 	
 	@Test
 	public void WordListgetTest(){
-		WordList wordList = new WordList();
-		wordList.add("korean","english");
-		assertEquals(wordList.get(),"korean");
+		Word word = new Word();
+		word.add("korean","english");
+		assertEquals(word.get(),"korean");
 	}
 	
 	@Test
 	public void WordListRenderTest(){
-		WordList wordList = new WordList();
-		wordList.add("korean","english");
-		assertEquals(wordList.render("korean"),"english");
+		Word word = new Word();
+		word.add("korean","english");
+		assertEquals(word.render("korean"),"english");
 	}
 	
 	@Test
 	public void WordListRenderTest2(){
-		WordList wordList = new WordList();
-		wordList.add("korean","english");
-		assertEquals(wordList.render("english"),null);
+		Word word = new Word();
+		word.add("korean","english");
+		assertEquals(word.render("english"),null);
 	}
 	
 	@Test
 	public void WordListgetSuccessTest(){
-		WordList wordList = new WordList();
-		wordList.add("korean","english");
-		assertEquals(wordList.getSuccess("korean").intValue(),0);
+		Word word = new Word();
+		word.add("korean","english");
+		assertEquals(word.getSuccess("korean").intValue(),0);
 	}
 	
 	@Test
 	public void WordListplusSuccessTest(){
-		WordList wordList = new WordList();
-		wordList.add("korean","english");
-		wordList.plusSuccess("korean");
-		assertEquals(wordList.getSuccess("korean").intValue(),1);
+		Word word = new Word();
+		word.add("korean","english");
+		word.plusSuccess("korean");
+		assertEquals(word.getSuccess("korean").intValue(),1);
 	}
 
 }

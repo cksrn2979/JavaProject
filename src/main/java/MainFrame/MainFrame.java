@@ -1,11 +1,16 @@
 package MainFrame;
 
-import javax.swing.*;
-
-import Thing.WordList;
-
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
 import java.io.IOException;
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+import Word.Word;
 
 public class MainFrame extends JFrame{
 	JMenuBar menuBar=new JMenuBar();
@@ -20,8 +25,9 @@ public class MainFrame extends JFrame{
 		setVisible(true);
 		setResizable(false);//크기 고정
 		setBackground(Color.WHITE);
-			
-		try {WordList.inWordFromFile();	} 
+		
+		//WORDLIST.txt 모든 단어 입력
+		try {Word.inWordFromFile();	} 
 		catch (IOException e) {e.printStackTrace();}
 		
 		//파일 메뉴 생성

@@ -1,20 +1,10 @@
 package MainFrame;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
@@ -40,7 +30,7 @@ class InformationPanel extends JPanel{
 }
 
 class SuccessWordPanel extends JPanel{
-	static SuccessWordList successWordList;
+	static SuccessWordListTable successWordList;
 	
 	SuccessWordPanel(){
 		Border ListBorder= BorderFactory.createEtchedBorder();
@@ -48,17 +38,17 @@ class SuccessWordPanel extends JPanel{
 		setBorder(ListBorder);
 		setBackground(null);	
 		
-		successWordList=new SuccessWordList();
+		successWordList=new SuccessWordListTable();
 		JScrollPane scroll=new JScrollPane(successWordList);
 		scroll.setPreferredSize(new Dimension(130,220));
 		
 		add(scroll);
 	}
 	
-	class SuccessWordList extends JTable{
+	class SuccessWordListTable extends JTable{
 		DefaultTableModel model;
 		
-		SuccessWordList(){
+		SuccessWordListTable(){
 			String[] header={"Korean","English"};
 			model= new DefaultTableModel(header,0);
 		
@@ -88,21 +78,20 @@ class WordSetPanel extends JPanel{
 		WordSetBorder=BorderFactory.createTitledBorder("WordSet");
 		
 		setBorder(WordSetBorder);
-		JButton allWordbtn=new JButton("All Word");
-		allWordbtn.addMouseListener(new AllWordMouseListener());
-		add(allWordbtn,BorderLayout.CENTER);
+		JButton allWordBtn=new JButton("All Word");
+		
+		//allWordBtn Action 삽입
+		allWordBtn.addActionListener(new AllWordActionListener());
+		
+		add(allWordBtn,BorderLayout.CENTER);
 		add(new Button("+"),BorderLayout.EAST);
 	}
 	
-	class AllWordMouseListener implements MouseListener{
-		public void mouseClicked(MouseEvent e) {
+	//AllWordBtn Frame생성 액션
+	class AllWordActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
 			new AllWordFrame();
 		}
-		
-		public void mousePressed(MouseEvent e) {}
-		public void mouseReleased(MouseEvent e) {}
-		public void mouseEntered(MouseEvent e){}
-		public void mouseExited(MouseEvent e){}
 	}
 }
 

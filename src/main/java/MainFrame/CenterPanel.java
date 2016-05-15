@@ -2,8 +2,6 @@ package MainFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -12,7 +10,8 @@ import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 
 import Thing.WordLabel;
-import Thing.WordList;
+import Word.FallWordLabel;
+
 
 class HeartGagePanel extends JPanel{
 	HeartGagePanel(){
@@ -32,26 +31,29 @@ class HeartGagePanel extends JPanel{
 }
 
 class FallingWordPanel extends JPanel{
-	static Vector<WordLabel> fallWordLabel;
-		
-	FallingWordPanel(){
-		
+	int n=1; //Label 갯수
+	FallingWordPanel(){		
 		setLayout(null);
 		setBackground(null);
 		
-		fallWordLabel=new Vector<WordLabel>();
+		//n 만큼 WordLabel 생성
+		FallWordLabel.add(n);
 		
-		for(int i=0; i<4;i++){
-			WordLabel wla=new WordLabel(WordList.get());
-			int x=100+i*30;
-			int y=100+i*50;
-			wla.setLocation(x,y);
-			fallWordLabel.add(wla);
-			add(wla);
+		addFallWordLabel();		
+	}
+	
+	void addFallWordLabel(){
+		for(int i=0; i<n;i++){
+			//i순서만큼 단어 받아옴
+			WordLabel la=FallWordLabel.get(i);
+			int x=(int)Math.random()*300;
+			int y=(int)Math.random()*300;
+			la.setLocation(x, y);
+			add(la);			
 		}
-		
 	}
 }
+
 public class CenterPanel extends JPanel{
 	
 	CenterPanel(){
