@@ -37,18 +37,23 @@ class InputTextPanel extends JPanel{
 		String text;
 		
 		public void keyPressed(KeyEvent e){
+			
 			switch(e.getKeyCode()){
 			case KeyEvent.VK_F1:
 					if(Item1.getEnable())
 						Item1.call();
 					break;					
 			case KeyEvent.VK_F2:
+				break;
 			case KeyEvent.VK_F3:
+				break;
 			case KeyEvent.VK_F4:
+				break;
 				
 			case KeyEvent.VK_ENTER: //Enter 입력시 FallWord와 비교, TextField 클리어 	
 				//TextField에서 입력값 받아옴
 				text=textInput.getText();
+				System.out.println(text + "   " + e.getKeyChar());
 				matchFallWord();
 				textInput.setText("");
 			}
@@ -70,7 +75,7 @@ class InputTextPanel extends JPanel{
 						String korean=MyDictionary.renderReverse(text);
 						SuccessWord.add(korean,text);
 						
-						switch (FallWordLabel.getHaveItem(korean)){
+						switch (FallWordLabel.get(i).getHaveItem(korean)){
 						case 0:break;
 						case 1:
 							Item1.setEnable(true);break;

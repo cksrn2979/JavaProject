@@ -7,28 +7,9 @@ import MyDictionary.MyDictionary;
 
 public class FallWordLabel{
 	public static Vector<WordLabel> list= new Vector<WordLabel>();
-	public static HashMap<String,Integer> haveItem = new HashMap<String,Integer>();
-	
-	private static int randItem(){
-		double rand=Math.random();
-		if(rand<0.4)
-			return 1;
-		else 
-			return 0;
-	}
-	
+
 	public static void add(WordLabel wla){
 		list.add(wla);
-	}
-	
-	public static void add(int n){
-		for(int i=0; i<n; i++){
-			String wla=new String(MyDictionary.rand());
-			Integer item=new Integer(randItem());
-			haveItem.put(wla,item);
-			list.add(new WordLabel(wla));
-			
-		}
 	}
 	
 	//라벨의 갯수를 얻음
@@ -41,10 +22,6 @@ public class FallWordLabel{
 		return list.elementAt(index);		
 	}
 	
-	//가진 item을 얻음
-	public static int getHaveItem(String korean){
-		return 	haveItem.get(korean).intValue();
-	}
 	
 	//index번째 텍스트를 얻음
 	public static String getText(int index){
@@ -59,6 +36,10 @@ public class FallWordLabel{
 	
 	public static void remove(int index){
 		list.remove(index);	
+	}
+	
+	public static void remove(WordLabel wla){
+		list.remove(wla);	
 	}
 	
 }

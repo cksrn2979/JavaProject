@@ -19,7 +19,6 @@ public class Item1{
 			FallWordLabel.get(index).setVisible(false);
 		}
 		
-		
 		for(int index=0; index<FallWordLabel.getNumOfLabel();index++){
 			String korean=FallWordLabel.getText(index);
 			String english=MyDictionary.render(korean);
