@@ -31,7 +31,7 @@ class HeartGagePanel extends JPanel{
 }
 
 class FallingWordPanel extends JPanel{
-	int n=1; //Label 갯수
+	int n=100; //Label 갯수
 	FallingWordPanel(){		
 		setLayout(null);
 		setBackground(null);

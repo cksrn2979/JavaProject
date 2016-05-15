@@ -9,12 +9,18 @@ import javax.swing.border.Border;
 
 public class WordLabel extends JLabel{
 	
-	public WordLabel(String string){
-		super(string);
+	public WordLabel(String text){
+		super(text);
 		this.setSize(100,40);
-		setKorean();
+		if(FallWordLabel.getHaveItem(text)!=0)
+			setHaveItem();
+		else
+			setKorean();
 	}
 	
+	public void setHaveItem(){
+		this.setFont(new Font("굴림",Font.BOLD,20));
+	}
 	public void setKorean(){
 		this.setFont(new Font("굴림",Font.PLAIN,15));
 	}
