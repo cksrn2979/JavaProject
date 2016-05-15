@@ -32,6 +32,7 @@ class HeartGagePanel extends JPanel{
 
 class FallingWordPanel extends JPanel{
 	int n=100; //Label 갯수
+	
 	FallingWordPanel(){		
 		setLayout(null);
 		setBackground(null);
@@ -39,17 +40,28 @@ class FallingWordPanel extends JPanel{
 		//n 만큼 WordLabel 생성
 		FallWordLabel.add(n);
 		
-		addFallWordLabel();		
+		Falling falling = new Falling();
+		falling.start();
 	}
 	
-	void addFallWordLabel(){
-		for(int i=0; i<n;i++){
-			//i순서만큼 단어 받아옴
-			WordLabel la=FallWordLabel.get(i);
-			int x=(int)Math.random()*300;
-			int y=(int)Math.random()*300;
+	class Falling extends Thread{
+		int index;
+		
+		public void run(){
+			int x=(int)(Math.random()*300);
+			int y=0;
+			WordLabel la=FallWordLabel.get(0);			
 			la.setLocation(x, y);
-			add(la);			
+			add(la);
+			while(y<400){
+				y=y+10;
+				la.setLocation(x, y);
+				try {
+					sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }

@@ -25,8 +25,9 @@ public class FallWordLabel{
 		for(int i=0; i<n; i++){
 			String wla=new String(MyDictionary.rand());
 			Integer item=new Integer(randItem());
-			list.add(new WordLabel(wla));
 			haveItem.put(wla,item);
+			list.add(new WordLabel(wla));
+			
 		}
 	}
 	
