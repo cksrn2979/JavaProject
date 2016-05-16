@@ -82,7 +82,9 @@ class InputTextPanel extends JPanel{
 			for(int i=0; i<WordLabelArray.getNumOfLabel(); i++){
 				//떨어지는 라벨의 단어
 				String fallWord=WordLabelArray.getText(i);
+				//Item 가진 단어 폰트 설정시 단어저장 변수
 				String testItem=" ";
+				
 				//떨어지는 단어와 입력 단어가 같을경우
 				if(fallWord.equals(text)){	
 					//한글 -> 영어로, 영어-> null로

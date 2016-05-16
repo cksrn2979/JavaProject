@@ -88,12 +88,14 @@ class FallingWordPanel extends JPanel{
 				
 				//패널에 추가
 				add(la);
-				int o=0;
+				int checkTime=0;//while 반복횟수 체크
+				
 				//y<400까지 떨어트림
 				while(y<400){
 					if(checkItem==3)//3번 느리게 아이템
-					{	o++;
-						if(o==15)checkItem=0;
+					{	
+						checkTime++;
+						if(checkTime==15)checkItem=0;
 						y=y+5;
 					}
 					else
