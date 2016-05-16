@@ -1,10 +1,13 @@
 package MainFrame;
 
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import GameInterface.BasicInterface;
-
-import java.awt.*;
 
 public class NorthPanel extends JPanel{
 	NorthPanel(){

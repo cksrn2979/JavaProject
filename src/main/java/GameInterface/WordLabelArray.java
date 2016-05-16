@@ -1,9 +1,6 @@
 package GameInterface;
 
-import java.util.HashMap;
 import java.util.Vector;
-
-import MyDictionary.MyDictionary;
 
 //떨어지는 라벨들의 집합
 public class WordLabelArray{ 

@@ -2,8 +2,8 @@ package Item;
 
 import javax.swing.JButton;
 
-import GameInterface.WordLabelArray;
 import GameInterface.SuccessWord;
+import GameInterface.WordLabelArray;
 import MyDictionary.MyDictionary;
 
 //모두 지우기 아이템

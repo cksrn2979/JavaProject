@@ -1,12 +1,8 @@
 package GameInterface;
 
-import java.awt.Color;
 import java.awt.Font;
-import java.util.HashMap;
 
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
-import javax.swing.border.Border;
 
 public class WordLabel extends JLabel{
 	//라벨의 Item 보유  
