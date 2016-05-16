@@ -9,14 +9,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import GameInterface.SuccessWord;
+import GameInterface.WordLabel;
 import GameInterface.WordLabelArray;
 import Item.Item1;
 import Item.Item2;
 import Item.Item3;
 import Item.Item4;
+import MainFrame.FallingWordPanel.FallingAniLabel;
 import MyDictionary.MyDictionary;
 
 class InputTextPanel extends JPanel{
+	
 	JTextField textInput;
 	
 	InputTextPanel(){
@@ -32,8 +35,7 @@ class InputTextPanel extends JPanel{
 	}
 	
 	class InputTextListener extends KeyAdapter{
-		//true = 한글 입력 차례, false = 영어 입력 차례
-		boolean langage=true;
+		public boolean langage=true;//true = 한글 입력 차례, false = 영어 입력 차례
 		String text; //입력 단어
 		
 		public void keyPressed(KeyEvent e){
@@ -46,8 +48,16 @@ class InputTextPanel extends JPanel{
 					}
 					break;					
 			case KeyEvent.VK_F2: //item2
+				if(Item2.getEnable()){
+					FallingWordPanel.checkItem=2;//2번 아이템 보유
+					Item2.call();
+				}
 				break;
 			case KeyEvent.VK_F3: //item3
+				if(Item3.getEnable()){
+					FallingWordPanel.checkItem=3;//3번 아이템 보유
+					Item3.call();
+				}
 				break;
 			case KeyEvent.VK_F4: //item4
 				break;
@@ -72,7 +82,7 @@ class InputTextPanel extends JPanel{
 			for(int i=0; i<WordLabelArray.getNumOfLabel(); i++){
 				//떨어지는 라벨의 단어
 				String fallWord=WordLabelArray.getText(i);
-				
+				String testItem=" ";
 				//떨어지는 단어와 입력 단어가 같을경우
 				if(fallWord.equals(text)){	
 					//한글 -> 영어로, 영어-> null로
@@ -82,7 +92,8 @@ class InputTextPanel extends JPanel{
 					if(langage==false){
 						//영어의 한글 값 저장
 						String korean=MyDictionary.renderReverse(text);
-						
+						testItem=korean;
+								
 						//성공 단어에 추가
 						SuccessWord.add(korean,text);
 						
@@ -102,7 +113,7 @@ class InputTextPanel extends JPanel{
 							Item4.setEnable(true);break;						
 						}
 						
-						//제가
+						//제거
 						WordLabelArray.remove(i);
 						
 						//한글 입력차례로 변환
@@ -110,10 +121,16 @@ class InputTextPanel extends JPanel{
 					}
 					
 					else { //한글 입력 차례 였을때
-						WordLabelArray.get(i).setEnglish(); //영어로 번역된 글자를 영어 폰트로
+						if(WordLabelArray.get(i).getHaveItem(testItem)!=0){//아이템 가진 영단어 폰트 설정
+							WordLabelArray.get(i).setHaveItem_e(); 
+						}
+						
+						else //아이템 가지지 않은 영단어
+							WordLabelArray.get(i).setEnglish(); //영어로 번역된 글자를 영어 폰트로
+						
 						langage=false; //영어차례로 변환
 					}
-					
+		
 					break;
 				}//if문 끝
 			}//for문 끝

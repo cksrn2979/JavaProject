@@ -4,10 +4,14 @@ import javax.swing.JButton;
 
 public class Item2{
 	private static boolean enable=false;
-	private static JButton btn=new JButton("F2");
+	private static JButton btn=new JButton("잠깐멈추기");
 	
 	public static void init(){
 		setEnable(false);
+	}
+	public static void call(){
+		//item2 사용 불가 상태로
+				setEnable(false);
 	}
 	
 	public static boolean getEnable(){
