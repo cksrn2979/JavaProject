@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MyDictionary{
-	public static Vector<String> list= new Vector<String>();
-	public static HashMap<String,String> render= new HashMap<String,String>();
-	public static HashMap<String,Integer> success= new HashMap<String,Integer>();
+	private static Vector<String> list= new Vector<String>(); //목록
+	private static HashMap<String,String> render= new HashMap<String,String>(); //번역
+	private static HashMap<String,Integer> success= new HashMap<String,Integer>(); //성공횟수
 	
 	private static BufferedReader in;
 
@@ -32,7 +32,7 @@ public class MyDictionary{
 		
 		//파일 라인별로 읽음
 		while ((line = in.readLine()) != null) {
-			//읽어온 라인데이터를 구문자대로 자름
+			//읽어온 라인데이터를 "탭"단위로 자름
 			spliter = line.split("\t");
 			
 			korean=spliter[0];
@@ -45,6 +45,12 @@ public class MyDictionary{
 		in.close();
 	}
 	
+	//단어의 갯수 리턴
+	public static int getNumOfWord(){
+		return list.size();
+	}
+	
+	//문자열
 	public static void add(String korean, String english){
 		list.add(korean);
 		render.put(korean,english);
@@ -52,15 +58,24 @@ public class MyDictionary{
 
 	}
 	
+	//index 단어를 리턴
+		public static String getWord(int index){
+			return list.get(index);
+	}
+
+	//랜덤하게 단어를 리턴
 	public static String rand(){
 		Random random=new Random();
 		return list.elementAt(random.nextInt(list.size()));
 	}
 	
+	
+	//한글을 영어로 번역
 	public static String render(String korean){
 		return render.get(korean);
 	}
 	
+	//영어를 한글로 번역
 	public static String renderReverse(String english){
 		 for(String s : render.keySet()) {
 			    if (render.get(s).equals(english))
@@ -69,13 +84,14 @@ public class MyDictionary{
 		 return null;
 	}
 	
+	//성공횟수를 받아옴
 	public static Integer getSuccess(String korean){
 		return success.get(korean);
 	}
 	
+	//성공횟수 +1
 	public static void plusSuccess(String korean){
-		int num= getSuccess(korean).intValue()+1;
-		success.replace(korean,new Integer(num));
+		success.replace(korean,getSuccess(korean).intValue()+1);
 	}
 	
 }

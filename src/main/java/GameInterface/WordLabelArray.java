@@ -1,12 +1,13 @@
-package Thing;
+package GameInterface;
 
 import java.util.HashMap;
 import java.util.Vector;
 
 import MyDictionary.MyDictionary;
 
-public class FallWordLabel{
-	public static Vector<WordLabel> list= new Vector<WordLabel>();
+//떨어지는 라벨들의 집합
+public class WordLabelArray{ 
+	private static Vector<WordLabel> list= new Vector<WordLabel>();
 
 	public static void add(WordLabel wla){
 		list.add(wla);
@@ -34,12 +35,19 @@ public class FallWordLabel{
 		list.elementAt(index).setText(text);	
 	}
 	
+	//집합에서 삭제
 	public static void remove(int index){
 		list.remove(index);	
 	}
 	
+	//집합에서 삭제
 	public static void remove(WordLabel wla){
 		list.remove(wla);	
+	}
+	
+	//모두 삭제
+	public static void removeAll(){
+		list.removeAllElements();
 	}
 	
 }

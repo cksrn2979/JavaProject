@@ -8,13 +8,13 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import GameInterface.WordLabelArray;
+import GameInterface.SuccessWord;
 import Item.Item1;
 import Item.Item2;
 import Item.Item3;
 import Item.Item4;
 import MyDictionary.MyDictionary;
-import Thing.FallWordLabel;
-import Thing.SuccessWord;
 
 class InputTextPanel extends JPanel{
 	JTextField textInput;
@@ -34,48 +34,63 @@ class InputTextPanel extends JPanel{
 	class InputTextListener extends KeyAdapter{
 		//true = 한글 입력 차례, false = 영어 입력 차례
 		boolean langage=true;
-		String text;
+		String text; //입력 단어
 		
 		public void keyPressed(KeyEvent e){
 			
 			switch(e.getKeyCode()){
-			case KeyEvent.VK_F1:
-					if(Item1.getEnable())
+			case KeyEvent.VK_F1: //item1 모두 지우기
+					if(Item1.getEnable()){
 						Item1.call();
+						langage=true; //모두 지운 후 한글 입력차례로
+					}
 					break;					
-			case KeyEvent.VK_F2:
+			case KeyEvent.VK_F2: //item2
 				break;
-			case KeyEvent.VK_F3:
+			case KeyEvent.VK_F3: //item3
 				break;
-			case KeyEvent.VK_F4:
+			case KeyEvent.VK_F4: //item4
 				break;
 				
-			case KeyEvent.VK_ENTER: //Enter 입력시 FallWord와 비교, TextField 클리어 	
-				//TextField에서 입력값 받아옴
-				text=textInput.getText();
-				System.out.println(text + "   " + e.getKeyChar());
-				matchFallWord();
-				textInput.setText("");
+			case KeyEvent.VK_ENTER: //Enter 입력시  단어 비교, 	
+				text=textInput.getText(); //TextField에서 입력값 받아옴
+				matchFallWord(); //단어 비교
+				textInput.setText("");//textField 클리어 
 			}
 		}
 		
 		//FallWord와 단어 비교
 		void matchFallWord(){
+			//번역글자  :  한글 -> 영어 -> null
 			String renderWord=MyDictionary.render(text);
 			
+			//영어 입력차례에서, 한글을 입력한 경우
 			if(langage==false && renderWord!=null)
 				return;			
 			
-			for(int i=0; i<FallWordLabel.list.size(); i++){
-				String fallWord=FallWordLabel.getText(i);
-				if(fallWord.equals(text)){					
-					FallWordLabel.setText(i,renderWord);
-										
+			//떨어지는 라벨들과 비교
+			for(int i=0; i<WordLabelArray.getNumOfLabel(); i++){
+				//떨어지는 라벨의 단어
+				String fallWord=WordLabelArray.getText(i);
+				
+				//떨어지는 단어와 입력 단어가 같을경우
+				if(fallWord.equals(text)){	
+					//한글 -> 영어로, 영어-> null로
+					WordLabelArray.setText(i,renderWord);
+					
+					//영어 입력 단계 였다면
 					if(langage==false){
+						//영어의 한글 값 저장
 						String korean=MyDictionary.renderReverse(text);
+						
+						//성공 단어에 추가
 						SuccessWord.add(korean,text);
 						
-						switch (FallWordLabel.get(i).getHaveItem(korean)){
+						//단어 성공 횟수 증가
+						MyDictionary.plusSuccess(korean); 
+						
+						//Item확인
+						switch (WordLabelArray.get(i).getHaveItem(korean)){
 						case 0:break;
 						case 1:
 							Item1.setEnable(true);break;
@@ -87,13 +102,16 @@ class InputTextPanel extends JPanel{
 							Item4.setEnable(true);break;						
 						}
 						
-						FallWordLabel.remove(i);					
+						//제가
+						WordLabelArray.remove(i);
+						
+						//한글 입력차례로 변환
 						langage=true;
 					}
 					
-					else {
-						FallWordLabel.get(i).setEnglish();
-						langage=false;
+					else { //한글 입력 차례 였을때
+						WordLabelArray.get(i).setEnglish(); //영어로 번역된 글자를 영어 폰트로
+						langage=false; //영어차례로 변환
 					}
 					
 					break;
@@ -103,8 +121,7 @@ class InputTextPanel extends JPanel{
 	}
 }
 
-class SouthPanel extends JPanel{
-	
+class SouthPanel extends JPanel{	
 	SouthPanel(){
 		setBackground(Color.WHITE);
 		add(new InputTextPanel());

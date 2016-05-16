@@ -37,9 +37,9 @@ public class AllWordFrame extends JFrame{
 			this.setModel(model);
 			
 			//WordList에 모든 단어 add
-			for(int i=0; i<MyDictionary.list.size();i++){
+			for(int index=0; index<MyDictionary.getNumOfWord();index++){
 				String content[]=new String[3];
-				content[0]=MyDictionary.list.get(i);
+				content[0]=MyDictionary.getWord(index);
 				content[1]=MyDictionary.render(content[0]);
 				content[2]=MyDictionary.getSuccess(content[0]).toString();
 				model.addRow(content);
