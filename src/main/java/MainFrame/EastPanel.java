@@ -9,7 +9,8 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 import AllWordFrame.AllWordFrame;
-import Thing.SuccessWord;
+import GameInterface.BasicInterface;
+import GameInterface.SuccessWord;
 
 class InformationPanel extends JPanel{
 	InformationPanel(){
@@ -21,8 +22,8 @@ class InformationPanel extends JPanel{
 		setBorder(infomationBorder);
 		
 		Font font = new Font("나눔 고딕",Font.BOLD,13);
-		JLabel la1=new JLabel("TRY - 20");
-		JLabel la2=new JLabel("User : 서송이");
+		JLabel la1=new JLabel("TRY - " + BasicInterface.gameTry.toString());
+		JLabel la2=new JLabel("User : " + BasicInterface.user);
 		la1.setFont(font);
 		la2.setFont(font);
 		add(la1);
@@ -36,7 +37,10 @@ class SuccessWordPanel extends JPanel{
 		Border ListBorder= BorderFactory.createEtchedBorder();
 		ListBorder=BorderFactory.createTitledBorder("Success Word");
 		setBorder(ListBorder);
-		setBackground(null);	
+		setBackground(null);
+		
+		//SuccessWord 초기화
+		SuccessWord.init();
 		
 		JScrollPane scroll=new JScrollPane(SuccessWord.getTable());
 		scroll.setPreferredSize(new Dimension(130,220));

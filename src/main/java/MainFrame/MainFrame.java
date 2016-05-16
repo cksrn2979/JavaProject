@@ -10,12 +10,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import GameInterface.SuccessWord;
 import Item.Item1;
 import Item.Item2;
 import Item.Item3;
 import Item.Item4;
 import MyDictionary.MyDictionary;
-import Thing.SuccessWord;
 
 public class MainFrame extends JFrame{
 	JMenuBar menuBar=new JMenuBar();
@@ -34,17 +34,7 @@ public class MainFrame extends JFrame{
 		//MyDictionay 초기화 - WORDLIST.txt모든 단어 입력
 		try {MyDictionary.inWordFromFile();	} 
 		catch (IOException e) {e.printStackTrace();}
-		
-		//SuccessWord 초기화
-		SuccessWord.init();
-		
-		//Item 초기화
-		Item1.setEnable(true);
-		Item2.setEnable(false);
-		Item3.setEnable(false);
-		Item4.setEnable(false);
-
-		
+				
 		//파일 메뉴 생성
 		fileMenu.add(new JMenuItem("새파일"));
 		fileMenu.add(new JMenuItem("열기"));

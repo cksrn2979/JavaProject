@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import GameInterface.BasicInterface;
 import Item.Item1;
 import Item.Item2;
 import Item.Item3;
@@ -24,7 +25,7 @@ class SpeedPanel extends JPanel{
 		setPreferredSize(new Dimension(130,100));
 		setBackground(null);
 		
-		JLabel speed=new JLabel("0.44");
+		JLabel speed=new JLabel((BasicInterface.speed.toString()));
 		speed.setFont(new Font("나눔 고딕",Font.BOLD,40));		
 		add(speed);
 	}
@@ -35,6 +36,12 @@ class ItemPanel extends JPanel{
 		Border itemBorder= BorderFactory.createEtchedBorder();
 		itemBorder=BorderFactory.createTitledBorder("Item");
 		setBorder(itemBorder);
+		
+		//Item 초기화
+		Item1.init();
+		Item2.init();
+		Item3.init();
+		Item4.init();
 		
 		setLayout(new GridLayout(4,1,0,0));
 		setBackground(null);

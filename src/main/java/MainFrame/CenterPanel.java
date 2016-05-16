@@ -9,9 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 
+import GameInterface.BasicInterface;
+import GameInterface.WordLabelArray;
+import GameInterface.WordLabel;
 import MyDictionary.MyDictionary;
-import Thing.FallWordLabel;
-import Thing.WordLabel;
 
 
 class HeartGagePanel extends JPanel{
@@ -32,27 +33,30 @@ class HeartGagePanel extends JPanel{
 }
 
 class FallingWordPanel extends JPanel{
-	int n=100; //Label 갯수
-	FallingAni[] fallingAni = new FallingAni[10];
+	//떨어지는 라벨들의 갯수
+	private int n=10; 
+	FallingAniLabel[] fallingAniLabel = new FallingAniLabel[n];
 	
 	FallingWordPanel(){		
 		setLayout(null);
 		setBackground(null);
-
+		
+		//초기화
 		for(int i=0; i<10;i++){
-			fallingAni[i]=new FallingAni();
+			fallingAniLabel[i]=new FallingAniLabel();
 		}
 		
 		FallingPlay a=new FallingPlay();
 		a.start();
 	}
 	
+	//떨어지는 라벨을 생성하는 쓰레드
 	class FallingPlay extends Thread{
 		public void run(){
 			for(int i=0; i<10; i++){
-				fallingAni[i].start();
+				fallingAniLabel[i].start();
 				try{
-					sleep(3000);
+					sleep(1000);
 				}
 				catch (InterruptedException e) {
 					e.printStackTrace();
@@ -60,33 +64,45 @@ class FallingWordPanel extends JPanel{
 			}
 		}
 	}
-	class FallingAni extends Thread{
-		
+	
+	//라벨 하나 하나 떨어지는 쓰레드
+	class FallingAniLabel extends Thread{
 		public void run(){
-			while(true){
-				int x=(int)(Math.random()*300);
-				int y=0;
-				String korean=MyDictionary.rand();
-				WordLabel la = new WordLabel(korean);
-				FallWordLabel.add(la);
+			while(BasicInterface.play){
+				//좌표값 설정
+				int x=(int)(Math.random()*400);
+				int y=0; 
+				
+				//단어를 랜덤하게 받아와 라벨 생성.
+				WordLabel la = new WordLabel(MyDictionary.rand());
+				
+				//떨어지는 라벨 모음에 라벨 추가
+				WordLabelArray.add(la);
+				
+				//위치 설정
 				la.setLocation(x, y);
+				
+				//패널에 추가
 				add(la);
+				
+				//y<400까지 떨어트림
 				while(y<400){
-					y=y+10;
+					y=y+10; 
 					la.setLocation(x, y);
 					try {
-						sleep(500);
+						sleep(BasicInterface.speed); //떨어지는 속도
 					}
 					catch (InterruptedException e) {
 							e.printStackTrace();
 					}	
 				}
 				
-				FallWordLabel.remove(la);
+				WordLabelArray.remove(la);
 			}
 		}
 	}
 }
+
 
 public class CenterPanel extends JPanel{
 	
