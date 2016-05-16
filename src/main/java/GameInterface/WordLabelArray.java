@@ -4,6 +4,7 @@ import java.util.Vector;
 
 //떨어지는 라벨들의 집합
 public class WordLabelArray{ 
+	
 	private static Vector<WordLabel> list= new Vector<WordLabel>();
 
 	public static void add(WordLabel wla){
@@ -15,11 +16,15 @@ public class WordLabelArray{
 		return list.size();
 	}
 	
+	//text 의 index 얻음
+	public static int getIndex(String text){
+		return list.indexOf(text);
+	}
+	
 	//index 번째 Label을 얻음
 	public static WordLabel get(int index){
 		return list.elementAt(index);		
 	}
-	
 	
 	//index번째 텍스트를 얻음
 	public static String getText(int index){

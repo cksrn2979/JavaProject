@@ -33,6 +33,8 @@ class HeartGagePanel extends JPanel{
 }
 
 class FallingWordPanel extends JPanel{
+	static int checkItem=0;
+	
 	//떨어지는 라벨들의 갯수
 	private int n=10; 
 	FallingAniLabel[] fallingAniLabel = new FallingAniLabel[n];
@@ -67,7 +69,9 @@ class FallingWordPanel extends JPanel{
 	
 	//라벨 하나 하나 떨어지는 쓰레드
 	class FallingAniLabel extends Thread{
+	
 		public void run(){
+			
 			while(BasicInterface.play){
 				//좌표값 설정
 				int x=(int)(Math.random()*400);
@@ -84,29 +88,47 @@ class FallingWordPanel extends JPanel{
 				
 				//패널에 추가
 				add(la);
+				int checkTime=0;//while 반복횟수 체크
 				
 				//y<400까지 떨어트림
 				while(y<400){
-					y=y+10; 
+					if(checkItem==3)//3번 느리게 아이템
+					{	
+						checkTime++;
+						if(checkTime==15)checkItem=0;
+						y=y+5;
+					}
+					else
+						y=y+10; 
+					
 					la.setLocation(x, y);
+						
 					try {
+						if(checkItem==2)//2번 잠깐 멈추기 아이템
+						{
+							sleep(5000);
+							checkItem=0;
+						}
+						
 						sleep(BasicInterface.speed); //떨어지는 속도
 					}
 					catch (InterruptedException e) {
 							e.printStackTrace();
 					}	
+					
 				}
 				
 				WordLabelArray.remove(la);
 			}
 		}
+	
 	}
 }
-
 
 public class CenterPanel extends JPanel{
 	
 	CenterPanel(){
+		
 		setBackground(Color.WHITE);
 		Border CenterBorder= BorderFactory.createEtchedBorder();
 		setBorder(CenterBorder);
@@ -114,8 +136,5 @@ public class CenterPanel extends JPanel{
 		add(new HeartGagePanel(),BorderLayout.NORTH);
 		add(new FallingWordPanel(),BorderLayout.CENTER);
 		
-		
 	}
-
-
 }
