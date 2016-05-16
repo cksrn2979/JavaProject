@@ -3,8 +3,6 @@ package GameInterface;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import MyDictionary.MyDictionary;
-
 public class SuccessWord {
 	private static DefaultTableModel model;
 	private static JTable table;

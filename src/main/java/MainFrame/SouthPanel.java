@@ -8,8 +8,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import GameInterface.WordLabelArray;
 import GameInterface.SuccessWord;
+import GameInterface.WordLabelArray;
 import Item.Item1;
 import Item.Item2;
 import Item.Item3;

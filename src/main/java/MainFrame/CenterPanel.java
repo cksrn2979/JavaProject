@@ -10,8 +10,8 @@ import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 
 import GameInterface.BasicInterface;
-import GameInterface.WordLabelArray;
 import GameInterface.WordLabel;
+import GameInterface.WordLabelArray;
 import MyDictionary.MyDictionary;
 
 

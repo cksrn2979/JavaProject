@@ -1,28 +1,25 @@
 package MyDictionary;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class MyDictionary{
 	private static Vector<String> list= new Vector<String>(); //목록
 	private static HashMap<String,String> render= new HashMap<String,String>(); //번역
 	private static HashMap<String,Integer> success= new HashMap<String,Integer>(); //성공횟수
 	
-	private static BufferedReader in;
-
+	//파일에서 단어를 입력시킴
 	public static void inWordFromFile() throws IOException{
 		
 		//readline 읽을 String변수
 		String line = "";
 		
 		//파일 데이터 저장 스트림
-		in = new BufferedReader(new FileReader("WORDLIST.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("WORDLIST.txt"));
 		
 		//데이터 잘라줄 객체
 		String[] spliter;
@@ -50,7 +47,7 @@ public class MyDictionary{
 		return list.size();
 	}
 	
-	//문자열
+	//단어를 입력
 	public static void add(String korean, String english){
 		list.add(korean);
 		render.put(korean,english);

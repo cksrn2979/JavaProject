@@ -10,11 +10,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import GameInterface.SuccessWord;
-import Item.Item1;
-import Item.Item2;
-import Item.Item3;
-import Item.Item4;
 import MyDictionary.MyDictionary;
 
 public class MainFrame extends JFrame{
