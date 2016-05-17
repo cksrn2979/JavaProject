@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import GameInterface.BasicInterface;
 import GameInterface.SuccessWord;
 import GameInterface.WordLabel;
 import GameInterface.WordLabelArray;
@@ -100,7 +101,10 @@ class InputTextPanel extends JPanel{
 						SuccessWord.add(korean,text);
 						
 						//단어 성공 횟수 증가
-						MyDictionary.plusSuccess(korean); 
+						MyDictionary.plusSuccess(korean);
+						
+						//무효한 숫자로
+						WordLabelArray.get(i).setValid(false);
 						
 						//Item확인
 						switch (WordLabelArray.get(i).getHaveItem(korean)){

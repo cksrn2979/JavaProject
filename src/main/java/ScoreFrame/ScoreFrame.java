@@ -1,16 +1,17 @@
 package ScoreFrame;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class ScoreFrame extends JFrame {
 	JMenuBar menuBar=new JMenuBar();
 	JMenu fileMenu=new JMenu("파일");
 	JMenu helpMenu=new JMenu("Help");
 	
-	ScoreFrame(){
+	public ScoreFrame(){
 		setTitle("Score Menu");
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -37,16 +38,4 @@ public class ScoreFrame extends JFrame {
 
 	}
 
-	public static void main(String []args){
-		ScoreFrame mf= new ScoreFrame();
-		Container c = mf.getContentPane();
-		
-		CenterPanel cp=new CenterPanel();
-		NorthPanel np=new NorthPanel();
-		SouthPanel sp=new SouthPanel();
-		
-		c.add(cp,BorderLayout.CENTER);
-		c.add(np,BorderLayout.NORTH);
-		c.add(sp,BorderLayout.SOUTH);
-	}
 }

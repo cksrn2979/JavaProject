@@ -5,24 +5,33 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
+import Item.Item1;
+import Item.Item2;
+import Item.Item3;
+
 public class WordLabel extends JLabel{
 	//라벨의 Item 보유  
 	private int item = 0;
 	
+	//라벨의 유효성
+	private boolean valid=true;
+	
 	 //Item랜덤하게 생성
 	private int randItem(){		
 		double rand=Math.random();
-		//10%확률로 1번 아이템 생성
-		if(rand<0.1)
-			return 1;
-		//10%확률로 2번 아이템 생성
-		else if(rand>0.1&&rand<0.2)
-			return 2;
-		//10%확률로 3번 아이템 생성
-		else if(rand>0.2&&rand<0.3)
-			return 3;
-		else 
-			return 0;
+		//10%확률로 아이템 생성
+		if(rand<0.1){
+			Boolean chkEnable[]=new Boolean[3];
+			chkEnable[0]=Item1.getEnable();
+			chkEnable[1]=Item2.getEnable();
+			chkEnable[2]=Item3.getEnable();
+			//chkEnable[3]=Item4.getEnable();
+			for(int i=0;i<3;i++)
+				if(chkEnable[i]==false)
+					return i+1;
+		}
+	
+		return 0;
 	}
 
 	public WordLabel(String text){
@@ -60,6 +69,15 @@ public class WordLabel extends JLabel{
 	public void setEnglish(){
 		this.setFont(new Font("굴림",Font.BOLD,15));
 		this.setForeground(Color.blue);//영단어 입력시 글자색 변경
+	}
+	
+	//유효성 리턴
+	public boolean getValid(){
+		return valid;
+	}
+	
+	public void setValid(boolean valid){
+		this.valid=valid;
 	}
 
 }

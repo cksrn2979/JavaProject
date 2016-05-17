@@ -18,9 +18,10 @@ public class Item1{
 	
 	//item1 실행  - 모두 지우기
 	public static void call(){
-		//떨어지는 모든 단어를 보이지 않게
+		//떨어지는 모든 단어를 보이지 않게  && 무효하게
 		for(int index=0; index<WordLabelArray.getNumOfLabel();index++){
 			WordLabelArray.get(index).setVisible(false);
+			WordLabelArray.get(index).setValid(false);
 		}
 		
 		//떨어지는 모든 단어를 성공 단어에 추가

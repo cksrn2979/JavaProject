@@ -13,22 +13,42 @@ import GameInterface.BasicInterface;
 import GameInterface.WordLabel;
 import GameInterface.WordLabelArray;
 import MyDictionary.MyDictionary;
+import ScoreFrame.ScoreFrame;
 
 
 class HeartGagePanel extends JPanel{
+	static HeartGage heartGage=new HeartGage();
 	HeartGagePanel(){
 		setBackground(null);
-		
-		JProgressBar heart= new JProgressBar();
-		heart.setMinimum(0);
-		heart.setMaximum(5);
-		heart.setForeground(new Color(255,100,100));
-		heart.setStringPainted(true);
-		heart.setString(new String("80%"));
-		heart.setValue(4);
 		add(new JLabel("HEART "));
-		add(heart);
+		add(heartGage);
+	}
+	
+	static class HeartGage extends JProgressBar{
+		int max=100;
+		int min=0;
+		Integer value=100;
 		
+		HeartGage(){
+			setMinimum(min);
+			setMaximum(max);
+			setForeground(new Color(255,100,100));
+			setStringPainted(true);
+			setString(value.toString()+"%");
+			setValue(value);
+		}
+		
+		public void pain(){
+			value-=20;
+			setValue(value);
+			setString(value.toString()+"%");	
+			
+			if(value==0){
+				new ScoreFrame();
+				BasicInterface.play=false;
+				return;
+			}
+		}
 	}
 }
 
@@ -39,7 +59,7 @@ class FallingWordPanel extends JPanel{
 	private int n=10; 
 	FallingAniLabel[] fallingAniLabel = new FallingAniLabel[n];
 	
-	FallingWordPanel(){		
+	FallingWordPanel(){
 		setLayout(null);
 		setBackground(null);
 		
@@ -62,7 +82,7 @@ class FallingWordPanel extends JPanel{
 				}
 				catch (InterruptedException e) {
 					e.printStackTrace();
-			}
+				}
 			}
 		}
 	}
@@ -90,16 +110,10 @@ class FallingWordPanel extends JPanel{
 				add(la);
 				int checkTime=0;//while 반복횟수 체크
 				
-				//y<400까지 떨어트림
-				while(y<400){
-					if(checkItem==3)//3번 느리게 아이템
-					{	
-						checkTime++;
-						if(checkTime==15)checkItem=0;
-						y=y+5;
-					}
-					else
-						y=y+10; 
+				//y<380까지 떨어트림
+				while(y<380 && BasicInterface.play){
+					
+					y=(int)(y+BasicInterface.speed); 
 					
 					la.setLocation(x, y);
 						
@@ -110,7 +124,7 @@ class FallingWordPanel extends JPanel{
 							checkItem=0;
 						}
 						
-						sleep(BasicInterface.speed); //떨어지는 속도
+						sleep(500); //떨어지는 속도
 					}
 					catch (InterruptedException e) {
 							e.printStackTrace();
@@ -118,6 +132,11 @@ class FallingWordPanel extends JPanel{
 					
 				}
 				
+				
+				if(y>380 && la.getValid()==true){
+					HeartGagePanel.heartGage.pain();
+				}
+					
 				WordLabelArray.remove(la);
 			}
 		}
