@@ -16,11 +16,6 @@ class FallWordPanel extends JPanel{
 		setLayout(null);
 		setBackground(null);
 		
-		//초기화
-		for(int i=0; i<10;i++){
-			fallingAniLabel[i]=new FallingAniLabel();
-		}
-		
 		FallingPlay a=new FallingPlay();
 		a.start();
 	}
@@ -28,10 +23,11 @@ class FallWordPanel extends JPanel{
 	//떨어지는 라벨을 생성하는 쓰레드
 	class FallingPlay extends Thread{
 		public void run(){
-			for(int i=0; i<10; i++){
-				fallingAniLabel[i].start();
+			while(BasicInterface.play){
+				FallingAniLabel fallAni= new FallingAniLabel();
+				fallAni.start();
 				try{
-					sleep(1000);
+					sleep(7000);
 				}
 				catch (InterruptedException e) {
 					e.printStackTrace();
@@ -81,9 +77,8 @@ class FallWordPanel extends JPanel{
 				
 				if(y>380 && la.getValid()==true){
 					HeartGagePanel.heartGage.pain();
-				}
-					
-				FallWordLabelArray.remove(la);
+					FallWordLabelArray.remove(la);
+				}				
 			}
 		}
 	
