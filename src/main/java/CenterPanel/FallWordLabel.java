@@ -1,17 +1,13 @@
-package GameInterface;
+package CenterPanel;
 
 import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JLabel;
 
-import Item.Item1;
-import Item.Item2;
-import Item.Item3;
-
-public class WordLabel extends JLabel{
+public class FallWordLabel extends JLabel{
 	//라벨의 Item 보유  
-	private int item = 0;
+	private boolean itemHave = false;
 	
 	//라벨의 유효성
 	private boolean valid=true;
@@ -21,39 +17,32 @@ public class WordLabel extends JLabel{
 		double rand=Math.random();
 		//10%확률로 아이템 생성
 		if(rand<0.1){
-			Boolean chkEnable[]=new Boolean[3];
-			chkEnable[0]=Item1.getEnable();
-			chkEnable[1]=Item2.getEnable();
-			chkEnable[2]=Item3.getEnable();
-			//chkEnable[3]=Item4.getEnable();
-			for(int i=0;i<3;i++)
-				if(chkEnable[i]==false)
-					return i+1;
-		}
-	
+			itemHave=true;
+		}	
 		return 0;
 	}
 
-	public WordLabel(String text){
+	public FallWordLabel(String text){
 		super(text);
 		this.setSize(100,40);
-		item=randItem(); //Item랜덤하게 생성
+		randItem(); //Item랜덤하게 생성
 			
-		if(item!=0)
+		if(itemHave)
 			setHaveItem_k(); //Item을 가지고 있을때의 폰트
 		else
 			setKorean(); //한글 폰트
 	}
 	
 	//Item 리턴
-	public int getHaveItem(String korean){
-		return  item;
+	public boolean getHaveItem(){
+		return  itemHave;
 	}
 	
 	//Item 가지고 있을때 한글 폰트
 	public void setHaveItem_k(){
 		this.setFont(new Font("굴림",Font.BOLD,20));
 	}
+	
 	//Item 가지고 있을 때 영어 폰트
 	public void setHaveItem_e(){
 		this.setFont(new Font("굴림",Font.BOLD,20));

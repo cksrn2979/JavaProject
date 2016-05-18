@@ -1,10 +1,10 @@
-package MainFrame;
+package CenterPanel;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import MainFrame.CenterPanel;
+import CenterPanel.CenterPanel;
 
 public class CenterPanelTest {
 
