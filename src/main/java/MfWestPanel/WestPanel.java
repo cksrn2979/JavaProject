@@ -1,4 +1,4 @@
-package WestPanel;
+package MfWestPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;

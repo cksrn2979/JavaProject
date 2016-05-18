@@ -1,4 +1,4 @@
-package WestPanel;
+package MfWestPanel;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;

@@ -1,4 +1,4 @@
-package SouthPanel;
+package MfSouthPanel;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -8,11 +8,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import CenterPanel.FallWordLabel;
-import CenterPanel.FallWordLabelArray;
-import EastPanel.SuccessWordPanel;
 import GameInterface.MyDictionary;
-import WestPanel.ItemPanel;
+import MfCenterPanel.FallWordLabel;
+import MfCenterPanel.FallWordLabelArray;
+import MfEastPanel.SuccessWordPanel;
+import MfWestPanel.ItemPanel;
 
 class InputTextPanel extends JPanel{
 	
@@ -72,12 +72,12 @@ class InputTextPanel extends JPanel{
 			if(langage==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
 				return;			
 						
-			for(int i=0; i<FallWordLabelArray.getNumOfLabel(); i++){ //떨어지는 라벨들과 비교
-				FallWordLabel la=FallWordLabelArray.get(i);
-				String fallWord=FallWordLabelArray.getText(i); //떨어지는 라벨의 단어				
+			for(int index=0; index<FallWordLabelArray.getNumOfLabel(); index++){ //떨어지는 라벨들과 비교
+				FallWordLabel la=FallWordLabelArray.get(index);
+				String fallWord=FallWordLabelArray.getText(index); //떨어지는 라벨의 단어				
 				
 				if(fallWord.equals(text)){ //떨어지는 단어와 입력 단어가 같을경우	 					
-					FallWordLabelArray.setText(i,renderWord); //한글 -> 영어로, 영어-> null로
+					FallWordLabelArray.setText(index,renderWord); //한글 -> 영어로, 영어-> null로
 					
 					if(langage==false)
 						InputEnglish(la);  //영어 입력 단계 였다면	 				
@@ -105,10 +105,10 @@ class InputTextPanel extends JPanel{
 			
 			//Item확인, 생성
 			if(la.getHaveItem())
-				for(int j=0; j<4; j++){
-					if(ItemPanel.item[j].getEnable()==false){
-						ItemPanel.item[j].setEnable(true);
-						ItemPanel.itemBtn[j].setEnabled(true);
+				for(int i=0; i<4; i++){
+					if(ItemPanel.item[i].getEnable()==false){
+						ItemPanel.item[i].setEnable(true);
+						ItemPanel.itemBtn[i].setEnabled(true);
 						break;
 					}
 				}

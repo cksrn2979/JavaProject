@@ -1,4 +1,4 @@
-package SouthPanel;
+package MfSouthPanel;
 
 import java.awt.Color;
 

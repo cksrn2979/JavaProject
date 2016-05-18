@@ -1,4 +1,4 @@
-package NorthPanel;
+package MfNorthPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;

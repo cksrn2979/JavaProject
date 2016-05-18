@@ -1,9 +1,9 @@
-package WestPanel;
+package MfWestPanel;
 
-import CenterPanel.FallWordLabelArray;
-import EastPanel.SuccessWordPanel;
 import GameInterface.BasicInterface;
 import GameInterface.MyDictionary;
+import MfCenterPanel.FallWordLabelArray;
+import MfEastPanel.SuccessWordPanel;
 
 public abstract class Item{
 	private boolean enable;

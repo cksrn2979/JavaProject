@@ -1,4 +1,4 @@
-package CenterPanel;
+package MfCenterPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,7 @@ public class CenterPanel extends JPanel{
 		setBorder(CenterBorder);
 		setLayout(new BorderLayout());
 		add(new HeartGagePanel(),BorderLayout.NORTH);
-		add(new FallingWordPanel(),BorderLayout.CENTER);
+		add(new FallWordPanel(),BorderLayout.CENTER);
 		
 	}
 }

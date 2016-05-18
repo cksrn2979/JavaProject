@@ -1,4 +1,4 @@
-package CenterPanel;
+package MfCenterPanel;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,21 +12,14 @@ public class FallWordLabel extends JLabel{
 	//라벨의 유효성
 	private boolean valid=true;
 	
-	 //Item랜덤하게 생성
-	private int randItem(){		
-		double rand=Math.random();
-		//10%확률로 아이템 생성
-		if(rand<0.1){
-			itemHave=true;
-		}	
-		return 0;
-	}
-
 	public FallWordLabel(String text){
 		super(text);
 		this.setSize(100,40);
-		randItem(); //Item랜덤하게 생성
-			
+		//Item랜덤하게 생성
+		if(Math.random()<0.15){
+			itemHave=true;
+		}	
+		
 		if(itemHave)
 			setHaveItem_k(); //Item을 가지고 있을때의 폰트
 		else

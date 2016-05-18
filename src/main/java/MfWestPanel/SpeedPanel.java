@@ -1,4 +1,4 @@
-package WestPanel;
+package MfWestPanel;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import GameInterface.BasicInterface;
-import WestPanel.SpeedPanel.SpeedAni;
+import MfWestPanel.SpeedPanel.SpeedAni;
 
 class SpeedPanel extends JPanel{
 	JLabel speedLa=new JLabel((BasicInterface.speed.toString()));

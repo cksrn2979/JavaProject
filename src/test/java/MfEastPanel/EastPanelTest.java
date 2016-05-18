@@ -1,13 +1,13 @@
-package EastPanel;
+package MfEastPanel;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import EastPanel.EastPanel;
-import EastPanel.InformationPanel;
-import EastPanel.SuccessWordPanel;
-import EastPanel.WordSetPanel;
+import MfEastPanel.EastPanel;
+import MfEastPanel.InformationPanel;
+import MfEastPanel.SuccessWordPanel;
+import MfEastPanel.WordSetPanel;
 
 public class EastPanelTest {
 

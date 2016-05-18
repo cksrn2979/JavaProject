@@ -1,4 +1,5 @@
 package ScoreFrame;
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -14,9 +15,12 @@ public class ScoreFrame extends JFrame {
 	public ScoreFrame(){
 		setTitle("Score Menu");
 		setSize(800,550);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		setBackground(Color.WHITE);
+		
+		add(new NorthPanel(),BorderLayout.NORTH);
+		add(new CenterPanel(),BorderLayout.CENTER);
+		add(new SouthPanel(),BorderLayout.SOUTH);
 		
 		//파일 메뉴 생성
 		fileMenu.add(new JMenuItem("새파일"));

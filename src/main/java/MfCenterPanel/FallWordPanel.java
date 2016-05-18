@@ -1,18 +1,18 @@
-package CenterPanel;
+package MfCenterPanel;
 
 import javax.swing.JPanel;
 
 import GameInterface.BasicInterface;
 import GameInterface.MyDictionary;
 
-class FallingWordPanel extends JPanel{
+class FallWordPanel extends JPanel{
 	static int checkItem=0;
 	
 	//떨어지는 라벨들의 갯수
 	private int n=10; 
 	FallingAniLabel[] fallingAniLabel = new FallingAniLabel[n];
 	
-	FallingWordPanel(){
+	FallWordPanel(){
 		setLayout(null);
 		setBackground(null);
 		

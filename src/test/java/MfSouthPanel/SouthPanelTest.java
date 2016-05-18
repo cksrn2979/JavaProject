@@ -1,10 +1,10 @@
-package SouthPanel;
+package MfSouthPanel;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import SouthPanel.SouthPanel;
+import MfSouthPanel.SouthPanel;
 
 public class SouthPanelTest {
 

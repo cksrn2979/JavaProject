@@ -1,4 +1,4 @@
-package EastPanel;
+package MfEastPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;

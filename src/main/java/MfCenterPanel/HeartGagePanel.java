@@ -1,4 +1,4 @@
-package CenterPanel;
+package MfCenterPanel;
 
 import java.awt.Color;
 

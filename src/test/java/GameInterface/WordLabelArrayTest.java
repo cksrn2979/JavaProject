@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import CenterPanel.FallWordLabel;
-import CenterPanel.FallWordLabelArray;
+import MfCenterPanel.FallWordLabel;
+import MfCenterPanel.FallWordLabelArray;
 
 public class WordLabelArrayTest {
 	
