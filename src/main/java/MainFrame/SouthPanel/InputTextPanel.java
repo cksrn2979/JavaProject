@@ -8,9 +8,9 @@ import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import MainFrame.MainFrame;
 import MainFrame.CenterPanel.FallWordLabel;
 import MainFrame.CenterPanel.FallWordLabelArray;
-import MainFrame.EastPanel.SuccessWordPanel;
 import MainFrame.WestPanel.ItemPanel;
 import MyDictionary.MyDictionary;	
 
@@ -98,7 +98,7 @@ class InputTextPanel extends JPanel{
 			String korean=MyDictionary.renderReverse(text);
 					
 			//성공 단어에 추가
-			SuccessWordPanel.successWordTable.add(korean,text);
+			MainFrame.mf.ep.successWordPanel.successWordTable.add(korean,text);
 			
 			//단어 성공 횟수 증가
 			MyDictionary.plusSuccess(korean);

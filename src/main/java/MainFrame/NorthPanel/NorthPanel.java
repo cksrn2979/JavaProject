@@ -7,7 +7,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import MainFrame.MainFrame;
+import MainFrame.Interface;
 
 public class NorthPanel extends JPanel{
 	public NorthPanel(){
@@ -15,8 +15,8 @@ public class NorthPanel extends JPanel{
 		setPreferredSize(new Dimension(0,40));
 		
 		Font font = new Font("AvantGardeMdITCTT Bold",Font.BOLD,20);
-		JLabel level = new JLabel("LEVEL : " + MainFrame.getLevel().toString());
-		JLabel score = new JLabel("SCORE : " + MainFrame.getScore().toString());
+		JLabel level = new JLabel("LEVEL : " + Interface.getLevel().toString());
+		JLabel score = new JLabel("SCORE : " + Interface.getScore().toString());
 		
 		level.setFont(font);
 		score.setFont(font);

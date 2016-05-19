@@ -10,7 +10,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 public class SuccessWordPanel extends JPanel{
-	public static SuccessWordTable successWordTable;
+	public SuccessWordTable successWordTable;
 	
 	SuccessWordPanel(){
 		Border ListBorder= BorderFactory.createEtchedBorder();

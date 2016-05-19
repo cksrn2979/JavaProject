@@ -1,9 +1,9 @@
 package MainFrame.WestPanel;
 
+import MainFrame.Interface;
 import MainFrame.MainFrame;
 import MainFrame.CenterPanel.FallWordLabel;
 import MainFrame.CenterPanel.FallWordLabelArray;
-import MainFrame.EastPanel.SuccessWordPanel;
 import MyDictionary.MyDictionary;
 
 public abstract class Item{
@@ -38,7 +38,7 @@ class Item1 extends Item{
 				korean=MyDictionary.renderReverse(english);
 			}
 			
-			SuccessWordPanel.successWordTable.add(korean,english);
+			MainFrame.mf.ep.successWordPanel.successWordTable.add(korean,english);
 		}
 				
 		//모든 떨어지는 라벨 제거
@@ -57,7 +57,7 @@ class Item2 extends Item{
 
 class Item3 extends Item{
 	public void call() {
-		MainFrame.setSpeed(MainFrame.getSpeed()-5);
+		Interface.setSpeed(Interface.getSpeed()-5);
 		//item3 사용 불가 상태로
 		setEnable(false);
 	}

@@ -10,10 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import MainFrame.Interface;
 import MainFrame.MainFrame;
 
 class SpeedPanel extends JPanel{
-	JLabel speedLa=new JLabel(MainFrame.getSpeed().toString());
+	JLabel speedLa=new JLabel(Interface.getSpeed().toString());
 	
 	SpeedPanel(){
 		Border typingSpeedBorder= BorderFactory.createEtchedBorder();
@@ -36,10 +37,10 @@ class SpeedPanel extends JPanel{
 		public void run(){
 			
 			NumberFormat numberFormat=new DecimalFormat("####.##");
-			while(MainFrame.getPlay()){
-				MainFrame.speedUp(0.01);
+			while(Interface.getPlay()){
+				Interface.speedUp(0.01);
 			
-				speedLa.setText(numberFormat.format(MainFrame.getSpeed()));
+				speedLa.setText(numberFormat.format(Interface.getSpeed()));
 				
 				try {
 					sleep(100);

@@ -2,12 +2,11 @@ package MainFrame.CenterPanel;
 
 import javax.swing.JPanel;
 
+import MainFrame.Interface;
 import MainFrame.MainFrame;
 import MyDictionary.MyDictionary;
 
 public class FallWordPanel extends JPanel{
-	static int checkItem=0;
-	
 	//떨어지는 라벨들의 갯수
 	private int n=10; 
 	FallingAniLabel[] fallingAniLabel = new FallingAniLabel[n];
@@ -23,7 +22,7 @@ public class FallWordPanel extends JPanel{
 	//떨어지는 라벨을 생성하는 쓰레드
 	class FallingPlay extends Thread{
 		public void run(){
-			while(MainFrame.getPlay()){
+			while(Interface.getPlay()){
 				FallingAniLabel fallAni= new FallingAniLabel();
 				fallAni.start();
 				try{
@@ -41,7 +40,7 @@ public class FallWordPanel extends JPanel{
 	
 		public void run(){
 			
-			while(MainFrame.getPlay()){
+			while(Interface.getPlay()){
 				//좌표값 설정
 				int x=(int)(Math.random()*400);
 				int y=0; 
@@ -59,9 +58,9 @@ public class FallWordPanel extends JPanel{
 				add(la);
 				
 				//y<380까지 떨어트림
-				while(y<380 && MainFrame.getPlay()){
+				while(y<380 && Interface.getPlay()){
 					
-					y=(int)(y+MainFrame.getSpeed()); 
+					y=(int)(y+Interface.getSpeed()); 
 					
 					la.setLocation(x, y);
 						
@@ -76,7 +75,7 @@ public class FallWordPanel extends JPanel{
 				}
 				
 				if(y>380 && la.getValid()==true){
-					HeartGagePanel.heartGage.pain();
+					MainFrame.mf.cp.heartGagePanel.heartGage.pain();
 					FallWordLabelArray.remove(la);
 				}				
 			}

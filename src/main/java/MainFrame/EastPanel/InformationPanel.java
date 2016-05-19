@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import MainFrame.MainFrame;
+import MainFrame.Interface;
 
 class InformationPanel extends JPanel{
 	InformationPanel(){
@@ -20,8 +20,8 @@ class InformationPanel extends JPanel{
 		setBorder(infomationBorder);
 		
 		Font font = new Font("나눔 고딕",Font.BOLD,13);
-		JLabel la1=new JLabel("TRY - " + MainFrame.getGameTry().toString());
-		JLabel la2=new JLabel("User : " + MainFrame.getUser());
+		JLabel la1=new JLabel("TRY - " + Interface.getGameTry().toString());
+		JLabel la2=new JLabel("User : " + Interface.getUser());
 		la1.setFont(font);
 		la2.setFont(font);
 		add(la1);

@@ -6,19 +6,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-import MainFrame.MainFrame;
+import MainFrame.Interface;
 import ScoreFrame.ScoreFrame;
 
 class HeartGagePanel extends JPanel{
-	static HeartGage heartGage=new HeartGage();
+	public HeartGage heartGage;
 	
 	HeartGagePanel(){
 		setBackground(null);
 		add(new JLabel("HEART "));
+		
+		heartGage=new HeartGage();
 		add(heartGage);
 	}
 	
-	static class HeartGage extends JProgressBar{
+	class HeartGage extends JProgressBar{
 		int max=100;
 		int min=0;
 		Integer value=100;
@@ -39,7 +41,7 @@ class HeartGagePanel extends JPanel{
 			
 			if(value==0){
 				new ScoreFrame();
-				MainFrame.setPlay(false);
+				Interface.setPlay(false);
 				return;
 			}
 		}

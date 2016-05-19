@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import AllWordFrame.AllWordFrame;
-import MainFrame.MainFrame;
+import MainFrame.Interface;
 
 class WordSetPanel extends JPanel{
 	WordSetPanel(){
@@ -34,7 +34,7 @@ class WordSetPanel extends JPanel{
 	class AllWordActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			new AllWordFrame();
-			MainFrame.setPlay(false);
+			Interface.setPlay(false);
 		}
 	}
 }

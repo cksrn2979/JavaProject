@@ -21,6 +21,7 @@ import MyDictionary.MyDictionary;
 
 public class MainFrame extends JFrame{
 	public static MainFrame mf;
+	
 	JMenuBar menuBar=new JMenuBar();
 	JMenu fileMenu=new JMenu("파일");
 	JMenu helpMenu=new JMenu("Help");
@@ -29,35 +30,12 @@ public class MainFrame extends JFrame{
 	JMenuItem save=new JMenuItem("저장");
 	JMenuItem exit=new JMenuItem("종료");
 	
-	
-	public EastPanel rp;
+	public EastPanel ep;
 	public NorthPanel np;
 	public CenterPanel cp;
 	public SouthPanel sp;
 	public WestPanel wp;
 	
-	private static boolean play=true;
-	private static Integer level=1;
-	private static Double speed=5.0;
-	private static Integer score=0;
-	private static Integer gameTry=1;
-	private static String user="서송이";
-	
-	public static boolean getPlay(){return play;}	
-	public static Integer getLevel(){return level;}	
-	public static Double getSpeed(){return speed;}	
-	public static Integer getScore(){return score;}	
-	public static Integer getGameTry(){	return gameTry;	}	
-	public static String getUser(){	return user;}
-	
-	public static void setPlay(boolean play){MainFrame.play=play;}
-	public static void setLevel(Integer level){MainFrame.level=level;}
-	public static void setSpeed(Double speed){MainFrame.speed=speed;}
-	public static void setScore(Integer score){MainFrame.score=score;}
-	public static void setGameTry(Integer gameTry){MainFrame.gameTry=gameTry;}
-	public static void setUser(String user){MainFrame.user=user;}
-	
-	public static void speedUp(double up){speed+=up;}
 	
 	MainFrame(){
 		setTitle("Typing Trainer with English!");
@@ -97,16 +75,16 @@ public class MainFrame extends JFrame{
 		
 		Container c = getContentPane();
 		
-		rp= new EastPanel();
-		np= new NorthPanel();
-		cp= new CenterPanel();
 		sp= new SouthPanel();
+		ep= new EastPanel();
+		np= new NorthPanel();
+		cp= new CenterPanel();		
 		wp= new WestPanel();
 		
-		c.add(rp,BorderLayout.EAST);
-		c.add(np,BorderLayout.NORTH);
-		c.add(cp,BorderLayout.CENTER);
 		c.add(sp,BorderLayout.SOUTH);
+		c.add(ep,BorderLayout.EAST);
+		c.add(np,BorderLayout.NORTH);
+		c.add(cp,BorderLayout.CENTER);		
 		c.add(wp,BorderLayout.WEST);
 		
 	}
