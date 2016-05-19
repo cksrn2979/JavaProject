@@ -12,36 +12,40 @@ public class FallWordLabelArrayTest {
 	
 	@Before
 	public void removeTest(){
+		FallWordLabelArray fallWordLabelArray = new FallWordLabelArray();
 		FallWordLabel wla=new FallWordLabel("korean");
-		FallWordLabelArray.add(wla);
-		FallWordLabelArray.remove(0);
-		assertEquals(FallWordLabelArray.getNumOfLabel(),0);
+		fallWordLabelArray.add(wla);
+		fallWordLabelArray.remove(0);
+		assertEquals(fallWordLabelArray.getNumOfLabel(),0);
 	}
 
 	@Test
 	public void getLabelTest() {
+		FallWordLabelArray fallWordLabelArray = new FallWordLabelArray();
 		FallWordLabel wla=new FallWordLabel("korean");
-		FallWordLabelArray.add(wla);
-		assertEquals(FallWordLabelArray.getLabel(0),wla);
-		FallWordLabelArray.remove(0);
+		fallWordLabelArray.add(wla);
+		assertEquals(fallWordLabelArray.getLabel(0),wla);
+		fallWordLabelArray.remove(0);
 	}
 	
 	
 	@Test
 	public void getTextTest() {
+		FallWordLabelArray fallWordLabelArray = new FallWordLabelArray();
 		FallWordLabel wla=new FallWordLabel("korean");
-		FallWordLabelArray.add(wla);
-		assertEquals(FallWordLabelArray.getText(0),wla.getText());
-		FallWordLabelArray.remove(0);
+		fallWordLabelArray.add(wla);
+		assertEquals(fallWordLabelArray.getText(0),wla.getText());
+		fallWordLabelArray.remove(0);
 	}
 	
 	@Test
 	public void setTextTest() {
+		FallWordLabelArray fallWordLabelArray = new FallWordLabelArray();
 		FallWordLabel wla=new FallWordLabel("korean");
-		FallWordLabelArray.add(wla);
-		FallWordLabelArray.setText(0,"english");
-		assertEquals(FallWordLabelArray.getText(0),"english");
-		FallWordLabelArray.remove(0);
+		fallWordLabelArray.add(wla);
+		fallWordLabelArray.setText(0,"english");
+		assertEquals(fallWordLabelArray.getText(0),"english");
+		fallWordLabelArray.remove(0);
 	}
 	
 	

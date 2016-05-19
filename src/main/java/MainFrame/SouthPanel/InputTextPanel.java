@@ -74,13 +74,14 @@ class InputTextPanel extends JPanel{
 			
 			if(turn==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
 				return;			
-						
-			for(int index=0; index<FallWordLabelArray.getNumOfLabel(); index++){ //떨어지는 라벨들과 비교
-				FallWordLabel la=FallWordLabelArray.getLabel(index);
-				String fallWord=FallWordLabelArray.getText(index); //떨어지는 라벨의 단어				
+			
+			FallWordLabelArray fallWordLabelArray=MainFrame.mf.cp.fallWordPanel.fallWordLabelArray;
+			for(int index=0; index<fallWordLabelArray.getNumOfLabel(); index++){ //떨어지는 라벨들과 비교
+				FallWordLabel la=fallWordLabelArray.getLabel(index);
+				String fallWord=fallWordLabelArray.getText(index); //떨어지는 라벨의 단어				
 				
 				if(fallWord.equals(text)){ //떨어지는 단어와 입력 단어가 같을경우	 					
-					FallWordLabelArray.setText(index,renderWord); //한글 -> 영어로, 영어-> null로
+					fallWordLabelArray.setText(index,renderWord); //한글 -> 영어로, 영어-> null로
 					
 					if(turn==false)//영어 입력 단계 였다면	 
 						InputEnglish(la); 	
@@ -121,7 +122,7 @@ class InputTextPanel extends JPanel{
 			}
 	
 			//제거
-			FallWordLabelArray.remove(la);
+			MainFrame.mf.cp.fallWordPanel.fallWordLabelArray.remove(la);
 			
 			//한글 입력차례로 변환
 			turn=true;

@@ -9,12 +9,13 @@ import MyDictionary.MyDictionary;
 public class FallWordPanel extends JPanel{
 	//떨어지는 라벨들의 갯수
 	private int n=10; 
+	public FallWordLabelArray fallWordLabelArray;
 	FallingAniLabel[] fallingAniLabel = new FallingAniLabel[n];
 	
 	FallWordPanel(){
 		setLayout(null);
 		setBackground(null);
-		
+		fallWordLabelArray= new FallWordLabelArray();
 		FallingPlay a=new FallingPlay();
 		a.start();
 	}
@@ -49,7 +50,7 @@ public class FallWordPanel extends JPanel{
 				FallWordLabel la = new FallWordLabel(MyDictionary.rand());
 				
 				//떨어지는 라벨 모음에 라벨 추가
-				FallWordLabelArray.add(la);
+				fallWordLabelArray.add(la);
 				
 				//위치 설정
 				la.setLocation(x, y);
@@ -76,7 +77,7 @@ public class FallWordPanel extends JPanel{
 				
 				if(y>380 && la.getValid()==true){
 					MainFrame.mf.cp.heartGagePanel.heartGage.pain();
-					FallWordLabelArray.remove(la);
+					fallWordLabelArray.remove(la);
 				}				
 			}
 		}
