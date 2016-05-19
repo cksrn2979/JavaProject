@@ -5,8 +5,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import GameInterface.BasicInterface;
-import GameInterface.MyDictionary;
+import MyDictionary.MyDictionary;
 
 //AllWordList 프레임
 public class AllWordFrame extends JFrame{

@@ -12,14 +12,15 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import GameInterface.MyDictionary;
-import MfCenterPanel.CenterPanel;
-import MfEastPanel.EastPanel;
-import MfNorthPanel.NorthPanel;
-import MfSouthPanel.SouthPanel;
-import MfWestPanel.WestPanel;
+import MainFrame.CenterPanel.CenterPanel;
+import MainFrame.EastPanel.EastPanel;
+import MainFrame.NorthPanel.NorthPanel;
+import MainFrame.SouthPanel.SouthPanel;
+import MainFrame.WestPanel.WestPanel;
+import MyDictionary.MyDictionary;
 
 public class MainFrame extends JFrame{
+	public static MainFrame mf;
 	JMenuBar menuBar=new JMenuBar();
 	JMenu fileMenu=new JMenu("파일");
 	JMenu helpMenu=new JMenu("Help");
@@ -28,8 +29,37 @@ public class MainFrame extends JFrame{
 	JMenuItem save=new JMenuItem("저장");
 	JMenuItem exit=new JMenuItem("종료");
 	
+	
+	public EastPanel rp;
+	public NorthPanel np;
+	public CenterPanel cp;
+	public SouthPanel sp;
+	public WestPanel wp;
+	
+	private static boolean play=true;
+	private static Integer level=1;
+	private static Double speed=5.0;
+	private static Integer score=0;
+	private static Integer gameTry=1;
+	private static String user="서송이";
+	
+	public static boolean getPlay(){return play;}	
+	public static Integer getLevel(){return level;}	
+	public static Double getSpeed(){return speed;}	
+	public static Integer getScore(){return score;}	
+	public static Integer getGameTry(){	return gameTry;	}	
+	public static String getUser(){	return user;}
+	
+	public static void setPlay(boolean play){MainFrame.play=play;}
+	public static void setLevel(Integer level){MainFrame.level=level;}
+	public static void setSpeed(Double speed){MainFrame.speed=speed;}
+	public static void setScore(Integer score){MainFrame.score=score;}
+	public static void setGameTry(Integer gameTry){MainFrame.gameTry=gameTry;}
+	public static void setUser(String user){MainFrame.user=user;}
+	
+	public static void speedUp(double up){speed+=up;}
+	
 	MainFrame(){
-
 		setTitle("Typing Trainer with English!");
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -65,22 +95,24 @@ public class MainFrame extends JFrame{
 		//메뉴바 추가
 		setJMenuBar(menuBar);
 		
-	}
-	
-	public static void main(String[] args){
-		MainFrame mf= new MainFrame();
-		Container c = mf.getContentPane();
+		Container c = getContentPane();
 		
-		EastPanel rp= new EastPanel();
-		NorthPanel np= new NorthPanel();
-		CenterPanel cp= new CenterPanel();
-		SouthPanel sp= new SouthPanel();
-		WestPanel wp= new WestPanel();
+		rp= new EastPanel();
+		np= new NorthPanel();
+		cp= new CenterPanel();
+		sp= new SouthPanel();
+		wp= new WestPanel();
 		
 		c.add(rp,BorderLayout.EAST);
 		c.add(np,BorderLayout.NORTH);
 		c.add(cp,BorderLayout.CENTER);
 		c.add(sp,BorderLayout.SOUTH);
 		c.add(wp,BorderLayout.WEST);
+		
 	}
+	
+	public static void main(String[] args){
+		mf= new MainFrame();		
+	}
+	
 }
