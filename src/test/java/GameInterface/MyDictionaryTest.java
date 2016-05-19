@@ -1,10 +1,10 @@
-package MyDicitionary;
+package GameInterface;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import MyDictionary.MyDictionary;
+import GameInterface.MyDictionary;
 
 
 public class MyDictionaryTest {

@@ -1,4 +1,4 @@
-package MainFrame;
+package MfNorthPanel;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import GameInterface.BasicInterface;
 
 public class NorthPanel extends JPanel{
-	NorthPanel(){
+	public NorthPanel(){
 		setBackground(new Color(240,240,255));
 		setPreferredSize(new Dimension(0,40));
 		

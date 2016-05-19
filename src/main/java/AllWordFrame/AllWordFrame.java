@@ -5,17 +5,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import MyDictionary.MyDictionary;
+import GameInterface.BasicInterface;
+import GameInterface.MyDictionary;
 
 //AllWordList 프레임
 public class AllWordFrame extends JFrame{
-	
 	public AllWordFrame(){
 		setTitle("All Word!!!");
 		setSize(400,600);
 		setVisible(true);
 		setResizable(false);//크기 고정
-		
 		
 		AllWordListTable allWordList =new AllWordListTable();
 		

@@ -1,12 +1,12 @@
-package MainFrame;
+package MfWestPanel;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import MainFrame.ItemPanel;
-import MainFrame.SpeedPanel;
-import MainFrame.WestPanel;
+import MfWestPanel.ItemPanel;
+import MfWestPanel.SpeedPanel;
+import MfWestPanel.WestPanel;
 
 public class WestPanelTest {
 

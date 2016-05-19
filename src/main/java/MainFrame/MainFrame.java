@@ -12,7 +12,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import MyDictionary.MyDictionary;
+import GameInterface.MyDictionary;
+import MfCenterPanel.CenterPanel;
+import MfEastPanel.EastPanel;
+import MfNorthPanel.NorthPanel;
+import MfSouthPanel.SouthPanel;
+import MfWestPanel.WestPanel;
 
 public class MainFrame extends JFrame{
 	JMenuBar menuBar=new JMenuBar();

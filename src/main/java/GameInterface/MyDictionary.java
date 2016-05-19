@@ -1,4 +1,4 @@
-package MyDictionary;
+package GameInterface;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
+
 
 public class MyDictionary{
 	private static Vector<String> list= new Vector<String>(); //목록

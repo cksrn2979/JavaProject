@@ -1,13 +1,18 @@
-package GameInterface;
+package MfCenterPanel;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.util.Vector;
 
-//떨어지는 라벨들의 집합
-public class WordLabelArray{ 
-	
-	private static Vector<WordLabel> list= new Vector<WordLabel>();
+import javax.swing.JLabel;
 
-	public static void add(WordLabel wla){
+
+//떨어지는 라벨들의 집합
+public class FallWordLabelArray{ 
+	
+	private static Vector<FallWordLabel> list= new Vector<FallWordLabel>();
+
+	public static void add(FallWordLabel wla){
 		list.add(wla);
 	}
 	
@@ -22,7 +27,7 @@ public class WordLabelArray{
 	}
 	
 	//index 번째 Label을 얻음
-	public static WordLabel get(int index){
+	public static FallWordLabel get(int index){
 		return list.elementAt(index);		
 	}
 	
@@ -43,7 +48,7 @@ public class WordLabelArray{
 	}
 	
 	//집합에서 삭제
-	public static void remove(WordLabel wla){
+	public static void remove(FallWordLabel wla){
 		list.remove(wla);	
 	}
 	

@@ -2,7 +2,7 @@ package ScoreFrame;
 import javax.swing.*;
 import java.awt.*;
 
-public class SouthPanel extends JPanel {
+class SouthPanel extends JPanel {
 	SouthPanel(){
 		setBackground(Color.WHITE);
 		

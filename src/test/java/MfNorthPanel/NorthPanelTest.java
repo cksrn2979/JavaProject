@@ -1,4 +1,4 @@
-package MainFrame;
+package MfNorthPanel;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import org.junit.Test;
 
-import MainFrame.NorthPanel;
+import MfNorthPanel.NorthPanel;
 
 public class NorthPanelTest {
 
