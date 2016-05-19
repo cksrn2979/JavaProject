@@ -1,5 +1,6 @@
 package MfSouthPanel;
-
+import java.lang.Math;
+import java.util.Random;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
@@ -38,21 +39,24 @@ class InputTextPanel extends JPanel{
 			
 			switch(e.getKeyCode()){
 			case KeyEvent.VK_F1: //item1 모두 지우기
-				if(ItemPanel.item[0].getEnable()){
-					ItemPanel.item[0].call();
-					ItemPanel.itemBtn[0].setEnabled(false);
+				if(ItemPanel.getItem(0).getEnable()){
+					ItemPanel.getItem(0).call();
+					ItemPanel.getItemBtn(0).setEnabled(false);
 					langage=true;
 				}
 				break;		
 				
 			case KeyEvent.VK_F2: //item2
-				if(ItemPanel.item[1].getEnable())
-					ItemPanel.item[1].call();
+				if(ItemPanel.getItem(1).getEnable())
+					ItemPanel.getItem(1).call();
+				
 				break;	
 				
 			case KeyEvent.VK_F3: //item3			
-				if(ItemPanel.item[1].getEnable())
-					ItemPanel.item[1].call();
+				if(ItemPanel.getItem(2).getEnable())
+					ItemPanel.getItem(2).call();
+					ItemPanel.getItemBtn(2).setEnabled(false);
+					
 				break;
 				
 			case KeyEvent.VK_F4: //item4
@@ -105,13 +109,19 @@ class InputTextPanel extends JPanel{
 			
 			//Item확인, 생성
 			if(la.getHaveItem())
-				for(int i=0; i<4; i++){
-					if(ItemPanel.item[i].getEnable()==false){
-						ItemPanel.item[i].setEnable(true);
-						ItemPanel.itemBtn[i].setEnabled(true);
-						break;
-					}
+
+			{
+				Random random=new Random();
+				int num=random.nextInt(4);//0-3 아이템 번호 제공
+				
+				while(ItemPanel.getItem(num).getEnable()==true){
+					num=random.nextInt(4);
 				}
+				
+				ItemPanel.getItem(num).setEnable(true);
+				ItemPanel.getItemBtn(num).setEnabled(true);
+				
+			}
 	
 			//제거
 			FallWordLabelArray.remove(la);

@@ -48,6 +48,7 @@ class Item1 extends Item{
 
 class Item2 extends Item{
 	public void call() {
+		setEnable(false);
 	}
 }
 

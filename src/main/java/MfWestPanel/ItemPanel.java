@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 public class ItemPanel extends JPanel{
-	public static Item item[]=new Item[4];
-	public static JButton itemBtn[]=new JButton[4];
+	private static Item item[]=new Item[4];
+	private static JButton itemBtn[]=new JButton[4];
 	
 	ItemPanel(){
 		Border itemBorder= BorderFactory.createEtchedBorder();
@@ -37,5 +37,13 @@ public class ItemPanel extends JPanel{
 		}			
 	}
 	
+	//해당 인덱스의 아이템 리턴
+	public static Item getItem(int index){
+		return item[index];
+	}
+	//해당 인덱스의 아이템 버튼 리턴
+	public static JButton getItemBtn(int index){
+		return itemBtn[index];
+	}
 	
 }
