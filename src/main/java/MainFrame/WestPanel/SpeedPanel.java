@@ -36,7 +36,7 @@ class SpeedPanel extends JPanel{
 	class SpeedAni extends Thread{
 		public void run(){
 			
-			NumberFormat numberFormat=new DecimalFormat("####.##");
+			NumberFormat numberFormat=new DecimalFormat("###.##");
 			while(Interface.getPlay()){
 				Interface.speedUp(0.01);
 			

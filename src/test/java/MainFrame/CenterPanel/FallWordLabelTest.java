@@ -1,6 +1,6 @@
 package MainFrame.CenterPanel;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -15,11 +15,13 @@ public class FallWordLabelTest {
 		FallWordLabel fallWL=new FallWordLabel("test");
 	}
 	
+	/*
 	@Test
 	public void getHaveItemTest(){
 		FallWordLabel fallWL=new FallWordLabel("test");
-		assertEquals(fallWL.getHaveItem(),false);
+		assertFalse(fallWL.getHaveItem());
 	}
+	*/
 	
 	@Test
 	public void setHaveItem_kTest(){

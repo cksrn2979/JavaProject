@@ -1,5 +1,7 @@
 package MainFrame.CenterPanel;
 
+import java.util.Vector;
+
 import javax.swing.JPanel;
 
 import MainFrame.Interface;
@@ -9,19 +11,22 @@ import MyDictionary.MyDictionary;
 public class FallWordPanel extends JPanel{
 	//떨어지는 라벨들의 갯수
 	private int n=10; 
-	public FallWordLabelArray fallWordLabelArray;
-	FallingAniLabel[] fallingAniLabel = new FallingAniLabel[n];
+	private Vector<FallWordLabel> fallWordLabelArray;
+	
+	public Vector<FallWordLabel> getArray(){
+		return fallWordLabelArray;
+	}
 	
 	FallWordPanel(){
 		setLayout(null);
 		setBackground(null);
-		fallWordLabelArray= new FallWordLabelArray();
-		FallingPlay a=new FallingPlay();
+		fallWordLabelArray= new Vector<FallWordLabel>();
+		FallingRun a=new FallingRun();
 		a.start();
 	}
 	
 	//떨어지는 라벨을 생성하는 쓰레드
-	class FallingPlay extends Thread{
+	class FallingRun extends Thread{
 		public void run(){
 			while(Interface.getPlay()){
 				FallingAniLabel fallAni= new FallingAniLabel();

@@ -2,17 +2,19 @@ package MainFrame;
 
 public class Interface {
 	private static boolean play=true;
+	private static boolean turn=true;
 	private static Integer level=1;
 	private static Double speed=5.0;
 	private static Integer score=0;
 	private static Integer gameTry=1;
 	private static String user="서송이";
 	
+	public static boolean getTurn(){return turn;}
 	public static boolean getPlay(){return play;}	
 	public static Integer getLevel(){return level;}	
 	public static Double getSpeed(){return speed;}	
 	public static Integer getScore(){return score;}	
-	public static Integer getGameTry(){return gameTry;	}	
+	public static Integer getGameTry(){return gameTry;}	
 	public static String getUser(){return user;}
 	
 	public static void setPlay(boolean play){Interface.play=play;}
@@ -23,4 +25,6 @@ public class Interface {
 	public static void setUser(String user){Interface.user=user;}
 	
 	public static void speedUp(double up){speed+=up;}
+	public static void setKoreanTurn(){turn=true;}
+	public static void setEnglishTurn(){turn=true;}
 }

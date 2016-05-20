@@ -21,7 +21,7 @@ class HeartGagePanel extends JPanel{
 	}
 	
 	class HeartGage extends JProgressBar{
-		int max=100;
+		int max=100;w
 		int min=0;
 		Integer value=100;
 		
