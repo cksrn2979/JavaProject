@@ -15,6 +15,16 @@ public class MyDictionaryTest {
 	}
 	
 	@Test
+	public void getNumOfWordTest(){
+		assertEquals(MyDictionary.getNumOfWord(),2);
+	}
+	
+	@Test
+	public void getWordTest(){
+		assertEquals(MyDictionary.getWord(0),"korean");
+	}
+	
+	@Test
 	public void randTest(){
 		MyDictionary.add("korean","english");
 		assertEquals(MyDictionary.rand(),"korean");
@@ -33,11 +43,17 @@ public class MyDictionaryTest {
 	}
 	
 	@Test
+	public void renderReverseTest(){
+		MyDictionary.add("korean","english");
+		assertEquals(MyDictionary.renderReverse("english"),"korean");
+	}
+	
+	@Test
 	public void getSuccessTest(){
 		MyDictionary.add("korean","english");
 		assertEquals(MyDictionary.getSuccess("korean").intValue(),0);
 	}
-	
+
 	@Test
 	public void plusSuccessTest(){
 		MyDictionary.add("korean","english");
