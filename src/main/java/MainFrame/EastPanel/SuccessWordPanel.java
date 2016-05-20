@@ -20,6 +20,7 @@ public class SuccessWordPanel extends JPanel{
 		
 		successWordTable=new SuccessWordTable();
 		
+		//스크롤바 추가
 		JScrollPane scroll=new JScrollPane(successWordTable);
 		scroll.setPreferredSize(new Dimension(130,220));
 		
@@ -29,8 +30,7 @@ public class SuccessWordPanel extends JPanel{
 	public class SuccessWordTable extends JTable{
 		private DefaultTableModel model;
 		
-		SuccessWordTable(){
-			
+		SuccessWordTable(){			
 			String[] header={"Korean","English"};
 			model= new DefaultTableModel(header,0);
 			this.setModel(model);

@@ -20,7 +20,7 @@ public class MyDictionary{
 		String line = "";
 		
 		//파일 데이터 저장 스트림
-		BufferedReader in = new BufferedReader(new FileReader("WORDLIST.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("src/main/java/MyDictionary/WORDLIST.txt"));
 		
 		//데이터 잘라줄 객체
 		String[] spliter;

@@ -16,9 +16,10 @@ import MainFrame.WestPanel.ItemPanel;
 import MyDictionary.MyDictionary;	
 
 class InputTextPanel extends JPanel{	
-	JTextField textInput;
+	private JTextField textInput;
 	
-	InputTextPanel(){		
+	InputTextPanel(){
+		setBackground(null);
 		textInput = new JTextField("",20);
 		textInput.addKeyListener(new InputTextListener());
 		textInput.requestFocus();
@@ -57,6 +58,10 @@ class InputTextPanel extends JPanel{
 				break;
 				
 			case KeyEvent.VK_F4: //item4
+				if(ItemPanel.getItem(3).getEnable()){
+					ItemPanel.getItem(3).call();
+					ItemPanel.getItemBtn(3).setEnabled(false);
+				}
 				break;
 				
 			case KeyEvent.VK_ENTER: //Enter 입력시  단어 비교, 	
@@ -72,14 +77,14 @@ class InputTextPanel extends JPanel{
 			
 			if(Interface.getTurn()==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
 				return;			
-			
-			Vector<FallWordLabel> fallWordLabelArray=MainFrame.mf.cp.fallWordPanel.getArray();
-			for(int index=0; index<fallWordLabelArray.size(); index++){ //떨어지는 라벨들과 비교
-				FallWordLabel la=fallWordLabelArray.get(index);
+		
+			Vector<FallWordLabel> fallWordLabelArray=MainFrame.mf.cp.fallWordPanel.getLabelArray();
+			for(int index=0; index<fallWordLabelArray.size(); index++){ //떨어지는 라벨들 중
+				FallWordLabel la=fallWordLabelArray.get(index); //떨어지는 라벨
 				String fallWord=fallWordLabelArray.get(index).getText(); //떨어지는 라벨의 단어				
-				
+			
 				if(fallWord.equals(text)){ //떨어지는 단어와 입력 단어가 같을경우	 					
-					la.setText(renderWord);; //한글 -> 영어로, 영어-> null로
+					la.setText(renderWord); //한글 -> 영어로, 영어-> null로
 					
 					if(la.getLanguage()==false)	 
 						InputEnglish(la); 	
@@ -92,7 +97,7 @@ class InputTextPanel extends JPanel{
 		}
 		
 		void InputEnglish(FallWordLabel la){
-			
+	
 			//영어의 한글 값 저장
 			String korean=MyDictionary.renderReverse(text);
 					
@@ -106,6 +111,7 @@ class InputTextPanel extends JPanel{
 			la.setValid(false);
 			
 			//Item확인, 생성
+	
 			if(la.getHaveItem()){
 				Random random=new Random();
 				int num=random.nextInt(4);//0-3 아이템 번호 제공
@@ -119,8 +125,12 @@ class InputTextPanel extends JPanel{
 				
 			}
 	
-			//제거
-			MainFrame.mf.cp.fallWordPanel.getArray().remove(la);
+			//배열에서 제거
+			MainFrame.mf.cp.fallWordPanel.getLabelArray().remove(la);
+			
+			//점수 흭득
+			Interface.scoreUP();
+			MainFrame.mf.np.scorelaUP();
 			
 			//한글 입력차례로 변환
 			Interface.setKoreanTurn();
@@ -129,9 +139,9 @@ class InputTextPanel extends JPanel{
 		void InputKorean(FallWordLabel la){
 			la.setLanguage(false);
 			if(la.getHaveItem())
-				la.setHaveItem_e();
+				la.setHaveItem_e(); //아이템을 가진 영단어 폰트 셋
 			else
-				la.setEnglish(); 	//아이템 가지지 않은 영단어
+				la.setEnglish(); 	//아이템 가지지 않은 영단어 폰트 셋
 			
 			Interface.setEnglishTurn(); //영어차례로 변환
 		}

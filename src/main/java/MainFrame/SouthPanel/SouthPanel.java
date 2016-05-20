@@ -5,7 +5,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 public class SouthPanel extends JPanel{	
-	public InputTextPanel inputTextPanel; 
+	private InputTextPanel inputTextPanel; 
 	
 	public SouthPanel(){		
 		setBackground(Color.WHITE);

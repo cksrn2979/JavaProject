@@ -9,7 +9,7 @@ import javax.swing.JProgressBar;
 import MainFrame.Interface;
 import ScoreFrame.ScoreFrame;
 
-class HeartGagePanel extends JPanel{
+public class HeartGagePanel extends JPanel{
 	public HeartGage heartGage;
 	
 	HeartGagePanel(){
@@ -20,8 +20,8 @@ class HeartGagePanel extends JPanel{
 		add(heartGage);
 	}
 	
-	class HeartGage extends JProgressBar{
-		int max=100;w
+	public class HeartGage extends JProgressBar{
+		int max=100;
 		int min=0;
 		Integer value=100;
 		
@@ -34,16 +34,21 @@ class HeartGagePanel extends JPanel{
 			setValue(value);
 		}
 		
-		public void pain(){
+		public void pain(){ //체력 감소
 			value-=20;
 			setValue(value);
 			setString(value.toString()+"%");	
 			
-			if(value==0){
-				new ScoreFrame();
-				Interface.setPlay(false);
+			if(value==0){ //체력이 없을 경우
+				new ScoreFrame(); //scoreFrame 생성
+				Interface.setPlay(false); //게임 멈춤
 				return;
 			}
+		}
+		
+		public void fullgain(){
+			setValue(max);
+			setString(100+"%");
 		}
 	}
 }

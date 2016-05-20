@@ -27,9 +27,9 @@ public class ItemPanel extends JPanel{
 		item[3]=new Item4();
 		
 		itemBtn[0]=new JButton("모두 지우기");
-		itemBtn[1]=new JButton("천천히");
+		itemBtn[1]=new JButton("천천히 : 구현x");
 		itemBtn[2]=new JButton("느리게");
-		itemBtn[3]=new JButton("미정");
+		itemBtn[3]=new JButton("회복");
 		
 		for(int i=0; i<4; i++){
 			itemBtn[i].setEnabled(false);

@@ -22,14 +22,6 @@ import MyDictionary.MyDictionary;
 public class MainFrame extends JFrame{
 	public static MainFrame mf;
 	
-	JMenuBar menuBar=new JMenuBar();
-	JMenu fileMenu=new JMenu("파일");
-	JMenu helpMenu=new JMenu("Help");
-	JMenuItem newFile=new JMenuItem("새파일");
-	JMenuItem open=new JMenuItem("열기");
-	JMenuItem save=new JMenuItem("저장");
-	JMenuItem exit=new JMenuItem("종료");
-	
 	public EastPanel ep;
 	public NorthPanel np;
 	public CenterPanel cp;
@@ -49,31 +41,9 @@ public class MainFrame extends JFrame{
 		try {MyDictionary.inWordFromFile();	} 
 		catch (IOException e) {e.printStackTrace();}
 				
-		//파일 메뉴 생성
-		fileMenu.add(newFile);
-		fileMenu.add(open);
-		fileMenu.add(save);
-		fileMenu.addSeparator();//구분선 추가
-		fileMenu.add(exit);
-				
-		//파일 메뉴 단축키 설정
-		newFile.setAccelerator(KeyStroke.getKeyStroke('N',InputEvent.CTRL_MASK));
-		open.setAccelerator(KeyStroke.getKeyStroke('O',InputEvent.CTRL_MASK));
-		save.setAccelerator(KeyStroke.getKeyStroke('S',InputEvent.CTRL_MASK));
-		exit.setAccelerator(KeyStroke.getKeyStroke('X',InputEvent.CTRL_MASK));
-				
-		//도움 메뉴 생성
-		helpMenu.add(new JMenuItem("버전"));
-		helpMenu.add(new JMenuItem("정보"));
-		
-		//메뉴를 메뉴바에 등록
-		menuBar.add(fileMenu);
-		menuBar.add(helpMenu);
-		
-		//메뉴바 추가
-		setJMenuBar(menuBar);
-		
 		Container c = getContentPane();
+		
+		createMenuBar();
 		
 		sp= new SouthPanel();
 		ep= new EastPanel();
@@ -87,6 +57,41 @@ public class MainFrame extends JFrame{
 		c.add(cp,BorderLayout.CENTER);		
 		c.add(wp,BorderLayout.WEST);
 		
+	}
+	
+	void createMenuBar(){
+		
+		JMenuBar menuBar=new JMenuBar();
+		JMenu fileMenu=new JMenu("파일");
+		JMenu helpMenu=new JMenu("Help");
+		JMenuItem newFile=new JMenuItem("새파일");
+		JMenuItem open=new JMenuItem("열기");
+		JMenuItem save=new JMenuItem("저장");
+		JMenuItem exit=new JMenuItem("종료");
+		
+		//파일 메뉴 생성
+		fileMenu.add(newFile);
+		fileMenu.add(open);
+		fileMenu.add(save);
+		fileMenu.addSeparator();//구분선 추가
+		fileMenu.add(exit);
+						
+		//파일 메뉴 단축키 설정
+		newFile.setAccelerator(KeyStroke.getKeyStroke('N',InputEvent.CTRL_MASK));
+		open.setAccelerator(KeyStroke.getKeyStroke('O',InputEvent.CTRL_MASK));
+		save.setAccelerator(KeyStroke.getKeyStroke('S',InputEvent.CTRL_MASK));
+		exit.setAccelerator(KeyStroke.getKeyStroke('X',InputEvent.CTRL_MASK));
+						
+		//도움 메뉴 생성
+		helpMenu.add(new JMenuItem("버전"));
+		helpMenu.add(new JMenuItem("정보"));
+				
+		//메뉴를 메뉴바에 등록
+		menuBar.add(fileMenu);
+		menuBar.add(helpMenu);
+				
+		//메뉴바 추가
+		setJMenuBar(menuBar);
 	}
 	
 	public static void main(String[] args){

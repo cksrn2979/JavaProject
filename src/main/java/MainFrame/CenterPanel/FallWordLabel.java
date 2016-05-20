@@ -17,7 +17,7 @@ public class FallWordLabel extends JLabel{
 	
 	public FallWordLabel(String text){
 		super(text);
-		this.setSize(100,40);
+		this.setSize(120,40);
 		
 		if(Math.random()<0.2){ //Item랜덤하게 생성
 			itemHave=true;
@@ -36,12 +36,12 @@ public class FallWordLabel extends JLabel{
 	
 	//Item 가지고 있을때 한글 폰트
 	public void setHaveItem_k(){
-		this.setFont(new Font("굴림",Font.BOLD,20));
+		this.setFont(new Font("굴림",Font.BOLD,18));
 	}
 	
 	//Item 가지고 있을 때 영어 폰트
 	public void setHaveItem_e(){
-		this.setFont(new Font("굴림",Font.BOLD,20));
+		this.setFont(new Font("굴림",Font.BOLD,18));
 		this.setForeground(Color.blue);
 	}
 
@@ -61,6 +61,7 @@ public class FallWordLabel extends JLabel{
 		return valid;
 	}
 	
+	//유효성 설정
 	public void setValid(boolean valid){
 		this.valid=valid;
 	}
