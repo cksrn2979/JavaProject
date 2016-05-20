@@ -82,7 +82,8 @@ class InputTextPanel extends JPanel{
 			for(int index=0; index<fallWordLabelArray.size(); index++){ //떨어지는 라벨들 중
 				FallWordLabel la=fallWordLabelArray.get(index); //떨어지는 라벨
 				String fallWord=fallWordLabelArray.get(index).getText(); //떨어지는 라벨의 단어				
-			
+				
+						
 				if(fallWord.equals(text)){ //떨어지는 단어와 입력 단어가 같을경우	 					
 					la.setText(renderWord); //한글 -> 영어로, 영어-> null로
 					
@@ -129,7 +130,7 @@ class InputTextPanel extends JPanel{
 			MainFrame.mf.cp.fallWordPanel.getLabelArray().remove(la);
 			
 			//점수 흭득
-			Interface.scoreUP();
+			Interface.scoreUp();
 			MainFrame.mf.np.scorelaUP();
 			
 			//한글 입력차례로 변환

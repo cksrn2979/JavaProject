@@ -36,6 +36,8 @@ public class SuccessWordPanel extends JPanel{
 			this.setModel(model);
 		}
 		
+		public DefaultTableModel getModel(){return model;}  
+		
 		//테이블에 행 추가
 		public void add(String korean, String english){
 			String[] content=new String[2];
@@ -43,5 +45,8 @@ public class SuccessWordPanel extends JPanel{
 			content[1]=english;
 			model.insertRow(0, content);		
 		}
+		
+		
+
 	}
 }

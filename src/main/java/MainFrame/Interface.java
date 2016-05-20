@@ -27,5 +27,5 @@ public class Interface {
 	public static void setKoreanTurn(){turn=true;} //한글 입력 차례로
 	public static void setEnglishTurn(){turn=true;} //영문 입력 차례로
 	
-	public static void scoreUP(){score+=20;} //점수 증가
+	public static void scoreUp(){score+=20;} //점수 증가
 }

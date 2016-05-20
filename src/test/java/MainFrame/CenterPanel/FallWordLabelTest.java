@@ -26,7 +26,7 @@ public class FallWordLabelTest {
 	@Test
 	public void setHaveItem_kTest(){
 		FallWordLabel fallWL=new FallWordLabel("test");
-		Font a=new Font("굴림",Font.BOLD,20);
+		Font a=new Font("굴림",Font.BOLD,18);
 		fallWL.setHaveItem_k();
 		assertEquals(a,fallWL.getFont());
 	}
@@ -38,7 +38,7 @@ public class FallWordLabelTest {
 	
 		fallWL.setHaveItem_e();
 		
-		fallWL2.setFont(new Font("굴림",Font.BOLD,20));
+		fallWL2.setFont(new Font("굴림",Font.BOLD,18));
 		fallWL2.setForeground(Color.blue);
 		
 		assertEquals(fallWL.getForeground(),fallWL2.getForeground());

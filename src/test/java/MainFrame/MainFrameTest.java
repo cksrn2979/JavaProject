@@ -1,12 +1,6 @@
 package MainFrame;
 
-import static org.junit.Assert.*;
-
-import java.awt.*;
-
-import org.junit.*;
-
-import MainFrame.MainFrame;
+import org.junit.Before;
 
 public class MainFrameTest {	
 	
