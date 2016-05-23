@@ -5,9 +5,9 @@ import java.util.TimerTask;
 import java.util.Vector;
 
 import MainFrame.Interface;
-import MainFrame.MainFrame;
 import MainFrame.CenterPanel.FallWordLabel;
 import MyDictionary.MyDictionary;
+import StartFrame.StartFrame;
 
 public abstract class Item{
 	private boolean enable;
@@ -20,7 +20,7 @@ public abstract class Item{
 
 class Item1 extends Item{
 	public void call() {
-		Vector<FallWordLabel> fallWordLabelArray = MainFrame.mf.cp.fallWordPanel.getLabelArray();
+		Vector<FallWordLabel> fallWordLabelArray = StartFrame.mf.cp.fallWordPanel.getLabelArray();
 		String korean;
 		String english;
 		
@@ -46,11 +46,11 @@ class Item1 extends Item{
 			}
 			
 			//성공 단어에 추가
-			MainFrame.mf.ep.successWordPanel.successWordTable.add(korean,english);
+			StartFrame.mf.ep.successWordPanel.successWordTable.add(korean,english);
 		}
 				
 		//모든 떨어지는 라벨 제거
-		MainFrame.mf.cp.fallWordPanel.getLabelArray().removeAllElements();		
+		StartFrame.mf.cp.fallWordPanel.getLabelArray().removeAllElements();		
 				
 		//item1 사용 불가 상태로
 		setEnable(false);
@@ -88,7 +88,7 @@ class Item3 extends Item{
 
 class Item4 extends Item{
 	public void call() {
-		MainFrame.mf.cp.heartGagePanel.heartGage.fullgain();
+		StartFrame.mf.cp.heartGagePanel.heartGage.fullgain();
 		setEnable(false);
 	}	
 }

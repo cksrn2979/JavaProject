@@ -1,7 +1,9 @@
 package MyDictionary;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
@@ -14,7 +16,7 @@ public class MyDictionary{
 	private static HashMap<String,Integer> success= new HashMap<String,Integer>(); //성공횟수
 	
 	//파일에서 단어를 입력시킴
-	public static void inWordFromFile() throws IOException{
+	public static void readWordFromFile() throws IOException{
 		
 		//readline 읽을 String변수
 		String line = "";
@@ -27,6 +29,7 @@ public class MyDictionary{
 		
 		String korean;
 		String english;
+		String successcount;
 		
 		//파일 라인별로 읽음
 		while ((line = in.readLine()) != null) {
@@ -35,12 +38,32 @@ public class MyDictionary{
 			
 			korean=spliter[0];
 			english=spliter[1];
-			
-			MyDictionary.add(korean,english);
+			successcount=spliter[2];
+			MyDictionary.add(korean,english,Integer.parseInt(successcount));
 		}
 
 		//스트림 종료
 		in.close();
+	}
+	
+	public static void writeWordFromFile() throws IOException{
+			
+			String korean;
+			String english;
+			String successcount;
+			
+			BufferedWriter out = new BufferedWriter(new FileWriter("src/main/java/MyDictionary/WORDLIST.txt"));
+		    String s;
+		    
+		    for(int i=0; i<list.size();i++){
+		    	korean=getWord(i);
+		    	english=render(korean);
+		    	successcount=getSuccess(korean).toString();
+		    	
+		    	s=korean+"\t"+english+"\t"+successcount;		 
+		    	out.write(s); out.newLine();
+		    }
+		    out.close();
 	}
 	
 	//단어의 갯수 리턴
@@ -49,10 +72,10 @@ public class MyDictionary{
 	}
 	
 	//단어를 입력
-	public static void add(String korean, String english){
+	public static void add(String korean, String english,Integer successcount){
 		list.add(korean);
 		render.put(korean,english);
-		success.put(korean,new Integer(0));
+		success.put(korean,successcount);
 
 	}
 	

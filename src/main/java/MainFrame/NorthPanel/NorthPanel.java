@@ -18,13 +18,12 @@ public class NorthPanel extends JPanel{
 		setPreferredSize(new Dimension(0,40));
 		
 		Font font = new Font("고딕",Font.BOLD,20);
-		levella = new JLabel("LEVEL : " + Interface.getLevel().toString());
+		levella = new JLabel("LEVEL : " + Interface.getLevel().toString() + "              ");
 		scorela = new JLabel("SCORE : " + Interface.getScore().toString());
 		
 		levella.setFont(font);
 		scorela.setFont(font);
 		add(levella);
-		add(new JLabel("              "));
 		add(scorela);
 	}
 	

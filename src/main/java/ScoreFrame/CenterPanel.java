@@ -10,6 +10,8 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
+import MainFrame.Interface;
+
 class ScoreListPanel extends JPanel {
 	ScoreListPanel(){
 		setBackground(null);
@@ -23,7 +25,7 @@ class ScoreListPanel extends JPanel {
 		 
 		JTable scoreList= new JTable(list,menu);
 		JScrollPane scroll=new JScrollPane(scoreList);
-		scroll.setPreferredSize(new Dimension(500,350));
+		scroll.setPreferredSize(new Dimension(500,250));
 		
 		// DefaultTableCellHeaderRenderer 생성 (가운데 정렬을 위한)
 		DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
@@ -46,8 +48,8 @@ class ScoreListPanel extends JPanel {
 class InformPanel extends JPanel{
 	InformPanel(){
 		setBackground(null);
-		JLabel name=new JLabel("User : 서송이");
-		JLabel result=new JLabel("Final Level : 20");
+		JLabel name=new JLabel("User : " + Interface.getUser());
+		JLabel result=new JLabel("Final Level : " +Interface.getLevel().toString());
 		Font font = new Font("나눔 고딕",Font.BOLD,13);
 		name.setFont(font);
 		result.setFont(font);

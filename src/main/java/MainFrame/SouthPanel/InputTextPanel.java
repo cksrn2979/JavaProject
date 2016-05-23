@@ -13,7 +13,8 @@ import MainFrame.Interface;
 import MainFrame.MainFrame;
 import MainFrame.CenterPanel.FallWordLabel;
 import MainFrame.WestPanel.ItemPanel;
-import MyDictionary.MyDictionary;	
+import MyDictionary.MyDictionary;
+import StartFrame.StartFrame;	
 
 class InputTextPanel extends JPanel{	
 	private JTextField textInput;
@@ -78,7 +79,7 @@ class InputTextPanel extends JPanel{
 			if(Interface.getTurn()==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
 				return;			
 		
-			Vector<FallWordLabel> fallWordLabelArray=MainFrame.mf.cp.fallWordPanel.getLabelArray();
+			Vector<FallWordLabel> fallWordLabelArray=StartFrame.mf.cp.fallWordPanel.getLabelArray();
 			for(int index=0; index<fallWordLabelArray.size(); index++){ //떨어지는 라벨들 중
 				FallWordLabel la=fallWordLabelArray.get(index); //떨어지는 라벨
 				String fallWord=fallWordLabelArray.get(index).getText(); //떨어지는 라벨의 단어				
@@ -103,7 +104,7 @@ class InputTextPanel extends JPanel{
 			String korean=MyDictionary.renderReverse(text);
 					
 			//성공 단어에 추가
-			MainFrame.mf.ep.successWordPanel.successWordTable.add(korean,text);
+			StartFrame.mf.ep.successWordPanel.successWordTable.add(korean,text);
 			
 			//단어 성공 횟수 증가
 			MyDictionary.plusSuccess(korean);
@@ -127,11 +128,11 @@ class InputTextPanel extends JPanel{
 			}
 	
 			//배열에서 제거
-			MainFrame.mf.cp.fallWordPanel.getLabelArray().remove(la);
+			StartFrame.mf.cp.fallWordPanel.getLabelArray().remove(la);
 			
 			//점수 흭득
 			Interface.scoreUp();
-			MainFrame.mf.np.scorelaUP();
+			StartFrame.mf.np.scorelaUP();
 			
 			//한글 입력차례로 변환
 			Interface.setKoreanTurn();

@@ -7,7 +7,7 @@ public class Interface {
 	private static Double speed=5.0;
 	private static Integer score=0;
 	private static Integer gameTry=1; //retry 횟수
-	private static String user="서송이";
+	private static String user="";
 	
 	public static boolean getTurn(){return turn;}
 	public static boolean getPlay(){return play;}	
@@ -27,5 +27,5 @@ public class Interface {
 	public static void setKoreanTurn(){turn=true;} //한글 입력 차례로
 	public static void setEnglishTurn(){turn=true;} //영문 입력 차례로
 	
-	public static void scoreUp(){score+=20;} //점수 증가
+	public static void scoreUp(){score+=level*20;} //점수 증가
 }

@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import MainFrame.Interface;
 import MainFrame.MainFrame;
 import MyDictionary.MyDictionary;
+import StartFrame.StartFrame;
 
 public class FallWordPanel extends JPanel{
 	private Vector<FallWordLabel> fallWordLabelArray;
@@ -79,7 +80,7 @@ public class FallWordPanel extends JPanel{
 			}
 				
 			if(y>370 && la.getValid()==true){					
-				MainFrame.mf.cp.heartGagePanel.heartGage.pain(); //체력 감소
+				StartFrame.mf.cp.heartGagePanel.heartGage.pain(); //체력 감소
 				fallWordLabelArray.remove(la); //배열에서 제거
 				
 				//영어 라벨이 다 떨어지면, 한글 차례로
