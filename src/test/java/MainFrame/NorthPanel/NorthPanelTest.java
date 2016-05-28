@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import org.junit.Test;
 
-import MainFrame.NorthPanel.NorthPanel;
+import PlayPanel.NorthPanel.NorthPanel;
 
 public class NorthPanelTest {
 

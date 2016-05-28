@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import MainFrame.WestPanel.ItemPanel;
-import MainFrame.WestPanel.SpeedPanel;
-import MainFrame.WestPanel.WestPanel;
+import PlayPanel.WestPanel.ItemPanel;
+import PlayPanel.WestPanel.SpeedPanel;
+import PlayPanel.WestPanel.WestPanel;
 
 public class WestPanelTest {
 

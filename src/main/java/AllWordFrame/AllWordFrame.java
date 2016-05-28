@@ -1,6 +1,5 @@
 package AllWordFrame;
 
-import java.awt.Container;
 import java.awt.Window;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -13,14 +12,17 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-import MainFrame.Interface;
 import MyDictionary.MyDictionary;
+import StartFrame.StartFrame;
 
 //AllWordList 프레임
 public class AllWordFrame extends JFrame{
-	private Container c=this;
+	private Window c=this;
 	
 	public AllWordFrame(){
+		
+		
+		
 		setTitle("All Word!!!");
 		setSize(400,600);
 		setVisible(true);
@@ -83,8 +85,8 @@ public class AllWordFrame extends JFrame{
 	
 	class ExitListener implements WindowListener{
 		 public void windowClosing(WindowEvent e){
-			 Interface.setPlay(true);
-			 ((Window) c).dispose();
+			 //Interface.setPlay();
+			 c.dispose();
 		 }
 
 		 public void windowOpened(WindowEvent e){}

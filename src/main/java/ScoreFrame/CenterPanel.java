@@ -10,7 +10,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
-import MainFrame.Interface;
+import Interface.GameSet;
 
 class ScoreListPanel extends JPanel {
 	ScoreListPanel(){
@@ -48,8 +48,8 @@ class ScoreListPanel extends JPanel {
 class InformPanel extends JPanel{
 	InformPanel(){
 		setBackground(null);
-		JLabel name=new JLabel("User : " + Interface.getUser());
-		JLabel result=new JLabel("Final Level : " +Interface.getLevel().toString());
+		JLabel name=new JLabel("User : " + GameSet.getUser());
+		JLabel result=new JLabel("Final Level : " +GameSet.getLevel().toString());
 		Font font = new Font("나눔 고딕",Font.BOLD,13);
 		name.setFont(font);
 		result.setFont(font);

@@ -8,6 +8,8 @@ import java.awt.Font;
 import org.junit.Before;
 import org.junit.Test;
 
+import PlayPanel.CenterPanel.FallWordLabel;
+
 public class FallWordLabelTest {
 
 	@Before

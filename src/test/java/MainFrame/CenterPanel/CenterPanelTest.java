@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import MainFrame.CenterPanel.CenterPanel;
+import PlayPanel.CenterPanel.CenterPanel;
 
 public class CenterPanelTest {
 

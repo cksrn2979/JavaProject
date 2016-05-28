@@ -1,77 +1,57 @@
 package MainFrame;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.MenuItem;
+import java.awt.Graphics;
 import java.awt.Toolkit;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import MainFrame.CenterPanel.CenterPanel;
-import MainFrame.EastPanel.EastPanel;
-import MainFrame.NorthPanel.NorthPanel;
-import MainFrame.SouthPanel.SouthPanel;
-import MainFrame.WestPanel.WestPanel;
-import MyDictionary.MyDictionary;
+import Graphics.BtnGraphic;
+import Graphics.BtnGraphicAction;
+import Graphics.GraphicForm;
+import Interface.GameColor;
+import MakeUserFrame.MakeUserFrame;
+import PlayPanel.PlayPanel;
+import StartFrame.StartFrame;
+
 
 public class MainFrame extends JFrame{
-	private Window c= this;
+	public static MainFrame mf;
+	public MainPagePanel mainPa;
+	public PlayPanel playPa;
+	public StartFrame startFra;
+	public MakeUserFrame makeUserFra;
 	
-	public EastPanel ep;
-	public NorthPanel np;
-	public CenterPanel cp;
-	public SouthPanel sp;
-	public WestPanel wp;
-	
-	
-	public MainFrame(){	
-	
-		setTitle("Typing Trainer with English!");
+	MainFrame(){
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		addWindowListener(new  ExitListener());
-		setVisible(true);
 		setResizable(false);//크기 고정
-		setBackground(Color.WHITE);
+		setUndecorated(true);
+		setVisible(true);
+		
+		//com.sun.awt.AWTutilities.setWindowShape(this,new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),20,20));
 		
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
 		setLocation((windowSize.width - frameSize.width) / 2,
-				(windowSize.height - frameSize.height) / 2);	
+				(windowSize.height - frameSize.height) / 2);
 		
-		//MyDictionay 초기화 - WORDLIST.txt모든 단어 입력
-		try {MyDictionary.readWordFromFile();	} 
-		catch (IOException e) {e.printStackTrace();}
-	
+		mainPa=new MainPagePanel();
+		this.setContentPane(mainPa);
+		
 		
 		createMenuBar();
-		
-		sp= new SouthPanel();
-		ep= new EastPanel();
-		np= new NorthPanel();
-		cp= new CenterPanel();		
-		wp= new WestPanel();
-		
-		Container c = getContentPane();		
-		c.add(sp,BorderLayout.SOUTH);
-		c.add(ep,BorderLayout.EAST);
-		c.add(np,BorderLayout.NORTH);
-		c.add(cp,BorderLayout.CENTER);		
-		c.add(wp,BorderLayout.WEST);
 		
 	}
 	
@@ -81,23 +61,20 @@ public class MainFrame extends JFrame{
 		JMenu fileMenu=new JMenu("File");
 		JMenu helpMenu=new JMenu("Help");
 		JMenuItem regame=new JMenuItem("Regame");
-		JMenuItem open=new JMenuItem("열기");
-		JMenuItem save=new JMenuItem("저장");
 		JMenuItem exit=new JMenuItem("exit");
 		JMenuItem version=new JMenuItem("Version");
 		JMenuItem developer=new JMenuItem("Developer");
 		
+		menuBar.setPreferredSize(new Dimension(800,30));
+		menuBar.setBackground(Color.LIGHT_GRAY);
 		//파일 메뉴 생성
 		fileMenu.add(regame);
-		//fileMenu.add(open);
-		//fileMenu.add(save);
+	
 		fileMenu.addSeparator();//구분선 추가
 		fileMenu.add(exit);
 						
 		//파일 메뉴 단축키 설정
 		regame.setAccelerator(KeyStroke.getKeyStroke('N',InputEvent.CTRL_MASK));
-		//open.setAccelerator(KeyStroke.getKeyStroke('O',InputEvent.CTRL_MASK));
-		//save.setAccelerator(KeyStroke.getKeyStroke('S',InputEvent.CTRL_MASK));
 		exit.setAccelerator(KeyStroke.getKeyStroke('X',InputEvent.CTRL_MASK));
 		
 		//add Listener
@@ -125,22 +102,63 @@ public class MainFrame extends JFrame{
 			else if(s.equals("Developer"))
 				JOptionPane.showMessageDialog(null, "Hansung.Univ\nComputer Engneering\n\nLee Changoo / Seo Songi","Developer",JOptionPane.INFORMATION_MESSAGE);
 		}
-		
 	}
 	
-	class ExitListener implements WindowListener{
-		 public void windowClosing(WindowEvent e){
-			 try {	MyDictionary.writeWordFromFile();} 
-			 catch (IOException e1) {e1.printStackTrace();}
+	class MainPagePanel extends JPanel{
+			MainPagePanel(){
+			setLayout(null);
+			MakeButton();
+		}
+		
+		void MakeButton(){
+			String path="images/MainFrame/MainPage";
 			
-			 System.exit(0);
-		 }
-
-		 public void windowOpened(WindowEvent e){}
-		 public void windowActivated(WindowEvent e){}
-		 public void windowDeactivated(WindowEvent e){}
-		 public void windowClosed(WindowEvent e){}
-		 public void windowIconified(WindowEvent e){}
-		 public void windowDeiconified(WindowEvent e){}
+			BtnGraphic btn[] = new BtnGraphic[5];
+			btn[0]=new BtnGraphic(path+"/menubtn", "Start",100,35);
+			btn[1]=new BtnGraphic(path+"/menubtn", "MakeUser",100,40);
+			btn[2]=new BtnGraphic(path+"/menubtn", "WordSet",100,40);
+			btn[3]=new BtnGraphic(path+"/menubtn", "Help",100,40);
+			btn[4]=new BtnGraphic(path+"/menubtn", "Exit",100,40);
+			
+			btn[0].addla("게임 시작",15);
+			btn[1].addla("유저 생성",15);
+			btn[2].addla("단어 셋팅",15);
+			btn[3].addla("게임 방법",15);
+			btn[4].addla("종료",15);
+		
+			
+			BtnGraphicAction action =new MenuAction();
+			for(int i=0; i<5; i++)
+				btn[i].addMouseListener(action);	
+			
+			for(int i=0; i<5; i++){
+				btn[i].setLocation(330, 280+(i*40));
+				add(btn[i]);
+			}		
+		}
+				
+		class MenuAction extends  BtnGraphicAction {
+			public void clickAct(BtnGraphic btn) {
+				switch(btn.getID()){
+				case "Start": startFra=new StartFrame(); break;
+				case "MakeUser": makeUserFra=new MakeUserFrame(); break;
+				case "WordSet": break;
+				case "Help": break;
+				case "Exit": System.exit(0);break; 
+				}
+			}
+		}
+				
+		
+		public void paintComponent(Graphics g) {
+			ImageIcon background = new ImageIcon("images/MainFrame/MainPage/Background.png");	
+			g.drawImage(background.getImage(), 0, 0, null);	
+			setOpaque(false);
+			super.paintComponent(g);
+		}	
+	}		
+	
+	public static void main(String[] args){
+		mf =new MainFrame();
 	}
 }
