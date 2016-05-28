@@ -21,8 +21,6 @@ public class AllWordFrame extends JFrame{
 	
 	public AllWordFrame(){
 		
-		
-		
 		setTitle("All Word!!!");
 		setSize(400,600);
 		setVisible(true);

@@ -31,7 +31,7 @@ public class SuccessWordPanel extends JPanel{
 		SuccessWordTable(){
 			this.setFont(new GameFontP(13));
 			
-			String[] header={"Korean","English"};
+			String[] header={"한글","영어"};
 			model= new DefaultTableModel(header,0);
 			this.setModel(model);
 		}
