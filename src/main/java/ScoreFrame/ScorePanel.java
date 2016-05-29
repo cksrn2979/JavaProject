@@ -44,9 +44,13 @@ public class ScorePanel extends JFrame{
 			setLocation((windowSize.width - frameSize.width) / 2,
 					(windowSize.height - frameSize.height) / 2);
 			
-
+			NorthPanel north=new NorthPanel();
+			SouthPanel south=new SouthPanel();
 			CenterPanel center=new CenterPanel();
 			add(center,BorderLayout.CENTER);
+			add(north,BorderLayout.NORTH);
+			add(south,BorderLayout.SOUTH);
+			
 		}
 		
 		
