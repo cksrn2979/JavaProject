@@ -47,14 +47,11 @@ public class ScorePanel extends JFrame{
 			fIO=new FileIO();
 			NorthPanel north=new NorthPanel();
 			CenterPanel center=new CenterPanel();
-		
 			
 			add(center,BorderLayout.CENTER);
 			add(north,BorderLayout.NORTH);
-			
-			
-		}
 		
+		}
 		
 		public static void main(String[] args){
 			sp=new ScorePanel();

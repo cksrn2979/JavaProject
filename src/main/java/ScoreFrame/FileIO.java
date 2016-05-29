@@ -44,6 +44,7 @@ import Interface.GameSet;
 		}
 		
 		//텍스트 파일에 저장된 데이터 읽어서 각각의 배열에 저장 
+		//이긴 사람의 점수를 텍스트 파일에 저장하기 기능 없음
 		void readPlayer() throws IOException{
 			
 			BufferedReader in = new BufferedReader(new FileReader("C:/Users/Song/git/JavaProject/Score.txt"));
@@ -113,8 +114,9 @@ import Interface.GameSet;
 				}
 				i++;
 			}
-			return " ";//못찾으면 -1을 리턴
+			return " ";
 		}
+		
 		public static Integer getScore(String name){//해당 이름의 점수 반환
 			int indexNum=-1;
 			int i=0;
