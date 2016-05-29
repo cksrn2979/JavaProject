@@ -12,6 +12,8 @@ import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import javax.swing.JLabel;
+
 import Interface.GameSet;
 
 	public class FileIO {
@@ -19,31 +21,35 @@ import Interface.GameSet;
 		private static Vector<String> characterList= new Vector<String>(); //게임 캐릭터 목록
 		private static Vector<String> nameList= new Vector<String>(); //이름
 		private static Vector<Integer> scoreList= new Vector<Integer>(); //스코어
-		private static HashMap<Integer,String> hashMap  = new HashMap<Integer, String>();//점수와 이름을 순위대로 기록
+		private static HashMap<Integer,String> gradeHashMap  = new HashMap<Integer, String>();//점수와 이름을 순위대로 기록
+		private static Vector<String> gradeNameList=new Vector<String>();//등수순대로 이름정렬
 		
 		FileIO() {
 			
 			try {
 				readPlayer();
-//				writePlayer();
 				writeGrade();
-			
+				
+				//함수 테스트 - 콘솔창 확인
+				System.out.println("1등 : "+getGradeName(0)+" 점수 : "+ getScore(getGradeName(0)));
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
 		}
 		
-		public static void readPlayer() throws IOException{//Score 저장된 파일 읽어서 각각의 배열에 저장
+		//텍스트 파일에 저장된 데이터 읽어서 각각의 배열에 저장 
+		public static void readPlayer() throws IOException{
+			
 			BufferedReader in = new BufferedReader(new FileReader("C:/Users/Song/git/JavaProject/Score.txt"));
-				String gameCharacter;	
-				String name;
-				String score;
-				int i=0;
-				String s;
+			String gameCharacter;	
+			String name;
+			String score;
+			int i=0;
+			String s;
 				  
-				while ((s = in.readLine()) != null) {
+			while ((s = in.readLine()) != null) {
 				String[] split = s.split("\t");
 				 
 				gameCharacter = split[0]; 
@@ -54,27 +60,54 @@ import Interface.GameSet;
 				nameList.add(i,name);
 				scoreList.add(i,Integer.parseInt(score));
 				i++;
-				}
+			}
 
 			in.close();
 		
 		}
+		
 		public static void writeGrade() throws IOException{//점수 순서대로 정렬 
 			
-				    int i=0;
+			   int i=0;
 				    
-				    while(i<nameList.size()){
+			   while(i<nameList.size()){
 				    	
-				    hashMap.put(scoreList.get(i),nameList.get(i));
+				   	gradeHashMap.put(scoreList.get(i),nameList.get(i));
 			        i++;
 			        
 				    }
-				    TreeMap<Integer,String> tm = new TreeMap<Integer,String>(hashMap);
-				    Iterator<Integer> iteratorKey = tm.descendingKeySet().iterator(); //키값 내림차순 정렬
-				    
-				    while(iteratorKey.hasNext()){
-				     Integer key = iteratorKey.next();
-				     System.out.println(key+","+tm.get(key));
-				    }
+			   
+			   TreeMap<Integer,String> tm = new TreeMap<Integer,String>(gradeHashMap);
+			   Iterator<Integer> iteratorKey = tm.descendingKeySet().iterator(); //키값 내림차순 정렬
+			   
+			   int j=0;
+			   
+			   while(iteratorKey.hasNext()){
+				   
+				   	Integer key = iteratorKey.next();
+				   	gradeNameList.add(tm.get(key));
+				    System.out.println(key+","+tm.get(key));
+				    j++;
+			   }
+		}
+		
+		public static String getGradeName(int index){//해당 등수의 이름 
+			return gradeNameList.get(index);
+		}
+		
+		public static Integer getScore(String name){//해당 이름의 점수
+			int indexNum=-1;
+			int i=0;
+			while(i<gradeNameList.size())
+			{
+				if(nameList.get(i).equals(name))
+				{
+					indexNum=i;
+					System.out.println(scoreList.get(indexNum).intValue());
+					return scoreList.get(indexNum);
+				}
+				i++;
+			}
+			return indexNum;//못찾으면 -1을 리턴 
 		}
 	}

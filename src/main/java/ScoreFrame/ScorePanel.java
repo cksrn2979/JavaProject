@@ -33,11 +33,9 @@ public class ScorePanel extends JFrame{
 		ScorePanel(){
 			setSize(800,550);
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
-			setResizable(false);//크기 고정
+			setResizable(false);
 			setUndecorated(true);
 			setVisible(true);
-			
-			//com.sun.awt.AWTutilities.setWindowShape(this,new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),20,20));
 			
 			Dimension frameSize = getSize();
 			Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
@@ -45,18 +43,18 @@ public class ScorePanel extends JFrame{
 					(windowSize.height - frameSize.height) / 2);
 			
 			NorthPanel north=new NorthPanel();
-			SouthPanel south=new SouthPanel();
 			CenterPanel center=new CenterPanel();
+			
 			add(center,BorderLayout.CENTER);
 			add(north,BorderLayout.NORTH);
-			add(south,BorderLayout.SOUTH);
+			
+			new FileIO();
 			
 		}
 		
 		
 		public static void main(String[] args){
 			new ScorePanel();
-			new FileIO();
 		
 		}
 }

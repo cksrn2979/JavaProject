@@ -4,70 +4,60 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
+import Graphics.BtnGraphic;
+import Graphics.BtnGraphicActionMainTain;
+import Interface.GameColor;
 import Interface.GameSet;
 
-class ScoreListPanel extends JPanel {
-	ScoreListPanel(){
-		setBackground(null);
-	
-		String menu[]={"순위","LEVEL"," ","SCORE","SPEED"};
-		String list[][]={
-				{"1","20",".....","100","0.44"},{"2","18",".....","80","0.3"},
-				{"3","10",".....","40","0.1"},{"4","8",".....","30","0.1"}
-		};
-	
-		 
-		JTable scoreList= new JTable(list,menu);
-		JScrollPane scroll=new JScrollPane(scoreList);
-		scroll.setPreferredSize(new Dimension(500,250));
-		
-		// DefaultTableCellHeaderRenderer 생성 (가운데 정렬을 위한)
-		DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
-		 
-		// DefaultTableCellHeaderRenderer의 정렬을 가운데 정렬로 지정
-		tScheduleCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-		 
-		// 정렬할 테이블의 ColumnModel을 가져옴
-		TableColumnModel tcmSchedule = scoreList.getColumnModel();
-		 
-		// 반복문을 이용하여 테이블을 가운데 정렬로 지정
-		for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
-		tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
-		}
-		
-		add(scroll);	
-		
-		}
-}
-class InformPanel extends JPanel{
-	InformPanel(){
-		setBackground(null);
-		JLabel name=new JLabel("User : " + GameSet.getUser());
-		JLabel result=new JLabel("Final Level : " +GameSet.getLevel().toString());
-		Font font = new Font("나눔 고딕",Font.BOLD,13);
-		name.setFont(font);
-		result.setFont(font);
-		
-		add(name);
-		add(result);
-	}
-}
+import ScoreFrame.FileIO;
+
 
 class CenterPanel extends JPanel{
 	CenterPanel(){
-		setBackground(Color.white);
-		Border CenterBorder= BorderFactory.createEtchedBorder();
-		setBorder(CenterBorder);
-//		setLayout(new BorderLayout());
-//		
-	add(new InformPanel(),BorderLayout.NORTH);
-//		add(new ScoreListPanel(),BorderLayout.CENTER);
+	
+		add(new GradePanel(),BorderLayout.CENTER);
+		setVisible(true);
+		GradePanel gp=new GradePanel();
+		add(gp,BorderLayout.CENTER);
+	}
+	
+	class GradePanel extends JPanel{
+		GradePanel(){
+			setLayout(null);
+			setBackground(null);
+			
+		}
+		void makeLabel(){
+			String path="C:/Users/Song/git/JavaProject/images/ScoreFrame/CenterPanel/";
+			
+			ImageIcon images[]=new ImageIcon[3];
+			JLabel grade[]=new JLabel[3];
+			
+			for(int i=0;i<3;i++)
+				{
+				images[i]=new ImageIcon(path+"고양이얼굴.png");
+				grade[i]=new JLabel(i+"등",images[0],JLabel.CENTER);
+				grade[i].setHorizontalTextPosition(SwingConstants.CENTER);
+				grade[i].setVerticalTextPosition(SwingConstants.BOTTOM);
+				}
+			
+			for(int i=0; i<5; i++){
+				grade[i].setLocation(330, 280+(i*40));
+				add(grade[i]);
+			}	
 		
-	}	
+		
+		}
+	}
 }
+
+	
+	
+
