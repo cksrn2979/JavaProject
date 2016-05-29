@@ -3,21 +3,27 @@ package ScoreFrame;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Interface.GameColor;
+import Interface.GameSet;
+
 public class NorthPanel extends JPanel{
 	NorthPanel(){
-		setBackground(new Color(240,240,255));
-		setPreferredSize(new Dimension(0,40));
-			
-		JLabel scoreMenu=new JLabel("SCORE MENU");
-		scoreMenu.setFont(new Font("고딕",Font.BOLD,20));		
-		setBackground(new Color(240,240,255));
-		
-		add(scoreMenu);
-		
+		setBackground(GameColor.basic);
+		setPreferredSize(new Dimension(800,60));
+		setLayout(null);
 	}	
 	
+	public void paintComponent(Graphics g) {
+		String path="C:/Users/Song/git/JavaProject/images/ScoreFrame/NorthPanel/";
+		ImageIcon imgIcon=new ImageIcon(path+"background"+".png");
+		g.drawImage(imgIcon.getImage(), 0, 0, null);	
+		setOpaque(false);
+		super.paintComponent(g);
+	}
 }

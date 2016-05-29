@@ -39,7 +39,7 @@ public class ItemPanel extends JPanel{
 		
 		for(int i=0; i<4; i++){
 			itemBtn[i].setEnabled(false);
-			itemBtn[i].setLocation(15,60+(i*40));
+			itemBtn[i].setLocation(15,20+(i*35));
 			add(itemBtn[i]);
 		}			
 	}

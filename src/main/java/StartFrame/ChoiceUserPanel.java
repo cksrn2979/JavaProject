@@ -32,7 +32,7 @@ public class ChoiceUserPanel extends JPanel{
 	}
 	
 	public void readUser() throws IOException{
-		BufferedReader in = new BufferedReader(new FileReader("C:/Workspace/JavaProject/resources/User.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("C:/Users/Song/git/JavaProject/User.txt"));
 		String line = "";
 		String[] spliter;
 		

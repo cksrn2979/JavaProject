@@ -4,70 +4,120 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
+import java.awt.Insets;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
+import Graphics.BtnGraphic;
+import Graphics.BtnGraphicActionMainTain;
+import Interface.GameColor;
 import Interface.GameSet;
 
-class ScoreListPanel extends JPanel {
-	ScoreListPanel(){
-		setBackground(null);
-	
-		String menu[]={"순위","LEVEL"," ","SCORE","SPEED"};
-		String list[][]={
-				{"1","20",".....","100","0.44"},{"2","18",".....","80","0.3"},
-				{"3","10",".....","40","0.1"},{"4","8",".....","30","0.1"}
-		};
-	
-		 
-		JTable scoreList= new JTable(list,menu);
-		JScrollPane scroll=new JScrollPane(scoreList);
-		scroll.setPreferredSize(new Dimension(500,250));
-		
-		// DefaultTableCellHeaderRenderer 생성 (가운데 정렬을 위한)
-		DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
-		 
-		// DefaultTableCellHeaderRenderer의 정렬을 가운데 정렬로 지정
-		tScheduleCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-		 
-		// 정렬할 테이블의 ColumnModel을 가져옴
-		TableColumnModel tcmSchedule = scoreList.getColumnModel();
-		 
-		// 반복문을 이용하여 테이블을 가운데 정렬로 지정
-		for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
-		tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
-		}
-		
-		add(scroll);	
-		
-		}
-}
-class InformPanel extends JPanel{
-	InformPanel(){
-		setBackground(null);
-		JLabel name=new JLabel("User : " + GameSet.getUser());
-		JLabel result=new JLabel("Final Level : " +GameSet.getLevel().toString());
-		Font font = new Font("나눔 고딕",Font.BOLD,13);
-		name.setFont(font);
-		result.setFont(font);
-		
-		add(name);
-		add(result);
-	}
-}
+import ScoreFrame.FileIO;
+
 
 class CenterPanel extends JPanel{
-	CenterPanel(){
-		setBackground(Color.white);
-		Border CenterBorder= BorderFactory.createEtchedBorder();
-		setBorder(CenterBorder);
-		setLayout(new BorderLayout());
+	
+		CenterPanel(){
+			setVisible(true);
+			setBackground(Interface.GameColor.muzi);
+			setLayout(null);
+			setPreferredSize(new Dimension(500,420));
+			
+			GradePanel gp=new GradePanel();
+			MyGradePanel mgp=new MyGradePanel();
+			add(gp);
+			add(mgp);
+			
+		}
 		
-		add(new InformPanel(),BorderLayout.NORTH);
-		add(new ScoreListPanel(),BorderLayout.CENTER);
+	class GradePanel extends JPanel{
+			String path="C:/Users/Song/git/JavaProject/images/ScoreFrame/CenterPanel/";
+			int num=3;//전체 화면에 표시할 등수 표시 갯수
+			
+			GradePanel(){
+				setVisible(true);
+				setBackground(Color.white);
+				setLayout(new GridLayout(num,4,5,5));
+				
+				setGrade();
+				
+				setSize(300,400);
+				setLocation(50,50);
+
+			}
+			
+			void setGrade(){
+			
+			ImageIcon images[]=new ImageIcon[num];
+			ImageIcon gradeImg []=new ImageIcon[num];
+			
+			JLabel faceLabel[]=new JLabel[num];
+			JLabel scores[]=new JLabel[num];
+			JLabel gradeLabel[]=new JLabel[num];
+			JLabel nameLabel[]=new JLabel[num];
+			
+			String name=" ";//이름 저장
+			String faceType=" ";//캐릭터 타입 저장
 		
-	}	
+				
+				for(int i=0;i<num;i++){
+				
+				gradeImg[i]=new ImageIcon(path+"등수.png");
+				gradeLabel[i]=new JLabel(gradeImg[i]);
+				
+				name=ScorePanel.sp.fIO.getGradeName(i);
+				
+				faceType=ScorePanel.sp.fIO.getCharacterName(name);
+				images[i]=new ImageIcon(path+faceType+"Face.png");//faceType 별로 이모티콘 분류
+				faceLabel[i]=new JLabel(images[i]);
+				
+				System.out.println(faceType);
+			
+				nameLabel[i]=new JLabel(name);
+				scores[i]=new JLabel(ScorePanel.sp.fIO.getScore(name).toString());
+
+//				faceLabel[i].setSize(100,100);
+//				faceLabel[i].setLocation(100,100+i*100);
+//				
+//				gradeLabel[i].setSize(100,100);
+//				gradeLabel[i].setLocation(200,100+i*100);
+//				
+//				nameLabel[i].setSize(100,100);
+//				nameLabel[i].setLocation(300, 100+i*100);
+//				
+//				scores[i].setSize(100,100);
+//				scores[i].setLocation(350, 100+i*100);
+			
+				add(faceLabel[i]);
+				add(gradeLabel[i]);
+				add(scores[i]);
+				add(nameLabel[i]);
+				}
+			}
+		}//GradePanel end
+	
+	class MyGradePanel extends JPanel{
+		String path="C:/Users/Song/git/JavaProject/images/ScoreFrame/CenterPanel/";
+		
+		MyGradePanel(){
+			setVisible(true);
+			setBackground(Color.white);
+			setLayout(new BorderLayout());
+			
+			setSize(380,400);
+			setLocation(370,50);
+			
+			JLabel info=new JLabel("나의 점수는?",JLabel.CENTER);
+			add(info,BorderLayout.NORTH);
+		}
+	}//MyGradePanel end
 }
+	
+

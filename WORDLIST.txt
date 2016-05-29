@@ -1,0 +1,788 @@
+하나의	a
+에 대하여	about
+을 가로질러	across
+행동하다	act
+영화배우	actor
+주소	address
+무서워하여	afraid
+뒤에	after
+오후	afternoon
+또	again
+나이	age
+전에	ago
+공기	air
+비행기	airplane
+공항	airport
+앨범	album
+모든	all
+을 따라서	along
+항상	always
+사이에	among
+하나의	an
+그리고	and
+화난	angry
+동물	animal
+대답	answer
+어떤	any
+아파트	apartment
+사과	apple
+팔	arm
+주위에	around
+도착하다	arrive
+만큼	as
+묻다	ask
+때에	at
+숙모	aunt
+가을	autumn
+멀리	away
+아기	baby
+뒤	back
+나쁜	bad
+자루	bag
+공	ball
+풍선	balloon
+바나나	banana
+밴드	band
+은행	bank
+바닥	base
+바구니	basket
+목욕	bath
+이다	be
+해변	beach
+곰	bear
+아름다운	beautiful
+왜냐하면	because
+이 되다	become
+침대	bed
+앞에	before
+시작하다	begin
+뒤에	behind
+종	bell
+의 밑에	below
+벤치	bench
+의 옆에	beside
+의 사이에	between
+자전거	bicycle
+큰	big
+새	bird
+생일	birthday
+검은	black
+비어있는	blank
+불다	blow
+파란	blue
+널빤지	board
+보트	boat
+몸	body
+책	book
+병	bottle
+주발	bowl
+상자	box
+소년	boy
+빵	bread
+깨다	break
+아침식사	breakfast
+다리	bridge
+밝은	bright
+가져오다	bring
+형제	brother
+갈색의	brown
+솔	brush
+짓다	build
+타다	burn
+버스	bus
+바쁜	busy
+그러나	but
+버터	butter
+단추	button
+사다	buy
+의 옆에	by
+잘까요	bye
+케이크	cake
+달력	calenda
+를 부르다	call
+카메라	camera
+야영하다	camp
+할 수 있다	can
+양초	candle
+사탕	candy
+모자	cap
+수도	capital
+선장	captain
+자동차	car
+카드	card
+주의	care
+목공	carpenter
+을 나르다	carry
+만화	cartoon
+상자	case
+카세트테이프	cassette
+고양이	cat
+잡다	catch
+천장	ceiling
+중심	center
+의자	chair
+분필	chalk
+기회	chance
+변화다	change
+값싼	cheap
+치즈	cheese
+닭	chicken
+어린이	child
+젓가락	chopstick
+교회	church
+원	circle
+도시	city
+학급	class
+급우	classmate
+깨끗한	clean
+나무	climb
+시계	clock
+닫다	close
+옷	clothes
+구름	cloud
+클럽	club
+코트	coat
+커피	coffee
+동전	coin
+추운	cold
+빛깔	color
+오다	come
+만화책	comic book
+컴퓨터	computer
+요리사	cook
+시원한	cool
+그대로 옮겨 쓰다	copy
+구석	corner
+세다	count
+나라	country
+과목	course
+사촌	cousin
+가리다	cover
+암소	cow
+크레용	crayon
+크림	cream
+건너다	cross
+울다	cry
+컵	cup
+커튼	curtain
+자르다	cut
+귀여운	cute
+아빠	dad
+춤추다	dance
+위험	danger
+캄캄한	dark
+날짜	date
+딸	daughter
+낮	day
+조용한	dead
+깊은	deep
+사슴	deer
+책상	desk
+전화 걸다	dial
+일기	diary
+사전	dictionary
+죽다	die
+저녁식사	dinner
+더러운	dirty
+접시	dish
+을 하다	do
+의사	doctor
+개	dog
+인형	doll
+달러	dollar
+돌고래	dolphin
+문	door
+아래로	down
+을 그리다	draw
+꿈	dream
+드레스	dress
+마시다	drink
+운전하다	drive
+방울	drop
+북	drum
+마른	dry
+오리	duck
+지구	earth
+동쪽	east
+메아리	echo
+빈	empty
+끝	end
+엔진	engine
+을 즐기다	enjoy
+충분히	enough
+저녁	evening
+매	every
+보기	example
+뛰어난	excellent
+흥분시키다	excite
+용서하다	excuse
+운동	exercise
+눈	eye
+얼굴	face
+사실	fact
+공평한	fair
+떨어지다	fall
+가족	family
+유명한	famous
+멀리	far
+농장	farm
+빠른	fast
+뚱뚱한	fat
+아버지	father
+을 느끼다	feel
+거의 없는	few
+밭	field
+싸우다	fight
+을 채우다	fill
+필름	film
+을 발견하다	find
+좋은	fine
+손가락	finger
+을 끝내다	finish
+불	fire
+물고기	fish
+고치다	fix
+기	flag
+마루	floor
+꽃	flower
+날다	fly
+을 따르다	follow
+음식	food
+바보	fool
+발	foot
+동안	for
+을 잊다	forget
+식탁용 포크	fork
+무료로 주는	free
+신선한	fresh
+친구	friend
+에서	from
+앞	front
+과일	fruit
+가득 찬	full
+재미	fun
+놀이	game
+정원	garden
+휘발유	gas
+문	gate
+온화한	gentle
+을 얻다	get
+소녀	girl
+을 주다	give
+즐거운	glad
+유리	glass
+장갑	glove
+가다	go
+신	god
+황금	gold
+착한	good
+할머니	grandma
+포도	grape
+풀	grass
+회색	gray
+큰	great
+녹색	green
+땅	ground
+모임	group
+자라다	grow
+기타	guitar
+머리카락	hair
+반	half
+공회당	hall
+햄버거	hamburger
+손	hand
+을 다루다	handle
+잘생긴	handsome
+일어나다	happen
+행복한	happy
+어려운	hard
+모자	hat
+미워하다	hate
+가지다	have
+그가	he
+머리	head
+이 들리다	hear
+심장	heart
+무거운	heavy
+안녕	hello
+을 돕다	help
+암탉	hen
+여기에서	here
+안녕	hi
+숨다	hide
+높은	high
+하이킹	hiking
+언덕	hill
+을 치다	hit
+을 들다	hold
+구멍	hole
+공휴일	holiday
+가정	home
+희망	hope
+말	horse
+호스	hose
+병원	hospital
+뜨거운	hot
+호텔	hotel
+시간	hour
+집	house
+어떻게	how
+백	hundred
+배고픈	hungry
+서두르다	hurry
+아프다	hurt
+얼음	ice
+생각	idea
+병든	ill
+안에	in
+잉크	ink
+관심	interest
+안으로	into
+를 소개하다	introduce
+섬	island
+그것	it
+제트기	jet
+일	job
+참가하다	join
+주스	juice
+뛰다	jump
+밀림	jungle
+바로	just
+을 지니다	keep
+열쇠	key
+차다	kick
+어린아이	kid
+죽이다	kill
+종류	kind
+왕	king
+부엌	kitchen
+무릎	knee
+칼	knife
+두드리다	knock
+를 알다	know
+숙녀	lady
+호수	lake
+등	lamp
+육지	land
+큰	large
+마지막의	last
+늦은	late
+웃다	laugh
+이끌다	lead
+나뭇잎	leaf
+을 배우다	learn
+떠나다	leave
+왼쪽	left
+다리	leg
+과	lesson
+하게하다	let
+글자	letter
+도서관	library
+거짓말	lie
+빛	light
+좋아하다	like
+선	line
+사자	lion
+입술	lip
+표	list
+듣다	listen
+긴	long
+찾다	look
+잃다	lose
+많음	lot
+소리가 큰	loud
+사랑하다	love
+낮은	low
+운	luck
+점심	lunch
+을 만들다	make
+남자	man
+많은	many
+지도	map
+행진하다	march
+시장	market
+결혼하다	marry
+일	matter
+해도 좋다	may
+고기	meat
+메달	medal
+만나다	meet
+멜론	melon
+미터	meter
+중간	middle
+우유	milk
+백만	million
+분	minute
+거울	mirror
+양	Miss
+모텔	model
+엄마	mom
+돈	money
+원숭이	monkey
+달	month
+달	moon
+아침	morning
+어머니	mother
+산	mountain
+입	mouth
+움직이다	move
+영화	movie
+씨	Mr.
+씨 부인	Mrs.
+많은	much
+음악	music
+해야 한다	must
+목	neck
+가 필요하다	need
+새로운	new
+뉴스	news
+의 옆에	next
+좋은	nice
+밤	night
+아니오	no
+소음	noise
+북쪽	north
+코	nose
+아니다	not
+짧은 기록	note
+지금	now
+수	number
+간호사	nurse
+시	o'clock
+의	of
+벗고	off
+사무실	office
+흔히	often
+아	oh
+기름	oil
+좋아요	OK
+낡은	old
+위에	on
+이전에	once
+을 열다	open
+또는	or
+오렌지	orange
+다른	other
+밖에	out
+위에	over
+페이지	page
+페인트	paint
+한 쌍	pair
+바지	pants
+종이	paper
+용서	pardon
+공원	park
+파티	party
+지나다	pass
+지불하다	pay
+평화	peace
+배	pear
+펜	pen
+연필	pencil
+사람들	people
+피아노	piano
+꺾다	pick
+소풍	picnic
+그림	picture
+단편	piece
+돼지	pig
+조종사	pilot
+핀	pin
+솔	pine
+연분홍색	pink
+관	pipe
+장소	place
+계획	plan
+비행기	plane
+식물	plant
+놀다	play
+제발	please
+호주머니	pocket
+끝	point
+경찰	police
+수영장	pool
+가난한	poor
+우편물을 부치다	post
+포스터	poster
+감자	potato
+연습	practice
+현재	present
+예쁜	pretty
+인쇄	print
+문제	problem
+을 끌다	pull
+을 밀다	push
+을 놓다	put
+왕비	queen
+물음	question
+빠른	quick
+조용한	quiet
+라디오	radio
+비	rain
+무지개	rainbow
+읽다	read
+준비된	ready
+진짜의	real
+기록	record
+빨간	red
+기억하다	remember
+되풀이하다	repeat
+휴식	rest
+식당	restaurant
+로 돌아가다	return
+리본	ribbon
+쌀	rice
+돈 많은	rich
+타다	ride
+오른쪽	right
+반지	ring
+강	river
+길	road
+로봇	robot
+바위	rock
+로켓	rocket
+를 굴리다	roll
+지붕	roof
+방	room
+장미	rose
+둥근	round
+자	ruler
+달리다	run
+같은 것	same
+모래	sand
+말하다	say
+학교	school
+가위	scissors
+점수	score
+바다	sea
+계절	season
+자리	seat
+보다	see
+을 팔다	sell
+을 보내다	send
+서비스	service
+을 두다	set
+하겠다	shall
+모양	shape
+그녀는	she
+양	sheep
+종이	sheet
+배	ship
+셔츠	shirt
+신발	shoe
+쏘다	shoot
+상점	shop
+짧은	short
+어깨	shoulder
+외치다	shout
+보여주다	show
+소나기	shower
+을 닫다	shut
+병든	sick
+옆	side
+시력	sight
+표지	sign
+은색의	silver
+노래하다	sing
+님	sir
+여동생	sister
+앉다	sit
+크기	size
+스케이트	skate
+치마	skirt
+하늘	sky
+잠	sleep
+미끄러지다	slide
+느린	slow
+냄새	smell
+미소	smile
+연기	smoke
+눈	snow
+그렇게	so
+비누	soap
+축구	soccer
+양말	sock
+조용한	soft
+얼마간의	some
+아들	son
+노래	song
+곧	soon
+가엾은	sorry
+소리	sound
+수프	soup
+남쪽	south
+우주	space
+말하다	speak
+속도	speed
+쓰다	spell
+쓰다	spend
+숟가락	spoon
+운동	sport
+봄	spring
+정사각형	square
+계단	stair
+우표	stamp
+서다	stand
+별	star
+출발하다	start
+정거장	station
+남다	stay
+증기	steam
+걸음	step
+막대기	stick
+돌	stone
+멈추다	stop
+가게	store
+폭풍우	storm
+이야기	story
+난로	stove
+곧은	straight
+이상한	strange
+딸기	strawberry
+거리	street
+힘센	strong
+학생	student
+공부하다	study
+어리석은	stupid
+지하철	subway
+설탕	sugar
+여름	summer
+태양	sun
+슈퍼마켓	supermarket
+저녁식사	supper
+을 확신하는	sure
+놀람	surprise
+스웨터	sweater
+달콤한	sweet
+헤엄치다	swim
+그네	swing
+스위치	switch
+식탁	table
+가져가다	take
+말하다	talk
+키가 큰	tall
+을 붙이다	tape
+을 맛보다	taste
+택시	taxi
+차	tea
+가르치다	teach
+팀	team
+전화기	telephone
+텔레비전	television
+말하다	tell
+사원	temple
+정구	tennis
+테스트	test
+보다	than
+에게 고맙다고 하다	thank
+저것	that
+그	the
+그때	then
+그 곳에	there
+그들	they
+두꺼운	thick
+얇은	thin
+물건	thing
+생각하다	think
+목마른	thirsty
+이	this
+천	thousand
+을 꿰뚫어	through
+던지다	throw
+천둥	thunder
+표	ticket
+을 묶다	tie
+호랑이	tiger
+할 때까지	till
+시간	time
+피곤한	tired
+오늘	today
+함께	together
+토마토	tomato
+내일	tomorrow
+오늘 밤	tonight
+또한	too
+이	tooth
+꼭대기	top
+만지다	touch
+소도시	town
+장난감	toy
+기차	train
+여행하다	travel
+나무	tree
+여행	trip
+트럭	truck
+진실의	TRUE
+을 해보다	try
+튤립	tulip
+돌다	turn
+두 번	twice
+우산	umbrella
+아저씨	uncle
+의 밑에	under
+이해하다	understand
+까지	until
+위로	up
+을 사용하다	use
+늘 하는	usual
+방학	vacation
+채소	vegetable
+아주	very
+비디오	video
+마을	village
+바이올린	violin
+방문하다	visit
+기다리다	wait
+잠이 깨다	wake
+걷기	walk
+벽	wall
+을 원하다	want
+전쟁	war
+따뜻한	warm
+을 씻다	wash
+낭비하다	waste
+지켜보다	watch
+물	water
+길	way
+우리	we
+약한	weak
+입다	wear
+날씨	weather
+주	week
+환영하다	welcome
+잘	well
+서쪽	west
+젖은	wet
+무엇	what
+할 때	when
+곳	where
+어느 것	which
+흰색의	white
+누구	who
+왜	why
+폭이 넓은	wide
+일 것이다	will
+이기다	win
+바람	wind
+창문	window
+날개	wing
+겨울	winter
+와 함께	with
+여자	woman
+놀랄 만한 일	wonder
+나무	wood
+단어	word
+일	work
+세계	world
+쓰다	write
+나쁜	wrong
+네	yeah
+해	year
+노란색	yellow
+네	yes
+어제	yesterday
+아직	yet
+너	you
+젊은	young
+영	zero
+동물원	zoo

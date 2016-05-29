@@ -10,4 +10,5 @@ public class GameColor {
 	public static Color lyan=new Color(215,209,137);
 	public static Color apeach=new Color(247,171,171);
 	public static Color character=null;
+
 }

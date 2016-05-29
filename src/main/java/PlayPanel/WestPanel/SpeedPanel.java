@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Graphics.GraphicForm;
+import Interface.GameColor;
 import Interface.GameFontB;
 import Interface.GameSet;
 
@@ -36,8 +37,9 @@ class SpeedPanel extends JPanel{
 			super(path, btnID, width, height);			
 			setLayout(null);
 			speedLa.setFont(new GameFontB(20));
-			speedLa.setLocation(20,25);
+			speedLa.setLocation(25,20);
 			speedLa.setSize(120,50);
+			speedLa.setForeground(GameColor.basic);
 			add(speedLa);
 		}		
 	}

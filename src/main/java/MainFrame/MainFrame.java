@@ -33,6 +33,7 @@ public class MainFrame extends JFrame{
 	public StartFrame startFra;
 	public MakeUserFrame makeUserFra;
 	
+	
 	MainFrame(){
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -139,13 +140,23 @@ public class MainFrame extends JFrame{
 				
 		class MenuAction extends  BtnGraphicAction {
 			public void clickAct(BtnGraphic btn) {
-				switch(btn.getID()){
-				case "Start": startFra=new StartFrame(); break;
-				case "MakeUser": makeUserFra=new MakeUserFrame(); break;
-				case "WordSet": break;
-				case "Help": break;
-				case "Exit": System.exit(0);break; 
-				}
+				if(btn.getID().equals("Start"))
+					startFra=new StartFrame();
+				else if(btn.getID().equals("MakeUser"))
+					makeUserFra=new MakeUserFrame(); 
+//				else if(btn.equals("WordSet"));
+//				else if(btn.equals("Help"))
+//					;
+				else if(btn.getID().equals("Exit"))
+					 System.exit(0);
+				
+//				switch(btn.getID()){
+//				case "Start": startFra=new StartFrame(); break;
+//				case "MakeUser": makeUserFra=new MakeUserFrame(); break;
+//				case "WordSet": break;
+//				case "Help": break;
+//				case "Exit": System.exit(0);break; 
+//				}
 			}
 		}
 				
