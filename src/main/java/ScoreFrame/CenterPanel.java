@@ -22,7 +22,7 @@ import ScoreFrame.FileIO;
 class CenterPanel extends JPanel{
 	CenterPanel(){
 		setVisible(true);
-		setBackground(Interface.GameColor.lyan);
+		setBackground(Interface.GameColor.muzi);
 		setLayout(null);
 		setPreferredSize(new Dimension(500,420));
 		
@@ -39,10 +39,14 @@ class CenterPanel extends JPanel{
 		JLabel nameLabel[]=new JLabel[num];
 		
 		String name="0";
-		
+	
+			images[0]=new ImageIcon(path+"피치얼굴.png");	
+			images[1]=new ImageIcon(path+"무지얼굴.png");	
+			images[2]=new ImageIcon(path+"라이언얼굴.png");	
+			
 			for(int i=0;i<num;i++){
 			
-			images[i]=new ImageIcon(path+"고양이얼굴.png");	
+			
 			gradeImg[i]=new ImageIcon(path+"등수.png");
 					
 			faceLabel[i]=new JLabel(images[i]);
