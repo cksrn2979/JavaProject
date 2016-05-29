@@ -56,20 +56,52 @@ public class SubmitPanel extends JPanel{
 				GameSet.setUser(user);
 				GameSet.setCharacter(character);
 				
-				switch(character){
-					case "Muzi.": GameColor.character=GameColor.muzi; break;
-					case "Lyan.": GameColor.character=GameColor.lyan; break;
-					case "Apeach.": GameColor.character=GameColor.apeach; break;
-				}
+				if(character.equals("Muzi"))
+					GameColor.character=GameColor.muzi;
+				else if(character.equals("Lyan"))
+					GameColor.character=GameColor.lyan;
+				else if(character.equals("Apeach"))
+					GameColor.character=GameColor.apeach;
 				
-				switch(MainFrame.mf.startFra.choiceLevelPa.level){
-					case "level1": GameSet.setLevel(1); GameSet.setSpeed(5.0); break;
-					case "level2": GameSet.setLevel(2); GameSet.setSpeed(10.0);break;
-					case "level3": GameSet.setLevel(3); GameSet.setSpeed(15.0);break;
-					case "level4": GameSet.setLevel(4); GameSet.setSpeed(20.0);break;
-					case "level5": GameSet.setLevel(5); GameSet.setSpeed(25.0);break;
-					case "level6": GameSet.setLevel(6); GameSet.setSpeed(30.0);break;
-				}				
+//				switch(character){
+//					case "Muzi.": GameColor.character=GameColor.muzi; break;
+//					case "Lyan.": GameColor.character=GameColor.lyan; break;
+//					case "Apeach.": GameColor.character=GameColor.apeach; break;
+//				}
+				
+				if(MainFrame.mf.startFra.choiceLevelPa.level.equals("level1"))
+					{
+					GameSet.setLevel(1); GameSet.setSpeed(5.0); 
+					}
+				else if(MainFrame.mf.startFra.choiceLevelPa.level.equals("level2"))
+					{
+					GameSet.setLevel(2); GameSet.setSpeed(10.0);
+					}
+				else if(MainFrame.mf.startFra.choiceLevelPa.level.equals("level3"))
+					{
+					GameSet.setLevel(3); GameSet.setSpeed(15.0);
+					}
+				else if(MainFrame.mf.startFra.choiceLevelPa.level.equals("level4"))
+					{
+					GameSet.setLevel(4); GameSet.setSpeed(20.0);
+					}
+				else if(MainFrame.mf.startFra.choiceLevelPa.level.equals("level5"))
+					{
+					GameSet.setLevel(5); GameSet.setSpeed(25.0);
+					}
+				else if(MainFrame.mf.startFra.choiceLevelPa.level.equals("level6"))
+					{
+					GameSet.setLevel(6); GameSet.setSpeed(30.0);
+					}
+				
+//				switch(MainFrame.mf.startFra.choiceLevelPa.level){
+//					case "level1": GameSet.setLevel(1); GameSet.setSpeed(5.0); break;
+//					case "level2": GameSet.setLevel(2); GameSet.setSpeed(10.0);break;
+//					case "level3": GameSet.setLevel(3); GameSet.setSpeed(15.0);break;
+//					case "level4": GameSet.setLevel(4); GameSet.setSpeed(20.0);break;
+//					case "level5": GameSet.setLevel(5); GameSet.setSpeed(25.0);break;
+//					case "level6": GameSet.setLevel(6); GameSet.setSpeed(30.0);break;
+//				}				
 				MainFrame.mf.setContentPane(MainFrame.mf.playPa=new PlayPanel());
 			}
 			
