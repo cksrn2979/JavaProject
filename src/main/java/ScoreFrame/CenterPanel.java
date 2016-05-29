@@ -64,10 +64,10 @@ class CenterPanel extends JPanel{
 		setBackground(Color.white);
 		Border CenterBorder= BorderFactory.createEtchedBorder();
 		setBorder(CenterBorder);
-		setLayout(new BorderLayout());
-		
-		add(new InformPanel(),BorderLayout.NORTH);
-		add(new ScoreListPanel(),BorderLayout.CENTER);
+//		setLayout(new BorderLayout());
+//		
+	add(new InformPanel(),BorderLayout.NORTH);
+//		add(new ScoreListPanel(),BorderLayout.CENTER);
 		
 	}	
 }
