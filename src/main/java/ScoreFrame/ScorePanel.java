@@ -23,12 +23,14 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import Interface.GameSet;
+import MainFrame.MainFrame;
 import StartFrame.ChoiceLevelPanel;
 import StartFrame.ChoiceUserPanel;
 import StartFrame.SubmitPanel;
 import ScoreFrame.FileIO.*;
 public class ScorePanel extends JFrame{
-	
+		public static ScorePanel sp;
+		public static FileIO fIO;
 		
 		ScorePanel(){
 			setSize(800,550);
@@ -42,20 +44,23 @@ public class ScorePanel extends JFrame{
 			setLocation((windowSize.width - frameSize.width) / 2,
 					(windowSize.height - frameSize.height) / 2);
 			
+			fIO=new FileIO();
 			NorthPanel north=new NorthPanel();
 			CenterPanel center=new CenterPanel();
+		
 			
 			add(center,BorderLayout.CENTER);
 			add(north,BorderLayout.NORTH);
 			
-			new FileIO();
 			
 		}
 		
 		
 		public static void main(String[] args){
-			new ScorePanel();
-		
+			sp=new ScorePanel();
+			 
+			System.out.println("Main에서 함수 호출 테스트  : "+fIO.getScore("rion"));
+			
 		}
 }
 

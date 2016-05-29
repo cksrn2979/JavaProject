@@ -31,7 +31,11 @@ import Interface.GameSet;
 				writeGrade();
 				
 				//함수 테스트 - 콘솔창 확인
-				System.out.println("1등 : "+getGradeName(0)+" 점수 : "+ getScore(getGradeName(0)));
+				System.out.println(" ");
+				
+				System.out.println("FileIO내에서 함수 호출 테스트 ");
+				for(int i=0;i<gradeNameList.size();i++)
+					System.out.println(i+1+"등 : "+getGradeName(i)+" 점수 : "+ getScore(getGradeName(i)));
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -40,7 +44,7 @@ import Interface.GameSet;
 		}
 		
 		//텍스트 파일에 저장된 데이터 읽어서 각각의 배열에 저장 
-		public static void readPlayer() throws IOException{
+		void readPlayer() throws IOException{
 			
 			BufferedReader in = new BufferedReader(new FileReader("C:/Users/Song/git/JavaProject/Score.txt"));
 			String gameCharacter;	
@@ -66,7 +70,7 @@ import Interface.GameSet;
 		
 		}
 		
-		public static void writeGrade() throws IOException{//점수 순서대로 정렬 
+		void writeGrade() throws IOException{//점수 순서대로 정렬 
 			
 			   int i=0;
 				    
@@ -103,7 +107,6 @@ import Interface.GameSet;
 				if(nameList.get(i).equals(name))
 				{
 					indexNum=i;
-					System.out.println(scoreList.get(indexNum).intValue());
 					return scoreList.get(indexNum);
 				}
 				i++;
