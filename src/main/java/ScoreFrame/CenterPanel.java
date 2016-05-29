@@ -38,22 +38,25 @@ class CenterPanel extends JPanel{
 		JLabel gradeLabel[]=new JLabel[num];
 		JLabel nameLabel[]=new JLabel[num];
 		
-		String name="0";
+		String name=" ";//이름 저장
+		String faceType=" ";//캐릭터 타입 저장
 	
-			images[0]=new ImageIcon(path+"피치얼굴.png");	
-			images[1]=new ImageIcon(path+"무지얼굴.png");	
-			images[2]=new ImageIcon(path+"라이언얼굴.png");	
 			
 			for(int i=0;i<num;i++){
 			
-			
 			gradeImg[i]=new ImageIcon(path+"등수.png");
-					
-			faceLabel[i]=new JLabel(images[i]);
+			
+			
 			gradeLabel[i]=new JLabel(gradeImg[i]);
 			
 			name=ScorePanel.sp.fIO.getGradeName(i);
 			
+			faceType=ScorePanel.sp.fIO.getCharacterName(name);
+			images[i]=new ImageIcon(path+faceType+"Face.png");
+			faceLabel[i]=new JLabel(images[i]);
+			
+			System.out.println(faceType);
+		
 			nameLabel[i]=new JLabel(name);
 			scores[i]=new JLabel(ScorePanel.sp.fIO.getScore(name).toString());
 

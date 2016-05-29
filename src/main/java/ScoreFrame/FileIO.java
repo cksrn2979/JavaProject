@@ -95,11 +95,27 @@ import Interface.GameSet;
 			   }
 		}
 		
-		public static String getGradeName(int index){//해당 등수의 이름 
+		public static String getGradeName(int index){//해당 등수의 이름 반환
 			return gradeNameList.get(index);
 		}
-		
-		public static Integer getScore(String name){//해당 이름의 점수
+
+		public static String getCharacterName(String name){//해당 이름의 캐릭터 타입 반환
+			int indexNum=-1;
+			int i=0;
+			
+			
+			while(i<characterList.size())
+			{
+				if(nameList.get(i).equals(name))
+				{
+					indexNum=i;
+					return characterList.get(indexNum);
+				}
+				i++;
+			}
+			return " ";//못찾으면 -1을 리턴
+		}
+		public static Integer getScore(String name){//해당 이름의 점수 반환
 			int indexNum=-1;
 			int i=0;
 			while(i<gradeNameList.size())
