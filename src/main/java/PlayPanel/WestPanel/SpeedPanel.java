@@ -7,41 +7,29 @@ import java.text.NumberFormat;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Graphics.GraphicForm;
+import Graphics.GraphicPanel;
 import Interface.GameColor;
 import Interface.GameFontB;
 import Interface.GameSet;
 
-class SpeedPanel extends JPanel{
+class SpeedPanel extends GraphicPanel{
 	JLabel speedLa=new JLabel(GameSet.getSpeed().toString());
 	
-	SpeedPanel(){
-				
-		setPreferredSize(new Dimension(100,150));
+	SpeedPanel(String path, String FILENAME, int width, int height){
+		super(path,FILENAME,width,height);	
 		setBackground(null);
-		setLayout(null);
+		setLayout(null);		
+		setLocation(0,30);
 		
-		
-		String path="images/MainFrame/"+GameSet.getCharacter() +"/PlayPanel/WestPanel/SpeedPanel/SpeedGra";
-		SpeedGraphic speedGra=new SpeedGraphic(path,"speedGra",100,100);
-		speedGra.setLocation(0,30);
-		add(speedGra);
+		speedLa.setFont(new GameFontB(20));
+		speedLa.setLocation(40,45);
+		speedLa.setSize(120,50);
+		speedLa.setForeground(GameColor.basic);
+		add(speedLa);
 		
 		SpeedAni speedAni=new SpeedAni();
 		speedAni.start();
 		
-	}
-	
-	class SpeedGraphic extends GraphicForm{
-		public SpeedGraphic(String path, String btnID, int width, int height) {
-			super(path, btnID, width, height);			
-			setLayout(null);
-			speedLa.setFont(new GameFontB(20));
-			speedLa.setLocation(25,20);
-			speedLa.setSize(120,50);
-			speedLa.setForeground(GameColor.basic);
-			add(speedLa);
-		}		
 	}
 	
 	class SpeedAni extends Thread{

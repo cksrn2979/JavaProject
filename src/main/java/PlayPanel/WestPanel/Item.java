@@ -21,7 +21,7 @@ public abstract class Item{
 
 class Item1 extends Item{
 	public void call() {
-		Vector<FallWordLabel> fallWordLabelArray = MainFrame.mf.playPa.cp.fallWordPanel.getLabelArray();
+		Vector<FallWordLabel> fallWordLabelArray = MainFrame.mf.playPa.cp.getLabelArray();
 		String korean;
 		String english;
 		
@@ -51,7 +51,7 @@ class Item1 extends Item{
 		}
 				
 		//모든 떨어지는 라벨 제거
-		MainFrame.mf.playPa.cp.fallWordPanel.getLabelArray().removeAllElements();		
+		MainFrame.mf.playPa.cp.getLabelArray().removeAllElements();		
 				
 		//item1 사용 불가 상태로
 		setEnable(false);
@@ -61,6 +61,22 @@ class Item1 extends Item{
 class Item2 extends Item{
 	public void call() {
 		setEnable(false);
+		GameSet.setStop();
+		
+		Timer t= new Timer(false);
+		TimerTask repairTask=new RepairTask();
+		
+		//7초후에 원래 속도로
+		t.schedule(repairTask, 7000);
+
+		//item3 사용 불가 상태로
+		setEnable(false);
+	}
+	
+	class RepairTask extends TimerTask{
+		public void run() {
+			GameSet.setPlay();
+		}
 	}
 }
 
@@ -89,7 +105,7 @@ class Item3 extends Item{
 
 class Item4 extends Item{
 	public void call() {
-		MainFrame.mf.playPa.cp.heartGagePanel.heartGageGra.heartgage.fullgain();
+		MainFrame.mf.playPa.cp.heartGagePa.heartgage.fullgain();
 		setEnable(false);
 	}	
 }

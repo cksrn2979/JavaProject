@@ -1,5 +1,6 @@
 package PlayPanel.EastPanel;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -12,15 +13,14 @@ import Interface.GameFontP;
 public class SuccessWordPanel extends JPanel{
 	public SuccessWordTable successWordTable;
 	
-	SuccessWordPanel(){
-		
+	SuccessWordPanel(){		
 		setBackground(null);
 		
 		successWordTable=new SuccessWordTable();
 		
 		//스크롤바 추가
 		JScrollPane scroll=new JScrollPane(successWordTable);
-		scroll.setPreferredSize(new Dimension(130,220));
+		scroll.setPreferredSize(new Dimension(130,200));
 		
 		add(scroll);
 	}
@@ -30,6 +30,10 @@ public class SuccessWordPanel extends JPanel{
 		
 		SuccessWordTable(){
 			this.setFont(new GameFontP(13));
+			this.setBackground(Color.WHITE);
+			//this.setShowHorizontalLines(false);
+			this.setShowGrid(false);
+			//this.setShowVerticalLines(false);
 			
 			String[] header={"한글","영어"};
 			model= new DefaultTableModel(header,0);

@@ -3,23 +3,11 @@ package ScoreFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
-import java.awt.Insets;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableColumnModel;
-
-import Graphics.BtnGraphic;
-import Graphics.BtnGraphicActionMainTain;
-import Interface.GameColor;
-import Interface.GameSet;
-
-import ScoreFrame.FileIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 class CenterPanel extends JPanel{
@@ -38,7 +26,7 @@ class CenterPanel extends JPanel{
 		}
 		
 	class GradePanel extends JPanel{
-			String path="C:/Users/Song/git/JavaProject/images/ScoreFrame/CenterPanel/";
+			String path="images/ScoreFrame/CenterPanel/";
 			int num=3;//전체 화면에 표시할 등수 표시 갯수
 			
 			GradePanel(){
@@ -104,7 +92,7 @@ class CenterPanel extends JPanel{
 		}//GradePanel end
 	
 	class MyGradePanel extends JPanel{
-		String path="C:/Users/Song/git/JavaProject/images/ScoreFrame/CenterPanel/";
+		String path="images/ScoreFrame/CenterPanel/";
 		
 		MyGradePanel(){
 			setVisible(true);

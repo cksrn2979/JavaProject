@@ -1,35 +1,44 @@
 package MakeUserFrame;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Enumeration;
 
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Graphics.BtnGraphic;
-import Graphics.BtnGraphicAction;
-import Graphics.BtnGraphicActionMainTain;
-import Graphics.GraphicForm;
+import Graphics.GraphicButton;
+import Graphics.GraphicRadioButton;
 import Interface.GameColor;
+import MainFrame.MainFrame;
 
 public class MakeUserFrame extends JFrame{
+	ChoiceCharacterPanel choiceChracterPa;
+	UserInputPanel userInputPa;
+	SubmitPanel submitPa;
+	
 	JTextField userInput;
-	String character;
-	Window f=this;
+	ButtonGroup chracterGroup;
+	Window f=this;	
+	
 	
 	public MakeUserFrame(){
-		setSize(400,300);
+		setSize(400,350);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);//크기 고정
 		setUndecorated(true);
+		this.getContentPane().setBackground(GameColor.basic);
 		setVisible(true);
 		
 		Dimension frameSize = getSize();
@@ -38,69 +47,85 @@ public class MakeUserFrame extends JFrame{
 				(windowSize.height - frameSize.height) / 2);
 
 	
-		setLayout(new BorderLayout());
-			
-		add(new ChoiceCharacterPanel(),BorderLayout.NORTH);
-		add(new UserInputPanel(),BorderLayout.CENTER);
-		add(new submitPanel(),BorderLayout.SOUTH);
+		setLayout(null);
+		
+		choiceChracterPa = new ChoiceCharacterPanel();
+		userInputPa = new UserInputPanel();
+		submitPa = new SubmitPanel();
+		
+		
+		choiceChracterPa.setLocation(0, 50);
+		choiceChracterPa.setSize(400,150);
+		
+		userInputPa.setLocation(0,200);
+		userInputPa.setSize(400,50);
+		
+		submitPa.setLocation(0,250);
+		submitPa.setSize(400,50);
+		
+		add(choiceChracterPa);
+		add(userInputPa);
+		add(submitPa);
 	}
+	
+
 		
 	class ChoiceCharacterPanel extends JPanel{
 		JLabel choicela;
-		BtnGraphic[] choiceBtn;
+		GraphicRadioButton[] choiceBtn;
+	
 			
 		ChoiceCharacterPanel(){
-			this.setPreferredSize(new Dimension(200,200));
-			setLayout(null);
-			setBackground(GameColor.frame1);
-				
+			this.setSize(400, 250);
+			
+			setBackground(null);				
 						
 			makeBtn();
 				
 		}
 			
 		void makeBtn(){
-			String path="images/MakeUserFrame/ChoiceCharacter/";
-			choiceBtn=new BtnGraphic[3];
-			choiceBtn[0] =new BtnGraphic(path+"/muziBtn","Muzi",100,100);
-			choiceBtn[1] =new BtnGraphic(path+"/LionBtn","Lyan",100,100);
-			choiceBtn[2] =new BtnGraphic(path+"/ApeachBtn","Apeach",100,100);
+			chracterGroup=new ButtonGroup(); 
 			
-			CharacterAction action = new CharacterAction();
-			choiceBtn[0].addMouseListener(action);
-			choiceBtn[1].addMouseListener(action);
-			choiceBtn[2].addMouseListener(action);
+			String path="images/MakeUserFrame/";			
+			choiceBtn=new GraphicRadioButton[3];
+			choiceBtn[0] =new GraphicRadioButton(path,"MuziBtn",100,100);
+			choiceBtn[1] =new GraphicRadioButton(path,"LyanBtn",100,100);
+			choiceBtn[2] =new GraphicRadioButton(path,"ApeachBtn",100,100);
 			
 			for(int i=0; i<3; i++){
-				choiceBtn[i].setLocation(30+(i*110),50);
+				choiceBtn[i].addActionListener( new ChoiceActionListener());
+			}
+		
+			for(int i=0; i<3; i++){
+				chracterGroup.add(choiceBtn[i]);
 				add(choiceBtn[i]);
 			}
 		}
-			
-		class CharacterAction extends BtnGraphicActionMainTain{
-			public void clickAct(BtnGraphic btn) {
-				character=this.getChoice();
-			}			
+		
+		class ChoiceActionListener implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				GraphicRadioButton btn=(GraphicRadioButton)e.getSource();
+				
+			}
 		}
 	}
 		
 	class UserInputPanel extends JPanel{
 		UserInputPanel(){
-			setPreferredSize(new Dimension(400,10));
 			setLayout(new FlowLayout());
-			setBackground(GameColor.frame1);				
+			setBackground(null);			
 			userInput= new JTextField("",15);
 			add(userInput);
 		}
 	}
 	
-	class submitPanel extends JPanel{
-		BtnGraphic[] submitBtn;
+	class SubmitPanel extends JPanel{
+		GraphicButton[] submitBtn;
 			
-		submitPanel(){
-			this.setPreferredSize(new Dimension(400,50));
+		SubmitPanel(){
 			setLayout(null);
-			setBackground(GameColor.frame1);
+			setBackground(null);
 			makeBtn();
 			
 			for(int i=0; i<2; i++){
@@ -110,40 +135,62 @@ public class MakeUserFrame extends JFrame{
 		}
 		
 		void makeBtn(){
-			String path="images/MakeUserFrame/ChoiceCharacter";
-			submitBtn=new BtnGraphic[2];
-			submitBtn[0] =new BtnGraphic(path+"/SelectBtn","submit",100,35);
-			submitBtn[1] =new BtnGraphic(path+"/SelectBtn","conceal",100,35);
+			String path="images/MakeUserFrame/";
+			submitBtn=new GraphicButton[2];
+			submitBtn[0] =new GraphicButton(path,"SubmitBtn",100,35);
+			submitBtn[1] =new GraphicButton(path,"ConcealBtn",100,35);
 			
-			submitBtn[0].addla("확인", 17);
-			submitBtn[1].addla("취소", 17);
-			BtnGraphicAction action=new SubmitAction();
-			submitBtn[0].addMouseListener(action);
-			submitBtn[1].addMouseListener(action);
+			
+			for(int i=0; i<2;i++){
+				submitBtn[i].addActionListener(new SubmitActionListener());
+			}
 		}
 		
-		class SubmitAction extends BtnGraphicAction {
-			public void clickAct(BtnGraphic btn) {
-				if(btn.getID()=="submit")
-					try {
-						writeUser();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+		class SubmitActionListener implements ActionListener{
+			String chracter;
+			public void actionPerformed(ActionEvent e) {
+				GraphicButton btn=(GraphicButton)e.getSource();
+				if(btn.getFILENAME().equals("SubmitBtn")){
+					
+					String CHARCTERNAME = null;
+					Enumeration<AbstractButton> enums = chracterGroup.getElements();
+					while(enums.hasMoreElements()){
+						 GraphicRadioButton radiobtn=(GraphicRadioButton)enums.nextElement(); 
+						 if(radiobtn.isSelected())    
+							 CHARCTERNAME=radiobtn.getFILENAME();
 					}
 				
-				else;
+					switch(CHARCTERNAME){
+						case "MuziBtn": chracter="MUZI"; break;
+						case "LyanBtn": chracter="LYAN"; break;
+						case "ApeachBtn": chracter="APEACH"; break;
+					}
+					
+					try {
+						writeUser();
+						MainFrame.mf.startFra.userListPa.readUser();
+					} catch (IOException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}				
+				}
 				f.dispose();
 			}
 			
 			public void writeUser() throws IOException{				
-				BufferedWriter out = new BufferedWriter(new FileWriter("C:/Users/Song/git/JavaProject/User.txt",true));
+				BufferedWriter out = new BufferedWriter(new FileWriter("User.txt",true));
 				String user=userInput.getText();				
-			    out.write(character + "\t" + user);
+			    out.write(chracter + "\t" + user);
 			    out.newLine();			  
 			    out.close();
-			}
-		
-		}
+			}	
+			
+		}	
+					
+	}
+
+	public GraphicButton GraphicButton(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}			
 }

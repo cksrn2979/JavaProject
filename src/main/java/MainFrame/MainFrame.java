@@ -17,10 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import Graphics.BtnGraphic;
-import Graphics.BtnGraphicAction;
-import Graphics.GraphicForm;
-import Interface.GameColor;
+import Graphics.GraphicButton;
 import MakeUserFrame.MakeUserFrame;
 import PlayPanel.PlayPanel;
 import StartFrame.StartFrame;
@@ -55,6 +52,7 @@ public class MainFrame extends JFrame{
 		createMenuBar();
 		
 	}
+	
 	
 	void createMenuBar(){
 		
@@ -112,55 +110,40 @@ public class MainFrame extends JFrame{
 		}
 		
 		void MakeButton(){
-			String path="images/MainFrame/MainPage";
+			String path="images/MainFrame/MainPage/";
 			
-			BtnGraphic btn[] = new BtnGraphic[5];
-			btn[0]=new BtnGraphic(path+"/menubtn", "Start",100,35);
-			btn[1]=new BtnGraphic(path+"/menubtn", "MakeUser",100,40);
-			btn[2]=new BtnGraphic(path+"/menubtn", "WordSet",100,40);
-			btn[3]=new BtnGraphic(path+"/menubtn", "Help",100,40);
-			btn[4]=new BtnGraphic(path+"/menubtn", "Exit",100,40);
+			GraphicButton btn[] = new GraphicButton[4];
+			btn[0]=new GraphicButton(path,"Startbtn",100,35);
+			btn[1]=new GraphicButton(path,"WordSetbtn",100,35);
+			btn[2]=new GraphicButton(path,"Helpbtn",100,35);
+			btn[3]=new GraphicButton(path,"Exitbtn",100,35);
 			
-			btn[0].addla("게임 시작",15);
-			btn[1].addla("유저 생성",15);
-			btn[2].addla("단어 셋팅",15);
-			btn[3].addla("게임 방법",15);
-			btn[4].addla("종료",15);
-		
+			for(int i=0; i<4; i++){
+				btn[i].addActionListener(new MenuAction());
+			}
 			
-			BtnGraphicAction action =new MenuAction();
-			for(int i=0; i<5; i++)
-				btn[i].addMouseListener(action);	
-			
-			for(int i=0; i<5; i++){
+			for(int i=0; i<4; i++){
 				btn[i].setLocation(330, 280+(i*40));
 				add(btn[i]);
 			}		
 		}
 				
-		class MenuAction extends  BtnGraphicAction {
-			public void clickAct(BtnGraphic btn) {
-				if(btn.getID().equals("Start"))
-					startFra=new StartFrame();
-				else if(btn.getID().equals("MakeUser"))
-					makeUserFra=new MakeUserFrame(); 
-//				else if(btn.equals("WordSet"));
-//				else if(btn.equals("Help"))
-//					;
-				else if(btn.getID().equals("Exit"))
-					 System.exit(0);
+		class MenuAction implements ActionListener {
+						
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				GraphicButton btn=(GraphicButton)e.getSource();
+
+				switch(btn.getFILENAME()){
+				case "Startbtn": startFra=new StartFrame(); break;
+				case "WordSetBtn": break;
+				case "Help": break;
+				case "Exitbtn": System.exit(0);break; 
+				}
 				
-//				switch(btn.getID()){
-//				case "Start": startFra=new StartFrame(); break;
-//				case "MakeUser": makeUserFra=new MakeUserFrame(); break;
-//				case "WordSet": break;
-//				case "Help": break;
-//				case "Exit": System.exit(0);break; 
-//				}
 			}
 		}
 				
-		
 		public void paintComponent(Graphics g) {
 			ImageIcon background = new ImageIcon("images/MainFrame/MainPage/Background.png");	
 			g.drawImage(background.getImage(), 0, 0, null);	

@@ -1,10 +1,13 @@
 package PlayPanel;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import Interface.GameSet;
 import MyDictionary.MyDictionary;
 import PlayPanel.CenterPanel.CenterPanel;
 import PlayPanel.EastPanel.EastPanel;
@@ -28,13 +31,15 @@ public class PlayPanel extends JPanel{
 		catch (IOException e) {e.printStackTrace();}
 	
 		setLayout(new BorderLayout());
-		
+		this.setBackground(Color.WHITE);
+		String npPath=GameSet.getPath()+"NorthPanel/";
+		String cpPath=GameSet.getPath()+"CenterPanel/";	
+		wp= new WestPanel();
 		sp= new SouthPanel();
 		ep= new EastPanel();
-		np= new NorthPanel();
-		cp= new CenterPanel();		
-		wp= new WestPanel();
-		
+		np= new NorthPanel(npPath,"background",800,60);
+		cp= new CenterPanel(cpPath,"background",500,420);
+
 			
 		add(sp,BorderLayout.SOUTH);
 		add(ep,BorderLayout.EAST);

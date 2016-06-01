@@ -40,14 +40,14 @@ public class FallWordLabel extends JLabel{
 	
 	//Item 가지고 있을때 한글 폰트
 	public void setHaveItem_k(){
-		String path="images/MainFrame/"+GameSet.getCharacter() +"/PlayPanel/CenterPanel/FallWordPanel/";
+		String path=GameSet.getPath()+"CenterPanel/";
 		this.setIcon(new ImageIcon(path+"itemIcon"+".png"));
 		this.setFont(new GameFontB(18));
 	}
 	
 	//Item 가지고 있을 때 영어 폰트
 	public void setHaveItem_e(){
-		String path="images/MainFrame/"+GameSet.getCharacter() +"/PlayPanel/CenterPanel/FallWordPanel/";
+		String path=GameSet.getPath()+"CenterPanel/";
 		this.setIcon(new ImageIcon(path+"itemIcon"+".png"));
 		this.setFont(new GameFontB(18));
 		this.setForeground(Color.blue);

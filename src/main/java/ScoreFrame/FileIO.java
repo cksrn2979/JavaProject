@@ -18,11 +18,11 @@ import Interface.GameSet;
 
 	public class FileIO {
 		
-		private static Vector<String> characterList= new Vector<String>(); //게임 캐릭터 목록
-		private static Vector<String> nameList= new Vector<String>(); //이름
-		private static Vector<Integer> scoreList= new Vector<Integer>(); //스코어
-		private static HashMap<Integer,String> gradeHashMap  = new HashMap<Integer, String>();//점수와 이름을 순위대로 기록
-		private static Vector<String> gradeNameList=new Vector<String>();//등수순대로 이름정렬
+		private Vector<String> characterList= new Vector<String>(); //게임 캐릭터 목록
+		private Vector<String> nameList= new Vector<String>(); //이름
+		private Vector<Integer> scoreList= new Vector<Integer>(); //스코어
+		private HashMap<Integer,String> gradeHashMap  = new HashMap<Integer, String>();//점수와 이름을 순위대로 기록
+		private Vector<String> gradeNameList=new Vector<String>();//등수순대로 이름정렬
 		
 		FileIO() {
 			
@@ -47,7 +47,7 @@ import Interface.GameSet;
 		//이긴 사람의 점수를 텍스트 파일에 저장하기 기능 없음
 		void readPlayer() throws IOException{
 			
-			BufferedReader in = new BufferedReader(new FileReader("C:/Users/Song/git/JavaProject/Score.txt"));
+			BufferedReader in = new BufferedReader(new FileReader("Score.txt"));
 			String gameCharacter;	
 			String name;
 			String score;
@@ -96,11 +96,11 @@ import Interface.GameSet;
 			   }
 		}
 		
-		public static String getGradeName(int index){//해당 등수의 이름 반환
+		public String getGradeName(int index){//해당 등수의 이름 반환
 			return gradeNameList.get(index);
 		}
 
-		public static String getCharacterName(String name){//해당 이름의 캐릭터 타입 반환
+		public String getCharacterName(String name){//해당 이름의 캐릭터 타입 반환
 			int indexNum=-1;
 			int i=0;
 			
@@ -117,7 +117,7 @@ import Interface.GameSet;
 			return " ";
 		}
 		
-		public static Integer getScore(String name){//해당 이름의 점수 반환
+		public Integer getScore(String name){//해당 이름의 점수 반환
 			int indexNum=-1;
 			int i=0;
 			while(i<gradeNameList.size())
