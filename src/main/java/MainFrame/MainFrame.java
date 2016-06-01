@@ -134,12 +134,18 @@ public class MainFrame extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				GraphicButton btn=(GraphicButton)e.getSource();
 
-				switch(btn.getFILENAME()){
-				case "Startbtn": startFra=new StartFrame(); break;
-				case "WordSetBtn": break;
-				case "Help": break;
-				case "Exitbtn": System.exit(0);break; 
-				}
+				if(btn.getFILENAME().equals("Startbtn"))startFra=new StartFrame();
+				else if(btn.getFILENAME().equals("WordSetBtn"));
+				else if(btn.getFILENAME().equals("Help"));
+				else if(btn.getFILENAME().equals("Exitbtn"))System.exit(0);
+				
+				
+//				switch(btn.getFILENAME()){
+//				case "Startbtn": startFra=new StartFrame(); break;
+//				case "WordSetBtn": break;
+//				case "Help": break;
+//				case "Exitbtn": System.exit(0);break; 
+//				}
 				
 			}
 		}
