@@ -5,11 +5,11 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-public class ScorePanel extends JFrame{
-		public static ScorePanel sp;
+public class ScoreFrame extends JFrame{
+		public static ScoreFrame sf;
 		public static FileIO fIO;
 		
-		ScorePanel(){
+		ScoreFrame(){
 			setSize(800,550);
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			setResizable(false);
@@ -33,10 +33,8 @@ public class ScorePanel extends JFrame{
 		}
 		
 		public static void main(String[] args){
-			sp=new ScorePanel();
-			 
-			System.out.println("Main에서 함수 호출 테스트  : "+fIO.getScore("rion"));
-			
+			sf=new ScoreFrame();
+		
 		}
 }
 

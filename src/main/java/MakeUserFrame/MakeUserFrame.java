@@ -160,11 +160,18 @@ public class MakeUserFrame extends JFrame{
 							 CHARCTERNAME=radiobtn.getFILENAME();
 					}
 				
-					switch(CHARCTERNAME){
-						case "MuziBtn": chracter="MUZI"; break;
-						case "LyanBtn": chracter="LYAN"; break;
-						case "ApeachBtn": chracter="APEACH"; break;
-					}
+					if(CHARCTERNAME.equals("MuziBtn"))
+						chracter="MUZI"; 
+					else if(CHARCTERNAME.equals("LyanBtn"))
+						chracter="LYAN"; 
+					else if(CHARCTERNAME.equals("ApeachBtn"))
+						chracter="APEACH"; 
+					
+//					switch(CHARCTERNAME){
+//						case "MuziBtn": chracter="MUZI"; break;
+//						case "LyanBtn": chracter="LYAN"; break;
+//						case "ApeachBtn": chracter="APEACH"; break;
+//					}
 					
 					try {
 						writeUser();

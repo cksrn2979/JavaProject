@@ -54,17 +54,32 @@ public class SubmitPanel extends JPanel{
 				GameSet.setUser(user);
 				GameSet.setCharacter(character);
 				
-				switch(character){
-					case "MUZI.": GameColor.character=GameColor.muzi; 
-								GameSet.setPath("images/MainFrame/Muzi/");
-								break;
-					case "LYAN.": GameColor.character=GameColor.lyan;
-								GameSet.setPath("images/MainFrame/Lyan/");
-								break;
-					case "APEACH.": GameColor.character=GameColor.apeach;
-								GameSet.setPath("images/MainFrame/Apeach/");
-								break;
-				}		
+				if(character.equals("MUZI"))
+				{	GameColor.character=GameColor.muzi; 
+					GameSet.setPath("images/MainFrame/Muzi/");
+				}
+				else if(character.equals("LYAN"))
+				{	GameColor.character=GameColor.lyan;
+					GameSet.setPath("images/MainFrame/Lyan/");
+				}
+				else if(character.equals("LYAN"))
+				{
+					GameColor.character=GameColor.apeach;
+					GameSet.setPath("images/MainFrame/Apeach/");
+				}
+
+				
+//				switch(character){
+//					case "MUZI.": GameColor.character=GameColor.muzi; 
+//								GameSet.setPath("images/MainFrame/Muzi/");
+//								break;
+//					case "LYAN.": GameColor.character=GameColor.lyan;
+//								GameSet.setPath("images/MainFrame/Lyan/");
+//								break;
+//					case "APEACH.": GameColor.character=GameColor.apeach;
+//								GameSet.setPath("images/MainFrame/Apeach/");
+//								break;
+//				}		
 			
 //				switch(MainFrame.mf.startFra.choiceLevelPa.level){
 //					case "level1": GameSet.setLevel(1); GameSet.setSpeed(5.0); break;

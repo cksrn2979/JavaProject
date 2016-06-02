@@ -60,16 +60,16 @@ class CenterPanel extends JPanel{
 				gradeImg[i]=new ImageIcon(path+"등수.png");
 				gradeLabel[i]=new JLabel(gradeImg[i]);
 				
-				name=ScorePanel.sp.fIO.getGradeName(i);
+				name=ScoreFrame.sf.fIO.Users.get(i).getName();
 				
-				faceType=ScorePanel.sp.fIO.getCharacterName(name);
+				faceType=ScoreFrame.sf.fIO.Users.get(i).getCharacter();
 				images[i]=new ImageIcon(path+faceType+"Face.png");//faceType 별로 이모티콘 분류
 				faceLabel[i]=new JLabel(images[i]);
 				
 				System.out.println(faceType);
 			
 				nameLabel[i]=new JLabel(name);
-				scores[i]=new JLabel(ScorePanel.sp.fIO.getScore(name).toString());
+				scores[i]=new JLabel(ScoreFrame.sf.fIO.Users.get(i).getScore().toString());
 
 //				faceLabel[i].setSize(100,100);
 //				faceLabel[i].setLocation(100,100+i*100);
@@ -106,6 +106,7 @@ class CenterPanel extends JPanel{
 			add(info,BorderLayout.NORTH);
 		}
 	}//MyGradePanel end
+	
 }
 	
 
