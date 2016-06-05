@@ -9,12 +9,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Graphics.GlobalGraphic;
+
 
 class CenterPanel extends JPanel{
 	
 		CenterPanel(){
 			setVisible(true);
-			setBackground(Interface.GameColor.muzi);
+			setBackground(GlobalGraphic.character);
 			setLayout(null);
 			setPreferredSize(new Dimension(500,420));
 			

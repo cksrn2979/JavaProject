@@ -18,9 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Graphics.GlobalGraphic;
 import Graphics.GraphicButton;
 import Graphics.GraphicRadioButton;
-import Interface.GameColor;
 import MainFrame.MainFrame;
 
 public class MakeUserFrame extends JFrame{
@@ -38,7 +38,7 @@ public class MakeUserFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);//크기 고정
 		setUndecorated(true);
-		this.getContentPane().setBackground(GameColor.basic);
+		this.getContentPane().setBackground(GlobalGraphic.basic);
 		setVisible(true);
 		
 		Dimension frameSize = getSize();
@@ -160,18 +160,12 @@ public class MakeUserFrame extends JFrame{
 							 CHARCTERNAME=radiobtn.getFILENAME();
 					}
 				
-					if(CHARCTERNAME.equals("MuziBtn"))
-						chracter="MUZI"; 
-					else if(CHARCTERNAME.equals("LyanBtn"))
-						chracter="LYAN"; 
-					else if(CHARCTERNAME.equals("ApeachBtn"))
-						chracter="APEACH"; 
-					
-//					switch(CHARCTERNAME){
-//						case "MuziBtn": chracter="MUZI"; break;
-//						case "LyanBtn": chracter="LYAN"; break;
-//						case "ApeachBtn": chracter="APEACH"; break;
-//					}
+				
+					switch(CHARCTERNAME){
+						case "MuziBtn": chracter="MUZI"; break;
+						case "LyanBtn": chracter="LYAN"; break;
+						case "ApeachBtn": chracter="APEACH"; break;
+					}
 					
 					try {
 						writeUser();
@@ -185,7 +179,7 @@ public class MakeUserFrame extends JFrame{
 			}
 			
 			public void writeUser() throws IOException{				
-				BufferedWriter out = new BufferedWriter(new FileWriter("User.txt",true));
+				BufferedWriter out = new BufferedWriter(new FileWriter("resources/User.txt",true));
 				String user=userInput.getText();				
 			    out.write(chracter + "\t" + user);
 			    out.newLine();			  

@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
@@ -22,7 +24,8 @@ public class MyDictionary{
 		String line = "";
 		
 		//파일 데이터 저장 스트림
-		BufferedReader in = new BufferedReader(new FileReader("src/main/java/MyDictionary/WORDLIST.txt"));
+		
+		BufferedReader in = new BufferedReader(new FileReader("resources/WORDLIST.txt"));
 		
 		//데이터 잘라줄 객체
 		String[] spliter;

@@ -2,22 +2,19 @@ package StartFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.Window;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Interface.GameColor;
+import Graphics.GlobalGraphic;
 
 public class StartFrame extends JFrame{
 	public Window f=this;
 	public UserListPanel userListPa;
 	public LevelListPanel levelListPa;
 	public SubmitPanel submitPa;
-			
 	public StartFrame(){
 		setSize(400,300);
 		
@@ -26,7 +23,7 @@ public class StartFrame extends JFrame{
 		setUndecorated(true);
 		setVisible(true);
 		setContentPane(new StartPanel());
-		getContentPane().setBackground(GameColor.basic);
+		getContentPane().setBackground(GlobalGraphic.basic);
 		
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		

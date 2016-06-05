@@ -1,5 +1,4 @@
 package PlayPanel.SouthPanel;
-import java.awt.Button;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
@@ -8,7 +7,6 @@ import java.util.Vector;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Interface.GameSet;
 import MainFrame.MainFrame;
 import MyDictionary.MyDictionary;
 import PlayPanel.CenterPanel.FallWordLabel;
@@ -16,6 +14,7 @@ import PlayPanel.WestPanel.ItemPanel;
 
 class InputTextPanel extends JPanel{	
 	private JTextField textInput;
+
 	ItemPanel itemPanel;
 	InputTextPanel(){
 
@@ -33,17 +32,25 @@ class InputTextPanel extends JPanel{
 		public void keyPressed(KeyEvent e){
 			itemPanel=MainFrame.mf.playPa.wp.itemPanel;
 			switch(e.getKeyCode()){
+			case KeyEvent.VK_ESCAPE:
+				if(MainFrame.mf.playPa.getPlay())
+					MainFrame.mf.playPa.setStop();
+				else
+					MainFrame.mf.playPa.setPlay();
+				break;
+				
 			case KeyEvent.VK_F1: //item1 모두 지우기
 				if(itemPanel.getItem(0).getEnable()){
 					itemPanel.getItem(0).call();
 					itemPanel.getItemBtn(0).setEnabled(false);
-					GameSet.setKoreanTurn();
+					MainFrame.mf.playPa.setKoreanTurn();
 				}
 				break;		
 				
 			case KeyEvent.VK_F2: //item2
 				if(itemPanel.getItem(1).getEnable())
-					itemPanel.getItem(1).call();				
+					itemPanel.getItem(1).call();
+					itemPanel.getItemBtn(1).setEnabled(false);
 				break;	
 				
 			case KeyEvent.VK_F3: //item3			
@@ -71,9 +78,9 @@ class InputTextPanel extends JPanel{
 		void matchFallWord(){		
 			String renderWord=MyDictionary.render(text); 	//번역글자  :  한글 -> 영어 -> null
 			
-			if(GameSet.getTurn()==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
+			if(MainFrame.mf.playPa.getTurn()==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
 				return;			
-		
+
 			Vector<FallWordLabel> fallWordLabelArray=MainFrame.mf.playPa.cp.getLabelArray();
 			for(int index=0; index<fallWordLabelArray.size(); index++){ //떨어지는 라벨들 중
 				FallWordLabel la=fallWordLabelArray.get(index); //떨어지는 라벨
@@ -114,9 +121,11 @@ class InputTextPanel extends JPanel{
 			if(la.getHaveItem()){
 				Random random=new Random();
 				int num=random.nextInt(4);//0-3 아이템 번호 제공
-				
+				int n=0;
 				while(itemPanel.getItem(num).getEnable()){
 					num=random.nextInt(4);
+					n++;
+					if(n==10)break;
 				}
 				
 				itemPanel.getItem(num).setEnable(true);
@@ -128,11 +137,10 @@ class InputTextPanel extends JPanel{
 			MainFrame.mf.playPa.cp.getLabelArray().remove(la);
 			
 			//점수 흭득
-			GameSet.scoreUp();
-			MainFrame.mf.playPa.np.scorelaUP();
+			MainFrame.mf.playPa.scoreUp();
 			
 			//한글 입력차례로 변환
-			GameSet.setKoreanTurn();
+			MainFrame.mf.playPa.setKoreanTurn();
 		}
 		
 		void InputKorean(FallWordLabel la){
@@ -142,7 +150,7 @@ class InputTextPanel extends JPanel{
 			else
 				la.setEnglish(); 	//아이템 가지지 않은 영단어 폰트 셋
 			
-			GameSet.setEnglishTurn(); //영어차례로 변환
+			MainFrame.mf.playPa.setEnglishTurn(); //영어차례로 변환
 		}
 	}
 }

@@ -5,9 +5,9 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Interface.GameFontB;
-import Interface.GameFontP;
-import Interface.GameSet;
+import Graphics.GameFontB;
+import Graphics.GameFontP;
+import Graphics.GlobalGraphic;
 
 public class FallWordLabel extends JLabel{
 	//라벨의 Item 보유  
@@ -23,7 +23,7 @@ public class FallWordLabel extends JLabel{
 		super(text);
 		this.setSize(120,40);
 		
-		if(Math.random()<0.2){ //Item랜덤하게 생성
+		if(Math.random()<1){ //Item랜덤하게 생성
 			itemHave=true;
 		}	
 		
@@ -40,14 +40,14 @@ public class FallWordLabel extends JLabel{
 	
 	//Item 가지고 있을때 한글 폰트
 	public void setHaveItem_k(){
-		String path=GameSet.getPath()+"CenterPanel/";
+		String path=GlobalGraphic.path+"CenterPanel/";
 		this.setIcon(new ImageIcon(path+"itemIcon"+".png"));
 		this.setFont(new GameFontB(18));
 	}
 	
 	//Item 가지고 있을 때 영어 폰트
 	public void setHaveItem_e(){
-		String path=GameSet.getPath()+"CenterPanel/";
+		String path=GlobalGraphic.path+"CenterPanel/";
 		this.setIcon(new ImageIcon(path+"itemIcon"+".png"));
 		this.setFont(new GameFontB(18));
 		this.setForeground(Color.blue);

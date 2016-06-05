@@ -8,10 +8,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Interface.GameFontP;
-
+import Graphics.GameFontP;
 public class SuccessWordPanel extends JPanel{
 	public SuccessWordTable successWordTable;
+	
 	
 	SuccessWordPanel(){		
 		setBackground(null);
@@ -31,9 +31,8 @@ public class SuccessWordPanel extends JPanel{
 		SuccessWordTable(){
 			this.setFont(new GameFontP(13));
 			this.setBackground(Color.WHITE);
-			//this.setShowHorizontalLines(false);
-			this.setShowGrid(false);
-			//this.setShowVerticalLines(false);
+			this.setShowHorizontalLines(true);
+			this.setShowVerticalLines(false);
 			
 			String[] header={"한글","영어"};
 			model= new DefaultTableModel(header,0);

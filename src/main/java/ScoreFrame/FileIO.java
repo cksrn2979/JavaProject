@@ -1,23 +1,12 @@
 package ScoreFrame;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.TreeMap;
-import java.util.Vector;
-import ScoreFrame.UserInfo;
-import javax.swing.JLabel;
-
-import Interface.GameSet;
 
 	public class FileIO {
 		
@@ -37,7 +26,7 @@ import Interface.GameSet;
 		//이긴 사람의 점수를 텍스트 파일에 저장하기 기능 없음
 		void readPlayer() throws IOException{
 			
-			BufferedReader in = new BufferedReader(new FileReader("Score.txt"));
+			BufferedReader in = new BufferedReader(new FileReader("resources/Score.txt"));
 
 			int i=0;
 			String s;

@@ -51,7 +51,7 @@ public class UserListPanel extends GraphicPanel{
 	
 	public void readUser() throws IOException{	
 		userList.removeAllItems();
-		BufferedReader in = new BufferedReader(new FileReader("User.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("resources/User.txt"));
 		String line = "";
 		String[] spliter;
 		

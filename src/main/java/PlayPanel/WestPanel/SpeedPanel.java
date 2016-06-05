@@ -1,19 +1,17 @@
 package PlayPanel.WestPanel;
 
-import java.awt.Dimension;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
+import Graphics.GameFontB;
+import Graphics.GlobalGraphic;
 import Graphics.GraphicPanel;
-import Interface.GameColor;
-import Interface.GameFontB;
-import Interface.GameSet;
+import MainFrame.MainFrame;
 
-class SpeedPanel extends GraphicPanel{
-	JLabel speedLa=new JLabel(GameSet.getSpeed().toString());
+public class SpeedPanel extends GraphicPanel{
+	private JLabel speedLa=new JLabel();
 	
 	SpeedPanel(String path, String FILENAME, int width, int height){
 		super(path,FILENAME,width,height);	
@@ -24,31 +22,12 @@ class SpeedPanel extends GraphicPanel{
 		speedLa.setFont(new GameFontB(20));
 		speedLa.setLocation(40,45);
 		speedLa.setSize(120,50);
-		speedLa.setForeground(GameColor.basic);
+		speedLa.setForeground(GlobalGraphic.basic);
 		add(speedLa);
-		
-		SpeedAni speedAni=new SpeedAni();
-		speedAni.start();
 		
 	}
 	
-	class SpeedAni extends Thread{
-		public void run(){
-			
-			NumberFormat numberFormat=new DecimalFormat("###.##");
-			while(true){
-				GameSet.speedUp(0.01);
-			
-				speedLa.setText(numberFormat.format(GameSet.getSpeed()));
-				
-				try {
-					sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-	}
+	public void setSpeedText(String speed){speedLa.setText(speed);}
+	
 }
 

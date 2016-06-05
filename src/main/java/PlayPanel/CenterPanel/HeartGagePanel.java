@@ -5,9 +5,8 @@ import java.awt.Dimension;
 
 import javax.swing.JProgressBar;
 
+import Graphics.GameFontB;
 import Graphics.GraphicPanel;
-import Interface.GameFontB;
-import Interface.GameSet;
 
 public class HeartGagePanel extends GraphicPanel{
 	public HeartGage heartgage=new HeartGage();
@@ -39,9 +38,7 @@ public class HeartGagePanel extends GraphicPanel{
 			setValue(value);
 			setString(value.toString()+"%");	
 			
-			if(value==0){ //체력이 없을 경우
-//				new ScorePanel(); //scoreFrame 생성
-				GameSet.setStop(); //게임 멈춤
+			if(value==0){ //체력이 없을 경우	
 				return;
 			}
 		}

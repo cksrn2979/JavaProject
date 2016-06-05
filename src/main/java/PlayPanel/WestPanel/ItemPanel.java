@@ -1,8 +1,9 @@
 package PlayPanel.WestPanel;
 
+import Graphics.GlobalGraphic;
 import Graphics.GraphicButton;
 import Graphics.GraphicPanel;
-import Interface.GameSet;
+import MainFrame.MainFrame;
 
 
 public class ItemPanel extends GraphicPanel{
@@ -19,7 +20,7 @@ public class ItemPanel extends GraphicPanel{
 		item[2]=new Item3();
 		item[3]=new Item4();
 		
-		String btnpath=GameSet.getPath()+"WestPanel/";
+		String btnpath=GlobalGraphic.path+"WestPanel/";
 		itemBtn[0]=new GraphicButton(btnpath,"ItemBtn1",100,35);
 		itemBtn[1]=new GraphicButton(btnpath,"ItemBtn2",100,35);
 		itemBtn[2]=new GraphicButton(btnpath,"ItemBtn3",100,35);
@@ -31,15 +32,7 @@ public class ItemPanel extends GraphicPanel{
 			add(itemBtn[i]);
 		}			
 	}
-	/*
-	public void paintComponent(Graphics g) {
-		String path="images/MainFrame/"+GameSet.getCharacter() +"/PlayPanel/WestPanel/ItemPanel/";
-		ImageIcon imgIcon=new ImageIcon(path+"background"+".png");
-		g.drawImage(imgIcon.getImage(), 0, 0, null);	
-		setOpaque(false);
-		super.paintComponent(g);
-	}
-	*/
+
 	//해당 인덱스의 아이템 리턴
 	public Item getItem(int index){
 		return item[index];
