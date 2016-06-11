@@ -3,46 +3,68 @@ package ScoreFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
+import Graphics.GameFontB;
+import Graphics.GameFontP;
 import Graphics.GlobalGraphic;
+import Graphics.GraphicPanel;
+import PlayPanel.PlayPanel;
+
 
 
 class CenterPanel extends JPanel{
+	String path="images/ScoreFrame/CenterPanel/";
+	public PlayPanel p;
 	
-		CenterPanel(){
+		CenterPanel(PlayPanel p){
+			this.p=p;
 			setVisible(true);
+			
+			//character 못받아옴 - Test
+			//GlobalGraphic.character=new Color(215,209,137);
+			GlobalGraphic.character=new Color(247,171,171);	
+			//GlobalGraphic.character=new Color(255,233,13);
 			setBackground(GlobalGraphic.character);
+			
 			setLayout(null);
 			setPreferredSize(new Dimension(500,420));
 			
-			GradePanel gp=new GradePanel();
+			GradePanel gp=new GradePanel(path,"frame",300,400,this);
 			MyGradePanel mgp=new MyGradePanel();
 			add(gp);
 			add(mgp);
 			
+			
+			
 		}
 		
-	class GradePanel extends JPanel{
-			String path="images/ScoreFrame/CenterPanel/";
-			int num=3;//전체 화면에 표시할 등수 표시 갯수
+	class GradePanel extends GraphicPanel{
 			
-			GradePanel(){
+			int num=4;//전체 화면에 표시할 등수 표시 갯수
+			
+			public GradePanel(String path, String FILENAME, int width, int height,CenterPanel p ){
+				super(path,FILENAME,width,height);
+				
 				setVisible(true);
 				setBackground(Color.white);
-				setLayout(new GridLayout(num,4,5,5));
+				
+				setLayout(null);
 				
 				setGrade();
 				
 				setSize(300,400);
-				setLocation(50,50);
-
+				setLocation(30,30);
+				
 			}
-			
+		
 			void setGrade(){
 			
 			ImageIcon images[]=new ImageIcon[num];
@@ -59,7 +81,7 @@ class CenterPanel extends JPanel{
 				
 				for(int i=0;i<num;i++){
 				
-				gradeImg[i]=new ImageIcon(path+"등수.png");
+				gradeImg[i]=new ImageIcon(path+"트로피.png");
 				gradeLabel[i]=new JLabel(gradeImg[i]);
 				
 				name=ScoreFrame.sf.fIO.Users.get(i).getName();
@@ -70,20 +92,21 @@ class CenterPanel extends JPanel{
 				
 				System.out.println(faceType);
 			
-				nameLabel[i]=new JLabel(name);
 				scores[i]=new JLabel(ScoreFrame.sf.fIO.Users.get(i).getScore().toString());
+				scores[i].setSize(100,100);
+				scores[i].setLocation(240, i*100);
+				scores[i].setFont(new GameFontB(15));
 
-//				faceLabel[i].setSize(100,100);
-//				faceLabel[i].setLocation(100,100+i*100);
-//				
-//				gradeLabel[i].setSize(100,100);
-//				gradeLabel[i].setLocation(200,100+i*100);
-//				
-//				nameLabel[i].setSize(100,100);
-//				nameLabel[i].setLocation(300, 100+i*100);
-//				
-//				scores[i].setSize(100,100);
-//				scores[i].setLocation(350, 100+i*100);
+				faceLabel[i].setSize(100,100);
+				faceLabel[i].setLocation(10,i*100);
+				
+				gradeLabel[i].setSize(100,100);
+				gradeLabel[i].setLocation(85,i*100);
+			
+				nameLabel[i]=new JLabel(name);
+				nameLabel[i].setSize(100,100);
+				nameLabel[i].setLocation(180, i*100);
+				nameLabel[i].setFont(new GameFontB(15));
 			
 				add(faceLabel[i]);
 				add(gradeLabel[i]);
@@ -94,18 +117,57 @@ class CenterPanel extends JPanel{
 		}//GradePanel end
 	
 	class MyGradePanel extends JPanel{
-		String path="images/ScoreFrame/CenterPanel/";
-		
+	
 		MyGradePanel(){
 			setVisible(true);
 			setBackground(Color.white);
-			setLayout(new BorderLayout());
+			setLayout(null);
 			
-			setSize(380,400);
-			setLocation(370,50);
+			setSize(390,400);
+			setLocation(370,30);
+		
+			setMyGrade();
 			
-			JLabel info=new JLabel("나의 점수는?",JLabel.CENTER);
-			add(info,BorderLayout.NORTH);
+			
+			
+		}
+		
+		public void setMyGrade(){
+		
+			/*	스레드 문제 - Exception in thread "main" java.lang.NullPointerException 
+			 * playpanel 의 값을 받아올수 없음 
+			 * String myCharacter = p.getCharacter();
+			Integer myScore=p.getScore();
+			String myName=p.getName();
+			Integer myLevel=p.getLavel();
+			*/
+			
+			String myCharacter="APEACH"; //캐릭터 이미지
+			ImageIcon myChimage = new ImageIcon(path+myCharacter+"스코어.gif");
+			JLabel myChLabel=new JLabel(myChimage);
+			myChLabel.setLocation(130, 50);
+			myChLabel.setSize(130,130);
+			
+			Integer myScore=new Integer(300); //스코어점수
+			JLabel myScoreLabel=new JLabel(myScore.toString());
+			myScoreLabel.setLocation(150,210);
+			myScoreLabel.setSize(150,60);
+			myScoreLabel.setFont(new GameFontB(50));
+			myScoreLabel.setForeground(new Color(55,211,0));
+			
+			String myName="s"; //캐릭터 이름 + 레벨
+			Integer myLavel=new Integer(2);
+			JLabel myInfoLabel=new JLabel("userName : "+myName+" /  " + "userLevel : "+myLavel.toString());
+			myInfoLabel.setFont(new GameFontP(20));
+			myInfoLabel.setLocation(50, 300);
+			myInfoLabel.setSize(300,50);
+			
+			add(myChLabel);
+			add(myScoreLabel);
+			add(myInfoLabel);
+			
+		
+			
 		}
 	}//MyGradePanel end
 	
