@@ -1,4 +1,8 @@
-Muzi	muzi	60
-Lyan	rion	30
-Apeach	apich	20
-Lyan	s	100MUZI	changoo	0
+LYAN	22	550
+MUZI	changoo	90
+MUZI	changoo	0
+APEACH	얍	20
+MUZI	changoo	0
+MUZI	changoo	0
+LYAN	22	0
+LYAN	22	0

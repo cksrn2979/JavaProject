@@ -58,13 +58,20 @@ public class PauseFrame extends JFrame{
 
 			public void actionPerformed(ActionEvent e) {
 				GraphicButton btn=(GraphicButton)e.getSource();
+				if(btn.getFILENAME().equals("homebtn"));
+				else if(btn.getFILENAME().equals("resumebtn"))
+					MainFrame.mf.playPanel.play.resumeGame();
+				else if(btn.getFILENAME().equals("exitbtn"))
+					System.exit(0);
+				
+				/*
 				switch(btn.getFILENAME()){
 					case "homebtn":
 									break;
 					case "resumebtn":MainFrame.mf.playPanel.play.resumeGame();
 									break;
 					case "exitbtn": System.exit(0);
-				}
+				}*/
 				
 				PauseFrame.this.dispose();
 				

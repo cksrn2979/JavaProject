@@ -75,6 +75,7 @@ public class Play {
 	public void stopGame(){
 		speedAni.interrupt();
 		makeWord.interrupt();
+		writeFinal();
 		for (int i = 0; i < fallingAniArray.size(); i++)
 			fallingAniArray.get(i).interrupt();
 		new ScoreFrame(	MainFrame.mf.playPanel);
