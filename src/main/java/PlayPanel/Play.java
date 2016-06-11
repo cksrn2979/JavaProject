@@ -104,31 +104,26 @@ public class Play {
 	}
 	
 	private void writeFinal() {
-
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter("resources/Score.txt", true));
 			BufferedReader in2 = new BufferedReader(new FileReader("resources/User.txt"));
-
 			String name = MainFrame.mf.playPanel.userInfo.getUser();
 			String ch = " ";
-
 			String s;
-
 			while ((s = in2.readLine()) != null) {
 				String[] split = s.split("\t");
 				if (split[1].equals(name)) {
 					ch = split[0];
 				}
 			}
-
 			out.write(ch + '\t' + name + '\t' + score);
 			out.newLine();
 			in2.close();
 			out.close();
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			return;
 		}
-
 	}
 
 	class SpeedAni extends Thread {

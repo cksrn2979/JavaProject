@@ -131,10 +131,8 @@ class CenterPanel extends JPanel{
 			
 			setLocation(450,30);
 		
-			setMyGrade();
-			
-			
-			
+			setMyGrade();			
+		
 		}
 		
 		public void setMyGrade(){
@@ -159,9 +157,6 @@ class CenterPanel extends JPanel{
 			JLabel myLevelLabel=new JLabel("userlevel : "+mylevel);
 			setGradeLabel(myLevelLabel,100,50,20);
 			
-			
-		
-
 		}
 		public void setGradeLabel(JLabel source,int x,int y,int fontSize){
 			source.setSize(x,y);
