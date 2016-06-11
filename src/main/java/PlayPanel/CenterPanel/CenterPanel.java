@@ -4,18 +4,21 @@ import java.util.Vector;
 
 import Graphics.GlobalGraphic;
 import Graphics.GraphicPanel;
+import PlayPanel.PlayPanel;
 
 public class CenterPanel extends GraphicPanel{
 	public HeartGagePanel heartGagePa;	
 	private Vector<FallWordLabel> fallWordLabelArray;	
-	
-	public CenterPanel(String path, String FILENAME, int width, int height){
+	public PlayPanel p;
+	public CenterPanel(String path, String FILENAME, int width, int height,PlayPanel p ){
 		super(path,FILENAME,width,height);
 		setLayout(null);
 				
 		fallWordLabelArray= new Vector<FallWordLabel>();
 	
-		heartGagePa = new HeartGagePanel(path,"HeartGageGra",200,30);
+		this.p=p;
+		
+		heartGagePa = new HeartGagePanel(path,"HeartGageGra",200,30,p);
 		heartGagePa.setLocation(150,10);
 		add(heartGagePa);
 			

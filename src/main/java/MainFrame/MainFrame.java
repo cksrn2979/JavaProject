@@ -161,7 +161,7 @@ public class MainFrame extends JFrame{
 	}		
 	
 	public static void main(String[] args){
-		System.setProperty("file.encoding","UTF-8");
+		/*System.setProperty("file.encoding","UTF-8");
 		Field charset;
 		try {
 			charset = Charset.class.getDeclaredField("defaultCharset");
@@ -171,7 +171,7 @@ public class MainFrame extends JFrame{
 		} catch (NoSuchFieldException | SecurityException |IllegalArgumentException | IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		mf =new MainFrame();
 	}

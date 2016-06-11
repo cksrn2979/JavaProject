@@ -7,14 +7,18 @@ import javax.swing.JProgressBar;
 
 import Graphics.GameFontB;
 import Graphics.GraphicPanel;
+import PlayPanel.PlayPanel;
 
 public class HeartGagePanel extends GraphicPanel{
 	public HeartGage heartgage=new HeartGage();
-	HeartGagePanel(String path, String FILENAME, int width, int height){
+	PlayPanel p;
+	
+	HeartGagePanel(String path, String FILENAME, int width, int height,PlayPanel p){
 		super(path,FILENAME,width,height);
 		heartgage=new HeartGage();
 		heartgage.setFont(new GameFontB(10));
 		add(heartgage);
+		this.p=p;
 	}
 	
 	public class HeartGage extends JProgressBar{
@@ -39,6 +43,7 @@ public class HeartGagePanel extends GraphicPanel{
 			setString(value.toString()+"%");	
 			
 			if(value==0){ //체력이 없을 경우	
+				p.setStop();
 				return;
 			}
 		}

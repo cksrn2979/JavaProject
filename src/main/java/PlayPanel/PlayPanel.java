@@ -53,7 +53,7 @@ public class PlayPanel extends JPanel{
 		sp= new SouthPanel();
 		ep= new EastPanel();
 		np= new NorthPanel(npPath,"background",800,60);
-		cp= new CenterPanel(cpPath,"background",500,420);
+		cp= new CenterPanel(cpPath,"background",500,420,this);
 		
 		this.setLayout(new BorderLayout());			
 		add(sp,BorderLayout.SOUTH);
@@ -122,19 +122,19 @@ public class PlayPanel extends JPanel{
 	@SuppressWarnings("deprecation")
 	public void setStop(){
 		this.play=false;
-		speedAni.suspend();
-		run.suspend();		
+		speedAni.interrupted();
+		run.interrupted();		
 		for(int i=0; i<fallingAniArray.size(); i++)
-			fallingAniArray.get(i).suspend();	
+			fallingAniArray.get(i).interrupted();	
 	}
 	
 	@SuppressWarnings("deprecation")
 	public void setPlay(){
 		this.play=true;
-		speedAni.resume();
-		run.resume();		
+		speedAni.notify();
+		run.notify();		
 		for(int i=0; i<fallingAniArray.size(); i++)
-			fallingAniArray.get(i).resume();
+			fallingAniArray.get(i).notify();
 	}
 	
 	class SpeedAni extends Thread{
