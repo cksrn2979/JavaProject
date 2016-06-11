@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,11 +31,11 @@ public class MakeUserFrame extends JFrame{
 	SubmitPanel submitPanel;
 
 	public MakeUserFrame(){
-		setSize(400,350);
+		setSize(400,320);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);//크기 고정
 		setUndecorated(true);
-		this.getContentPane().setBackground(GlobalGraphic.basic);
+		this.getContentPane().setBackground(GlobalGraphic.basic2);
 		setVisible(true);
 		
 		Dimension frameSize = getSize();
@@ -42,7 +43,7 @@ public class MakeUserFrame extends JFrame{
 		setLocation((windowSize.width - frameSize.width) / 2,
 				(windowSize.height - frameSize.height) / 2);
 
-	
+		this.setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
 		setLayout(null);
 		
 		choiceChracterPanel = new ChoiceCharacterPanel();

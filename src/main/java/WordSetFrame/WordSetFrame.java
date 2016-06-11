@@ -2,6 +2,7 @@ package WordSetFrame;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JFrame;
 
@@ -21,9 +22,9 @@ public class WordSetFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);//크기 고정
 		setUndecorated(true);
-		getContentPane().setBackground(GlobalGraphic.basic);
+		getContentPane().setBackground(GlobalGraphic.basic2);
 		setVisible(true);	
-		
+		this.setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
 		setLocation((windowSize.width - frameSize.width) / 2,

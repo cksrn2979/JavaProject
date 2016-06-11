@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
+import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -31,13 +32,12 @@ public class MainFrame extends JFrame{
 	
 	
 	MainFrame(){
-		setSize(800,550);
+		setSize(800,570);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);//크기 고정
-		setUndecorated(true);
+		//setUndecorated(true);
 		setVisible(true);
 		
-		//com.sun.awt.AWTutilities.setWindowShape(this,new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),20,20));
 		
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
@@ -63,8 +63,8 @@ public class MainFrame extends JFrame{
 		JMenuItem version=new JMenuItem("Version");
 		JMenuItem developer=new JMenuItem("Developer");
 		
-		menuBar.setPreferredSize(new Dimension(800,30));
-		menuBar.setBackground(Color.LIGHT_GRAY);
+		menuBar.setPreferredSize(new Dimension(800,20));
+		menuBar.setBackground(Color.WHITE);
 		//파일 메뉴 생성
 		fileMenu.add(regame);
 	
