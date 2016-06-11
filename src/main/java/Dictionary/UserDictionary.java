@@ -1,4 +1,4 @@
-package MyDictionary;
+package Dictionary;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,20 +12,29 @@ import java.util.Random;
 import java.util.Vector;
 
 
-public class MyDictionary{
-	private static Vector<String> list= new Vector<String>(); //목록
-	private static HashMap<String,String> render= new HashMap<String,String>(); //번역
-	private static HashMap<String,Integer> success= new HashMap<String,Integer>(); //성공횟수
+public class UserDictionary{
+	private  Vector<String> list= new Vector<String>(); //목록
+	private  HashMap<String,String> render= new HashMap<String,String>(); //번역
+	private  HashMap<String,Integer> success= new HashMap<String,Integer>(); //성공횟수
 	
+	
+	UserDictionary(String user){
+		try {
+			readWordBasicDictionary();
+			writeWordUserDictionary(user);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	//파일에서 단어를 입력시킴
-	public static void readWordFromFile() throws IOException{
+	public  void readWordBasicDictionary() throws IOException{
 		
 		//readline 읽을 String변수
 		String line = "";
 		
 		//파일 데이터 저장 스트림
 		
-		BufferedReader in = new BufferedReader(new FileReader("resources/WORDLIST.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("resources/BasicDictionary.txt"));
 		
 		//데이터 잘라줄 객체
 		String[] spliter;
@@ -42,20 +51,20 @@ public class MyDictionary{
 			korean=spliter[0];
 			english=spliter[1];
 			successcount=spliter[2];
-			MyDictionary.add(korean,english,Integer.parseInt(successcount));
+			this.add(korean,english,Integer.parseInt(successcount));
 		}
 
 		//스트림 종료
 		in.close();
 	}
 	
-	public static void writeWordFromFile() throws IOException{
+	public  void writeWordUserDictionary(String user) throws IOException{
 			
 			String korean;
 			String english;
 			String successcount;
 			
-			BufferedWriter out = new BufferedWriter(new FileWriter("src/main/java/MyDictionary/WORDLIST.txt"));
+			BufferedWriter out = new BufferedWriter(new FileWriter("resources/UserDictionary" +user+"_Dictionary.txt"));
 		    String s;
 		    
 		    for(int i=0; i<list.size();i++){
@@ -70,12 +79,12 @@ public class MyDictionary{
 	}
 	
 	//단어의 갯수 리턴
-	public static int getNumOfWord(){
+	public  int getNumOfWord(){
 		return list.size();
 	}
 	
 	//단어를 입력
-	public static void add(String korean, String english,Integer successcount){
+	public  void add(String korean, String english,Integer successcount){
 		list.add(korean);
 		render.put(korean,english);
 		success.put(korean,successcount);
@@ -83,24 +92,24 @@ public class MyDictionary{
 	}
 	
 	//index 단어를 리턴
-		public static String getWord(int index){
+		public  String getWord(int index){
 			return list.get(index);
 	}
 
 	//랜덤하게 단어를 리턴
-	public static String rand(){
+	public  String rand(){
 		Random random=new Random();
 		return list.elementAt(random.nextInt(list.size()));
 	}
 	
 	
 	//한글을 영어로 번역
-	public static String render(String korean){
+	public  String render(String korean){
 		return render.get(korean);
 	}
 	
 	//영어를 한글로 번역
-	public static String renderReverse(String english){
+	public  String renderReverse(String english){
 		 for(String s : render.keySet()) {
 			    if (render.get(s).equals(english))
 			    	return s;
@@ -109,12 +118,12 @@ public class MyDictionary{
 	}
 	
 	//성공횟수를 받아옴
-	public static Integer getSuccess(String korean){
+	public  Integer getSuccess(String korean){
 		return success.get(korean);
 	}
 	
 	//성공횟수 +1
-	public static void plusSuccess(String korean){
+	public  void plusSuccess(String korean){
 		success.replace(korean,getSuccess(korean).intValue()+1);
 	}
 	

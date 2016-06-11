@@ -10,7 +10,7 @@ public class CenterPanel extends GraphicPanel{
 	public HeartGagePanel heartGagePa;	
 	private Vector<FallWordLabel> fallWordLabelArray;	
 	public PlayPanel p;
-	public CenterPanel(String path, String FILENAME, int width, int height,PlayPanel p ){
+	public CenterPanel(String path, String FILENAME, int width, int height){
 		super(path,FILENAME,width,height);
 		setLayout(null);
 				
@@ -18,7 +18,7 @@ public class CenterPanel extends GraphicPanel{
 	
 		this.p=p;
 		
-		heartGagePa = new HeartGagePanel(path,"HeartGageGra",200,30,p);
+		heartGagePa = new HeartGagePanel(path,"HeartGageGra",200,30);
 		heartGagePa.setLocation(150,10);
 		add(heartGagePa);
 			

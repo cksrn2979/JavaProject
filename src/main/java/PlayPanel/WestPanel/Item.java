@@ -4,8 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
+import Dictionary.UserDictionary;
 import MainFrame.MainFrame;
-import MyDictionary.MyDictionary;
 import PlayPanel.CenterPanel.FallWordLabel;
 
 public abstract class Item{
@@ -19,11 +19,9 @@ public abstract class Item{
 
 class Item1 extends Item{
 	public void call() {
-		Vector<FallWordLabel> fallWordLabelArray = MainFrame.mf.playPa.cp.getLabelArray();
+		Vector<FallWordLabel> fallWordLabelArray = MainFrame.mf.playPanel.cp.getLabelArray();
 		String korean;
 		String english;
-		
-	
 		
 		//떨어지는 모든 단어를 성공 단어에 추가
 		for(int index=0; index<fallWordLabelArray.size();index++){
@@ -32,20 +30,20 @@ class Item1 extends Item{
 			FallWordLabel la=fallWordLabelArray.get(index);
 			
 			korean=la.getText();
-			english=MyDictionary.render(korean);
+			english=UserDictionary.render(korean);
 					
 			//case2의 경우 - 모든 떨어지는 라벨 중 하나의 라벨은 영어를 가지고있음
 			if(la.getLanguage()==false){
 				english=korean;
-				korean=MyDictionary.renderReverse(english);
+				korean=UserDictionary.renderReverse(english);
 			}
 			
 			//성공 단어에 추가
-			MainFrame.mf.playPa.ep.successWordPanel.successWordTable.add(korean,english);
+			MainFrame.mf.playPanel.ep.successWordPanel.successWordTable.add(korean,english);
 		}
 				
 		//모든 떨어지는 라벨 제거
-		MainFrame.mf.playPa.cp.clearLabel();	
+		MainFrame.mf.playPanel.cp.clearLabel();	
 				
 		//item1 사용 불가 상태로
 		setEnable(false);
@@ -55,7 +53,7 @@ class Item1 extends Item{
 class Item2 extends Item{
 
 	public void call() {
-		MainFrame.mf.playPa.setStop();
+		MainFrame.mf.playPanel.play.pauseGame();
 		
 		Timer t= new Timer(false);
 		TimerTask repairTask=new RepairTask();
@@ -69,7 +67,7 @@ class Item2 extends Item{
 	
 	class RepairTask extends TimerTask{
 		public void run() {
-			MainFrame.mf.playPa.setPlay();
+			MainFrame.mf.playPanel.play.resumeGame();
 		}
 	}
 
@@ -78,8 +76,8 @@ class Item2 extends Item{
 class Item3 extends Item{
 	double speed;
 	public void call() {
-		speed=MainFrame.mf.playPa.getSpeed();
-		MainFrame.mf.playPa.setSpeed(5.0);
+		speed=MainFrame.mf.playPanel.play.getSpeed();
+		MainFrame.mf.playPanel.play.setSpeed(5.0);
 		
 		Timer t= new Timer(false);
 		TimerTask repairTask=new RepairTask();
@@ -93,14 +91,14 @@ class Item3 extends Item{
 	
 	class RepairTask extends TimerTask{
 		public void run() {
-			MainFrame.mf.playPa.setSpeed(speed);
+			MainFrame.mf.playPanel.play.setSpeed(speed);
 		}
 	}
 }
 
 class Item4 extends Item{
 	public void call() {
-		MainFrame.mf.playPa.cp.heartGagePa.heartgage.fullgain();
+		MainFrame.mf.playPanel.cp.heartGagePa.heartgage.fullgain();
 		setEnable(false);
 	}	
 }

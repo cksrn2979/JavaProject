@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Graphics.GlobalGraphic;
@@ -13,6 +15,7 @@ import Graphics.GraphicButton;
 import Graphics.GraphicRadioButton;
 import MainFrame.MainFrame;
 import PlayPanel.PlayPanel;
+import WordSetFrame.SubmitButtonPanel;
 
 public class SubmitPanel extends JPanel{
 	
@@ -50,7 +53,7 @@ public class SubmitPanel extends JPanel{
 				
 				String[] spliter;
 				
-				String item=(String)MainFrame.mf.startFra.userListPa.getSelectedItem();
+				String item=(String)MainFrame.mf.startFrame.userListPa.getSelectedItem();
 				
 				spliter=item.split("\t");
 				
@@ -61,7 +64,7 @@ public class SubmitPanel extends JPanel{
 			
 				
 				String levelbtn = null;
-				Enumeration<AbstractButton> enums = MainFrame.mf.startFra.levelListPa.levelGroup.getElements();
+				Enumeration<AbstractButton> enums = MainFrame.mf.startFrame.levelListPa.levelGroup.getElements();
 				while(enums.hasMoreElements()){
 					 GraphicRadioButton radiobtn=(GraphicRadioButton)enums.nextElement(); 
 					 if(radiobtn.isSelected())    
@@ -96,13 +99,14 @@ public class SubmitPanel extends JPanel{
 					 GlobalGraphic.path="images/MainFrame/Apeach/";
 				}
 				
-				/*switch(levelbtn){
+				switch(levelbtn){
 					case "levelBtn1": level=1;speed=10; break;
 					case "levelBtn2": level=5;speed=20; break;
 					case "levelBtn3": level=10;speed=30; break;
-				}*/
+				}
 				
-				if(levelbtn.equals("levelBtn1"))
+				
+		/*		if(levelbtn.equals("levelBtn1"))
 				{
 					 level=1;speed=10;
 				}
@@ -113,13 +117,14 @@ public class SubmitPanel extends JPanel{
 				else if(levelbtn.equals("levelBtn3"))
 				{
 					level=10;speed=30;
-				}
+				}*/
 				
-				MainFrame.mf.setContentPane(MainFrame.mf.playPa=new PlayPanel(user,character,level,speed));
+				MainFrame.mf.setContentPane(MainFrame.mf.playPanel=new PlayPanel(user,character,level,speed));
 			}
 			
 			else;
-			MainFrame.mf.startFra.dispose();
+			JFrame topFrame=(JFrame)(SubmitPanel.this.getTopLevelAncestor());
+			topFrame.dispose();
 			
 		}
 	}
