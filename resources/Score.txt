@@ -1,0 +1,4 @@
+Muzi	muzi	60
+Lyan	rion	30
+Apeach	apich	20
+Lyan	s	100

@@ -1,45 +1,40 @@
 package ScoreFrame;
+
 import java.awt.BorderLayout;
-import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-public class ScoreFrame extends JFrame {
-	JMenuBar menuBar=new JMenuBar();
-	JMenu fileMenu=new JMenu("파일");
-	JMenu helpMenu=new JMenu("Help");
-	
-	public ScoreFrame(){
-		setTitle("Score Menu");
-		setSize(800,550);
-		setVisible(true);
-		setBackground(Color.WHITE);
+public class ScoreFrame extends JFrame{
+		public static ScoreFrame sf;
+		public static FileIO fIO;
 		
-		add(new NorthPanel(),BorderLayout.NORTH);
-		add(new CenterPanel(),BorderLayout.CENTER);
-		add(new SouthPanel(),BorderLayout.SOUTH);
+		ScoreFrame(){
+			setSize(800,550);
+			setDefaultCloseOperation(EXIT_ON_CLOSE);
+			setResizable(false);
+			setUndecorated(true);
+			setVisible(true);
+			
+			Dimension frameSize = getSize();
+			Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
+			setLocation((windowSize.width - frameSize.width) / 2,
+					(windowSize.height - frameSize.height) / 2);
+			
+			fIO=new FileIO();
+			
+			String npPath="images/ScoreFrame/NorthPanel/";
+			NorthPanel north=new NorthPanel(npPath,"backgorund",800,60);
+			CenterPanel center=new CenterPanel();
+			
+			add(center,BorderLayout.CENTER);
+			add(north,BorderLayout.NORTH);
 		
-		//파일 메뉴 생성
-		fileMenu.add(new JMenuItem("새파일"));
-		fileMenu.add(new JMenuItem("열기"));
-		fileMenu.add(new JMenuItem("저장"));
-		fileMenu.addSeparator();//구분선 추가
-		fileMenu.add(new JMenuItem("종료"));
+		}
 		
-		//도움 메뉴 생성
-		helpMenu.add(new JMenuItem("버전"));
-		helpMenu.add(new JMenuItem("정보"));
+		public static void main(String[] args){
+			sf=new ScoreFrame();
 		
-		//메뉴를 메뉴바에 등록
-		menuBar.add(fileMenu);
-		menuBar.add(helpMenu);
-		
-		//메뉴바 추가
-		setJMenuBar(menuBar);
-
-	}
-
+		}
 }
+
