@@ -75,7 +75,6 @@ class CenterPanel extends JPanel{
 			String name=" ";//이름 저장
 			String faceType=" ";//캐릭터 타입 저장
 		
-				
 				for(int i=0;i<num;i++){
 				
 				gradeImg[i]=new ImageIcon(path+"트로피.png");
@@ -111,7 +110,7 @@ class CenterPanel extends JPanel{
 				add(nameLabel[i]);
 				}
 			}
-		}//GradePanel end
+		}
 	
 	class MyGradePanel  extends GraphicPanel{
 	

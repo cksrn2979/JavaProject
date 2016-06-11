@@ -1,4 +1,3 @@
 LYAN	22
 MUZI	changoo
-APEACH	랍랍
 APEACH	어피치
