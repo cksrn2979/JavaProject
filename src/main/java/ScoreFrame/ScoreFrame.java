@@ -38,6 +38,5 @@ public class ScoreFrame extends JFrame{
 			add(north,BorderLayout.NORTH);
 		
 		}
-	
 }
 

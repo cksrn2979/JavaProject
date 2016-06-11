@@ -7,6 +7,7 @@ import java.util.Vector;
 import Dictionary.UserDictionary;
 import MainFrame.MainFrame;
 import PlayPanel.CenterPanel.FallWordLabel;
+import ScoreFrame.ScoreFrame;
 
 public class Play {
 	private boolean play;
@@ -68,6 +69,11 @@ public class Play {
 	}
 	
 	public void stopGame(){
+		speedAni.interrupt();
+		makeWord.interrupt();
+		for (int i = 0; i < fallingAniArray.size(); i++)
+			fallingAniArray.get(i).interrupt();
+		new ScoreFrame(	MainFrame.mf.playPanel);
 	}
 	
 	public void pauseGame() {
@@ -96,8 +102,7 @@ public class Play {
 				try {
 					sleep(100);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					return;
 				}
 			}
 		}
@@ -113,7 +118,7 @@ public class Play {
 				try {
 					sleep(4000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					return;
 				}
 			}
 		}
@@ -146,7 +151,7 @@ public class Play {
 				try {
 					sleep(1000); // 떨어지는 속도
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					return;
 				}
 			}
 

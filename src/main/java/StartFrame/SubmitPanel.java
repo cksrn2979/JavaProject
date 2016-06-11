@@ -53,15 +53,18 @@ public class SubmitPanel extends JPanel{
 				
 				String[] spliter;
 				
-				String item=(String)MainFrame.mf.startFrame.userListPa.getSelectedItem();
-				
-				spliter=item.split("\t");
+				String selection=(String)MainFrame.mf.startFrame.userListPa.getSelectedItem();
+				if(selection==null){
+					JOptionPane.showMessageDialog(null, "캐릭터를 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
+					return;
+				}
+				spliter=selection.split("\t");
 				
 				character=spliter[0];
 				user=spliter[1];
 				int level = 0;
 				double speed = 0;
-			
+				
 				
 				String levelbtn = null;
 				Enumeration<AbstractButton> enums = MainFrame.mf.startFrame.levelListPa.levelGroup.getElements();
@@ -71,7 +74,7 @@ public class SubmitPanel extends JPanel{
 						 levelbtn=radiobtn.getFILENAME();
 				}
 				
-				/*switch(character){
+				switch(character){
 				case "MUZI.": GlobalGraphic.character=new Color(251,233,13); 
 						GlobalGraphic.path="images/MainFrame/Muzi/";
 						break;
@@ -81,9 +84,9 @@ public class SubmitPanel extends JPanel{
 				case "APEACH.": GlobalGraphic.character=new Color(247,171,171);
 						GlobalGraphic.path="images/MainFrame/Apeach/";
 						break;
-				}	*/
+				}
 				
-				if(character.equals("MUZI."))
+		/*		if(character.equals("MUZI."))
 				{
 					GlobalGraphic.character=new Color(251,233,13); 
 					GlobalGraphic.path="images/MainFrame/Muzi/";
@@ -97,6 +100,11 @@ public class SubmitPanel extends JPanel{
 				{
 					 GlobalGraphic.character=new Color(247,171,171);
 					 GlobalGraphic.path="images/MainFrame/Apeach/";
+				}
+				*/
+				if(levelbtn==null){
+					JOptionPane.showMessageDialog(null, "레벨을 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
+					return;
 				}
 				
 				switch(levelbtn){
