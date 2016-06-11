@@ -3,6 +3,7 @@ package ScoreFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -33,17 +34,25 @@ class CenterPanel extends JPanel{
 			setLayout(null);
 			setPreferredSize(new Dimension(500,420));
 			
-			GradePanel gp=new GradePanel(path,"frame",300,400,this);
-			MyGradePanel mgp=new MyGradePanel();
+			GradePanel gp=new GradePanel(path,"frame",390,410,this);
+			MyGradePanel mgp=new MyGradePanel(path,"myScore",320,290,this);
 			add(gp);
 			add(mgp);
 			
+			String myCharacter="APEACH"; //캐릭터 이미지
+			ImageIcon myChimage = new ImageIcon(path+myCharacter+"스코어.gif");
+			JLabel myChLabel=new JLabel(myChimage);
+			myChLabel.setLocation(630, 300);
+			myChLabel.setSize(130,130);
+			
+			add(myChLabel);
 		}
 		
 		
 	class GradePanel extends GraphicPanel{
 			
 			int num=4;//전체 화면에 표시할 등수 표시 갯수
+			
 			
 			public GradePanel(String path, String FILENAME, int width, int height,CenterPanel p ){
 				super(path,FILENAME,width,height);
@@ -55,7 +64,6 @@ class CenterPanel extends JPanel{
 				
 				setGrade();
 				
-				setSize(300,400);
 				setLocation(30,30);
 				
 			}
@@ -89,7 +97,7 @@ class CenterPanel extends JPanel{
 			
 				scores[i]=new JLabel(ScoreFrame.sf.fIO.Users.get(i).getScore().toString());
 				scores[i].setSize(100,100);
-				scores[i].setLocation(240, i*100);
+				scores[i].setLocation(300, i*100);
 				scores[i].setFont(new GameFontB(15));
 
 				faceLabel[i].setSize(100,100);
@@ -111,15 +119,17 @@ class CenterPanel extends JPanel{
 			}
 		}//GradePanel end
 	
-	class MyGradePanel extends JPanel{
+	class MyGradePanel  extends GraphicPanel{
 	
-		MyGradePanel(){
+		MyGradePanel(String path, String FILENAME, int width, int height,CenterPanel p ){
+			super(path,FILENAME,width,height);
+			
 			setVisible(true);
 			setBackground(Color.white);
-			setLayout(null);
+
+			setLayout(new GridLayout(3,1));
 			
-			setSize(390,400);
-			setLocation(370,30);
+			setLocation(450,30);
 		
 			setMyGrade();
 			
@@ -137,32 +147,29 @@ class CenterPanel extends JPanel{
 			Integer myLevel=p.getLavel();
 			*/
 			
-			String myCharacter="APEACH"; //캐릭터 이미지
-			ImageIcon myChimage = new ImageIcon(path+myCharacter+"스코어.gif");
-			JLabel myChLabel=new JLabel(myChimage);
-			myChLabel.setLocation(130, 50);
-			myChLabel.setSize(130,130);
-			
 			Integer myScore=new Integer(300); //스코어점수
 			JLabel myScoreLabel=new JLabel(myScore.toString());
-			myScoreLabel.setLocation(150,210);
-			myScoreLabel.setSize(150,60);
-			myScoreLabel.setFont(new GameFontB(50));
-			myScoreLabel.setForeground(new Color(55,211,0));
-			
+			setGradeLabel(myScoreLabel,250,60,50);
+		
 			String myName="s"; //캐릭터 이름 + 레벨
-			Integer myLavel=new Integer(2);
-			JLabel myInfoLabel=new JLabel("userName : "+myName+" /  " + "userLevel : "+myLavel.toString());
-			myInfoLabel.setFont(new GameFontP(20));
-			myInfoLabel.setLocation(50, 300);
-			myInfoLabel.setSize(300,50);
+			JLabel myNameLabel=new JLabel("userName : "+myName);
+			setGradeLabel(myNameLabel,150,50,20);
 			
-			add(myChLabel);
-			add(myScoreLabel);
-			add(myInfoLabel);
+			String mylevel="1"; //캐릭터 이름 + 레벨
+			JLabel myLevelLabel=new JLabel("userlevel : "+mylevel);
+			setGradeLabel(myLevelLabel,100,50,20);
+			
 			
 		
-			
+
+		}
+		public void setGradeLabel(JLabel source,int x,int y,int fontSize){
+			source.setSize(x,y);
+			source.setForeground(GlobalGraphic.character);
+			source.setHorizontalAlignment(JLabel.CENTER);
+			source.setVerticalAlignment(JLabel.CENTER);
+			source.setFont(new GameFontP(fontSize));
+			add(source);
 		}
 	}//MyGradePanel end
 	

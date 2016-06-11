@@ -27,7 +27,7 @@ public class Play {
 	
 	Play(Integer level, Double speed){
 		this.level=level;
-		this.speed=speed;
+		this.speed=speed+100;
 		this.score=0;
 		this.play=true;
 		this.turn=true; //입력 차례 (한글,영문)

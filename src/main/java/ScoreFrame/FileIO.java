@@ -13,7 +13,7 @@ import PlayPanel.PlayPanel;
 	public class FileIO {
 		public PlayPanel p;
 		public static List<UserInfo> Users = new ArrayList<UserInfo>();
-	
+		public static UserInfo myUser;
 		FileIO(PlayPanel p) {
 			this.p=p;
 			try {
@@ -39,8 +39,10 @@ import PlayPanel.PlayPanel;
 				if(split.length<2){
 					Users.add(new UserInfo(split[0],split[1],0));
 				}
-				else
+				else 
 					Users.add(new UserInfo(split[0],split[1],Integer.parseInt(split[2])));
+				
+				
 				i++;
 				
 			}
