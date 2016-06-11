@@ -42,7 +42,7 @@ public class HeartGagePanel extends GraphicPanel{
 			setString(value.toString()+"%");	
 			
 			if(value==0){ //체력이 없을 경우	
-				MainFrame.mf.playPanel.play.stopGame();
+				MainFrame.mf.playPanel.play.gameOver();
 				return;
 			}
 		}

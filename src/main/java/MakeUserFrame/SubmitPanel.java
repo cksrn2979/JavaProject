@@ -9,6 +9,7 @@ import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Dictionary.BasicDictionary;
@@ -60,6 +61,11 @@ class SubmitPanel extends JPanel{
 					 if(radiobtn.isSelected())    
 						 CHARCTERNAME=radiobtn.getFILENAME();
 				}
+				
+				if(CHARCTERNAME==null){
+					JOptionPane.showMessageDialog(null, "캐릭터를 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
+					return;
+				}
 			
 			
 				/*switch(CHARCTERNAME){
@@ -70,18 +76,27 @@ class SubmitPanel extends JPanel{
 				
 				if(CHARCTERNAME.equals("MuziBtn"))
 					chracter="MUZI"; 
-				else if(CHARCTERNAME.equals("LyanBtn"))
-					chracter="LYAN";
-				else if(CHARCTERNAME.equals("ApeachBtn"))
-					chracter="APEACH"; 
-				
+				else if (CHARCTERNAME.equals("LyanBtn"))
+					chracter = "LYAN";
+				else if (CHARCTERNAME.equals("ApeachBtn"))
+					chracter = "APEACH";
+
+				String user = topFrame.userInputPanel.userInput.getText();
+				if (user.equals("")) {
+					JOptionPane.showMessageDialog(null, "이름을 입력해주세요", "경고!", JOptionPane.WARNING_MESSAGE);
+					return;
+
+				}
+
 				try {
-					writeUser();
-					MainFrame.mf.startFrame.userListPa.readUser();							
+					writeUser(user);
+					MainFrame.mf.startFrame.userListPa.readUser();
+					BasicDictionary basicDictionary = new BasicDictionary();
+					basicDictionary.MAKE_UserDictionary(user);
 				} catch (IOException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
-				}				
+				}
 			}
 			
 		
@@ -90,15 +105,12 @@ class SubmitPanel extends JPanel{
 			topFrame.dispose();
 		}
 		
-		public void writeUser() throws IOException{				
+		public void writeUser(String user) throws IOException{				
 			BufferedWriter out = new BufferedWriter(new FileWriter("resources/User.txt",true));
-			String user=topFrame.userInputPanel.userInput.getText();				
+							
 		    out.write(chracter + "\t" + user);
 		    out.newLine();			  
-		    out.close();
-		    
-		    BasicDictionary basicDictionary= new BasicDictionary();
-			basicDictionary.MAKE_UserDictionary(user);	
+		    out.close();		   
 		}
 		
 		public void makeUserDictinary() throws IOException{

@@ -26,14 +26,14 @@ public class UserDictionary {
 
 	// 파일에서 단어를 입력시킴
 	private void readWordBasicDictionary(String user) throws IOException {
-
+		
 		// readline 읽을 String변수
 		String line = "";
 
 		// 파일 데이터 저장 스트림
 
 		BufferedReader in = new BufferedReader(new FileReader("resources/UserDictionary/" + user + "_Dictionary.txt"));
-
+	
 		// 데이터 잘라줄 객체
 		String[] spliter;
 
@@ -57,7 +57,7 @@ public class UserDictionary {
 	}
 
 	public void writeWordUserDictionary(String user) throws IOException {
-
+		
 		String korean;
 		String english;
 		String successcount;

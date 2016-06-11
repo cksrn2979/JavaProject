@@ -63,7 +63,7 @@ public class BasicDictionary {
 
 		BufferedWriter out = new BufferedWriter(new FileWriter("resources/UserDictionary/" + user + "_Dictionary.txt"));
 		String s;
-
+		
 		for (int i = 0; i < list.size(); i++) {
 			korean = list.get(i);
 			english = render.get(korean);

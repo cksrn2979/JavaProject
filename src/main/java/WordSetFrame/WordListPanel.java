@@ -5,21 +5,18 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 
 import Dictionary.UserDictionary;
+import Graphics.GameFontP;
 
 public class WordListPanel extends JPanel {
 	WordListTable wordListTable;
 	WordListPanel() {
 		setBackground(null);
-		setPreferredSize(new Dimension(300, 350));
 		JScrollPane scroll = new JScrollPane(wordListTable=new WordListTable());
 		
-		scroll.setPreferredSize(new Dimension(250, 300));
+		scroll.setPreferredSize(new Dimension(230, 300));
 		scroll.setAlignmentX(CENTER_ALIGNMENT);
 
 		add(scroll);
@@ -27,36 +24,19 @@ public class WordListPanel extends JPanel {
 
 	class WordListTable extends JTable {
 		DefaultTableModel model;
-		String[] header = { "Korean", "English", "SUCCESS" };
+		String[] header = { "한글", "영어", "성공횟수" };
 		WordListTable() {
-
+			this.setFont(new GameFontP(13));
 			// Table에 add할수 있도록
 			model = new DefaultTableModel(header, 0);
 			this.setModel(model);
-			setCenter();
 		}
 
 		// 더블클릭수정불가
 		public boolean isCellEditable(int i, int c) {
 			return false;
 		}
-
-		void setCenter() {
-			// DefaultTableCellHeaderRenderer 생성 (가운데 정렬을 위한)
-			DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
-
-			// DefaultTableCellHeaderRenderer의 정렬을 가운데 정렬로 지정
-			tScheduleCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-
-			// 정렬할 테이블의 ColumnModel을 가져옴
-			TableColumnModel tcmSchedule = getColumnModel();
-
-			// 반복문을 이용하여 테이블을 가운데 정렬로 지정
-			for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
-				tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
-			}
-		}
-	
+		
 		public void loadDictionary(String user){
 			model = new DefaultTableModel(header, 0);
 			this.setModel(model);

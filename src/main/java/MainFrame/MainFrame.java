@@ -31,13 +31,13 @@ public class MainFrame extends JFrame{
 	public StartFrame startFrame;
 	
 	
-	MainFrame(){
-		setSize(800,570);
+	public MainFrame(){
+		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);//크기 고정
-		//setUndecorated(true);
-		setVisible(true);
-		
+		setUndecorated(true);
+		setVisible(true);		
+		this.setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),30,30));
 		
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
@@ -63,8 +63,8 @@ public class MainFrame extends JFrame{
 		JMenuItem version=new JMenuItem("Version");
 		JMenuItem developer=new JMenuItem("Developer");
 		
-		menuBar.setPreferredSize(new Dimension(800,20));
-		menuBar.setBackground(Color.WHITE);
+		
+		menuBar.setPreferredSize(new Dimension(800,30));
 		//파일 메뉴 생성
 		fileMenu.add(regame);
 	

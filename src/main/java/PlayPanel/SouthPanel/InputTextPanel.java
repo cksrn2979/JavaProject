@@ -7,8 +7,8 @@ import java.util.Vector;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Dictionary.UserDictionary;
 import MainFrame.MainFrame;
+import PauseFrame.PauseFrame;
 import PlayPanel.PlayPanel;
 import PlayPanel.CenterPanel.FallWordLabel;
 import PlayPanel.WestPanel.ItemPanel;	
@@ -30,20 +30,18 @@ class InputTextPanel extends JPanel{
 	class InputTextListener extends KeyAdapter{
 		PlayPanel playPanel;
 		ItemPanel itemPanel;
-		
+		PauseFrame pauseFrame=null;
 		String text; //입력 단어
 		
 		public void keyPressed(KeyEvent e){
 			MainFrame mf = (MainFrame)InputTextPanel.this.getTopLevelAncestor();
 			playPanel = mf.playPanel;
 			itemPanel = playPanel.wp.itemPanel;
-						
+			
 			switch(e.getKeyCode()){
-			case KeyEvent.VK_ESCAPE:
-				if(playPanel.play.getPlay())
+			case KeyEvent.VK_ESCAPE: 		
 					playPanel.play.pauseGame();
-				else
-					playPanel.play.resumeGame();
+					pauseFrame = new PauseFrame();
 				break;
 				
 			case KeyEvent.VK_F1: //item1 모두 지우기

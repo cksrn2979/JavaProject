@@ -1,5 +1,6 @@
 package WordSetFrame;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,15 +15,16 @@ public class SubmitButtonPanel extends JPanel{
 	
 	SubmitButtonPanel(){		
 		setBackground(null);
+		setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
 		makeBtn();
 	}
 	
 	void makeBtn(){
 		
-		wordPlusbtn=new GraphicButton("images/WordSetFrame/","SubmitBtn",90,35);
+		wordPlusbtn=new GraphicButton("images/WordSetFrame/","SubmitBtn",100,35);
 		wordPlusbtn.addActionListener(new SubmitAction());
 		
-		successResetbtn=new GraphicButton("images/WordSetFrame/","ConcealBtn",90,35);
+		successResetbtn=new GraphicButton("images/WordSetFrame/","ConcealBtn",100,35);
 		successResetbtn.addActionListener(new SubmitAction());
 		
 		add(wordPlusbtn);

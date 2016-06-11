@@ -1,5 +1,2 @@
-MUZI	aaa
-LYAN	bbbbb
-LYAN	cccc
-LYAN	dddd
-LYAN	123
+LYAN	22
+MUZI	changoo

@@ -55,7 +55,7 @@ public class SubmitPanel extends JPanel{
 				
 				String selection=(String)MainFrame.mf.startFrame.userListPa.getSelectedItem();
 				if(selection==null){
-					JOptionPane.showMessageDialog(null, "캐릭터를 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "유저를 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
 					return;
 				}
 				spliter=selection.split("\t");
