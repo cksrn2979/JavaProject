@@ -5,6 +5,7 @@ import java.awt.Color;
 
 import javax.swing.JPanel;
 
+import Dictionary.UserDictionary;
 import Graphics.GlobalGraphic;
 import PlayPanel.CenterPanel.CenterPanel;
 import PlayPanel.EastPanel.EastPanel;
@@ -20,6 +21,7 @@ public class PlayPanel extends JPanel{
 	public WestPanel wp;
 	public Play play;
 	public UserInfo userInfo;
+	public UserDictionary dictionary;
 	
 	public PlayPanel(){
 		
@@ -44,7 +46,7 @@ public class PlayPanel extends JPanel{
 	
 	public PlayPanel(String user,String character,Integer level,Double speed){
 		this();
-
+		dictionary = new UserDictionary(user);
 		play = new Play(level, speed);
 		userInfo= new UserInfo(user,character);
 		

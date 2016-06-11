@@ -6,6 +6,7 @@ import java.util.Vector;
 
 import Dictionary.UserDictionary;
 import MainFrame.MainFrame;
+import PlayPanel.PlayPanel;
 import PlayPanel.CenterPanel.FallWordLabel;
 
 public abstract class Item{
@@ -19,7 +20,8 @@ public abstract class Item{
 
 class Item1 extends Item{
 	public void call() {
-		Vector<FallWordLabel> fallWordLabelArray = MainFrame.mf.playPanel.cp.getLabelArray();
+		PlayPanel playPanel=MainFrame.mf.playPanel;
+		Vector<FallWordLabel> fallWordLabelArray = playPanel.cp.getLabelArray();
 		String korean;
 		String english;
 		
@@ -30,12 +32,12 @@ class Item1 extends Item{
 			FallWordLabel la=fallWordLabelArray.get(index);
 			
 			korean=la.getText();
-			english=UserDictionary.render(korean);
+			english=playPanel.dictionary.render(korean);
 					
 			//case2의 경우 - 모든 떨어지는 라벨 중 하나의 라벨은 영어를 가지고있음
 			if(la.getLanguage()==false){
 				english=korean;
-				korean=UserDictionary.renderReverse(english);
+				korean=playPanel.dictionary.renderReverse(english);
 			}
 			
 			//성공 단어에 추가

@@ -24,7 +24,9 @@ public class UserListPanel extends GraphicPanel{
 		userList.setSize(150,20);
 		userList.setLocation(70, 10);
 		userList.setBackground(Color.WHITE);
-					
+		userList.setSelectedIndex(-1);
+		userList.setSelectedItem(-1);
+		
 		try {
 			readUser();
 		} catch (IOException e) {
@@ -51,6 +53,7 @@ public class UserListPanel extends GraphicPanel{
 	
 	public void readUser() throws IOException{	
 		userList.removeAllItems();
+		userList.addItem(null);
 		BufferedReader in = new BufferedReader(new FileReader("resources/User.txt"));
 		String line = "";
 		String[] spliter;

@@ -15,7 +15,7 @@ public class Play {
 	private Double speed;
 	private Integer score;	
 	private int count;
-	
+
 	private Vector<FallingAni> fallingAniArray;
 	private MakeWord makeWord;
 	private SpeedAni speedAni;	
@@ -26,7 +26,7 @@ public class Play {
 		this.score=0;
 		this.play=true;
 		this.turn=true; //입력 차례 (한글,영문)
-		this.count=10;
+		this.count=10;		
 		
 		speedAni=new SpeedAni();
 		fallingAniArray=new Vector<FallingAni>();
@@ -122,21 +122,22 @@ public class Play {
 	//라벨 하나 하나 떨어지는 쓰레드
 	class FallingAni extends Thread{
 		public void run() {
+			PlayPanel playPanel=MainFrame.mf.playPanel;
 			// 좌표값 설정
 			int x = (int) (Math.random() * 400);
 			int y = 50;
 
 			// 단어를 랜덤하게 받아와 라벨 생성.
-			FallWordLabel la = new FallWordLabel(UserDictionary.rand());
+			FallWordLabel la = new FallWordLabel(playPanel.dictionary.rand());
 
 			// 떨어지는 라벨 배열 추가
-			MainFrame.mf.playPanel.cp.getLabelArray().add(la);
+			playPanel.cp.getLabelArray().add(la);
 
 			// 위치 설정
 			la.setLocation(x, y);
 
 			// 패널에 추가
-			MainFrame.mf.playPanel.cp.add(la);
+			playPanel.cp.add(la);
 
 			// y<410까지 떨어트림
 			while (y < 410 && !Thread.currentThread().isInterrupted()) {
@@ -150,8 +151,8 @@ public class Play {
 			}
 
 			if (y >= 410 && la.getValid() == true) {
-				MainFrame.mf.playPanel.cp.heartGagePa.heartgage.pain(); // 체력 감소
-				MainFrame.mf.playPanel.cp.getLabelArray().remove(la); // 배열에서 제거
+				playPanel.cp.heartGagePa.heartgage.pain(); // 체력 감소
+				playPanel.cp.getLabelArray().remove(la); // 배열에서 제거
 
 				// 영어 라벨이 다 떨어지면, 한글 차례로
 				if (la.getLanguage() == false)

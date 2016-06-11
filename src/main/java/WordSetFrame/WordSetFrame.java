@@ -29,12 +29,14 @@ public class WordSetFrame extends JFrame{
 		setLocation((windowSize.width - frameSize.width) / 2,
 				(windowSize.height - frameSize.height) / 2);;
 		
+		userListPanel=new UserListPanel("images/WordSetFrame/","UserListPanel",250,40);
+		userListPanel.setLocation(300,40);		
+		
 		wordListPanel=new WordListPanel();
 		wordListPanel.setLocation(20,20);
 		wordListPanel.setSize(250,310);
 		
-		userListPanel=new UserListPanel("images/WordSetFrame/","UserListPanel",250,40);
-		userListPanel.setLocation(300,40);
+		
 		
 		SetButtonPanel setButtonPanel = new SetButtonPanel();
 		setButtonPanel.setLocation(300, 120);

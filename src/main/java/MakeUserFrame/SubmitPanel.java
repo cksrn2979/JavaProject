@@ -11,6 +11,7 @@ import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Dictionary.BasicDictionary;
 import Graphics.GraphicButton;
 import Graphics.GraphicRadioButton;
 import MainFrame.MainFrame;
@@ -76,13 +77,15 @@ class SubmitPanel extends JPanel{
 				
 				try {
 					writeUser();
-					makeUserDictinary();
-					MainFrame.mf.startFrame.userListPa.readUser();
+					MainFrame.mf.startFrame.userListPa.readUser();							
 				} catch (IOException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}				
 			}
+			
+		
+			
 			JFrame topFrame=(JFrame)(SubmitPanel.this.getTopLevelAncestor());
 			topFrame.dispose();
 		}
@@ -93,6 +96,9 @@ class SubmitPanel extends JPanel{
 		    out.write(chracter + "\t" + user);
 		    out.newLine();			  
 		    out.close();
+		    
+		    BasicDictionary basicDictionary= new BasicDictionary();
+			basicDictionary.MAKE_UserDictionary(user);	
 		}
 		
 		public void makeUserDictinary() throws IOException{

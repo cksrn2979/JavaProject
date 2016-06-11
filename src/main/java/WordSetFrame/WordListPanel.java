@@ -13,10 +13,11 @@ import javax.swing.table.TableColumnModel;
 import Dictionary.UserDictionary;
 
 public class WordListPanel extends JPanel {
+	WordListTable wordListTable;
 	WordListPanel() {
 		setBackground(null);
 		setPreferredSize(new Dimension(300, 350));
-		JScrollPane scroll = new JScrollPane(new WordListTable());
+		JScrollPane scroll = new JScrollPane(wordListTable=new WordListTable());
 		
 		scroll.setPreferredSize(new Dimension(250, 300));
 		scroll.setAlignmentX(CENTER_ALIGNMENT);
@@ -25,24 +26,13 @@ public class WordListPanel extends JPanel {
 	}
 
 	class WordListTable extends JTable {
+		DefaultTableModel model;
+		String[] header = { "Korean", "English", "SUCCESS" };
 		WordListTable() {
 
-			// 필드명 정의
-			String[] header = { "Korean", "English", "SUCCESS" };
-
 			// Table에 add할수 있도록
-			DefaultTableModel model = new DefaultTableModel(header, 0);
+			model = new DefaultTableModel(header, 0);
 			this.setModel(model);
-
-			// WordList에 모든 단어 add
-			for (int index = 0; index < UserDictionary.getNumOfWord(); index++) {
-				String content[] = new String[3];
-				content[0] = UserDictionary.getWord(index);
-				content[1] = UserDictionary.render(content[0]);
-				content[2] = UserDictionary.getSuccess(content[0]).toString();
-				model.addRow(content);
-			}
-
 			setCenter();
 		}
 
@@ -65,6 +55,22 @@ public class WordListPanel extends JPanel {
 			for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
 				tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
 			}
+		}
+	
+		public void loadDictionary(String user){
+			model = new DefaultTableModel(header, 0);
+			this.setModel(model);
+		
+			UserDictionary dictionary= new UserDictionary(user);
+			// WordList에 모든 단어 add
+			for (int index = 0; index < dictionary.getNumOfWord(); index++) {
+				String content[] = new String[3];
+				content[0] = dictionary.getWord(index);
+				content[1] = dictionary.render(content[0]);
+				content[2] = dictionary.getSuccess(content[0]).toString();
+				model.insertRow(0, content);
+			}
+			
 		}
 	}
 }

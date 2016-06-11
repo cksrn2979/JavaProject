@@ -1,6 +1,7 @@
 package WordSetFrame;
-
 import java.awt.Color;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,12 +17,14 @@ public class UserListPanel extends GraphicPanel {
 		super(path, FILENAME, width, height);
 		setLayout(null);
 		this.setBackground(null);
+
 		userList = new JComboBox<String>();
 		userList.setSize(150, 20);
 		userList.setLocation(70,10);
 		userList.setBackground(Color.WHITE);
+	
+		userList.addItemListener(new UserListItemListener());
 		
-
 		try {
 			readUser();
 		} catch (IOException e) {
@@ -33,7 +36,7 @@ public class UserListPanel extends GraphicPanel {
 	}
 
 	public void readUser() throws IOException {
-		userList.removeAllItems();
+		userList.addItem(null);
 		BufferedReader in = new BufferedReader(new FileReader("resources/User.txt"));
 		String line = "";
 		String[] spliter;
@@ -43,6 +46,23 @@ public class UserListPanel extends GraphicPanel {
 			spliter = line.split("\t");
 			item = spliter[0] + "." + "\t" + spliter[1];
 			userList.addItem(item);
+		}
+		
+	}
+	
+	class UserListItemListener implements ItemListener{
+
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+			if(e.getItem()!=null){
+				String userInfo=(String)e.getItem();
+				String[] spliter;
+				spliter=userInfo.split("\t");
+				String user= spliter[1];
+				
+				WordSetFrame topFrame=(WordSetFrame)UserListPanel.this.getTopLevelAncestor();
+				topFrame.wordListPanel.wordListTable.loadDictionary(user);
+			}				
 		}
 	}
 }

@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import Dictionary.UserDictionary;
 import MainFrame.MainFrame;
+import PlayPanel.PlayPanel;
 import PlayPanel.CenterPanel.FallWordLabel;
 import PlayPanel.WestPanel.ItemPanel;	
 
@@ -27,24 +28,29 @@ class InputTextPanel extends JPanel{
 	}
 	
 	class InputTextListener extends KeyAdapter{
+		PlayPanel playPanel;
+		ItemPanel itemPanel;
+		
 		String text; //입력 단어
 		
 		public void keyPressed(KeyEvent e){
-			itemPanel=MainFrame.mf.playPanel.wp.itemPanel;
-			
+			MainFrame mf = (MainFrame)InputTextPanel.this.getTopLevelAncestor();
+			playPanel = mf.playPanel;
+			itemPanel = playPanel.wp.itemPanel;
+						
 			switch(e.getKeyCode()){
 			case KeyEvent.VK_ESCAPE:
-				if(MainFrame.mf.playPanel.play.getPlay())
-					MainFrame.mf.playPanel.play.pauseGame();
+				if(playPanel.play.getPlay())
+					playPanel.play.pauseGame();
 				else
-					MainFrame.mf.playPanel.play.resumeGame();
+					playPanel.play.resumeGame();
 				break;
 				
 			case KeyEvent.VK_F1: //item1 모두 지우기
 				if(itemPanel.getItem(0).getEnable()){
 					itemPanel.getItem(0).call();
 					itemPanel.getItemBtn(0).setEnabled(false);
-					MainFrame.mf.playPanel.play.setKoreanTurn();
+					playPanel.play.setKoreanTurn();
 				}
 				break;		
 				
@@ -77,12 +83,12 @@ class InputTextPanel extends JPanel{
 		
 		//FallWord와 단어 비교
 		void matchFallWord(){		
-			String renderWord=UserDictionary.render(text); 	//번역글자  :  한글 -> 영어 -> null
+			String renderWord=playPanel.dictionary.render(text); 	//번역글자  :  한글 -> 영어 -> null
 			
-			if(MainFrame.mf.playPanel.play.getTurn()==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
+			if(playPanel.play.getTurn()==false && renderWord!=null) //영어 입력차례에서, 한글을 입력한 경우
 				return;			
 
-			Vector<FallWordLabel> fallWordLabelArray=MainFrame.mf.playPanel.cp.getLabelArray();
+			Vector<FallWordLabel> fallWordLabelArray=playPanel.cp.getLabelArray();
 			for(int index=0; index<fallWordLabelArray.size(); index++){ //떨어지는 라벨들 중
 				FallWordLabel la=fallWordLabelArray.get(index); //떨어지는 라벨
 				String fallWord=fallWordLabelArray.get(index).getText(); //떨어지는 라벨의 단어				
@@ -106,13 +112,13 @@ class InputTextPanel extends JPanel{
 			la.setVisible(false);
 			
 			//영어의 한글 값 저장
-			String korean=UserDictionary.renderReverse(text);
+			String korean=playPanel.dictionary.renderReverse(text);
 					
 			//성공 단어에 추가
-			MainFrame.mf.playPanel.ep.successWordPanel.successWordTable.add(korean,text);
+			playPanel.ep.successWordPanel.successWordTable.add(korean,text);
 			
 			//단어 성공 횟수 증가
-			UserDictionary.plusSuccess(korean);
+			playPanel.dictionary.plusSuccess(korean);
 			
 			//무효한 숫자로
 			la.setValid(false);
@@ -135,13 +141,13 @@ class InputTextPanel extends JPanel{
 			}
 	
 			//배열에서 제거
-			MainFrame.mf.playPanel.cp.getLabelArray().remove(la);
+			playPanel.cp.getLabelArray().remove(la);
 			
 			//점수 흭득
-			MainFrame.mf.playPanel.play.scoreUp();
+			playPanel.play.scoreUp();
 			
 			//한글 입력차례로 변환
-			MainFrame.mf.playPanel.play.setKoreanTurn();
+			playPanel.play.setKoreanTurn();
 		}
 		
 		void InputKorean(FallWordLabel la){
@@ -151,7 +157,7 @@ class InputTextPanel extends JPanel{
 			else
 				la.setEnglish(); 	//아이템 가지지 않은 영단어 폰트 셋
 			
-			MainFrame.mf.playPanel.play.setEnglishTurn(); //영어차례로 변환
+			playPanel.play.setEnglishTurn(); //영어차례로 변환
 		}
 	}
 }
