@@ -19,12 +19,11 @@ import Graphics.GlobalGraphic;
 import Graphics.GraphicPanel;
 import PlayPanel.PlayPanel;
 
-
-
 class CenterPanel extends JPanel{
 	String path="images/ScoreFrame/CenterPanel/";
 	public PlayPanel p;
-	
+	UserInfo myuser = ScoreFrame.fIO.myUser;
+
 		CenterPanel(PlayPanel p){
 			this.p=p;
 			setVisible(true);
@@ -39,7 +38,7 @@ class CenterPanel extends JPanel{
 			add(gp);
 			add(mgp);
 			
-			String myCharacter="APEACH"; //캐릭터 이미지
+			String myCharacter=myuser.getCharacter(); //캐릭터 이미지
 			ImageIcon myChimage = new ImageIcon(path+myCharacter+"스코어.gif");
 			JLabel myChLabel=new JLabel(myChimage);
 			myChLabel.setLocation(630, 300);
@@ -52,20 +51,15 @@ class CenterPanel extends JPanel{
 	class GradePanel extends GraphicPanel{
 			
 			int num=4;//전체 화면에 표시할 등수 표시 갯수
-			
-			
+
 			public GradePanel(String path, String FILENAME, int width, int height,CenterPanel p ){
 				super(path,FILENAME,width,height);
 				
 				setVisible(true);
 				setBackground(Color.white);
-				
 				setLayout(null);
-				
 				setGrade();
-				
 				setLocation(30,30);
-				
 			}
 		
 			void setGrade(){
@@ -126,35 +120,25 @@ class CenterPanel extends JPanel{
 			
 			setVisible(true);
 			setBackground(Color.white);
-
 			setLayout(new GridLayout(3,1));
-			
 			setLocation(450,30);
-		
 			setMyGrade();			
 		
 		}
 		
 		public void setMyGrade(){
-		
-			/*	스레드 문제 - Exception in thread "main" java.lang.NullPointerException 
-			 * playpanel 의 값을 받아올수 없음 
-			 * String myCharacter = p.getCharacter();
-			Integer myScore=p.getScore();
-			String myName=p.getName();
-			Integer myLevel=p.getLavel();
-			*/
 			
-			Integer myScore=new Integer(300); //스코어점수
+			Integer myScore=myuser.getScore();
+			String myName=myuser.getName();
+			Integer myLevel=p.play.getLevel();
+			
 			JLabel myScoreLabel=new JLabel(myScore.toString());
 			setGradeLabel(myScoreLabel,250,60,50);
 		
-			String myName="s"; //캐릭터 이름 + 레벨
 			JLabel myNameLabel=new JLabel("userName : "+myName);
 			setGradeLabel(myNameLabel,150,50,20);
 			
-			String mylevel="1"; //캐릭터 이름 + 레벨
-			JLabel myLevelLabel=new JLabel("userlevel : "+mylevel);
+			JLabel myLevelLabel=new JLabel("userlevel : "+myLevel);
 			setGradeLabel(myLevelLabel,100,50,20);
 			
 		}

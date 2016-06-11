@@ -28,7 +28,6 @@ import PlayPanel.PlayPanel;
 			}
 		}
 	
-		//이긴 사람의 점수를 텍스트 파일에 저장하기 기능 없음
 		void readPlayer() throws IOException{
 			
 			BufferedReader in = new BufferedReader(new FileReader("resources/Score.txt"));
