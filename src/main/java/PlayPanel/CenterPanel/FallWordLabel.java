@@ -21,7 +21,7 @@ public class FallWordLabel extends JLabel{
 	
 	public FallWordLabel(String text){
 		super(text);
-		this.setSize(120,40);
+		this.setSize(200,40);
 		
 		if(Math.random()<0.2){ //Item랜덤하게 생성
 			itemHave=true;

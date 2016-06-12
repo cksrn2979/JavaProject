@@ -114,6 +114,7 @@ public class Play {
 		stopGame();
 		writeFinal();
 		new ScoreFrame();
+		playPanel.dictionary.writeWordUserDictionary();
 	}
 	
 	private void writeFinal() {

@@ -1,6 +1,5 @@
 package MainFrame;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
@@ -8,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -159,7 +160,7 @@ public class MainFrame extends JFrame{
 	}		
 	
 	public static void main(String[] args){
-		/*System.setProperty("file.encoding","UTF-8");
+		System.setProperty("file.encoding","UTF-8");
 		Field charset;
 		try {
 			charset = Charset.class.getDeclaredField("defaultCharset");
@@ -169,7 +170,7 @@ public class MainFrame extends JFrame{
 		} catch (NoSuchFieldException | SecurityException |IllegalArgumentException | IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 		mf =new MainFrame();
 	}
