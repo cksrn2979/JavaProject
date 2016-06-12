@@ -107,14 +107,14 @@ public class SubmitPanel extends JPanel{
 					return;
 				}
 				
-				/*switch(levelbtn){
+				switch(levelbtn){
 					case "levelBtn1": level=1;speed=10; break;
 					case "levelBtn2": level=5;speed=20; break;
 					case "levelBtn3": level=10;speed=30; break;
-				}*/
+				}
 				
 				
-				if(levelbtn.equals("levelBtn1"))
+			/*	if(levelbtn.equals("levelBtn1"))
 				{
 					 level=1;speed=10;
 				}
@@ -125,7 +125,7 @@ public class SubmitPanel extends JPanel{
 				else if(levelbtn.equals("levelBtn3"))
 				{
 					level=10;speed=30;
-				}
+				}*/
 				
 				MainFrame.mf.setContentPane(MainFrame.mf.playPanel=new PlayPanel(user,character,level,speed));
 			}

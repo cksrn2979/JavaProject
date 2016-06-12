@@ -10,7 +10,7 @@ import Graphics.GlobalGraphic;
 
 //AllWordList 프레임
 public class WordSetFrame extends JFrame{
-	WordListPanel wordListPanel;
+	public WordListPanel wordListPanel;
 	UserListPanel userListPanel;
 	SetButtonPanel setButtonPanel;
 	SubmitButtonPanel submitButtonPanel;

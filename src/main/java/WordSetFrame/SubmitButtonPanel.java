@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 import Graphics.GraphicButton;
 
 public class SubmitButtonPanel extends JPanel{
-	GraphicButton wordPlusbtn;
-	GraphicButton successResetbtn;
+	GraphicButton submitBtn;
+	GraphicButton concealBtn;
 	
 	SubmitButtonPanel(){		
 		setBackground(null);
@@ -21,14 +21,14 @@ public class SubmitButtonPanel extends JPanel{
 	
 	void makeBtn(){
 		
-		wordPlusbtn=new GraphicButton("images/WordSetFrame/","SubmitBtn",100,35);
-		wordPlusbtn.addActionListener(new SubmitAction());
+		submitBtn=new GraphicButton("images/WordSetFrame/","SubmitBtn",100,35);
+		submitBtn.addActionListener(new SubmitAction());
 		
-		successResetbtn=new GraphicButton("images/WordSetFrame/","ConcealBtn",100,35);
-		successResetbtn.addActionListener(new SubmitAction());
+		concealBtn=new GraphicButton("images/WordSetFrame/","ConcealBtn",100,35);
+		concealBtn.addActionListener(new SubmitAction());
 		
-		add(wordPlusbtn);
-		add(successResetbtn);
+		add(submitBtn);
+		add(concealBtn);
 	}
 	
 	class SubmitAction implements ActionListener {

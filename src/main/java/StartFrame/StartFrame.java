@@ -19,7 +19,7 @@ public class StartFrame extends JFrame{
 	public StartFrame(){
 		setSize(400,250);
 		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 		setResizable(false);//크기 고정
 		setUndecorated(true);
 		setVisible(true);
@@ -43,8 +43,7 @@ public class StartFrame extends JFrame{
 			
 			levelListPa=new LevelListPanel();
 			levelListPa.setSize(400,70);
-			levelListPa.setLocation(0,110);
-			
+			levelListPa.setLocation(0,110);			
 			
 			submitPa=new SubmitPanel();
 			submitPa.setSize(400,50);

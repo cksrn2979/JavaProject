@@ -2,9 +2,10 @@ package Dictionary;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -30,11 +31,11 @@ public class BasicDictionary {
 		String line = "";
 
 		// 파일 데이터 저장 스트림
-
-		BufferedReader in = new BufferedReader(new FileReader("resources/BasicDictionary.txt"));
-
+	
+		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("resources/BasicDictionary.txt"),"UTF8"));
+		
 		// 데이터 잘라줄 객체
-		String[] spliter;
+		String[] spliter=null;
 
 		String korean;
 		String english;
@@ -48,6 +49,7 @@ public class BasicDictionary {
 			korean = spliter[0];
 			english = spliter[1];
 			successcount = spliter[2];
+			System.out.println(korean);
 			this.add(korean, english, Integer.parseInt(successcount));
 		}
 
@@ -61,7 +63,7 @@ public class BasicDictionary {
 		String english;
 		String successcount;
 
-		BufferedWriter out = new BufferedWriter(new FileWriter("resources/UserDictionary/" + user + "_Dictionary.txt"));
+		BufferedWriter out = new BufferedWriter(new FileWriter("resources/UserDictionary/" + user + "_Dictionary.txt",false));
 		String s;
 		
 		for (int i = 0; i < list.size(); i++) {

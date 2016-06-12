@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Dictionary.BasicDictionary;
+import Dictionary.UserDictionary;
 import Graphics.GraphicButton;
 import Graphics.GraphicRadioButton;
 import MainFrame.MainFrame;
@@ -93,6 +94,8 @@ class SubmitPanel extends JPanel{
 					MainFrame.mf.startFrame.userListPa.readUser();
 					BasicDictionary basicDictionary = new BasicDictionary();
 					basicDictionary.MAKE_UserDictionary(user);
+					UserDictionary u= new UserDictionary(user);
+					System.out.println(u.getWord(0));
 				} catch (IOException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();

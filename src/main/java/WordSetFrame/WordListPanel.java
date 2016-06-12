@@ -22,7 +22,7 @@ public class WordListPanel extends JPanel {
 		add(scroll);
 	}
 
-	class WordListTable extends JTable {
+	public class WordListTable extends JTable {
 		DefaultTableModel model;
 		String[] header = { "한글", "영어", "성공횟수" };
 		WordListTable() {

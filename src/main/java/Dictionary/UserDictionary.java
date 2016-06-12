@@ -15,17 +15,20 @@ public class UserDictionary {
 	private Vector<String> list = new Vector<String>(); // 목록
 	private HashMap<String, String> render = new HashMap<String, String>(); // 번역
 	private HashMap<String, Integer> success = new HashMap<String, Integer>(); // 성공횟수
-
+	private String user;
+	
 	public UserDictionary(String user) {
+		this.user=user;
+		
 		try {
-			readWordBasicDictionary(user);
+			readWordBasicDictionary();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	// 파일에서 단어를 입력시킴
-	private void readWordBasicDictionary(String user) throws IOException {
+	private void readWordBasicDictionary() throws IOException {
 		
 		// readline 읽을 String변수
 		String line = "";
@@ -55,14 +58,13 @@ public class UserDictionary {
 		// 스트림 종료
 		in.close();
 	}
-
-	public void writeWordUserDictionary(String user) throws IOException {
+	public void writeWordUserDictionary() throws IOException {
 		
 		String korean;
 		String english;
 		String successcount;
 
-		BufferedWriter out = new BufferedWriter(new FileWriter("resources/UserDictionary" + user + "_Dictionary.txt"));
+		BufferedWriter out = new BufferedWriter(new FileWriter("resources/UserDictionary/" + user + "_Dictionary.txt"));
 		String s;
 
 		for (int i = 0; i < list.size(); i++) {
@@ -121,6 +123,12 @@ public class UserDictionary {
 	// 성공횟수 +1
 	public void plusSuccess(String korean) {
 		success.replace(korean, getSuccess(korean).intValue() + 1);
+	}
+	
+	public void successReset(){
+		for(int i=0; i<list.size();i++){
+			success.replace(list.get(i), 0);			
+		}
 	}
 
 }

@@ -11,7 +11,7 @@ import javax.swing.JComboBox;
 import Graphics.GraphicPanel;
 
 public class UserListPanel extends GraphicPanel {
-	public JComboBox<String> userList;
+	private JComboBox<String> userList;
 
 	UserListPanel(String path, String FILENAME, int width, int height) {
 		super(path, FILENAME, width, height);
@@ -34,6 +34,10 @@ public class UserListPanel extends GraphicPanel {
 
 		add(userList);
 	}
+	
+	public Object getSelectedItem() {
+		return userList.getSelectedItem();
+	}	
 
 	public void readUser() throws IOException {
 		userList.addItem(null);
