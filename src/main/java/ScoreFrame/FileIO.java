@@ -8,14 +8,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import PlayPanel.PlayPanel;
+
 	public class FileIO {
-		
+		public PlayPanel p;
 		public static List<UserInfo> Users = new ArrayList<UserInfo>();
-	
-		FileIO() {
-			
+		public static UserInfo myUser;
+		int fileLineNumber;
+		
+		FileIO(PlayPanel p) {
+			this.p=p;
 			try {
 				readPlayer();
+				setMyUser();
 				sortGrade();
 			} catch (IOException e) {
 				
@@ -23,32 +28,47 @@ import java.util.List;
 			}
 		}
 	
-		//이긴 사람의 점수를 텍스트 파일에 저장하기 기능 없음
 		void readPlayer() throws IOException{
 			
 			BufferedReader in = new BufferedReader(new FileReader("resources/Score.txt"));
 
-			int i=0;
 			String s;
-				  
+			Integer score;
+			
 			while ((s = in.readLine()) != null) {
 				String[] split = s.split("\t");
-		
-				Users.add(new UserInfo(split[0],split[1],Integer.parseInt(split[2])));
-				i++;
+				if(split.length<2){
+					Users.add(new UserInfo(split[0],split[1],0));
+				}
+				else 
+					Users.add(new UserInfo(split[0],split[1],Integer.parseInt(split[2])));
+				
+				fileLineNumber++;
 				
 			}
 
 			in.close();
+		}
 		
+		public void setMyUser() throws IOException{
+			BufferedReader in = new BufferedReader(new FileReader("resources/Score.txt"));
+			String s=" ";
+			int i=0;
+			while((s = in.readLine()) != null){
+				i++;
+				if(fileLineNumber==i)
+				{
+					String[] split = s.split("\t");
+					myUser=new UserInfo(split[0],split[1],Integer.parseInt(split[2]));
+					System.out.println(i+"============"+split[0]+split[1]);
+				}
+			}
+		
+			in.close();
 		}
 		
 		void sortGrade() throws IOException{//점수 순서대로 정렬 
 			Collections.sort(Users, new NoDescCompare());
-			System.out.printf("\n\n===== 숫자 내림 차순 정렬 =====\n");
-			for (UserInfo temp : Users) {
-				System.out.println(temp.getName());
-			}
 		}
 	
 		static class NoDescCompare implements Comparator<UserInfo> {

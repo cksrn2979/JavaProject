@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Graphics.GlobalGraphic;
@@ -13,6 +15,7 @@ import Graphics.GraphicButton;
 import Graphics.GraphicRadioButton;
 import MainFrame.MainFrame;
 import PlayPanel.PlayPanel;
+import WordSetFrame.SubmitButtonPanel;
 
 public class SubmitPanel extends JPanel{
 	
@@ -50,18 +53,21 @@ public class SubmitPanel extends JPanel{
 				
 				String[] spliter;
 				
-				String item=(String)MainFrame.mf.startFra.userListPa.getSelectedItem();
-				
-				spliter=item.split("\t");
+				String selection=(String)MainFrame.mf.startFrame.userListPa.getSelectedItem();
+				if(selection==null){
+					JOptionPane.showMessageDialog(null, "유저를 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
+					return;
+				}
+				spliter=selection.split("\t");
 				
 				character=spliter[0];
 				user=spliter[1];
 				int level = 0;
 				double speed = 0;
-			
+				
 				
 				String levelbtn = null;
-				Enumeration<AbstractButton> enums = MainFrame.mf.startFra.levelListPa.levelGroup.getElements();
+				Enumeration<AbstractButton> enums = MainFrame.mf.startFrame.levelListPa.levelGroup.getElements();
 				while(enums.hasMoreElements()){
 					 GraphicRadioButton radiobtn=(GraphicRadioButton)enums.nextElement(); 
 					 if(radiobtn.isSelected())    
@@ -78,7 +84,7 @@ public class SubmitPanel extends JPanel{
 				case "APEACH.": GlobalGraphic.character=new Color(247,171,171);
 						GlobalGraphic.path="images/MainFrame/Apeach/";
 						break;
-				}	*/
+				}*/
 				
 				if(character.equals("MUZI."))
 				{
@@ -96,11 +102,17 @@ public class SubmitPanel extends JPanel{
 					 GlobalGraphic.path="images/MainFrame/Apeach/";
 				}
 				
+				if(levelbtn==null){
+					JOptionPane.showMessageDialog(null, "레벨을 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
+					return;
+				}
+				
 				/*switch(levelbtn){
 					case "levelBtn1": level=1;speed=10; break;
 					case "levelBtn2": level=5;speed=20; break;
 					case "levelBtn3": level=10;speed=30; break;
 				}*/
+				
 				
 				if(levelbtn.equals("levelBtn1"))
 				{
@@ -115,11 +127,12 @@ public class SubmitPanel extends JPanel{
 					level=10;speed=30;
 				}
 				
-				MainFrame.mf.setContentPane(MainFrame.mf.playPa=new PlayPanel(user,character,level,speed));
+				MainFrame.mf.setContentPane(MainFrame.mf.playPanel=new PlayPanel(user,character,level,speed));
 			}
 			
 			else;
-			MainFrame.mf.startFra.dispose();
+			JFrame topFrame=(JFrame)(SubmitPanel.this.getTopLevelAncestor());
+			topFrame.dispose();
 			
 		}
 	}

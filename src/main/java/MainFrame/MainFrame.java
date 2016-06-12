@@ -7,8 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
-import java.lang.reflect.Field;
-import java.nio.charset.Charset;
+import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -20,35 +19,33 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import Graphics.GraphicButton;
-import MakeUserFrame.MakeUserFrame;
 import PlayPanel.PlayPanel;
 import StartFrame.StartFrame;
+import WordSetFrame.WordSetFrame;
 
 
 public class MainFrame extends JFrame{
 	public static MainFrame mf;
-	public MainPagePanel mainPa;
-	public PlayPanel playPa;
-	public StartFrame startFra;
-	public MakeUserFrame makeUserFra;
+	public MainPagePanel mainPanel;
+	public PlayPanel playPanel;
+	public StartFrame startFrame;
 	
 	
-	MainFrame(){
+	public MainFrame(){
 		setSize(800,550);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);//크기 고정
 		setUndecorated(true);
-		setVisible(true);
-		
-		//com.sun.awt.AWTutilities.setWindowShape(this,new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),20,20));
+		setVisible(true);		
+		this.setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),30,30));
 		
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
 		setLocation((windowSize.width - frameSize.width) / 2,
 				(windowSize.height - frameSize.height) / 2);
 		
-		mainPa=new MainPagePanel();
-		this.setContentPane(mainPa);
+		mainPanel=new MainPagePanel();
+		this.setContentPane(mainPanel);
 		
 		
 		createMenuBar();
@@ -66,8 +63,8 @@ public class MainFrame extends JFrame{
 		JMenuItem version=new JMenuItem("Version");
 		JMenuItem developer=new JMenuItem("Developer");
 		
+		
 		menuBar.setPreferredSize(new Dimension(800,30));
-		menuBar.setBackground(Color.LIGHT_GRAY);
 		//파일 메뉴 생성
 		fileMenu.add(regame);
 	
@@ -121,7 +118,7 @@ public class MainFrame extends JFrame{
 			btn[3]=new GraphicButton(path,"Exitbtn",100,35);
 			
 			for(int i=0; i<4; i++){
-				btn[i].addActionListener(new MenuAction());
+				btn[i].addActionListener(new MenuActionListener());
 			}
 			
 			for(int i=0; i<4; i++){
@@ -130,33 +127,34 @@ public class MainFrame extends JFrame{
 			}		
 		}
 				
-		class MenuAction implements ActionListener {
+		class MenuActionListener implements ActionListener {
 						
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				GraphicButton btn=(GraphicButton)e.getSource();
 
-				if(btn.getFILENAME().equals("Startbtn"))startFra=new StartFrame();
+				if(btn.getFILENAME().equals("Startbtn"))startFrame=new StartFrame();
 				else if(btn.getFILENAME().equals("WordSetBtn"));
 				else if(btn.getFILENAME().equals("Help"));
 				else if(btn.getFILENAME().equals("Exitbtn"))System.exit(0);
 				
 				
-//				switch(btn.getFILENAME()){
-//				case "Startbtn": startFra=new StartFrame(); break;
-//				case "WordSetBtn": break;
-//				case "Help": break;
-//				case "Exitbtn": System.exit(0);break; 
-//				}
+				/*switch(btn.getFILENAME()){
+				case "Startbtn": startFrame=new StartFrame(); break;
+				case "WordSetbtn": new WordSetFrame(); break;
+				case "Help": break;
+				case "Exitbtn": System.exit(0);break; 
+				}*/
 				
 			}
 		}
 				
 		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
 			ImageIcon background = new ImageIcon("images/MainFrame/MainPage/Background.png");	
 			g.drawImage(background.getImage(), 0, 0, null);	
 			setOpaque(false);
-			super.paintComponent(g);
+			
 		}	
 	}		
 	

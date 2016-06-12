@@ -1,7 +1,3 @@
-MUZI	무지임미다s
-APEACH	어피치다
-LYAN	라이언이다
-MUZI	DD
-MUZI	무지무지!
-APEACH	어피치다
-LYAN	ddd
+LYAN	22
+MUZI	changoo
+APEACH	어피치
