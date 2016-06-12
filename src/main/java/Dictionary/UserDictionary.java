@@ -58,13 +58,16 @@ public class UserDictionary {
 		// 스트림 종료
 		in.close();
 	}
-	public void writeWordUserDictionary() throws IOException {
+	public void writeWordUserDictionary() {
 		
 		String korean;
 		String english;
 		String successcount;
 
-		BufferedWriter out = new BufferedWriter(new FileWriter("resources/UserDictionary/" + user + "_Dictionary.txt"));
+		BufferedWriter out;
+		try {
+			out = new BufferedWriter(new FileWriter("resources/UserDictionary/" + user + "_Dictionary.txt"));
+		
 		String s;
 
 		for (int i = 0; i < list.size(); i++) {
@@ -77,6 +80,10 @@ public class UserDictionary {
 			out.newLine();
 		}
 		out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	// 단어의 갯수 리턴

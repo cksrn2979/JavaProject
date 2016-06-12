@@ -4,7 +4,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
-import Dictionary.UserDictionary;
 import MainFrame.MainFrame;
 import PlayPanel.PlayPanel;
 import PlayPanel.CenterPanel.FallWordLabel;
@@ -16,6 +15,20 @@ public abstract class Item{
 	public abstract void call(); //item 사용	
 	public boolean getEnable(){	return enable;}	//상태값 리턴
 	public void setEnable(boolean enable){	this.enable=enable;	}//상태값 세팅
+	public void AniAction(){
+		MainFrame.mf.playPanel.cp.itemLabel.setVisible(true);
+		
+		Timer t= new Timer(false);
+		TimerTask repairTask=new RepairTask();	
+		t.schedule(repairTask, 1500);		
+	}
+	
+	class RepairTask extends TimerTask{
+		public void run() {
+			MainFrame.mf.playPanel.cp.itemLabel.setVisible(false);
+		}
+	}	
+	
 }
 
 class Item1 extends Item{
@@ -49,6 +62,8 @@ class Item1 extends Item{
 				
 		//item1 사용 불가 상태로
 		setEnable(false);
+		
+		AniAction();
 	}
 }
 
@@ -65,6 +80,8 @@ class Item2 extends Item{
 
 		//item2 사용 불가 상태로
 		setEnable(false);
+		
+		AniAction();
 	}
 	
 	class RepairTask extends TimerTask{
@@ -89,6 +106,8 @@ class Item3 extends Item{
 
 		//item3 사용 불가 상태로
 		setEnable(false);
+		
+		AniAction();
 	}
 	
 	class RepairTask extends TimerTask{
@@ -102,5 +121,7 @@ class Item4 extends Item{
 	public void call() {
 		MainFrame.mf.playPanel.cp.heartGagePa.heartgage.fullgain();
 		setEnable(false);
+		
+		AniAction();
 	}	
 }

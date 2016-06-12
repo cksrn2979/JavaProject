@@ -124,12 +124,7 @@ public class WordPlusFrame extends JFrame{
 					for(int i=0; i<korean.length;i++)
 						userDictionary.add(korean[i],english[i],0);
 					
-					try {
-						userDictionary.writeWordUserDictionary();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					userDictionary.writeWordUserDictionary();					
 					
 					wordListTable.loadDictionary(user);
 					

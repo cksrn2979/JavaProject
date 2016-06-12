@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 import MainFrame.MainFrame;
@@ -14,6 +16,7 @@ import PlayPanel.CenterPanel.FallWordLabel;
 import ScoreFrame.ScoreFrame;
 
 public class Play {
+	private PlayPanel playPanel;
 	private boolean play;
 	private boolean turn; //입력 차례 (한글,영문)
 	private Integer level; 
@@ -25,7 +28,8 @@ public class Play {
 	private MakeWord makeWord;
 	private SpeedAni speedAni;	
 	
-	Play(Integer level, Double speed){
+	Play(PlayPanel playPanel, Integer level, Double speed){
+		this.playPanel=playPanel;
 		this.level=level;
 		this.speed=speed;
 		this.score=0;
@@ -52,15 +56,25 @@ public class Play {
 	
 	public void levelUp() {
 		level++;
-		MainFrame.mf.playPanel.np.levelPa.setLevelText(level.toString());
-		MainFrame.mf.playPanel.cp.clearLabel();
-		System.out.println("레벨업!");
+		playPanel.np.levelPa.setLevelText(level.toString());
+		playPanel.cp.clearLabel();
+		playPanel.cp.levelUpLabel.setVisible(true);
+		
+		Timer t= new Timer(false);
+		TimerTask repairTask=new RepairTask();	
+		t.schedule(repairTask, 2000);		
+	}
+	
+	class RepairTask extends TimerTask{
+		public void run() {
+			playPanel.cp.levelUpLabel.setVisible(false);
+		}
 	}
 
 	public void scoreUp() {// 점수 증가
 		count--;
 		score += level * 5;
-		MainFrame.mf.playPanel.np.scorePa.setScoreText(score.toString());
+		playPanel.np.scorePa.setScoreText(score.toString());
 		if (count == 0) {
 			levelUp();
 			count = 10;

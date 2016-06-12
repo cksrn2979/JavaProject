@@ -11,7 +11,7 @@ import MainFrame.MainFrame;
 
 public class HeartGagePanel extends GraphicPanel{
 	public HeartGage heartgage=new HeartGage();
-	
+	MainFrame mf=(MainFrame)this.getTopLevelAncestor();
 	HeartGagePanel(String path, String FILENAME, int width, int height){
 		super(path,FILENAME,width,height);
 		heartgage=new HeartGage();
@@ -42,7 +42,8 @@ public class HeartGagePanel extends GraphicPanel{
 			setString(value.toString()+"%");	
 			
 			if(value==0){ //체력이 없을 경우	
-				MainFrame.mf.playPanel.play.gameOver();
+				mf.playPanel.play.gameOver();
+				mf.playPanel.dictionary.writeWordUserDictionary();
 				return;
 			}
 		}

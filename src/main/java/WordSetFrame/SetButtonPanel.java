@@ -50,19 +50,16 @@ public class SetButtonPanel extends JPanel {
 			GraphicButton btn = (GraphicButton) e.getSource();
 			if (btn.getFILENAME().equals("wordPlusBtn"))
 				new WordPlusFrame(topFrame.wordListPanel.wordListTable,user);
-			else if (btn.getFILENAME().equals("SuccessResetBtn"))
+			else if (btn.getFILENAME().equals("SuccessResetBtn")){
 				successReset(topFrame.wordListPanel.wordListTable,user);
+				JOptionPane.showMessageDialog(topFrame, "성공횟수가 초기화 되었습니다", "확인",JOptionPane.INFORMATION_MESSAGE);
+			}
 		}
 		
 		private void successReset(WordListTable wordListTable, String user){
 			UserDictionary userDictionary =new UserDictionary(user);
 			userDictionary.successReset();
-			try {
-				userDictionary.writeWordUserDictionary();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			userDictionary.writeWordUserDictionary();			
 			wordListTable.loadDictionary(user);
 		}
 	}

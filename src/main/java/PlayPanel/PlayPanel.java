@@ -47,7 +47,7 @@ public class PlayPanel extends JPanel{
 	public PlayPanel(String user,String character,Integer level,Double speed){
 		this();
 		dictionary = new UserDictionary(user);
-		play = new Play(level, speed);
+		play = new Play(this,level, speed);
 		userInfo= new UserInfo(user,character);
 		
 		wp.speedPanel.setSpeedText(this.play.getSpeed().toString());

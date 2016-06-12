@@ -41,7 +41,7 @@ class InputTextPanel extends JPanel{
 			switch(e.getKeyCode()){
 			case KeyEvent.VK_ESCAPE: 		
 					playPanel.play.pauseGame();
-					pauseFrame = new PauseFrame();
+					pauseFrame = new PauseFrame(mf);
 				break;
 				
 			case KeyEvent.VK_F1: //item1 모두 지우기

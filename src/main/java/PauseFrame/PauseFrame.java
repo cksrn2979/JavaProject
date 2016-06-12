@@ -5,6 +5,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,11 +15,13 @@ import Graphics.GraphicButton;
 import MainFrame.MainFrame;
 
 public class PauseFrame extends JFrame{
+	private MainFrame parentFrame;
 	GraphicButton homebtn;
 	GraphicButton resumebtn;
 	GraphicButton exitbtn;
 	
-	public PauseFrame(){
+	public PauseFrame(MainFrame mf){
+		parentFrame=mf;
 		setLayout(new FlowLayout());
 		setSize(150,180);
 				
@@ -60,9 +63,12 @@ public class PauseFrame extends JFrame{
 				GraphicButton btn=(GraphicButton)e.getSource();
 				if(btn.getFILENAME().equals("homebtn"));
 				else if(btn.getFILENAME().equals("resumebtn"))
-					MainFrame.mf.playPanel.play.resumeGame();
-				else if(btn.getFILENAME().equals("exitbtn"))
+					parentFrame.playPanel.play.resumeGame();
+				else if(btn.getFILENAME().equals("exitbtn")){
 					System.exit(0);
+					parentFrame.playPanel.dictionary.writeWordUserDictionary();
+					
+				}
 				
 				/*
 				switch(btn.getFILENAME()){

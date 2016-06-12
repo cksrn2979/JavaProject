@@ -49,7 +49,6 @@ public class BasicDictionary {
 			korean = spliter[0];
 			english = spliter[1];
 			successcount = spliter[2];
-			System.out.println(korean);
 			this.add(korean, english, Integer.parseInt(successcount));
 		}
 
