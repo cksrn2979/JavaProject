@@ -1,6 +1,7 @@
 package PlayPanel.SouthPanel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Dictionary;
 import java.util.Random;
 import java.util.Vector;
 
@@ -92,7 +93,7 @@ class InputTextPanel extends JPanel{
 				String fallWord=fallWordLabelArray.get(index).getText(); //떨어지는 라벨의 단어				
 				
 						
-				if(fallWord.equalsIgnoreCase(text)){ //떨어지는 단어와 입력 단어가 같을경우	 					
+				if(fallWord.equalsIgnoreCase(text)){ //떨어지는 단어와 입력 단어가 같을경우	
 					la.setText(renderWord); //한글 -> 영어로, 영어-> null로
 					
 					if(la.getLanguage()==false)	 
@@ -102,6 +103,7 @@ class InputTextPanel extends JPanel{
 					
 					break;
 				}
+		
 			}
 		}
 		
@@ -113,7 +115,7 @@ class InputTextPanel extends JPanel{
 			String korean=playPanel.dictionary.renderReverse(text);
 					
 			//성공 단어에 추가
-			playPanel.ep.successWordPanel.successWordTable.add(korean,text);
+			playPanel.ep.successWordPanel.successWordTable.add(korean,playPanel.dictionary.render(korean));
 			
 			//단어 성공 횟수 증가
 			playPanel.dictionary.plusSuccess(korean);

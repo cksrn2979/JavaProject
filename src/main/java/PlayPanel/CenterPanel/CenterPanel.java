@@ -1,18 +1,17 @@
 package PlayPanel.CenterPanel;
 
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 import Graphics.GraphicPanel;
+import Graphics.TimerLabel;
 
 public class CenterPanel extends GraphicPanel{
 	public HeartGagePanel heartGagePa;
 	public TimerLabel levelUpLabel;
 	public TimerLabel itemLabel;
+
 	private Vector<FallWordLabel> fallWordLabelArray;	
 	
 	public CenterPanel(String path, String FILENAME, int width, int height){
@@ -46,25 +45,5 @@ public class CenterPanel extends GraphicPanel{
 			fallWordLabelArray.get(index).setValid(false);
 		}
 		fallWordLabelArray.removeAllElements();
-	}
-	
-	public class TimerLabel extends JLabel{
-		TimerLabel(ImageIcon imageIcon){
-			super(imageIcon);
-			setVisible(false);
-		}
-		
-		public void action(int time){
-			setVisible(true);
-			Timer t = new Timer(false);
-			TimerTask repairTask = new RepairTask();
-			t.schedule(repairTask, time);
-		}
-
-		class RepairTask extends TimerTask {
-			public void run() {
-				setVisible(false);
-			}
-		}
 	}
 }

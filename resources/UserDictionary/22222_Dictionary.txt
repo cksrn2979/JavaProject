@@ -61,7 +61,7 @@
 의 밑에	under	0
 벤치	bench	0
 의 옆에	next	2
-의 사이에	between	0
+의 사이에	between	1
 자전거	bicycle	0
 큰	large	0
 새	bird	0
@@ -707,7 +707,7 @@
 만지다	touch	0
 소도시	town	0
 장난감	toy	0
-기차	train	0
+기차	train	1
 여행하다	travel	0
 나무	wood	0
 여행	trip	0

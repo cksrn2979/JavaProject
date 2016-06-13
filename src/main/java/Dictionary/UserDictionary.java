@@ -116,7 +116,7 @@ public class UserDictionary {
 	// 영어를 한글로 번역
 	public String renderReverse(String english) {
 		for (String s : render.keySet()) {
-			if (render.get(s).equals(english))
+			if (render.get(s).equalsIgnoreCase(english))
 				return s;
 		}
 		return null;

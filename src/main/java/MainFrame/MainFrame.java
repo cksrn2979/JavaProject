@@ -40,6 +40,8 @@ public class MainFrame extends JFrame {
 		this.setContentPane(mainPanel);
 
 		createMenuBar();
+		
+		revalidate();
 
 	}
 

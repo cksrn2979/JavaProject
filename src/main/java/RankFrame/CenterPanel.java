@@ -11,24 +11,25 @@ import Graphics.GameFontB;
 import Graphics.GameFontP;
 import Graphics.GlobalGraphic;
 import Graphics.GraphicPanel;
+import PlayPanel.PlayPanel;
 
 class CenterPanel extends JPanel {
-	String path = "images/ScoreFrame/";
+	String path = "images/RankFrame/";
 	String myUser;
 	String myCharacter;
 	Integer myScore;
 	Integer myLevel;
 	RankerArray rankers;
 	
-	CenterPanel(String user, String character, Integer score, Integer level) {
-		this.myUser=user;
-		this.myCharacter=character;
-		this.myScore=score;
-		this.myLevel=level;
+	CenterPanel(PlayPanel playPanel) {
+		this.myUser=playPanel.userInfo.getUser();
+		this.myCharacter=playPanel.userInfo.getCharacter();
+		this.myScore=playPanel.play.getScore();
+		this.myLevel=playPanel.play.getLevel();
 		rankers = new RankerArray();
 	
 		setVisible(true);
-		setBackground(GlobalGraphic.character);
+		setBackground(null);
 		setLayout(null);
 		setPreferredSize(new Dimension(600, 460));
 

@@ -8,11 +8,12 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.JFrame;
 
 import Graphics.GlobalGraphic;
+import PlayPanel.PlayPanel;
 
 public class RankFrame extends JFrame {
-	public RankFrame(String user, String character, Integer score, Integer level) {
-		System.out.println(user + character);
-		setSize(600, 460);
+	public RankFrame(PlayPanel playPanel) {
+		
+		setSize(600, 540);
 		setResizable(false);
 		setUndecorated(true);
 		setVisible(true);
@@ -23,12 +24,13 @@ public class RankFrame extends JFrame {
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
 		
-		NorthPanel north = new NorthPanel("images/ScoreFrame/", "NorthPanel", 600, 100);
-		CenterPanel center = new CenterPanel(user, character, score, level);
+		NorthPanel northPanel = new NorthPanel("images/RankFrame/", "NorthPanel", 600, 100);
+		CenterPanel centerPanel = new CenterPanel(playPanel);
+		SouthPanel southPanel =new SouthPanel(playPanel);
 
-
-		add(center, BorderLayout.CENTER);
-		add(north, BorderLayout.NORTH);
+		add(northPanel, BorderLayout.NORTH);
+		add(centerPanel, BorderLayout.CENTER);		
+		add(southPanel, BorderLayout.SOUTH);
 		
 		revalidate();
 		repaint();

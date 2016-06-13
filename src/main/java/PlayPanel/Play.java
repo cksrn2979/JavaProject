@@ -77,12 +77,11 @@ public class Play {
 		playPanel.np.levelPa.setLevelText(level.toString());
 		playPanel.cp.clearLabel();
 		playPanel.cp.levelUpLabel.action(2000);
-
 	}
 
 	public void scoreUp() {// 점수 증가
 		count--;
-		score += level * 5;
+		score += level * 1;
 		playPanel.np.scorePa.setScoreText(score.toString());
 		if (count == 0) {
 			levelUp();
@@ -124,13 +123,19 @@ public class Play {
 				stopGame();
 				writeFinal();
 				playPanel.dictionary.writeWordUserDictionary();
-				new RankFrame(playPanel.userInfo.getUser(),playPanel.userInfo.getCharacter(),score,level);
+				new RankFrame(playPanel);
 			}
-		};	
-		
+		};			
 		gameOverThread.start();
 	}
-
+	
+	public void goHome(){
+		stopGame();
+		MainFrame mf= (MainFrame)playPanel.getTopLevelAncestor();
+		mf.setContentPane(mf.mainPanel);
+		mf.repaint();
+		mf.revalidate();
+	}
 
 	private void writeFinal() {
 		try {
