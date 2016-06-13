@@ -12,7 +12,8 @@ import PlayPanel.PlayPanel;
 
 public class RankFrame extends JFrame {
 	public RankFrame(String user, String chracter, Integer score, Integer level) {
-		setSize(600, 400);
+		System.out.println(user + chracter);
+		setSize(600, 460);
 		setResizable(false);
 		setUndecorated(true);
 		setVisible(true);
@@ -22,13 +23,16 @@ public class RankFrame extends JFrame {
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
-
-		NorthPanel north = new NorthPanel("images/ScoreFrame/", "NorthPanel", 600, 40);
+		
+		NorthPanel north = new NorthPanel("images/ScoreFrame/", "NorthPanel", 600, 100);
 		CenterPanel center = new CenterPanel(user, chracter, score, level);
+
 
 		add(center, BorderLayout.CENTER);
 		add(north, BorderLayout.NORTH);
-
+		
+		revalidate();
+		repaint();
 	}
 	
 	public static void main(String[] args){

@@ -90,16 +90,19 @@ public class SubmitPanel extends JPanel{
 				{
 					GlobalGraphic.character=new Color(251,233,13); 
 					GlobalGraphic.path="images/MainFrame/Muzi/";
+					character="MUZI";
 				}
 				else if(character.equals("LYAN."))
 				{
 					 GlobalGraphic.character=new Color(215,209,137);
 					GlobalGraphic.path="images/MainFrame/Lyan/";
+					character="LYAN";
 				}
 				else if(character.equals("APEACH."))
 				{
 					 GlobalGraphic.character=new Color(247,171,171);
 					 GlobalGraphic.path="images/MainFrame/Apeach/";
+					 character="APEACH";
 				}
 				
 				if(levelbtn==null){

@@ -24,9 +24,9 @@ class CenterPanel extends JPanel {
 		this.myUser=user;
 		this.myCharacter=character;
 		this.myScore=score;
-		this.myLevel=level;			
+		this.myLevel=level;
 		rankers = new RankerArray();
-		
+	
 		setVisible(true);
 		setBackground(GlobalGraphic.character);
 		setLayout(null);
@@ -58,6 +58,7 @@ class CenterPanel extends JPanel {
 		add(chracterPanel);
 		add(userPanel);
 		add(levelPanel);
+		
 	}
 	
 	

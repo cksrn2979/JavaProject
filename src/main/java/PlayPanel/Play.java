@@ -115,8 +115,9 @@ public class Play {
 	public void gameOver() {
 		stopGame();
 		writeFinal();
-		new RankFrame(playPanel.userInfo.getUser(),playPanel.userInfo.getCharacter(),score,level);
 		playPanel.dictionary.writeWordUserDictionary();
+		new RankFrame(playPanel.userInfo.getUser(), playPanel.userInfo.getCharacter(), score, level);
+
 	}
 
 	private void writeFinal() {
@@ -146,7 +147,7 @@ public class Play {
 			NumberFormat numberFormat = new DecimalFormat("##.##");
 			while (true) {
 				speedUp(0.01);
-				MainFrame.mf.playPanel.wp.speedPanel.setSpeedText(numberFormat.format(speed));
+				playPanel.wp.speedPanel.setSpeedText(numberFormat.format(speed));
 
 				try {
 					sleep(100);
