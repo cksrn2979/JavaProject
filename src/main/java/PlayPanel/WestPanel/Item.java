@@ -16,19 +16,8 @@ public abstract class Item{
 	public boolean getEnable(){	return enable;}	//상태값 리턴
 	public void setEnable(boolean enable){	this.enable=enable;	}//상태값 세팅
 	public void AniAction(){
-		MainFrame.mf.playPanel.cp.itemLabel.setVisible(true);
-		
-		Timer t= new Timer(false);
-		TimerTask repairTask=new RepairTask();	
-		t.schedule(repairTask, 1500);		
-	}
-	
-	class RepairTask extends TimerTask{
-		public void run() {
-			MainFrame.mf.playPanel.cp.itemLabel.setVisible(false);
-		}
+		MainFrame.mf.playPanel.cp.itemLabel.action(1500);		
 	}	
-	
 }
 
 class Item1 extends Item{

@@ -1,4 +1,4 @@
-package ScoreFrame;
+package RankFrame;
 
 import Graphics.GlobalGraphic;
 import Graphics.GraphicPanel;

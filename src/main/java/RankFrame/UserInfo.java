@@ -1,4 +1,4 @@
-package ScoreFrame;
+package RankFrame;
 
 public class UserInfo {
 	private String character;

@@ -1,5 +1,7 @@
 package PlayPanel.CenterPanel;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -9,8 +11,8 @@ import Graphics.GraphicPanel;
 
 public class CenterPanel extends GraphicPanel{
 	public HeartGagePanel heartGagePa;
-	public JLabel levelUpLabel;
-	public JLabel itemLabel;
+	public TimerLabel levelUpLabel;
+	public TimerLabel itemLabel;
 	private Vector<FallWordLabel> fallWordLabelArray;	
 	
 	public CenterPanel(String path, String FILENAME, int width, int height){
@@ -19,16 +21,14 @@ public class CenterPanel extends GraphicPanel{
 				
 		fallWordLabelArray= new Vector<FallWordLabel>();
 	
-		itemLabel=new JLabel(new ImageIcon(path+"Item.gif"));
+		itemLabel=new TimerLabel(new ImageIcon(path+"Item.gif"));
 		itemLabel.setSize(200,200);
 		itemLabel.setLocation(150,100);
-		itemLabel.setVisible(false);
 		add(itemLabel);
 		
-		levelUpLabel=new JLabel(new ImageIcon(path+"levelUp.gif"));
+		levelUpLabel=new TimerLabel(new ImageIcon(path+"levelUp.gif"));
 		levelUpLabel.setSize(200,200);
 		levelUpLabel.setLocation(150,100);
-		levelUpLabel.setVisible(false);
 		add(levelUpLabel);
 		
 		heartGagePa = new HeartGagePanel(path,"HeartGageGra",200,30);
@@ -47,5 +47,24 @@ public class CenterPanel extends GraphicPanel{
 		}
 		fallWordLabelArray.removeAllElements();
 	}
+	
+	public class TimerLabel extends JLabel{
+		TimerLabel(ImageIcon imageIcon){
+			super(imageIcon);
+			setVisible(false);
+		}
+		
+		public void action(int time){
+			setVisible(true);
+			Timer t = new Timer(false);
+			TimerTask repairTask = new RepairTask();
+			t.schedule(repairTask, time);
+		}
 
+		class RepairTask extends TimerTask {
+			public void run() {
+				setVisible(false);
+			}
+		}
+	}
 }
