@@ -17,6 +17,7 @@ import Dictionary.UserDictionary;
 import Graphics.GraphicButton;
 import Graphics.GraphicRadioButton;
 import MainFrame.MainFrame;
+import StartFrame.StartFrame;
 
 class SubmitPanel extends JPanel{
 	GraphicButton[] submitBtn;
@@ -88,10 +89,13 @@ class SubmitPanel extends JPanel{
 					return;
 
 				}
+				
+				MakeUserFrame makeuserFrame=(MakeUserFrame)SubmitPanel.this.getTopLevelAncestor();
+				StartFrame startFrame=makeuserFrame.startFrame;
 
 				try {
 					writeUser(user);
-					MainFrame.mf.startFrame.userListPa.readUser();
+					startFrame.userListPa.readUser();
 					BasicDictionary basicDictionary = new BasicDictionary();
 					basicDictionary.MAKE_UserDictionary(user);
 					UserDictionary u= new UserDictionary(user);
@@ -109,8 +113,7 @@ class SubmitPanel extends JPanel{
 		}
 		
 		public void writeUser(String user) throws IOException{				
-			BufferedWriter out = new BufferedWriter(new FileWriter("resources/User.txt",true));
-							
+			BufferedWriter out = new BufferedWriter(new FileWriter("resources/User.txt",true));							
 		    out.write(chracter + "\t" + user);
 		    out.newLine();			  
 		    out.close();		   

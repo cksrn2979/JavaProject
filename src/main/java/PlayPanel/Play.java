@@ -66,6 +66,12 @@ public class Play {
 			gameOver();
 	}
 	
+	public void fullGain(){
+		heart=100;
+		playPanel.cp.heartGagePa.heartgage.setValue(heart);
+		playPanel.cp.heartGagePa.heartgage.setString(heart.toString()+"%");	
+	}
+	
 	public void levelUp() {
 		level++;
 		playPanel.np.levelPa.setLevelText(level.toString());
@@ -112,19 +118,25 @@ public class Play {
 			fallingAniArray.get(i).resume();
 	}
 
-	public void gameOver() {
-		stopGame();
-		writeFinal();
-		playPanel.dictionary.writeWordUserDictionary();
-		new RankFrame(playPanel.userInfo.getUser(), playPanel.userInfo.getCharacter(), score, level);
-
+	public void gameOver() {		
+		Thread gameOverThread = new Thread(){
+			public void run(){
+				stopGame();
+				writeFinal();
+				playPanel.dictionary.writeWordUserDictionary();
+				new RankFrame(playPanel.userInfo.getUser(),playPanel.userInfo.getCharacter(),score,level);
+			}
+		};	
+		
+		gameOverThread.start();
 	}
+
 
 	private void writeFinal() {
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter("resources/Score.txt", true));
 			BufferedReader in2 = new BufferedReader(new FileReader("resources/User.txt"));
-			String name = MainFrame.mf.playPanel.userInfo.getUser();
+			String name = playPanel.userInfo.getUser();
 			String ch = " ";
 			String s;
 			while ((s = in2.readLine()) != null) {
@@ -175,7 +187,6 @@ public class Play {
 
 		class FallingAni extends Thread {
 			public void run() {
-				PlayPanel playPanel = MainFrame.mf.playPanel;
 				// 좌표값 설정
 				int x = (int) (Math.random() * 400);
 				int y = 50;

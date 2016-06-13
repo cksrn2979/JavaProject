@@ -34,22 +34,5 @@ public class HeartGagePanel extends GraphicPanel{
 			setValue(value);
 		
 		}
-		
-		public void pain(){ //체력 감소
-			value-=20;
-			setValue(value);
-			setString(value.toString()+"%");	
-			
-			if(value==0){ //체력이 없을 경우	
-				MainFrame mf=(MainFrame)this.getTopLevelAncestor();
-				mf.playPanel.play.gameOver();			
-				return;
-			}
-		}
-		
-		public void fullgain(){
-			setValue(max);
-			setString(100+"%");
-		}
 	}
 }

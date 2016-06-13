@@ -22,7 +22,7 @@
 그리고	and	0
 화난	angry	0
 동물	animal	0
-대답	answer	0
+대답	answer	1
 어떤	any	0
 아파트	apartment	0
 사과	apple	0
@@ -132,7 +132,7 @@
 교회	church	0
 원	circle	0
 도시	city	0
-학급	class	0
+학급	class	1
 급우	classmate	0
 깨끗한	clean	0
 나무	wood	0

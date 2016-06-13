@@ -15,10 +15,10 @@ public class ItemPanel extends GraphicPanel{
 		setLayout(null);
 		setBackground(null);
 				
-		item[0]=new Item1();
-		item[1]=new Item2();
-		item[2]=new Item3();
-		item[3]=new Item4();
+		item[0]=new Item1(this);
+		item[1]=new Item2(this);
+		item[2]=new Item3(this);
+		item[3]=new Item4(this);
 		
 		String btnpath=GlobalGraphic.path+"WestPanel/";
 		itemBtn[0]=new GraphicButton(btnpath,"ItemBtn1",100,35);

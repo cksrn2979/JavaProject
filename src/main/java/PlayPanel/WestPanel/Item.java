@@ -10,19 +10,21 @@ import PlayPanel.CenterPanel.FallWordLabel;
 
 public abstract class Item{
 	private boolean enable;
-	
-	Item(){	enable=false;}	
+	ItemPanel itemPanel;
+	Item(ItemPanel itemPanel){this.itemPanel=itemPanel;	enable=false;}	
 	public abstract void call(); //item 사용	
 	public boolean getEnable(){	return enable;}	//상태값 리턴
 	public void setEnable(boolean enable){	this.enable=enable;	}//상태값 세팅
-	public void AniAction(){
-		MainFrame.mf.playPanel.cp.itemLabel.action(1500);		
+	public void AniAction(PlayPanel playPanel){
+		playPanel.cp.itemLabel.action(1500);		
 	}	
 }
 
 class Item1 extends Item{
+	Item1(ItemPanel itemPanel) {super(itemPanel);}
+
 	public void call() {
-		PlayPanel playPanel=MainFrame.mf.playPanel;
+		PlayPanel playPanel=(PlayPanel)this.itemPanel.getParent().getParent();
 		Vector<FallWordLabel> fallWordLabelArray = playPanel.cp.getLabelArray();
 		String korean;
 		String english;
@@ -43,26 +45,33 @@ class Item1 extends Item{
 			}
 			
 			//성공 단어에 추가
-			MainFrame.mf.playPanel.ep.successWordPanel.successWordTable.add(korean,english);
+			playPanel.ep.successWordPanel.successWordTable.add(korean,english);
 		}
 				
 		//모든 떨어지는 라벨 제거
-		MainFrame.mf.playPanel.cp.clearLabel();	
+		playPanel.cp.clearLabel();	
 				
 		//item1 사용 불가 상태로
 		setEnable(false);
 		
-		AniAction();
+		AniAction(playPanel);
 	}
 }
 
 class Item2 extends Item{
-
+	Item2(ItemPanel itemPanel) {super(itemPanel);}
+	
 	public void call() {
-		MainFrame.mf.playPanel.play.pauseGame();
+		final PlayPanel playPanel=(PlayPanel)this.itemPanel.getParent().getParent();
+		
+		playPanel.play.pauseGame();
 		
 		Timer t= new Timer(false);
-		TimerTask repairTask=new RepairTask();
+		TimerTask repairTask=new TimerTask(){
+			public void run() {				
+				playPanel.play.resumeGame();
+			}
+		};
 		
 		//5초후에 원래 속도로
 		t.schedule(repairTask, 5000);
@@ -70,25 +79,26 @@ class Item2 extends Item{
 		//item2 사용 불가 상태로
 		setEnable(false);
 		
-		AniAction();
+		AniAction(playPanel);
 	}
-	
-	class RepairTask extends TimerTask{
-		public void run() {
-			MainFrame.mf.playPanel.play.resumeGame();
-		}
-	}
-
 }
 
 class Item3 extends Item{
+	Item3(ItemPanel itemPanel) {super(itemPanel);}
+	
 	double speed;
 	public void call() {
-		speed=MainFrame.mf.playPanel.play.getSpeed();
-		MainFrame.mf.playPanel.play.setSpeed(5.0);
+		final PlayPanel playPanel=(PlayPanel)this.itemPanel.getParent().getParent();
+		
+		speed=playPanel.play.getSpeed();
+		playPanel.play.setSpeed(5.0);
 		
 		Timer t= new Timer(false);
-		TimerTask repairTask=new RepairTask();
+		TimerTask repairTask=new TimerTask(){
+			public void run() {
+				playPanel.play.setSpeed(speed);
+			}
+		};
 		
 		//5초후에 원래 속도로
 		t.schedule(repairTask, 5000);
@@ -96,21 +106,17 @@ class Item3 extends Item{
 		//item3 사용 불가 상태로
 		setEnable(false);
 		
-		AniAction();
-	}
-	
-	class RepairTask extends TimerTask{
-		public void run() {
-			MainFrame.mf.playPanel.play.setSpeed(speed);
-		}
+		AniAction(playPanel);
 	}
 }
 
 class Item4 extends Item{
+	Item4(ItemPanel itemPanel) {super(itemPanel);}
+	
 	public void call() {
-		MainFrame.mf.playPanel.cp.heartGagePa.heartgage.fullgain();
-		setEnable(false);
-		
-		AniAction();
+		PlayPanel playPanel=(PlayPanel)this.itemPanel.getParent().getParent();
+		playPanel.play.fullGain();
+		setEnable(false);		
+		AniAction(playPanel);
 	}	
 }

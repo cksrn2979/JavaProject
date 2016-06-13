@@ -46,7 +46,8 @@ public class UserListPanel extends GraphicPanel{
 	
 	class WordPlusAction implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-				new MakeUserFrame();
+				StartFrame startFrame=(StartFrame) UserListPanel.this.getTopLevelAncestor();
+				new MakeUserFrame(startFrame);
 		}
 		
 	}

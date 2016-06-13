@@ -15,15 +15,15 @@ import Graphics.GraphicButton;
 import Graphics.GraphicRadioButton;
 import MainFrame.MainFrame;
 import PlayPanel.PlayPanel;
-import WordSetFrame.SubmitButtonPanel;
 
 public class SubmitPanel extends JPanel{
-	
+	MainFrame mf;
 	String user;
 	String character;	
 	GraphicButton[] submitBtn;
 	
-	SubmitPanel(){
+	SubmitPanel(MainFrame mf){
+		this.mf=mf;
 		setLayout(null);
 		setBackground(null);
 		makeBtn();
@@ -48,12 +48,13 @@ public class SubmitPanel extends JPanel{
 	
 	class SubmitAction implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			StartFrame startFrame=(StartFrame)SubmitPanel.this.getTopLevelAncestor();
 			GraphicButton btn=(GraphicButton)e.getSource();
 			if(btn.getFILENAME()=="SubmitBtn"){
 				
 				String[] spliter;
 				
-				String selection=(String)MainFrame.mf.startFrame.userListPa.getSelectedItem();
+				String selection=(String)startFrame.userListPa.getSelectedItem();
 				if(selection==null){
 					JOptionPane.showMessageDialog(null, "유저를 선택해주세요", "경고!",JOptionPane.WARNING_MESSAGE);
 					return;
@@ -67,7 +68,7 @@ public class SubmitPanel extends JPanel{
 				
 				
 				String levelbtn = null;
-				Enumeration<AbstractButton> enums = MainFrame.mf.startFrame.levelListPa.levelGroup.getElements();
+				Enumeration<AbstractButton> enums = startFrame.levelListPa.levelGroup.getElements();
 				while(enums.hasMoreElements()){
 					 GraphicRadioButton radiobtn=(GraphicRadioButton)enums.nextElement(); 
 					 if(radiobtn.isSelected())    
@@ -130,7 +131,7 @@ public class SubmitPanel extends JPanel{
 					level=10;speed=30;
 				}*/
 				
-				MainFrame.mf.setContentPane(MainFrame.mf.playPanel=new PlayPanel(user,character,level,speed));
+				mf.setContentPane(mf.playPanel=new PlayPanel(user,character,level,speed));
 			}
 			
 			else;

@@ -10,16 +10,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Graphics.GlobalGraphic;
+import MainFrame.MainFrame;
 
 public class StartFrame extends JFrame{
-	public Window f=this;
+	public MainFrame  mf;
 	public UserListPanel userListPa;
 	public LevelListPanel levelListPa;
 	public SubmitPanel submitPa;
-	public StartFrame(){
-		setSize(400,250);
+	public StartFrame(MainFrame mf){
+		this.mf=mf;
 		
-		
+		setSize(400,250);				
 		setResizable(false);//크기 고정
 		setUndecorated(true);
 		setVisible(true);
@@ -45,7 +46,7 @@ public class StartFrame extends JFrame{
 			levelListPa.setSize(400,70);
 			levelListPa.setLocation(0,110);			
 			
-			submitPa=new SubmitPanel();
+			submitPa=new SubmitPanel(mf);
 			submitPa.setSize(400,50);
 			submitPa.setLocation(50,180);
 			
