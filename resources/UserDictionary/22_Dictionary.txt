@@ -36,7 +36,7 @@
 가을	autumn	0
 멀리	far	0
 아기	baby	0
-뒤	back	0
+뒤	back	1
 나쁜	wrong	0
 자루	bag	0
 공	ball	0
@@ -219,7 +219,7 @@
 운동	sport	0
 눈	snow	0
 얼굴	face	0
-사실	fact	0
+사실	fact	1
 공평한	fair	0
 떨어지다	fall	0
 가족	family	0
@@ -343,7 +343,7 @@
 그것	it	0
 제트기	jet	0
 일	work	0
-참가하다	join	0
+참가하다	join	1
 주스	juice	0
 뛰다	jump	0
 밀림	jungle	0
