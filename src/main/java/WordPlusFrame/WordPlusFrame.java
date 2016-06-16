@@ -3,32 +3,27 @@ package WordPlusFrame;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
-import java.io.IOException;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
 
 import Dictionary.UserDictionary;
-import Graphics.GameFontB;
 import Graphics.GameFontP;
 import Graphics.GlobalGraphic;
 import Graphics.GraphicButton;
+import Graphics.GraphicPanel;
+import Graphics.MainPoint;
 import WordSetFrame.WordListPanel.WordListTable;
-import WordSetFrame.WordSetFrame;
 
 public class WordPlusFrame extends JFrame{
 	InputPanel inputPanel;
 	private WordListTable wordListTable;
 	private String user;
-	private JLabel topla;
 	private JTextArea koreanInput;
 	private JTextArea englishInput;
 		
@@ -40,21 +35,12 @@ public class WordPlusFrame extends JFrame{
 		setResizable(false);			
 		setUndecorated(true);
 		setVisible(true);	
-		this.setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
-		getContentPane().setBackground(GlobalGraphic.basic);
+		setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
+		setLocation(MainPoint.x-(this.getWidth()/2), MainPoint.y-(this.getHeight()/2));
+		getContentPane().setBackground(GlobalGraphic.basic3);			
 		
-		Dimension frameSize = getSize();
-		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
-		setLocation((windowSize.width - frameSize.width) / 2,
-				(windowSize.height - frameSize.height) / 2);
-			
-		
-		topla=new JLabel("Input Your Word");
-		topla.setFont(new GameFontB(25));
-		topla.setPreferredSize(new Dimension(400,70));
-		topla.setHorizontalAlignment(SwingConstants.CENTER);
-		topla.setVerticalAlignment(SwingConstants.CENTER);		
-		this.add(topla,BorderLayout.NORTH);
+		GraphicPanel inputWordPanel=new GraphicPanel("images/WordPlusFrame/","inputYourWord",400,70);
+		add(inputWordPanel,BorderLayout.NORTH);
 		
 		inputPanel = new InputPanel();
 		inputPanel.setPreferredSize(new Dimension(400,210));
@@ -98,10 +84,10 @@ public class WordPlusFrame extends JFrame{
 		}
 		
 		void makeBtn(){
-			submitBtn=new GraphicButton("images/WordSetFrame/","SubmitBtn",100,35);
+			submitBtn=new GraphicButton("images/WordPlusFrame/","SubmitBtn",100,35);
 			submitBtn.addActionListener(new SubmitAction());
 			
-			concealBtn=new GraphicButton("images/WordSetFrame/","ConcealBtn",100,35);
+			concealBtn=new GraphicButton("images/WordPlusFrame/","ConcealBtn",100,35);
 			concealBtn.addActionListener(new SubmitAction());
 			
 			add(submitBtn);

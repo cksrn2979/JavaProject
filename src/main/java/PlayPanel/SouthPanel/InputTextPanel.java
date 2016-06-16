@@ -40,9 +40,11 @@ class InputTextPanel extends JPanel{
 			itemPanel = playPanel.wp.itemPanel;
 			
 			switch(e.getKeyCode()){
-			case KeyEvent.VK_ESCAPE: 		
+			case KeyEvent.VK_ESCAPE:
+					if(playPanel.play.getPlay()){
 					playPanel.play.pauseGame();
 					pauseFrame = new PauseFrame(mf);
+					}
 				break;
 				
 			case KeyEvent.VK_F1: //item1 모두 지우기

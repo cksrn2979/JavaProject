@@ -1,12 +1,11 @@
 package WordSetFrame;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JFrame;
 
 import Graphics.GlobalGraphic;
+import Graphics.MainPoint;
 
 //AllWordList 프레임
 public class WordSetFrame extends JFrame{
@@ -24,11 +23,8 @@ public class WordSetFrame extends JFrame{
 		setUndecorated(true);
 		getContentPane().setBackground(GlobalGraphic.basic2);
 		setVisible(true);	
-		this.setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
-		Dimension frameSize = getSize();
-		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
-		setLocation((windowSize.width - frameSize.width) / 2,
-				(windowSize.height - frameSize.height) / 2);;
+		setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
+		setLocation(MainPoint.x-(this.getWidth()/2), MainPoint.y-(this.getHeight()/2));
 		
 		userListPanel = new UserListPanel("images/WordSetFrame/", "UserListPanel", 250, 40);
 		userListPanel.setLocation(300, 40);

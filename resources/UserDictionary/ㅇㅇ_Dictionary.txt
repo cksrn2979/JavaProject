@@ -36,7 +36,7 @@
 가을	autumn	0
 멀리	far	0
 아기	baby	0
-뒤	back	1
+뒤	back	0
 나쁜	wrong	0
 자루	bag	0
 공	ball	0
@@ -47,7 +47,7 @@
 바닥	base	0
 바구니	basket	0
 목욕	bath	0
-이다	be	1
+이다	be	0
 해변	beach	0
 곰	bear	0
 아름다운	beautiful	0
@@ -183,7 +183,7 @@
 사전	dictionary	0
 죽다	die	0
 저녁식사	supper	0
-더러운	dirty	1
+더러운	dirty	0
 접시	dish	0
 을 하다	do	0
 의사	doctor	0
@@ -265,7 +265,7 @@
 정원	garden	0
 휘발유	gas	0
 문	gate	0
-온화한	gentle	1
+온화한	gentle	0
 을 얻다	get	0
 소녀	girl	0
 을 주다	give	0
@@ -273,7 +273,7 @@
 유리	glass	0
 장갑	glove	0
 가다	go	0
-신	god	1
+신	god	0
 황금	gold	0
 착한	good	0
 할머니	grandma	0
@@ -328,7 +328,7 @@
 집	house	0
 어떻게	how	0
 백	hundred	0
-배고픈	hungry	1
+배고픈	hungry	0
 서두르다	hurry	0
 아프다	hurt	0
 얼음	ice	0
@@ -365,7 +365,7 @@
 등	lamp	0
 육지	land	0
 큰	large	0
-마지막의	last	1
+마지막의	last	0
 늦은	late	0
 웃다	laugh	0
 이끌다	lead	0
@@ -405,7 +405,7 @@
 일	work	0
 해도 좋다	may	0
 고기	meat	0
-메달	medal	1
+메달	medal	0
 만나다	meet	0
 멜론	melon	0
 미터	meter	0
@@ -428,7 +428,7 @@
 움직이다	move	0
 영화	movie	0
 씨	Mr.	0
-씨 부인	Mrs.	1
+씨 부인	Mrs.	0
 많은	much	0
 음악	music	0
 해야 한다	must	0
@@ -720,7 +720,7 @@
 우산	umbrella	0
 아저씨	uncle	0
 의 밑에	under	0
-이해하다	understand	1
+이해하다	understand	0
 까지	until	0
 위로	up	0
 을 사용하다	use	0
@@ -776,10 +776,10 @@
 세계	world	0
 쓰다	write	0
 나쁜	wrong	0
-네	yes	1
+네	yes	0
 해	year	0
 노란색	yellow	0
-네	yes	1
+네	yes	0
 어제	yesterday	0
 아직	yet	0
 너	you	0

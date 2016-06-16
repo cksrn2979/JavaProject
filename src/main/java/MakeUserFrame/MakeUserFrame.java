@@ -1,12 +1,11 @@
 package MakeUserFrame;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JFrame;
 
 import Graphics.GlobalGraphic;
+import Graphics.MainPoint;
 import StartFrame.StartFrame;
 
 public class MakeUserFrame extends JFrame {
@@ -25,9 +24,7 @@ public class MakeUserFrame extends JFrame {
 		this.getContentPane().setBackground(GlobalGraphic.basic2);
 		setVisible(true);
 
-		Dimension frameSize = getSize();
-		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
+		setLocation(MainPoint.x-(this.getWidth()/2), MainPoint.y-(this.getHeight()/2));
 
 		this.setShape(new RoundRectangle2D.Float(0, 0, this.getWidth(), this.getHeight(), 100, 100));
 		setLayout(null);

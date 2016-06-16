@@ -1,15 +1,13 @@
 package StartFrame;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.Window;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Graphics.GlobalGraphic;
+import Graphics.MainPoint;
 import MainFrame.MainFrame;
 
 public class StartFrame extends JFrame{
@@ -26,11 +24,8 @@ public class StartFrame extends JFrame{
 		setVisible(true);
 		setContentPane(new StartPanel());
 		getContentPane().setBackground(GlobalGraphic.basic2);
-		this.setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
-		Dimension frameSize = getSize();
-		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();		
-		setLocation((windowSize.width - frameSize.width) / 2,
-				(windowSize.height - frameSize.height) / 2);	
+		setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
+		setLocation(MainPoint.x-(this.getWidth()/2), MainPoint.y-(this.getHeight()/2));
 	
 	}
 	

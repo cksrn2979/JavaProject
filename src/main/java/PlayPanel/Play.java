@@ -183,7 +183,7 @@ public class Play {
 				fallingAni.start();
 
 				try {
-					sleep((int)(8000/(speed))*5);
+					sleep((int)(7000/(speed))*5);
 				} catch (InterruptedException e) {
 					return;
 				}
@@ -213,7 +213,7 @@ public class Play {
 					y = (y + 10);
 					la.setLocation(x, y);
 					try {
-						sleep((int)(8000/(speed))); // 떨어지는 속도
+						sleep((int)(7000/(speed))); // 떨어지는 속도
 					} catch (InterruptedException e) {
 						return;
 					}

@@ -1,13 +1,12 @@
 package RankFrame;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JFrame;
 
 import Graphics.GlobalGraphic;
+import Graphics.MainPoint;
 import PlayPanel.PlayPanel;
 
 public class RankFrame extends JFrame {
@@ -20,9 +19,7 @@ public class RankFrame extends JFrame {
 		getContentPane().setBackground(GlobalGraphic.character);		
 		setShape(new RoundRectangle2D.Float(0,0,this.getWidth(),this.getHeight(),100,100));
 		
-		Dimension frameSize = getSize();
-		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
+		setLocation(MainPoint.x-(this.getWidth()/2), MainPoint.y-(this.getHeight()/2));
 		
 		NorthPanel northPanel = new NorthPanel("images/RankFrame/", "NorthPanel", 600, 100);
 		CenterPanel centerPanel = new CenterPanel(playPanel);

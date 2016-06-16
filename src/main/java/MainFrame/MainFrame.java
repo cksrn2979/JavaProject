@@ -1,10 +1,14 @@
 package MainFrame;
 
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.geom.RoundRectangle2D;
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
@@ -16,33 +20,62 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import Graphics.MainPoint;
 import PlayPanel.PlayPanel;
 import StartFrame.StartFrame;
+
 
 public class MainFrame extends JFrame {
 	public MainPagePanel mainPanel;
 	public PlayPanel playPanel;
 	public StartFrame startFrame;
-
+	private Point mouseClickedLocation = new Point(0, 0);
+	
 	public MainFrame() {
-		setSize(800, 550);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 		setResizable(false);// 크기 고정
 		setUndecorated(true);
 		setVisible(true);
 		this.setShape(new RoundRectangle2D.Float(0, 0, this.getWidth(), this.getHeight(), 30, 30));
-
+		setSize(800, 550);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 		Dimension frameSize = getSize();
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
-
+		
+		MainPoint.x=(MainFrame.this.getWidth()/2) + (this.getLocationOnScreen().x -  MainFrame.this.mouseClickedLocation.x);
+		MainPoint.y=(MainFrame.this.getHeight()/2) + (this.getLocationOnScreen().y -  MainFrame.this.mouseClickedLocation.y);
+    
+		
+		this.addMouseListener(new FrameMove_mouseAdapter());
+		this.addMouseMotionListener(new FrameMove_mouseMotionAdapter());	
+		
+		
 		mainPanel = new MainPagePanel();
 		this.setContentPane(mainPanel);
 
-		createMenuBar();
-		
+		createMenuBar();		
 		revalidate();
 
+	}
+	
+	class FrameMove_mouseAdapter extends MouseAdapter {
+	    public void mousePressed(MouseEvent e) {
+	        MainFrame.this.mouseClickedLocation.x = e.getX();
+	        MainFrame.this.mouseClickedLocation.y = e.getY();
+	    }
+	}
+	
+	class FrameMove_mouseMotionAdapter extends MouseMotionAdapter {
+		public void mouseMove(MouseEvent e) {}	    
+	    public void mouseDragged(MouseEvent e) {
+	    	MainFrame.this.setLocation(e.getLocationOnScreen().x -  MainFrame.this.mouseClickedLocation.x,
+	    			 e.getLocationOnScreen().y -  MainFrame.this.mouseClickedLocation.y);
+	    	
+	        MainPoint.x=(MainFrame.this.getWidth()/2) + (e.getLocationOnScreen().x -  MainFrame.this.mouseClickedLocation.x);
+	        MainPoint.y=(MainFrame.this.getHeight()/2) + (e.getLocationOnScreen().y -  MainFrame.this.mouseClickedLocation.y);
+	    }
 	}
 
 	void createMenuBar() {
@@ -50,26 +83,23 @@ public class MainFrame extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu fileMenu = new JMenu("File");
 		JMenu helpMenu = new JMenu("Help");
-		JMenuItem regame = new JMenuItem("Regame");
 		JMenuItem exit = new JMenuItem("exit");
 		JMenuItem version = new JMenuItem("Version");
 		JMenuItem developer = new JMenuItem("Developer");
 
 		menuBar.setPreferredSize(new Dimension(800, 30));
-		// 파일 메뉴 생성
-		fileMenu.add(regame);
-
-		fileMenu.addSeparator();// 구분선 추가
+		
+		// 파일 메뉴 생성	
 		fileMenu.add(exit);
 
 		// 파일 메뉴 단축키 설정
-		regame.setAccelerator(KeyStroke.getKeyStroke('N', InputEvent.CTRL_MASK));
 		exit.setAccelerator(KeyStroke.getKeyStroke('X', InputEvent.CTRL_MASK));
 
 		// add Listener
-		version.addActionListener(new HelpActionListener());
-		developer.addActionListener(new HelpActionListener());
-
+		version.addActionListener(new MenuActionListener());
+		developer.addActionListener(new MenuActionListener());
+		exit.addActionListener(new MenuActionListener());
+		
 		// 도움 메뉴 생성
 		helpMenu.add(version);
 		helpMenu.add(developer);
@@ -82,22 +112,29 @@ public class MainFrame extends JFrame {
 		setJMenuBar(menuBar);
 	}
 
-	class HelpActionListener implements ActionListener {
+	class MenuActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			JMenuItem item = (JMenuItem) e.getSource();
-			String s = item.getText();
-			if (s.equals("Version"))
-				JOptionPane.showMessageDialog(null, "version. 1.00\n2016.05.23", "Version",
-						JOptionPane.INFORMATION_MESSAGE);
-			else if (s.equals("Developer"))
-				JOptionPane.showMessageDialog(null, "Hansung.Univ\nComputer Engneering\n\nLee Changoo / Seo Songi",
-						"Developer", JOptionPane.INFORMATION_MESSAGE);
+			String cmd = e.getActionCommand();
+			
+			switch(cmd){
+			case "Version":
+				JOptionPane.showMessageDialog(null, "version. 1.00\n2016.06.16", "Version",JOptionPane.INFORMATION_MESSAGE);
+				break;				
+			case "Developer" :
+				JOptionPane.showMessageDialog(null, "Hansung.Univ\nComputer Engneering\n\nLee Changoo / Seo Songi","Developer",
+												JOptionPane.INFORMATION_MESSAGE);
+				break;				
+			case "exit":
+				System.exit(0);
+				break;
+			}
 		}
 	}
 
 
 
 	public static void main(String[] args) {
+		
 		System.setProperty("file.encoding", "UTF-8");
 		Field charset;
 		try {

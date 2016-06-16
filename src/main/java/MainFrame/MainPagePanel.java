@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import Graphics.GraphicButton;
+import HelpFrame.HelpFrame;
 import StartFrame.StartFrame;
 import WordSetFrame.WordSetFrame;
 
@@ -51,7 +52,7 @@ public class MainPagePanel extends JPanel {
 			case "WordSetbtn":
 				new WordSetFrame();
 				break;
-			case "Help":
+			case "Helpbtn":new HelpFrame();
 				break;
 			case "Exitbtn":
 				System.exit(0);

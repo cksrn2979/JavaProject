@@ -98,7 +98,7 @@ public class SubmitPanel extends JPanel{
 				switch(levelbtn){
 					case "levelBtn1": level=1; break;
 					case "levelBtn2": level=3; break;
-					case "levelBtn3": level=6; break;
+					case "levelBtn3": level=5; break;
 				}
 				
 				mf.setContentPane(mf.playPanel=new PlayPanel(new StartInfo(user,character,level)));

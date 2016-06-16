@@ -1,19 +1,16 @@
 package PauseFrame;
 
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import Graphics.GlobalGraphic;
 import Graphics.GraphicButton;
+import Graphics.MainPoint;
 import MainFrame.MainFrame;
-import MainFrame.MainPagePanel;
 
 public class PauseFrame extends JFrame {
 	private MainFrame mf;
@@ -32,9 +29,7 @@ public class PauseFrame extends JFrame {
 		getContentPane().setBackground(GlobalGraphic.character);
 		setVisible(true);
 		this.setShape(new RoundRectangle2D.Float(0, 0, this.getWidth(), this.getHeight(), 50, 50));
-		Dimension frameSize = getSize();
-		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
+		setLocation(MainPoint.x-(this.getWidth()/2), MainPoint.y-(this.getHeight()/2));
 
 		homebtn = new GraphicButton("images/PauseFrame/", "Homebtn", 120, 50);
 		homebtn.addActionListener(new ButtonActionListener());
