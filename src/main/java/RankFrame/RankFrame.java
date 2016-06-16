@@ -26,7 +26,7 @@ public class RankFrame extends JFrame {
 		
 		NorthPanel northPanel = new NorthPanel("images/RankFrame/", "NorthPanel", 600, 100);
 		CenterPanel centerPanel = new CenterPanel(playPanel);
-		SouthPanel southPanel =new SouthPanel(playPanel);
+		SubmitPanel southPanel =new SubmitPanel(playPanel);
 
 		add(northPanel, BorderLayout.NORTH);
 		add(centerPanel, BorderLayout.CENTER);		

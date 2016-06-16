@@ -105,7 +105,15 @@ public class UserDictionary {
 	// 랜덤하게 단어를 리턴
 	public String rand() {
 		Random random = new Random();
-		return list.elementAt(random.nextInt(list.size()));
+		String korean=list.elementAt(random.nextInt(list.size()));
+		
+		if(success.get(korean) >= 10){
+			if(Math.random()<0.1)
+				return korean;
+			else rand();
+		}
+		
+		return korean;
 	}
 
 	// 한글을 영어로 번역

@@ -30,10 +30,10 @@ public class Play {
 	private MakeWord makeWord;
 	private SpeedAni speedAni;	
 	
-	Play(PlayPanel playPanel, Integer level, Double speed){
+	Play(PlayPanel playPanel, Integer level){
 		this.playPanel=playPanel;
 		this.level=level;
-		this.speed=speed;
+		this.speed=level*5.0;
 		this.score=0;
 		this.play=true;
 		this.turn=true; //입력 차례 (한글,영문)
@@ -136,12 +136,21 @@ public class Play {
 		mf.repaint();
 		mf.revalidate();
 	}
+	
+	public void reGame(){
+		MainFrame mf= (MainFrame)playPanel.getTopLevelAncestor();
+		PlayPanel newPlayPanel=new PlayPanel(playPanel.startInfo);
+		mf.playPanel=newPlayPanel;
+		mf.setContentPane(newPlayPanel);
+		mf.repaint();
+		mf.revalidate();
+	}
 
 	private void writeFinal() {
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter("resources/Score.txt", true));
 			BufferedReader in2 = new BufferedReader(new FileReader("resources/User.txt"));
-			String name = playPanel.userInfo.getUser();
+			String name = playPanel.startInfo.getUser();
 			String ch = " ";
 			String s;
 			while ((s = in2.readLine()) != null) {

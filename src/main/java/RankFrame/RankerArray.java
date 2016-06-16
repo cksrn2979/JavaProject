@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Vector;
 
-public class RankerArray extends Vector<UserInfo> {
+public class RankerArray extends Vector<RankerInfo> {
 	
 	RankerArray() {
 		try {
@@ -19,13 +19,13 @@ public class RankerArray extends Vector<UserInfo> {
 	}
 
 	void readPlayer() throws IOException {
-		BufferedReader in = new BufferedReader(new FileReader("resources/Score.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("resources/Rank.txt"));
 
 		String line;
 
 		while ((line = in.readLine()) != null) {
 			String[] split = line.split("\t");
-			this.add(new UserInfo(split[0], split[1], Integer.parseInt(split[2])));
+			this.add(new RankerInfo(split[0], split[1], Integer.parseInt(split[2])));
 		}
 
 		in.close();
@@ -35,8 +35,8 @@ public class RankerArray extends Vector<UserInfo> {
 		Collections.sort(this, new NoDescCompare());
 	}
 
-	static class NoDescCompare implements Comparator<UserInfo> {
-		public int compare(UserInfo arg0, UserInfo arg1) {
+	static class NoDescCompare implements Comparator<RankerInfo> {
+		public int compare(RankerInfo arg0, RankerInfo arg1) {
 			return arg0.getScore() > arg1.getScore() ? -1 : arg0.getScore() < arg1.getScore() ? 1 : 0;
 		}
 	}

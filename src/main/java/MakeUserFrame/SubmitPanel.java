@@ -70,18 +70,11 @@ class SubmitPanel extends JPanel{
 				}
 			
 			
-				/*switch(CHARCTERNAME){
+				switch(CHARCTERNAME){
 					case "MuziBtn": chracter="MUZI"; break;
 					case "LyanBtn": chracter="LYAN"; break;
 					case "ApeachBtn": chracter="APEACH"; break;
-				}*/
-				
-				if(CHARCTERNAME.equals("MuziBtn"))
-					chracter="MUZI"; 
-				else if (CHARCTERNAME.equals("LyanBtn"))
-					chracter = "LYAN";
-				else if (CHARCTERNAME.equals("ApeachBtn"))
-					chracter = "APEACH";
+				}			
 
 				String user = topFrame.userInputPanel.userInput.getText();
 				if (user.equals("")) {

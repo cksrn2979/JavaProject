@@ -12,6 +12,7 @@ import PlayPanel.EastPanel.EastPanel;
 import PlayPanel.NorthPanel.NorthPanel;
 import PlayPanel.SouthPanel.SouthPanel;
 import PlayPanel.WestPanel.WestPanel;
+import StartFrame.StartInfo;
 
 public class PlayPanel extends JPanel{
 	public EastPanel ep;
@@ -19,13 +20,13 @@ public class PlayPanel extends JPanel{
 	public CenterPanel cp;
 	public SouthPanel sp;
 	public WestPanel wp;
+	
 	public Play play;
-	public UserInfo userInfo;
+	public StartInfo startInfo;
 	public UserDictionary dictionary;
 	
 	public PlayPanel(){
-		
-				
+						
 		this.setBackground(Color.WHITE);
 		String npPath=GlobalGraphic.path+"NorthPanel/";
 		String cpPath=GlobalGraphic.path+"CenterPanel/";	
@@ -44,16 +45,17 @@ public class PlayPanel extends JPanel{
 		
 	}
 	
-	public PlayPanel(String user,String character,Integer level,Double speed){
+	public PlayPanel(StartInfo startInfo){
 		this();
-		dictionary = new UserDictionary(user);
-		play = new Play(this,level, speed);
-		userInfo= new UserInfo(user,character);
+		
+		this.startInfo=startInfo;		
+		dictionary = new UserDictionary(startInfo.getUser());
+		play = new Play(this,startInfo.getLevel());
 		
 		wp.speedPanel.setSpeedText(this.play.getSpeed().toString());
 		np.levelPa.setLevelText(this.play.getLevel().toString());
 		np.scorePa.setScoreText(this.play.getScore().toString());
-		ep.infoPanel.setUserText(userInfo.getUser());
+		ep.infoPanel.setUserText(startInfo.getUser());
 
 		play.startGame();
 	}

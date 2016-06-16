@@ -22,8 +22,8 @@ class CenterPanel extends JPanel {
 	RankerArray rankers;
 	
 	CenterPanel(PlayPanel playPanel) {
-		this.myUser=playPanel.userInfo.getUser();
-		this.myCharacter=playPanel.userInfo.getCharacter();
+		this.myUser=playPanel.startInfo.getUser();
+		this.myCharacter=playPanel.startInfo.getCharacter();
 		this.myScore=playPanel.play.getScore();
 		this.myLevel=playPanel.play.getLevel();
 		rankers = new RankerArray();
@@ -77,30 +77,35 @@ class CenterPanel extends JPanel {
 		
 	}
 	class GradePanel extends GraphicPanel {
-
-		int num = 5;// 전체 화면에 표시할 등수 표시 갯수
+		
+		
 
 		public GradePanel(String path, String FILENAME, int width, int height) {
 			super(path, FILENAME, width, height);
-
+			
+			int numOfRankers;
+			if(rankers.size()<5)
+				numOfRankers=rankers.size();
+			else numOfRankers=5;
+			
 			setLayout(null);
-			setGrade();			
+			setGrade(numOfRankers);			
 		}
 
-		void setGrade() {
+		void setGrade(int numOfRankers) {
 
-			ImageIcon images[] = new ImageIcon[num];
-			ImageIcon gradeImg[] = new ImageIcon[num];
+			ImageIcon images[] = new ImageIcon[numOfRankers];
+			ImageIcon gradeImg[] = new ImageIcon[numOfRankers];
 
-			JLabel faceLabel[] = new JLabel[num];
-			JLabel scores[] = new JLabel[num];
-			JLabel gradeLabel[] = new JLabel[num];
-			JLabel nameLabel[] = new JLabel[num];
+			JLabel faceLabel[] = new JLabel[numOfRankers];
+			JLabel scores[] = new JLabel[numOfRankers];
+			JLabel gradeLabel[] = new JLabel[numOfRankers];
+			JLabel nameLabel[] = new JLabel[numOfRankers];
 
 			String name = " ";// 이름 저장
 			String faceType = " ";// 캐릭터 타입 저장
 
-			for (int i = 0; i < num; i++) {
+			for (int i = 0; i < numOfRankers; i++) {
 
 				gradeImg[i] = new ImageIcon(path + "trophy.png");
 				gradeLabel[i] = new JLabel(gradeImg[i]);

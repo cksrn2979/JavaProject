@@ -7,22 +7,23 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import Graphics.GraphicButton;
+import MainFrame.MainFrame;
 import PlayPanel.PlayPanel;
 
-public class SouthPanel extends JPanel{
+public class SubmitPanel extends JPanel{
 	PlayPanel playPanel;
 	GraphicButton homebtn;
 	GraphicButton resumebtn;
 	GraphicButton exitbtn;
 	
-	SouthPanel(PlayPanel playPanel){
+	SubmitPanel(PlayPanel playPanel){
 		this.playPanel=playPanel;
 		setPreferredSize(new Dimension(600,80));
 		this.setBackground(null);
 		homebtn=new GraphicButton("images/RankFrame/","Homebtn",120,50);
 		homebtn.addActionListener(new ButtonActionListener());
 		
-		resumebtn=new GraphicButton("images/RankFrame/","resumebtn",120,50);
+		resumebtn=new GraphicButton("images/RankFrame/","regameBtn",120,50);
 		resumebtn.addActionListener(new ButtonActionListener());
 		
 		exitbtn=new GraphicButton("images/RankFrame/","exitbtn",120,50);
@@ -42,8 +43,8 @@ public class SouthPanel extends JPanel{
 			case "Homebtn":
 				playPanel.play.goHome();
 				break;
-			case "resumebtn":
-				playPanel.play.resumeGame();
+			case "regameBtn":
+				playPanel.play.reGame();
 				break;
 			case "exitbtn":
 				System.exit(0);
@@ -51,7 +52,7 @@ public class SouthPanel extends JPanel{
 				break;
 			}
 			
-			RankFrame rankFrame=(RankFrame)SouthPanel.this.getTopLevelAncestor();
+			RankFrame rankFrame=(RankFrame)SubmitPanel.this.getTopLevelAncestor();
 			rankFrame.dispose();
 		}
 	}

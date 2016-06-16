@@ -1,17 +1,20 @@
-package PlayPanel;
+package StartFrame;
 
 import Dictionary.UserDictionary;
 
-public class UserInfo {
+public class StartInfo {
 	private String user;
 	private String character;
+	private Integer level;
 
-	UserInfo(String user, String chracter) {
+	StartInfo(String user, String chracter,Integer level) {
 		this.user = user;
 		this.character = chracter;
-		
+		this.level=level;
 	}
 	
 	public String getCharacter(){return character;}	
 	public String getUser(){return user;}
+	public Integer getLevel() {	return level;}
+
 }
