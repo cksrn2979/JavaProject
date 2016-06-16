@@ -33,7 +33,7 @@ public class Play {
 	Play(PlayPanel playPanel, Integer level){
 		this.playPanel=playPanel;
 		this.level=level;
-		this.speed=level*5.0;
+		this.speed=level*4.0;
 		this.score=0;
 		this.play=true;
 		this.turn=true; //입력 차례 (한글,영문)
@@ -117,11 +117,11 @@ public class Play {
 			fallingAniArray.get(i).resume();
 	}
 
-	public void gameOver() {		
+	public void gameOver() {
+		stopGame();
+		writeRank();
 		Thread gameOverThread = new Thread(){
-			public void run(){
-				stopGame();
-				writeFinal();
+			public void run(){			
 				playPanel.dictionary.writeWordUserDictionary();
 				new RankFrame(playPanel);
 			}
@@ -146,22 +146,13 @@ public class Play {
 		mf.revalidate();
 	}
 
-	private void writeFinal() {
+	private void writeRank() {
 		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter("resources/Score.txt", true));
-			BufferedReader in2 = new BufferedReader(new FileReader("resources/User.txt"));
+			BufferedWriter out = new BufferedWriter(new FileWriter("resources/Rank.txt", true));		
 			String name = playPanel.startInfo.getUser();
-			String ch = " ";
-			String s;
-			while ((s = in2.readLine()) != null) {
-				String[] split = s.split("\t");
-				if (split[1].equals(name)) {
-					ch = split[0];
-				}
-			}
+			String ch = playPanel.startInfo.getCharacter();			
 			out.write(ch + '\t' + name + '\t' + score);
 			out.newLine();
-			in2.close();
 			out.close();
 		} catch (IOException e) {
 			return;
@@ -192,7 +183,7 @@ public class Play {
 				fallingAni.start();
 
 				try {
-					sleep(4000);
+					sleep((int)(8000/(speed))*5);
 				} catch (InterruptedException e) {
 					return;
 				}
@@ -202,7 +193,7 @@ public class Play {
 		class FallingAni extends Thread {
 			public void run() {
 				// 좌표값 설정
-				int x = (int) (Math.random() * 400);
+				int x = 5+(int) (Math.random() * 400);
 				int y = 50;
 
 				// 단어를 랜덤하게 받아와 라벨 생성.
@@ -219,10 +210,10 @@ public class Play {
 
 				// y<410까지 떨어트림
 				while (y < 410 && !Thread.currentThread().isInterrupted()) {
-					y = (int) (y + speed);
+					y = (y + 10);
 					la.setLocation(x, y);
 					try {
-						sleep(1000); // 떨어지는 속도
+						sleep((int)(8000/(speed))); // 떨어지는 속도
 					} catch (InterruptedException e) {
 						return;
 					}

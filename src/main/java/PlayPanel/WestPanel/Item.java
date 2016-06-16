@@ -11,7 +11,10 @@ import PlayPanel.CenterPanel.FallWordLabel;
 public abstract class Item{
 	private boolean enable;
 	ItemPanel itemPanel;
-	Item(ItemPanel itemPanel){this.itemPanel=itemPanel;	enable=false;}	
+	
+	Item(ItemPanel itemPanel){
+		this.itemPanel=itemPanel;	enable=false;
+	}	
 	public abstract void call(); //item 사용	
 	public boolean getEnable(){	return enable;}	//상태값 리턴
 	public void setEnable(boolean enable){	this.enable=enable;	}//상태값 세팅

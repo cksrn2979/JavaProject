@@ -1,7 +1,5 @@
 package StartFrame;
 
-import Dictionary.UserDictionary;
-
 public class StartInfo {
 	private String user;
 	private String character;
