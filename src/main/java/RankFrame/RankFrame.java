@@ -29,7 +29,9 @@ public class RankFrame extends JFrame {
 		add(centerPanel, BorderLayout.CENTER);		
 		add(southPanel, BorderLayout.SOUTH);
 		
-		revalidate();
-		repaint();
+		
+		this.revalidate();
+		this.repaint();
+		
 	}
 }

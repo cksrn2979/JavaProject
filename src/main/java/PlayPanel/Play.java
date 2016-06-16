@@ -212,7 +212,7 @@ public class Play {
 				playPanel.cp.add(la);
 
 				// y<410까지 떨어트림
-				while (y < 410 && !Thread.currentThread().isInterrupted()) {
+				while (y < 412 && !Thread.currentThread().isInterrupted()) {
 					y = (y + 10);
 					la.setLocation(x, y);
 					try {
@@ -222,7 +222,7 @@ public class Play {
 					}
 				}
 
-				if (y >= 410 && la.getValid() == true) {
+				if (y >= 412 && la.getValid() == true) {
 					pain(); // 체력 감소
 					playPanel.cp.getLabelArray().remove(la); // 배열에서 제거
 

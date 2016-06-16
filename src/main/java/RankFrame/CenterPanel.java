@@ -1,7 +1,5 @@
 package RankFrame;
 
-import java.awt.Dimension;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,10 +26,9 @@ class CenterPanel extends JPanel {
 		this.myLevel=playPanel.play.getLevel();
 		rankers = new RankerArray();
 	
-		setVisible(true);
 		setBackground(null);
 		setLayout(null);
-		setPreferredSize(new Dimension(600, 460));
+
 
 		GradePanel gradePanel = new GradePanel(path, "GradePanel", 250, 320);
 		gradePanel.setLocation(20, 20);
@@ -77,9 +74,6 @@ class CenterPanel extends JPanel {
 		
 	}
 	class GradePanel extends GraphicPanel {
-		
-		
-
 		public GradePanel(String path, String FILENAME, int width, int height) {
 			super(path, FILENAME, width, height);
 			

@@ -15,8 +15,8 @@
 공항	airport	0
 앨범	album	0
 모든	all	0
-을 따라서	along	0
-항상	always	0
+을 따라서	along	1
+항상	always	1
 사이에	among	0
 하나의	an	0
 그리고	and	0
@@ -31,11 +31,11 @@
 도착하다	arrive	0
 만큼	as	0
 묻다	ask	0
-때에	at	0
+때에	at	1
 숙모	aunt	0
 가을	autumn	0
 멀리	far	0
-아기	baby	0
+아기	baby	1
 뒤	back	1
 나쁜	wrong	0
 자루	bag	0
@@ -51,7 +51,7 @@
 해변	beach	0
 곰	bear	0
 아름다운	beautiful	0
-왜냐하면	because	0
+왜냐하면	because	1
 이 되다	become	0
 침대	bed	0
 앞에	before	0
@@ -80,7 +80,7 @@
 소년	boy	0
 빵	bread	0
 깨다	break	0
-아침식사	breakfast	0
+아침식사	breakfast	1
 다리	leg	0
 밝은	bright	0
 가져오다	bring	0
@@ -90,7 +90,7 @@
 짓다	build	0
 타다	ride	0
 버스	bus	0
-바쁜	busy	0
+바쁜	busy	1
 그러나	but	0
 버터	butter	0
 단추	button	0
@@ -99,7 +99,7 @@
 잘까요	bye	0
 케이크	cake	0
 달력	calenda	0
-를 부르다	call	0
+를 부르다	call	1
 카메라	camera	0
 야영하다	camp	0
 할 수 있다	can	0
@@ -111,7 +111,7 @@
 자동차	car	0
 카드	card	0
 주의	care	0
-목공	carpenter	0
+목공	carpenter	1
 을 나르다	carry	0
 만화	cartoon	0
 상자	case	0
@@ -135,7 +135,7 @@
 학급	class	0
 급우	classmate	0
 깨끗한	clean	0
-나무	wood	0
+나무	wood	1
 시계	clock	0
 닫다	close	0
 옷	clothes	0
@@ -149,7 +149,7 @@
 오다	come	0
 만화책	comic book	0
 컴퓨터	computer	0
-요리사	cook	0
+요리사	cook	1
 시원한	cool	0
 그대로 옮겨 쓰다	copy	0
 구석	corner	0
@@ -160,12 +160,12 @@
 가리다	cover	0
 암소	cow	0
 크레용	crayon	0
-크림	cream	0
+크림	cream	1
 건너다	cross	0
 울다	cry	0
 컵	cup	0
 커튼	curtain	0
-자르다	cut	0
+자르다	cut	1
 귀여운	cute	0
 아빠	dad	0
 춤추다	dance	0
@@ -174,7 +174,7 @@
 날짜	date	0
 딸	daughter	0
 낮	day	0
-조용한	soft	0
+조용한	soft	1
 깊은	deep	0
 사슴	deer	0
 책상	desk	0
@@ -182,15 +182,15 @@
 일기	diary	0
 사전	dictionary	0
 죽다	die	0
-저녁식사	supper	0
+저녁식사	supper	1
 더러운	dirty	1
 접시	dish	0
-을 하다	do	0
-의사	doctor	0
+을 하다	do	1
+의사	doctor	1
 개	dog	0
 인형	doll	0
 달러	dollar	0
-돌고래	dolphin	0
+돌고래	dolphin	1
 문	gate	0
 아래로	down	0
 을 그리다	draw	0
@@ -201,18 +201,18 @@
 방울	drop	0
 북	drum	0
 마른	dry	0
-오리	duck	0
+오리	duck	2
 지구	earth	0
 동쪽	east	0
 메아리	echo	0
-빈	empty	0
-끝	point	0
+빈	empty	1
+끝	point	1
 엔진	engine	0
 을 즐기다	enjoy	0
 충분히	enough	0
 저녁	evening	0
 매	every	0
-보기	example	0
+보기	example	1
 뛰어난	excellent	0
 흥분시키다	excite	0
 용서하다	excuse	0
@@ -231,12 +231,12 @@
 아버지	father	0
 을 느끼다	feel	0
 거의 없는	few	0
-밭	field	0
-싸우다	fight	0
+밭	field	2
+싸우다	fight	1
 을 채우다	fill	0
 필름	film	0
 을 발견하다	find	0
-좋은	nice	0
+좋은	nice	1
 손가락	finger	0
 을 끝내다	finish	0
 불	fire	0
@@ -249,7 +249,7 @@
 을 따르다	follow	0
 음식	food	0
 바보	fool	0
-발	foot	0
+발	foot	1
 동안	for	0
 을 잊다	forget	0
 식탁용 포크	fork	0
@@ -268,9 +268,9 @@
 온화한	gentle	1
 을 얻다	get	0
 소녀	girl	0
-을 주다	give	0
+을 주다	give	1
 즐거운	glad	0
-유리	glass	0
+유리	glass	1
 장갑	glove	0
 가다	go	0
 신	god	1
@@ -289,7 +289,7 @@
 머리카락	hair	0
 반	half	0
 공회당	hall	0
-햄버거	hamburger	0
+햄버거	hamburger	1
 손	hand	0
 을 다루다	handle	0
 잘생긴	handsome	0
@@ -299,18 +299,18 @@
 모자	hat	0
 미워하다	hate	0
 가지다	have	0
-그가	he	0
-머리	head	0
+그가	he	1
+머리	head	1
 이 들리다	hear	0
 심장	heart	0
-무거운	heavy	0
+무거운	heavy	1
 안녕	hi	0
 을 돕다	help	0
 암탉	hen	0
 여기에서	here	0
 안녕	hi	0
 숨다	hide	0
-높은	high	0
+높은	high	1
 하이킹	hiking	0
 언덕	hill	0
 을 치다	hit	0
@@ -319,7 +319,7 @@
 공휴일	holiday	0
 가정	home	0
 희망	hope	0
-말	horse	0
+말	horse	2
 호스	hose	0
 병원	hospital	0
 뜨거운	hot	0
@@ -332,7 +332,7 @@
 서두르다	hurry	0
 아프다	hurt	0
 얼음	ice	0
-생각	idea	0
+생각	idea	1
 병든	sick	0
 안에	in	0
 잉크	ink	0
@@ -340,7 +340,7 @@
 안으로	into	0
 를 소개하다	introduce	0
 섬	island	0
-그것	it	0
+그것	it	1
 제트기	jet	0
 일	work	0
 참가하다	join	0
@@ -352,7 +352,7 @@
 열쇠	key	0
 차다	kick	0
 어린아이	kid	0
-죽이다	kill	0
+죽이다	kill	2
 종류	kind	0
 왕	king	0
 부엌	kitchen	0
@@ -365,7 +365,7 @@
 등	lamp	0
 육지	land	0
 큰	large	0
-마지막의	last	1
+마지막의	last	2
 늦은	late	0
 웃다	laugh	0
 이끌다	lead	0
@@ -378,7 +378,7 @@
 하게하다	let	0
 글자	letter	0
 도서관	library	0
-거짓말	lie	0
+거짓말	lie	1
 빛	light	0
 좋아하다	like	0
 선	line	0
@@ -395,7 +395,7 @@
 낮은	low	0
 운	luck	0
 점심	lunch	0
-을 만들다	make	0
+을 만들다	make	1
 남자	man	0
 많은	much	0
 지도	map	0
@@ -406,7 +406,7 @@
 해도 좋다	may	0
 고기	meat	0
 메달	medal	1
-만나다	meet	0
+만나다	meet	1
 멜론	melon	0
 미터	meter	0
 중간	middle	0
@@ -434,24 +434,24 @@
 해야 한다	must	0
 목	neck	0
 가 필요하다	need	0
-새로운	new	0
+새로운	new	1
 뉴스	news	0
 의 옆에	next	0
-좋은	nice	0
+좋은	nice	1
 밤	night	0
-아니오	no	0
+아니오	no	1
 소음	noise	0
 북쪽	north	0
 코	nose	0
 아니다	not	0
 짧은 기록	note	0
-지금	now	0
-수	number	0
+지금	now	1
+수	number	1
 간호사	nurse	0
 시	o'clock	0
 의	of	0
 벗고	off	0
-사무실	office	0
+사무실	office	1
 흔히	often	0
 아	oh	0
 기름	oil	0
@@ -467,7 +467,7 @@
 위에	over	0
 페이지	page	0
 페인트	paint	0
-한 쌍	pair	0
+한 쌍	pair	1
 바지	pants	0
 종이	sheet	0
 용서	pardon	0
@@ -497,17 +497,17 @@
 식물	plant	0
 놀다	play	0
 제발	please	0
-호주머니	pocket	0
-끝	point	0
+호주머니	pocket	1
+끝	point	1
 경찰	police	0
 수영장	pool	0
 가난한	poor	0
 우편물을 부치다	post	0
-포스터	poster	0
+포스터	poster	1
 감자	potato	0
 연습	practice	0
 현재	present	0
-예쁜	pretty	0
+예쁜	pretty	1
 인쇄	print	0
 문제	problem	0
 을 끌다	pull	0
@@ -516,11 +516,11 @@
 왕비	queen	0
 물음	question	0
 빠른	quick	0
-조용한	soft	0
+조용한	soft	1
 라디오	radio	0
 비	rain	0
 무지개	rainbow	0
-읽다	read	0
+읽다	read	1
 준비된	ready	0
 진짜의	real	0
 기록	record	0
@@ -536,15 +536,15 @@
 타다	ride	0
 오른쪽	right	0
 반지	ring	0
-강	river	0
-길	way	0
+강	river	1
+길	way	1
 로봇	robot	0
-바위	rock	0
+바위	rock	1
 로켓	rocket	0
 를 굴리다	roll	0
 지붕	roof	0
 방	room	0
-장미	rose	0
+장미	rose	1
 둥근	round	0
 자	ruler	0
 달리다	run	0
@@ -573,7 +573,7 @@
 쏘다	shoot	0
 상점	shop	0
 짧은	short	0
-어깨	shoulder	0
+어깨	shoulder	1
 외치다	shout	0
 보여주다	show	0
 소나기	shower	0
@@ -595,14 +595,14 @@
 미끄러지다	slide	0
 느린	slow	0
 냄새	smell	0
-미소	smile	0
+미소	smile	1
 연기	smoke	0
 눈	snow	0
 그렇게	so	0
 비누	soap	0
 축구	soccer	0
 양말	sock	0
-조용한	soft	0
+조용한	soft	1
 얼마간의	some	0
 아들	son	0
 노래	song	0
@@ -618,7 +618,7 @@
 쓰다	write	0
 숟가락	spoon	0
 운동	sport	0
-봄	spring	0
+봄	spring	1
 정사각형	square	0
 계단	stair	0
 우표	stamp	0
@@ -632,14 +632,14 @@
 막대기	stick	0
 돌	stone	0
 멈추다	stop	0
-가게	store	0
+가게	store	1
 폭풍우	storm	0
 이야기	story	0
 난로	stove	0
 곧은	straight	0
 이상한	strange	0
 딸기	strawberry	0
-거리	street	0
+거리	street	1
 힘센	strong	0
 학생	student	0
 공부하다	study	0
@@ -649,23 +649,23 @@
 여름	summer	0
 태양	sun	0
 슈퍼마켓	supermarket	0
-저녁식사	supper	0
-을 확신하는	sure	0
+저녁식사	supper	1
+을 확신하는	sure	2
 놀람	surprise	0
 스웨터	sweater	0
 달콤한	sweet	0
 헤엄치다	swim	0
-그네	swing	0
+그네	swing	1
 스위치	switch	0
 식탁	table	0
 가져가다	take	0
 말하다	tell	0
 키가 큰	tall	0
 을 붙이다	tape	0
-을 맛보다	taste	0
+을 맛보다	taste	2
 택시	taxi	0
 차	tea	0
-가르치다	teach	0
+가르치다	teach	1
 팀	team	0
 전화기	telephone	0
 텔레비전	television	0
@@ -709,7 +709,7 @@
 장난감	toy	0
 기차	train	0
 여행하다	travel	0
-나무	wood	0
+나무	wood	1
 여행	trip	0
 트럭	truck	0
 진실의	TRUE	0
@@ -717,7 +717,7 @@
 튤립	tulip	0
 돌다	turn	0
 두 번	twice	0
-우산	umbrella	0
+우산	umbrella	1
 아저씨	uncle	0
 의 밑에	under	0
 이해하다	understand	1
@@ -730,7 +730,7 @@
 아주	very	0
 비디오	video	0
 마을	village	0
-바이올린	violin	0
+바이올린	violin	1
 방문하다	visit	0
 기다리다	wait	0
 잠이 깨다	wake	0
@@ -740,10 +740,10 @@
 전쟁	war	0
 따뜻한	warm	0
 을 씻다	wash	0
-낭비하다	waste	0
-지켜보다	watch	0
+낭비하다	waste	1
+지켜보다	watch	1
 물	water	0
-길	way	0
+길	way	1
 우리	we	0
 약한	weak	0
 입다	wear	0
@@ -755,12 +755,12 @@
 젖은	wet	0
 무엇	what	0
 할 때	when	0
-곳	where	0
+곳	where	1
 어느 것	which	0
 흰색의	white	0
 누구	who	0
-왜	why	0
-폭이 넓은	wide	0
+왜	why	2
+폭이 넓은	wide	1
 일 것이다	will	0
 이기다	win	0
 바람	wind	0
@@ -768,9 +768,9 @@
 날개	wing	0
 겨울	winter	0
 와 함께	with	0
-여자	woman	0
+여자	woman	1
 놀랄 만한 일	wonder	0
-나무	wood	0
+나무	wood	1
 단어	word	0
 일	work	0
 세계	world	0

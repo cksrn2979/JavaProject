@@ -12,16 +12,18 @@ public class RankerArray extends Vector<RankerInfo> {
 	RankerArray() {
 		try {
 			readPlayer();
-			sortGrade();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		sortGrade();
 	}
 
 	void readPlayer() throws IOException {
 		BufferedReader in = new BufferedReader(new FileReader("resources/Rank.txt"));
 
-		String line;
+		String line="";
 
 		while ((line = in.readLine()) != null) {
 			String[] split = line.split("\t");
@@ -31,11 +33,11 @@ public class RankerArray extends Vector<RankerInfo> {
 		in.close();
 	}
 
-	void sortGrade() throws IOException {// 점수 순서대로 정렬
+	void sortGrade(){// 점수 순서대로 정렬
 		Collections.sort(this, new NoDescCompare());
 	}
 
-	static class NoDescCompare implements Comparator<RankerInfo> {
+	class NoDescCompare implements Comparator<RankerInfo> {
 		public int compare(RankerInfo arg0, RankerInfo arg1) {
 			return arg0.getScore() > arg1.getScore() ? -1 : arg0.getScore() < arg1.getScore() ? 1 : 0;
 		}
