@@ -22,6 +22,7 @@ import javax.swing.KeyStroke;
 
 import Graphics.MainPoint;
 import PlayPanel.PlayPanel;
+import Sounds.Player;
 import StartFrame.StartFrame;
 
 
@@ -54,7 +55,22 @@ public class MainFrame extends JFrame {
 		
 		mainPanel = new MainPagePanel();
 		this.setContentPane(mainPanel);
-
+		
+		Thread bgmTh=new Thread(){
+			public void run(){
+				while(true){
+					Player.playSound("bgm");
+					try{
+						sleep(1000*130);
+					}catch(InterruptedException e){
+						return;
+					}
+				}
+			}
+		};
+		
+		bgmTh.start();
+		
 		createMenuBar();		
 		revalidate();
 
@@ -77,7 +93,7 @@ public class MainFrame extends JFrame {
 	        MainPoint.y=(MainFrame.this.getHeight()/2) + (e.getLocationOnScreen().y -  MainFrame.this.mouseClickedLocation.y);
 	    }
 	}
-
+	
 	void createMenuBar() {
 
 		JMenuBar menuBar = new JMenuBar();

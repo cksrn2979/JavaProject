@@ -14,6 +14,7 @@ import java.util.Vector;
 import MainFrame.MainFrame;
 import PlayPanel.Play.MakeWord.FallingAni;
 import RankFrame.RankFrame;
+import Sounds.Player;
 import PlayPanel.CenterPanel.FallWordLabel;
 
 public class Play {
@@ -77,6 +78,7 @@ public class Play {
 		playPanel.np.levelPa.setLevelText(level.toString());
 		playPanel.cp.clearLabel();
 		playPanel.cp.levelUpLabel.action(2000);
+		Player.playSound("levelup");
 	}
 
 	public void scoreUp() {// 점수 증가
@@ -118,6 +120,7 @@ public class Play {
 	}
 
 	public void gameOver() {
+		Player.playSound("gameOver");
 		stopGame();
 		writeRank();
 		Thread gameOverThread = new Thread(){

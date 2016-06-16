@@ -12,7 +12,8 @@ import MainFrame.MainFrame;
 import PauseFrame.PauseFrame;
 import PlayPanel.PlayPanel;
 import PlayPanel.CenterPanel.FallWordLabel;
-import PlayPanel.WestPanel.ItemPanel;	
+import PlayPanel.WestPanel.ItemPanel;
+import Sounds.Player;	
 
 class InputTextPanel extends JPanel{	
 	private JTextField textInput;
@@ -75,7 +76,8 @@ class InputTextPanel extends JPanel{
 				}
 				break;
 				
-			case KeyEvent.VK_ENTER: //Enter 입력시  단어 비교, 	
+			case KeyEvent.VK_ENTER: //Enter 입력시  단어 비교, 
+				Player.playSound("enter");
 				text=textInput.getText(); //TextField에서 입력값 받아옴
 				matchFallWord(); //단어 비교
 				textInput.setText("");//textField 클리어 

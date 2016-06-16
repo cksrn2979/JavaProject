@@ -1,10 +1,12 @@
 package Graphics;
 
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
+import Sounds.Player;
 
 public 	class GraphicButton extends JButton{
 	String path;
@@ -24,6 +26,18 @@ public 	class GraphicButton extends JButton{
 			
 		setIcon(new ImageIcon(path+FILENAME+".png"));
 		setRolloverIcon(new ImageIcon(path+FILENAME+ "_enter"+ ".png"));
+		
+		this.addMouseListener(new BtnMouseListener());
+	}
+	
+	class BtnMouseListener extends MouseAdapter{
+		public void mouseEntered(MouseEvent e){
+			Player.playSound("btn_enter");			
+		}
+		public void mousePressed(MouseEvent e){
+			Player.playSound("btn_click");
+		}
+		
 	}
 
 }

@@ -786,3 +786,4 @@
 젊은	young	0
 영	zero	0
 동물원	zoo	0
+한글	ENGLISH	0

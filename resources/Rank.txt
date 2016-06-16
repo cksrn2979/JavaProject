@@ -6,3 +6,11 @@ LYAN	ㅇㅇ	0
 LYAN	ㅇㅇ	0
 LYAN	22	0
 MUZI	찬구	34
+MUZI	찬구	18
+MUZI	찬구	54
+MUZI	찬구	144
+MUZI	찬구	0
+MUZI	찬구	62
+MUZI	찬구	3
+MUZI	찬구	0
+MUZI	찬구	12

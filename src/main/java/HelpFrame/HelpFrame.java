@@ -42,6 +42,7 @@ public class HelpFrame extends JFrame{
 		
 		ButtonPanel buttonPanel =new ButtonPanel();
 		buttonPanel.setPreferredSize(new Dimension(750,70));
+		
 		add(helpLa,BorderLayout.CENTER);
 		add(buttonPanel,BorderLayout.SOUTH);
 		
@@ -57,6 +58,7 @@ public class HelpFrame extends JFrame{
 			this.setBackground(null);
 			leftBtn=new GraphicButton("images/HelpFrame/","leftBtn",70,40);
 			leftBtn.addActionListener(new ButtonActionListener());
+			leftBtn.setEnabled(false);
 			add(leftBtn);
 			
 			rightBtn=new GraphicButton("images/HelpFrame/","rightBtn",70,40);
